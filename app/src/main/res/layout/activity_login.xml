@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
     android:orientation="vertical"
     android:background="@color/white"
     android:padding="20dp">
+
+
 
     <ImageView
         android:id="@+id/logo_image"
@@ -48,10 +50,11 @@
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
+            android:id="@+id/user_name"
             android:hint="Username"
             android:transitionName="username_tran"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -59,8 +62,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#040000"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:textColor="#040000" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,7 +71,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
+            android:id="@+id/pass_word"
             android:hint="Password"
             android:transitionName="password_tran"
             app:passwordToggleEnabled="true"
@@ -93,15 +96,16 @@
             android:textColor="#000"/>
 
         <Button
-            android:id="@+id/login_btn"
+            android:id="@+id/loginbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#0097e6"
-            android:text="Go"
             android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:transitionName="button_tran"/>
+            android:onClick="loginUser"
+            android:text="Log me in"
+            android:elevation="0dp"
+            android:transitionName="button_tran" />
+
 
         <Button
             android:id="@+id/signup_screen"
@@ -111,9 +115,10 @@
             android:layout_margin="5dp"
             android:background="#00000000"
             android:elevation="0dp"
+            android:onClick="callSignUp"
             android:text="New User? Sign Up Now!"
             android:textColor="#000"
-            android:transitionName="login_signup_tran"/>
+            android:transitionName="login_signup_tran" />
 
 
 
@@ -123,3 +128,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

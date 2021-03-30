@@ -105,15 +105,12 @@ public class Login extends AppCompatActivity {
 
 
                     if (dataSnapshot.exists()) {
-
                         username.setError(null);
                         username.setErrorEnabled(false);
 
                         String passwordFromDB = dataSnapshot.child(EnteredUsername).child("password").getValue(String.class);
 
-
                         if (passwordFromDB != null && passwordFromDB.equals(EnteredPassword)) {
-
                             username.setError(null);
                             username.setErrorEnabled(false);
                             Intent i;

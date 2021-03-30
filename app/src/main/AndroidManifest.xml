@@ -9,14 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlingApp">
-
-        <activity android:name=".SignUp"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".OutDoorIncidents"></activity>
+        <activity android:name=".InHomeIncidents" />
+        <activity android:name=".EmergencyResponse" />
+        <activity android:name=".EmergencyBasic" />
+        <activity android:name=".Dashboard" />
+        <activity
+            android:name=".SignUp"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login"
             android:screenOrientation="portrait" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".Profile" />
         <activity android:name=".splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

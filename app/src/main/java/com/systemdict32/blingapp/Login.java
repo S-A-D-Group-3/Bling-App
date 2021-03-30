@@ -114,7 +114,7 @@ public class Login extends AppCompatActivity {
                             username.setError(null);
                             username.setErrorEnabled(false);
                             Intent i;
-                            i = new Intent(Login.this, Profile.class);
+                            i = new Intent(Login.this, Dashboard.class);
                             startActivity(i);
                         } else {
                             password.setError("Wrong password");

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0097e6">
+    android:background="#5f27cd">
 
     <ImageView
         android:id="@+id/kit"
@@ -15,7 +15,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="144dp"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/kit"
+        android:src="@drawable/logov2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginTop="112dp"
         android:transitionName="logo_text"
         android:fontFamily="@font/baloo"
-        android:text="Bling App"
+        android:text="Bling"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
@@ -41,12 +41,12 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="casual"
-        android:text="Emergency Response "
+        android:text="Emergency Response App "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

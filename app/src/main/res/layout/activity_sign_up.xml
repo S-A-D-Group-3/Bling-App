@@ -27,19 +27,19 @@
         android:fontFamily="@font/baloo"
         android:text="Welcome to Bling!"
         android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
 
     <TextView
         android:id="@+id/slogan_name"
-        android:transitionName="logo_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
         android:fontFamily="@font/open_sans"
-        android:text="Sign In to Continue"
+        android:text="Sign up for an account"
         android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:transitionName="logo_desc" />
 
 
 

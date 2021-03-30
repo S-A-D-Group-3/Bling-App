@@ -59,7 +59,8 @@ public class SignUp extends AppCompatActivity {
 
             reference.child(name).setValue(helperClass);
 
-
+                Intent intent = new Intent(SignUp.this, Login.class);
+                startActivity(intent);
 
             }
 

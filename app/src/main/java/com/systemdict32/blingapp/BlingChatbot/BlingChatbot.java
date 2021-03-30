@@ -9,6 +9,11 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.widget.TextView;
 
+import com.systemdict32.blingapp.EmergencyBasic;
+import com.systemdict32.blingapp.EmergencyResponse;
+import com.systemdict32.blingapp.InHomeIncidents;
+import com.systemdict32.blingapp.OutDoorIncidents;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -57,23 +62,23 @@ public class BlingChatbot {
 
         if (userMessage.compareToIgnoreCase("number one") == 0) {
             botMessage = "Transitioning to Emergency Basic page";
-//            Intent intent = new Intent(context, MainActivity2.class);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, EmergencyBasic.class);
+            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("number two") == 0) {
             botMessage = "Transitioning to Emergency Response page";
-//            Intent intent = new Intent(context, MainActivity3.class);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, EmergencyResponse.class);
+            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("number three") == 0) {
             botMessage = "transitioning to In-home incidents page";
-//            Intent intent = new Intent(context, MainActivity4.class);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, InHomeIncidents.class);
+            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("number four") == 0) {
             botMessage = "transitioning to out-door incidents page";
-//            Intent intent = new Intent(context, MainActivity5.class);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, OutDoorIncidents.class);
+            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("heart attack") == 0) {
 //            Intent intent = new Intent(context, HeartAttackActivity.class);

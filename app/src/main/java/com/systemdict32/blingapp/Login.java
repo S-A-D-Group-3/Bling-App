@@ -97,7 +97,7 @@ public class Login extends AppCompatActivity {
             String EnteredPassword = password.getEditText().getText().toString().trim();
 
 
-            DatabaseReference database = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com/").getReference("users");
+            DatabaseReference database = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com").getReference("users");
             Query checkUser = database.orderByChild("username").equalTo(EnteredUsername);
             checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

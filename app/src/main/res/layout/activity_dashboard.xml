@@ -18,7 +18,8 @@
         android:layout_gravity="start"
         android:visibility="visible"
         app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu" />
+        app:menu="@menu/main_menu"
+        tools:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,18 +90,19 @@
                                 android:id="@+id/txt1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/poli"
+                                android:layout_below="@id/num_one"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/open_sans"
-                                android:text="Police Stations"
+                                android:text="First Aider"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/poli"
-                                android:layout_width="65dp"
-                                android:layout_height="65dp"
+                                android:id="@+id/num_one"
+                                app:srcCompat="@drawable/one"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -126,17 +128,18 @@
                                 android:id="@+id/txt2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medic"
+                                android:layout_below="@id/num_two"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="Medical Services"
+                                android:text="Incidents"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medic"
-                                android:layout_width="65dp"
-                                android:layout_height="65dp"
+                                android:id="@+id/num_two"
+                                app:srcCompat="@drawable/two"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -151,7 +154,6 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
                         app:cardElevation="6dp">
 
                         <RelativeLayout
@@ -162,17 +164,18 @@
                                 android:id="@+id/txt3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/fire_man"
+                                android:layout_below="@id/num_three"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="Fire Stations"
+                                android:text="Assess \n Casualty"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/fire_man"
-                                android:layout_width="65dp"
-                                android:layout_height="65dp"
+                                android:id="@+id/num_three"
+                                app:srcCompat="@drawable/three"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -197,17 +200,18 @@
                                 android:id="@+id/txt4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_four"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Unconscious \n Casualty"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_four"
+                                app:srcCompat="@drawable/four"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -229,20 +233,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_five"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Respiratory"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_five"
+                                app:srcCompat="@drawable/five"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -264,20 +269,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_six"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Wounds \n Circulation"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_six"
+                                app:srcCompat="@drawable/six"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -299,20 +305,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt7"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_seven"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="B.J.M \n Injuries"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_seven"
+                                app:srcCompat="@drawable/seven"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -334,20 +341,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_eight"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Temperature"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_eight"
+                                app:srcCompat="@drawable/eight"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -369,20 +377,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt9"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_nine"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Bites Poison \n F.O"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_nine"
+                                app:srcCompat="@drawable/nine"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -404,20 +413,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt10"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_ten"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Medical \n Conditions"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_ten"
+                                app:srcCompat="@drawable/ten"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -439,20 +449,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt11"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_eleven"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Technics/Equip"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_eleven"
+                                app:srcCompat="@drawable/eleven"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>
@@ -474,20 +485,21 @@
                             android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/txt4"
+                                android:id="@+id/txt12"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/medi"
+                                android:layout_below="@id/num_twelve"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                android:text="L.G.U"
+                                android:text="Emergency \n First Aid"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
                             <ImageView
-                                android:id="@+id/medi"
-                                android:layout_width="67dp"
-                                android:layout_height="67dp"
+                                android:id="@+id/num_twelve"
+                                app:srcCompat="@drawable/twelve"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp" />
                         </RelativeLayout>

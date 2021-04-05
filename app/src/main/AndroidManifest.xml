@@ -9,10 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BlingApp">
-        <activity android:name=".OutDoorIncidents"></activity>
-        <activity android:name=".InHomeIncidents" />
-        <activity android:name=".EmergencyResponse" />
-        <activity android:name=".EmergencyBasic" />
         <activity android:name=".Dashboard" />
         <activity
             android:name=".SignUp"

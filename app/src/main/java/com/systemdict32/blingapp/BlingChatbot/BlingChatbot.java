@@ -1,5 +1,6 @@
 package com.systemdict32.blingapp.BlingChatbot;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,16 +10,19 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.widget.TextView;
 
-import com.systemdict32.blingapp.EmergencyBasic;
-import com.systemdict32.blingapp.EmergencyResponse;
-import com.systemdict32.blingapp.InHomeIncidents;
-import com.systemdict32.blingapp.OutDoorIncidents;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.systemdict32.blingapp.R;
+import com.systemdict32.blingapp.Fragments.cv1_FirstAiderFragment;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class BlingChatbot {
+public class BlingChatbot{
     final Handler handler = new Handler();
+    FragmentActivity fa = new FragmentActivity();
 
     public BlingChatbot() {
     }
@@ -59,26 +63,25 @@ public class BlingChatbot {
     public String MainChatbot(ArrayList<String> speechMessage, Context context) {
         String botMessage = "Pardon. I didn't get that.";
         String userMessage = speechMessage.get(0);
-
-        if (userMessage.compareToIgnoreCase("number one") == 0) {
-            botMessage = "Transitioning to Emergency Basic page";
-            Intent intent = new Intent(context, EmergencyBasic.class);
-            context.startActivity(intent);
+        Fragment selectedFragment = null;
+        if (userMessage.compareToIgnoreCase("first aid") == 0) {
+            selectedFragment = new cv1_FirstAiderFragment();
+            fa.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
         }
         if (userMessage.compareToIgnoreCase("number two") == 0) {
-            botMessage = "Transitioning to Emergency Response page";
-            Intent intent = new Intent(context, EmergencyResponse.class);
-            context.startActivity(intent);
+//            botMessage = "Transitioning to Emergency Response page";
+//            Intent intent = new Intent(context, EmergencyResponse.class);
+//            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("number three") == 0) {
-            botMessage = "transitioning to In-home incidents page";
-            Intent intent = new Intent(context, InHomeIncidents.class);
-            context.startActivity(intent);
+//            botMessage = "transitioning to In-home incidents page";
+//            Intent intent = new Intent(context, InHomeIncidents.class);
+//            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("number four") == 0) {
-            botMessage = "transitioning to out-door incidents page";
-            Intent intent = new Intent(context, OutDoorIncidents.class);
-            context.startActivity(intent);
+//            botMessage = "transitioning to out-door incidents page";
+//            Intent intent = new Intent(context, OutDoorIncidents.class);
+//            context.startActivity(intent);
         }
         if (userMessage.compareToIgnoreCase("heart attack") == 0) {
 //            Intent intent = new Intent(context, HeartAttackActivity.class);
@@ -94,9 +97,6 @@ public class BlingChatbot {
             botMessage = "Calling 911.";
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 911"));
             context.startActivity(intent);
-        }
-        if (userMessage.compareToIgnoreCase("first aid") == 0) {
-            botMessage = "Apply cold water on the open wound.";
         }
         if (userMessage.compareToIgnoreCase("hotline") == 0) {
             botMessage = "Hello, what is your emergency?";

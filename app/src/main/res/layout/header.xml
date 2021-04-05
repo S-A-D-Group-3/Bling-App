@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
-    android:background="@drawable/purp_header"
     android:gravity="bottom"
     android:padding="20dp">
 
@@ -25,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans"
-        android:text="Dahren and Aaron"
+        android:text="Devs!"
         android:textColor="@color/cardview_dark_background"
         android:textSize="14sp" />
 

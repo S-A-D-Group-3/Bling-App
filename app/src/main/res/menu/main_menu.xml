@@ -2,6 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_account"
+            android:title="My Account"
+            android:icon="@drawable/ic_account"/>
+
+        <item
+            android:id="@+id/nav_ice"
+            android:title="My I.C.E"
+            android:icon="@drawable/ic_ice"/>
+
+        <item
+            android:id="@+id/nav_help"
+            android:title="Help"
+            android:icon="@drawable/ic_help"/>
+
+
+
+
         <item
             android:id="@+id/nav_home"
             android:title="Home"
@@ -9,7 +28,7 @@
 
         <item
             android:id="@+id/nav_about"
-            android:title="About"
+            android:title="About this App"
             android:icon="@drawable/ic_nav_info"/>
 
         <item

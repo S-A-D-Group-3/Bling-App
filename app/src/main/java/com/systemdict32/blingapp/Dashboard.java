@@ -4,22 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.systemdict32.blingapp.Fragments.ActivitiesFragment;
+import com.systemdict32.blingapp.Fragments.AboutFragment;
+import com.systemdict32.blingapp.Fragments.HelpFragment;
+import com.systemdict32.blingapp.Fragments.HomeFragment;
+import com.systemdict32.blingapp.Fragments.MyAccountFragment;
+import com.systemdict32.blingapp.Fragments.MyICEFragment;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,16 +26,16 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     NavigationView navigationView;
     Toolbar toolbar;
     FragmentManager fm;
-    ActivitiesFragment activitiesFragment;
+    HomeFragment homeFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        activitiesFragment = new ActivitiesFragment();
+        homeFragment = new HomeFragment();
         fm = getSupportFragmentManager();
 
-        fm.beginTransaction().add(R.id.fragment_container, activitiesFragment).commit();
+        fm.beginTransaction().add(R.id.fragment_container, homeFragment).commit();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_vieww);
@@ -67,12 +66,22 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         Fragment selectedFragment = null;
         switch (item.getItemId()){
             case R.id.nav_home:
-                selectedFragment = new ActivitiesFragment();
+                selectedFragment = new HomeFragment();
+                break;
+            case R.id.nav_account:
+                selectedFragment = new MyAccountFragment();
+                break;
+
+            case R.id.nav_ice:
+                selectedFragment = new MyICEFragment();
+                break;
+
+            case R.id.nav_help:
+                selectedFragment = new HelpFragment();
                 break;
 
             case R.id.nav_about:
-//                Intent intent = new Intent(MainActivity.this, aboutUs.class);
-//                startActivity(intent);
+                selectedFragment = new AboutFragment();
                 break;
 
             case R.id.nav_exitt:

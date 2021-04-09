@@ -8,19 +8,25 @@ import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.systemdict32.blingapp.Fragments.HomeFragment;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.Fragments.cv1_FirstAiderFragment;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class BlingChatbot{
+public class BlingChatbot {
     final Handler handler = new Handler();
     FragmentActivity fa = new FragmentActivity();
 
@@ -40,33 +46,19 @@ public class BlingChatbot{
         return TTS;
     }
 
-    public void TTSProgressListener(TextToSpeech TTS, TextView tv_textTTS) {
-        TTS.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-            @Override
-            public void onStart(String utteranceId) {
-
-            }
-
-            @Override
-            // reset text view after bot speech is done
-            public void onDone(String utteranceId) {
-                tv_textTTS.setText("");
-            }
-
-            @Override
-            public void onError(String utteranceId) {
-
-            }
-        });
-    }
-
-    public String MainChatbot(ArrayList<String> speechMessage, Context context) {
+    public String MainChatbot(ArrayList<String> speechMessage, Context context, FragmentActivity activity) {
         String botMessage = "Pardon. I didn't get that.";
         String userMessage = speechMessage.get(0);
         Fragment selectedFragment = null;
         if (userMessage.compareToIgnoreCase("first aid") == 0) {
             selectedFragment = new cv1_FirstAiderFragment();
-            fa.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            botMessage = "Going to First Aider Page";
+        }
+        if (userMessage.compareToIgnoreCase("home") == 0) {
+            selectedFragment = new HomeFragment();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            botMessage = "Going to Home Page";
         }
         if (userMessage.compareToIgnoreCase("number two") == 0) {
 //            botMessage = "Transitioning to Emergency Response page";
@@ -116,5 +108,31 @@ public class BlingChatbot{
             }, 1500);
         }
         return botMessage;
+    }
+
+    public String HashPassword(String password){
+        String hashedPassword = null;
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(password.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            hashedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return hashedPassword;
     }
 }

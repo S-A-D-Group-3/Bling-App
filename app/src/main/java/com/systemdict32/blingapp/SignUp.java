@@ -14,6 +14,10 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class SignUp extends AppCompatActivity {
 
@@ -22,48 +26,53 @@ public class SignUp extends AppCompatActivity {
     Button goBack, regBtn, regToLoginBtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    MessageDigest md;
+    BlingChatbot blingChatbot;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up);
-
+        blingChatbot = new BlingChatbot();
         //hooks to signup.xml
         regName = findViewById(R.id.reg_fullname);
         regUsername = findViewById(R.id.reg_username);
         regEmail = findViewById(R.id.reg_email);
         regPhoneNo = findViewById(R.id.reg_phoneNo);
         regPassword = findViewById(R.id.reg_password);
-        regBtn =  findViewById(R.id.reg_btn);
-        regToLoginBtn =  findViewById(R.id.goback);
+        regBtn = findViewById(R.id.reg_btn);
+        regToLoginBtn = findViewById(R.id.goback);
 
-        regBtn.setOnClickListener(new View.OnClickListener(){
+        regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-            rootNode = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com/");
-            reference = rootNode.getReference("users");
+            public void onClick(View view) {
+                rootNode = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com/");
+                reference = rootNode.getReference("users");
 
-            //validation
-                if(!validateName() | !validateUserName() | !validateEmail() | !validatePhone()| !validatePassword()){
+                //validation
+                if (!validateName() | !validateUserName() | !validateEmail() | !validatePhone() | !validatePassword()) {
                     return;
                 }
 
-            //get values
+                //get values
                 String name = regName.getEditText().getText().toString();
                 String username = regUsername.getEditText().getText().toString();
                 String email = regEmail.getEditText().getText().toString();
                 String phoneNo = regPhoneNo.getEditText().getText().toString();
                 String password = regPassword.getEditText().getText().toString();
 
-            UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
+                // hash password
+//                String hashedPassword = blingChatbot.HashPassword(password);
 
-            reference.child(name).setValue(helperClass);
+                UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
+
+                reference.child(name).setValue(helperClass);
 
                 Intent intent = new Intent(SignUp.this, Login.class);
                 startActivity(intent);
 
             }
-
 
 
         });//register button method end
@@ -79,94 +88,85 @@ public class SignUp extends AppCompatActivity {
         });
 
 
+    }//onCreate method end
 
 
+    private boolean validateName() {
+        String val = regName.getEditText().getText().toString();
 
-
-
-
-        }//onCreate method end
-
-
-        private boolean validateName(){
-            String val = regName.getEditText().getText().toString();
-            if(val.isEmpty()){
-                regName.setError("This part must be filled up");
-                return false;
-            }
-            else{
-                regName.setError(null);
-                regName.setErrorEnabled(false);
-                return true;
-            }
+        if (val.isEmpty()) {
+            regName.setError("This part must be filled up");
+            return false;
+        } else {
+            regName.setError(null);
+            regName.setErrorEnabled(false);
+            return true;
         }
 
-    private boolean validateUserName(){
+    }
+
+    private boolean validateUserName() {
         String val = regUsername.getEditText().getText().toString();
-        String noWhiteSpace ="\\A\\w{4,20}\\z";
-        if(val.isEmpty()){
+        String noWhiteSpace = "\\A\\w{4,20}\\z";
+        if (val.isEmpty()) {
             regUsername.setError("This part must be filled up");
             return false;
-        }else if (val.length()>=15){
+        } else if (val.length() >= 15) {
             regUsername.setError("Username too long");
             return false;
 
-        }else if(!val.matches(noWhiteSpace)){
+        } else if (!val.matches(noWhiteSpace)) {
             regUsername.setError("Please don't leave spaces");
             return false;
 
-        }
-        else{
+        } else {
             regUsername.setError(null);
             regUsername.setErrorEnabled(false);
             return true;
         }
     }
 
-    private boolean validateEmail(){
+    private boolean validateEmail() {
         String val = regEmail.getEditText().getText().toString();
         String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             regEmail.setError("This part must be filled up");
             return false;
-        }else if(!val.matches(emailPattern)){
+        } else if (!val.matches(emailPattern)) {
             regEmail.setError("Invalid Email");
             return false;
 
-        }
-        else{
+        } else {
             regEmail.setError(null);
             return true;
         }
     }
 
-    private boolean validatePhone(){
+    private boolean validatePhone() {
         String val = regPhoneNo.getEditText().getText().toString();
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             regPhoneNo.setError("This part must be filled up");
             return false;
-        }
-        else{
+        } else {
             regPhoneNo.setError(null);
             return true;
         }
     }
 
-    private boolean validatePassword(){
+    private boolean validatePassword() {
         String val = regPassword.getEditText().getText().toString();
-        String passVal = "^"+
-                "(?=.*[a-zA-Z])"+
-                "(?=.*[@#$%^&+=])"+
-                ".{4,}"+"$";
+        String passVal = "^" +
+                "(?=.*[a-zA-Z])" +
+                "(?=.*[@#$%^&+=])" +
+                ".{4,}" + "$";
 
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             regPassword.setError("This part must be filled up");
             return false;
-        }else if (!val.matches(passVal)){
+        } else if (!val.matches(passVal)) {
             regPassword.setError("Password combination is weak");
             return false;
-        }
-        else{
+        } else {
             regPassword.setError(null);
             return true;
         }

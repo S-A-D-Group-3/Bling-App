@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "827245813871",
-    "project_id": "bling-app",
-    "storage_bucket": "bling-app.appspot.com"
+    "project_number": "104305298543",
+    "firebase_url": "https://bling-230eb-default-rtdb.firebaseio.com",
+    "project_id": "bling-230eb",
+    "storage_bucket": "bling-230eb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:827245813871:android:052dd09deaf4595ca4ed9a",
+        "mobilesdk_app_id": "1:104305298543:android:735f2d23472227e94e919a",
         "android_client_info": {
           "package_name": "com.systemdict32.blingapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "827245813871-vru7hh2r7fmil4438d45v4snoloofdet.apps.googleusercontent.com",
+          "client_id": "104305298543-9usve11mjg409cmmgtde178sbgo2k232.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQbmBAomD6Quu6Q7c0xKEVLrlwgQyLkIw"
+          "current_key": "AIzaSyCfj9mtJY7vqG0haU_7RNjMUTbQilLIsIo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "827245813871-vru7hh2r7fmil4438d45v4snoloofdet.apps.googleusercontent.com",
+              "client_id": "104305298543-9usve11mjg409cmmgtde178sbgo2k232.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

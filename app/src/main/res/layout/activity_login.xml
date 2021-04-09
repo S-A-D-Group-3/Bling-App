@@ -15,8 +15,8 @@
         android:id="@+id/logo_image"
         android:layout_gravity="center"
         android:transitionName="logo_image"
-        android:layout_width="95dp"
-        android:layout_height="95dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/logov2"
         android:layout_marginTop="20dp"/>
 
@@ -57,8 +57,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/user_name"
-            android:hint="Username"
+            android:id="@+id/maill"
+            android:hint="Email"
             android:transitionName="username_tran"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -83,10 +83,26 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:inputType="textPassword" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:indeterminateDrawable="@drawable/progress_icon"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:layout_width="200dp"
@@ -105,7 +121,6 @@
             android:layout_height="wrap_content"
             android:background="#0097e6"
             android:textColor="@color/white"
-            android:onClick="loginUser"
             android:text="Log me in"
             android:elevation="0dp"
             android:transitionName="button_tran" />

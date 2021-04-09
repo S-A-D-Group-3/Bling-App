@@ -69,8 +69,8 @@
                         <ImageView
                             android:id="@+id/num_one"
                             app:srcCompat="@drawable/one"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -107,8 +107,8 @@
                         <ImageView
                             android:id="@+id/num_two"
                             app:srcCompat="@drawable/two"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -146,8 +146,8 @@
                         <ImageView
                             android:id="@+id/num_three"
                             app:srcCompat="@drawable/three"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -185,8 +185,8 @@
                         <ImageView
                             android:id="@+id/num_four"
                             app:srcCompat="@drawable/four"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -224,8 +224,8 @@
                         <ImageView
                             android:id="@+id/num_five"
                             app:srcCompat="@drawable/five"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -263,8 +263,8 @@
                         <ImageView
                             android:id="@+id/num_six"
                             app:srcCompat="@drawable/six"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -302,8 +302,8 @@
                         <ImageView
                             android:id="@+id/num_seven"
                             app:srcCompat="@drawable/seven"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -341,8 +341,8 @@
                         <ImageView
                             android:id="@+id/num_eight"
                             app:srcCompat="@drawable/eight"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -380,8 +380,8 @@
                         <ImageView
                             android:id="@+id/num_nine"
                             app:srcCompat="@drawable/nine"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -419,8 +419,8 @@
                         <ImageView
                             android:id="@+id/num_ten"
                             app:srcCompat="@drawable/ten"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -458,8 +458,8 @@
                         <ImageView
                             android:id="@+id/num_eleven"
                             app:srcCompat="@drawable/eleven"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>
@@ -497,8 +497,8 @@
                         <ImageView
                             android:id="@+id/num_twelve"
                             app:srcCompat="@drawable/twelve"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp" />
                     </RelativeLayout>

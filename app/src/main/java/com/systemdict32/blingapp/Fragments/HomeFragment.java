@@ -105,7 +105,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, cv1);
             ft.commit();
-            Toast.makeText(getActivity(), "test", Toast.LENGTH_SHORT).show();
         }
         if(v.getId() == cv_2.getId()){
 

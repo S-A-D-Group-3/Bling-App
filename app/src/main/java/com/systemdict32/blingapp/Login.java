@@ -1,6 +1,8 @@
 package com.systemdict32.blingapp;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
 
 public class Login extends AppCompatActivity {
 
@@ -27,14 +30,15 @@ public class Login extends AppCompatActivity {
     ImageView image;
     TextView logoText, SloganText;
     TextInputLayout username, password;
-
-
+    BlingChatbot blingChatbot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+
+        blingChatbot = new BlingChatbot();
         /*Hooks*/
         username = findViewById(R.id.user_name);
         password = findViewById(R.id.pass_word);
@@ -47,28 +51,26 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private boolean validateUserName(){
+    private boolean validateUserName() {
         String val = username.getEditText().getText().toString();
 
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             username.setError("This part must be filled up");
             return false;
-        }
-        else{
+        } else {
             username.setError(null);
             username.setErrorEnabled(false);
             return true;
         }
     }
 
-    private boolean validatePassword(){
+    private boolean validatePassword() {
         String val = password.getEditText().getText().toString();
 
-        if(val.isEmpty()){
+        if (val.isEmpty()) {
             password.setError("This part must be filled up");
             return false;
-        }
-        else{
+        } else {
             password.setError(null);
             password.setErrorEnabled(false);
             return true;
@@ -76,10 +78,8 @@ public class Login extends AppCompatActivity {
     }
 
 
-
-
-    public void loginUser (View view) {
-        if(!validateUserName() | !validatePassword()) {
+    public void loginUser(View view) {
+        if (!validateUserName() | !validatePassword()) {
             return;
         } else {
             isUser();
@@ -92,52 +92,48 @@ public class Login extends AppCompatActivity {
     }
 
 
-        private void isUser () {
-            String EnteredUsername = username.getEditText().getText().toString().trim();
-            String EnteredPassword = password.getEditText().getText().toString().trim();
+    private void isUser() {
+        String EnteredUsername = username.getEditText().getText().toString().trim();
+        String EnteredPassword = password.getEditText().getText().toString().trim();
 
 
-            DatabaseReference database = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com").getReference("users");
-            Query checkUser = database.orderByChild("username").equalTo(EnteredUsername);
-            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        DatabaseReference database = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com").getReference("users");
+        Query checkUser = database.orderByChild("username").equalTo(EnteredUsername);
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    username.setError(null);
+                    username.setErrorEnabled(false);
 
-
-                    if (dataSnapshot.exists()) {
+                    String passwordFromDB = dataSnapshot.child(EnteredUsername).child("password").getValue(String.class);
+//                    String hashedPassword = blingChatbot.HashPassword(EnteredPassword);
+                    if (passwordFromDB != null && passwordFromDB.equals(EnteredPassword)) {
                         username.setError(null);
                         username.setErrorEnabled(false);
-
-                        String passwordFromDB = dataSnapshot.child(EnteredUsername).child("password").getValue(String.class);
-
-                        if (passwordFromDB != null && passwordFromDB.equals(EnteredPassword)) {
-                            username.setError(null);
-                            username.setErrorEnabled(false);
-                            Intent i;
-                            i = new Intent(Login.this, Dashboard.class);
-                            startActivity(i);
-                        } else {
-                            password.setError("Wrong password");
-                            password.requestFocus();
-                        }
+                        Intent i;
+                        i = new Intent(Login.this, Dashboard.class);
+                        startActivity(i);
                     } else {
-                        username.setError("User doesn't exist");
-                        username.requestFocus();
+                        password.setError("Wrong password");
+                        password.requestFocus();
                     }
+                } else {
+                    username.setError("User doesn't exist");
+                    username.requestFocus();
                 }
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                }
-            });
-        }
-
+            }
+        });
+    }
 
 
     //signup onclick
     public void callSignUp(View view) {
-
 
 
         Intent intent = new Intent(Login.this, SignUp.class);
@@ -157,6 +153,7 @@ public class Login extends AppCompatActivity {
 
 
     private boolean doubleBackToExitPressedOnce = true;
+
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -164,24 +161,17 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "Press again to close Bling", Toast.LENGTH_SHORT).show();
 
 
-        }
-
-        else if (doubleBackToExitPressedOnce) {
+        } else if (doubleBackToExitPressedOnce) {
             this.doubleBackToExitPressedOnce = true;
             finishAffinity();
 
 
-        }
-
-        else{
+        } else {
             finishAffinity();
 
         }
 
     }
-
-
-
 
 
 }

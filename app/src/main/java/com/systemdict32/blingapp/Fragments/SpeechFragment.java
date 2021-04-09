@@ -12,10 +12,13 @@ import androidx.fragment.app.Fragment;
 
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,18 +79,21 @@ public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitList
     BlingChatbot blingChatbot;
     TextToSpeech TTS;
     TextView frag_tv_STT;
+    LinearLayout speech_layout;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_speech, container, false);
+        view = inflater.inflate(R.layout.fragment_speech, container, false);
 
         blingChatbot = new BlingChatbot();
         TTS = blingChatbot.TTS(getActivity(), this);
         iv_speak_STT = view.findViewById(R.id.iv_speak_STT);
         frag_tv_STT = view.findViewById(R.id.frag_tv_STT);
-        iv_speak_STT.setImageResource(R.drawable.ic_mic_on);
+        speech_layout = view.findViewById(R.id.speech_layout);
+        iv_speak_STT.setImageResource(R.drawable.microphone);
 
         iv_speak_STT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +107,7 @@ public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitList
                 }
             }
         });
+
         return view;
     }
 
@@ -116,14 +123,15 @@ public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitList
                     ArrayList<String> speech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     // call bling chatbot, pass the speech, chatbot will return a string message, store the message to the string botMessage variable
                     // check the current activity and use the proper chatbot to use
-                    String botMessage = blingChatbot.MainChatbot(speech, getActivity());
+                    String botMessage = blingChatbot.MainChatbot(speech, getActivity(), getActivity());
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        TTSProgressListener();
                         // speak bot message
                         TTS.speak(botMessage, TextToSpeech.QUEUE_FLUSH, null, TextToSpeech.ACTION_TTS_QUEUE_PROCESSING_COMPLETED);
                         // set text view based on the botMessage variable
                         frag_tv_STT.setText(botMessage);
-                        //
-//                        blingChatbot.TTSProgressListener(TTS, frag_tv_TTS);
+                        iv_speak_STT.setImageResource(R.drawable.chatbot);
+                        frag_tv_STT.setVisibility(View.VISIBLE);
                     }
                 }
         }
@@ -146,9 +154,12 @@ public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitList
             {
                 // if false launch a welcome message to the user
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    TTSProgressListener();
                     String message = "Hi, I'm Bling App.";
                     TTS.speak(message, TextToSpeech.QUEUE_FLUSH, null, TextToSpeech.ACTION_TTS_QUEUE_PROCESSING_COMPLETED);
                     frag_tv_STT.setText(message);
+                    iv_speak_STT.setImageResource(R.drawable.chatbot);
+                    frag_tv_STT.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(getActivity(), "TTS language not supported", Toast.LENGTH_SHORT).show();
                 }
@@ -158,6 +169,26 @@ public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitList
         {
             Toast.makeText(getActivity(), "TTS initialization failed.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void TTSProgressListener() {
+        TTS.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+            @Override
+            public void onStart(String utteranceId) {
+            }
+
+            @Override
+            // reset text view after bot speech is done
+            public void onDone(String utteranceId) {
+                frag_tv_STT.setVisibility(View.INVISIBLE);
+                iv_speak_STT.setImageResource(R.drawable.microphone);
+            }
+
+            @Override
+            public void onError(String utteranceId) {
+
+            }
+        });
     }
 
     @Override

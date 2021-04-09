@@ -1,5 +1,6 @@
 package com.systemdict32.blingapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -9,69 +10,81 @@ import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class SignUp extends AppCompatActivity {
 
     //Variables natin
-    TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
+    TextInputLayout  regEmail, regPassword;
     Button goBack, regBtn, regToLoginBtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-    MessageDigest md;
-    BlingChatbot blingChatbot;
+    FirebaseAuth firebaseAuth;
+    ProgressBar progressBar;
+
+
+
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up);
-        blingChatbot = new BlingChatbot();
-        //hooks to signup.xml
-        regName = findViewById(R.id.reg_fullname);
-        regUsername = findViewById(R.id.reg_username);
-        regEmail = findViewById(R.id.reg_email);
-        regPhoneNo = findViewById(R.id.reg_phoneNo);
-        regPassword = findViewById(R.id.reg_password);
-        regBtn = findViewById(R.id.reg_btn);
-        regToLoginBtn = findViewById(R.id.goback);
 
-        regBtn.setOnClickListener(new View.OnClickListener() {
+        //hooks to signup.xml
+
+        regEmail = findViewById(R.id.reg_email);
+        regPassword = findViewById(R.id.reg_password);
+        regBtn =  findViewById(R.id.reg_btn);
+        regToLoginBtn =  findViewById(R.id.goback);
+        progressBar = findViewById(R.id.progressBar);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        regBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                rootNode = FirebaseDatabase.getInstance("https://bling-230eb-default-rtdb.firebaseio.com/");
-                reference = rootNode.getReference("users");
+                progressBar.setVisibility(View.VISIBLE);
+                String sEmail = regEmail.getEditText().getText().toString().trim();
+                String sPass = regPassword.getEditText().getText().toString().trim();
+                firebaseAuth.createUserWithEmailAndPassword(sEmail, sPass)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressBar.setVisibility(View.GONE);
+                                if (task.isSuccessful()) {
+                                    firebaseAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Toast.makeText(SignUp.this, "Registered successfully. Please check your email for verification",
+                                                                Toast.LENGTH_LONG).show();
+                                                        regEmail.getEditText().setText("");
+                                                        regPassword.getEditText().setText("");
+                                                        startActivity(new Intent(SignUp.this, Login.class));
+                                                    }else{
+                                                        Toast.makeText(SignUp.this,  task.getException().getMessage(),
+                                                                Toast.LENGTH_LONG).show();
+                                                    }
 
-                //validation
-                if (!validateName() | !validateUserName() | !validateEmail() | !validatePhone() | !validatePassword()) {
-                    return;
-                }
-
-                //get values
-                String name = regName.getEditText().getText().toString();
-                String username = regUsername.getEditText().getText().toString();
-                String email = regEmail.getEditText().getText().toString();
-                String phoneNo = regPhoneNo.getEditText().getText().toString();
-                String password = regPassword.getEditText().getText().toString();
-
-                // hash password
-//                String hashedPassword = blingChatbot.HashPassword(password);
-
-                UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
-
-                reference.child(name).setValue(helperClass);
-
-                Intent intent = new Intent(SignUp.this, Login.class);
-                startActivity(intent);
-
+                                                }
+                                            });
+                                } else {
+                                    Toast.makeText(SignUp.this, task.getException().getMessage(),
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
             }
 
 
@@ -88,89 +101,57 @@ public class SignUp extends AppCompatActivity {
         });
 
 
-    }//onCreate method end
 
 
-    private boolean validateName() {
-        String val = regName.getEditText().getText().toString();
 
-        if (val.isEmpty()) {
-            regName.setError("This part must be filled up");
-            return false;
-        } else {
-            regName.setError(null);
-            regName.setErrorEnabled(false);
-            return true;
-        }
 
-    }
 
-    private boolean validateUserName() {
-        String val = regUsername.getEditText().getText().toString();
-        String noWhiteSpace = "\\A\\w{4,20}\\z";
-        if (val.isEmpty()) {
-            regUsername.setError("This part must be filled up");
-            return false;
-        } else if (val.length() >= 15) {
-            regUsername.setError("Username too long");
-            return false;
 
-        } else if (!val.matches(noWhiteSpace)) {
-            regUsername.setError("Please don't leave spaces");
-            return false;
+        }//onCreate method end
 
-        } else {
-            regUsername.setError(null);
-            regUsername.setErrorEnabled(false);
-            return true;
-        }
-    }
 
-    private boolean validateEmail() {
+
+
+
+   /** private boolean validateEmail(){
         String val = regEmail.getEditText().getText().toString();
         String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
-        if (val.isEmpty()) {
+        if(val.isEmpty()){
             regEmail.setError("This part must be filled up");
             return false;
-        } else if (!val.matches(emailPattern)) {
+        }else if(!val.matches(emailPattern)){
             regEmail.setError("Invalid Email");
             return false;
 
-        } else {
+        }
+        else{
             regEmail.setError(null);
             return true;
         }
     }
+    **/
 
-    private boolean validatePhone() {
-        String val = regPhoneNo.getEditText().getText().toString();
-        if (val.isEmpty()) {
-            regPhoneNo.setError("This part must be filled up");
-            return false;
-        } else {
-            regPhoneNo.setError(null);
-            return true;
-        }
-    }
 
-    private boolean validatePassword() {
+   /** private boolean validatePassword(){
         String val = regPassword.getEditText().getText().toString();
-        String passVal = "^" +
-                "(?=.*[a-zA-Z])" +
-                "(?=.*[@#$%^&+=])" +
-                ".{4,}" + "$";
+        String passVal = "^"+
+                "(?=.*[a-zA-Z])"+
+                "(?=.*[@#$%^&+=])"+
+                ".{4,}"+"$";
 
-        if (val.isEmpty()) {
+        if(val.isEmpty()){
             regPassword.setError("This part must be filled up");
             return false;
-        } else if (!val.matches(passVal)) {
+        }else if (!val.matches(passVal)){
             regPassword.setError("Password combination is weak");
             return false;
-        } else {
+        }
+        else{
             regPassword.setError(null);
             return true;
         }
     }
+    **/
 
 
 }

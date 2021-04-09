@@ -2,11 +2,13 @@ package com.systemdict32.blingapp.Fragments;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.systemdict32.blingapp.R;
 
@@ -25,6 +27,13 @@ public class cv1_FirstAiderFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+
+
+
+
+
 
     public cv1_FirstAiderFragment() {
         // Required empty public constructor
@@ -48,12 +57,26 @@ public class cv1_FirstAiderFragment extends Fragment {
         return fragment;
     }
 
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+            // This callback will only be called when MyFragment is at least Started.
+           // OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+              //  @Override
+               // public void handleOnBackPressed() {
+                    // Handle the back button event
+               // }
+          //  }
+          //  requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
+            // The callback can be enabled or disabled here or in handleOnBackPressed()
         }
     }
 
@@ -63,4 +86,9 @@ public class cv1_FirstAiderFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cv1__first_aider, container, false);
     }
+
+
+
+
+
 }

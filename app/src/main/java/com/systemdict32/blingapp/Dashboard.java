@@ -90,8 +90,11 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
 
             case R.id.nav_exitt:
-                finish();
-                System.exit(0);
+                SharedPreferences preferences = getSharedPreferences("App", Context.MODE_PRIVATE);
+                preferences.edit().putBoolean("isFirstRun", true).apply();
+                Intent intentExit = new Intent(Dashboard.this, Login.class);
+                startActivity(intentExit);
+               System.exit(0);
                 break;
         }
 

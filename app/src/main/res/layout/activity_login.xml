@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:transitionName="logo_text"
         android:fontFamily="@font/baloo"
-        android:text="Hello!"
+        android:text="Hello there!"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:layout_marginTop="20dp"/>
@@ -39,7 +39,7 @@
     android:transitionName="logo_desc"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Sign In to Continue"
+    android:text="Please Sign In to Continue"
     android:textSize="18sp"
     android:fontFamily="@font/open_sans"
     android:textColor="@color/black"
@@ -96,7 +96,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
             android:indeterminateDrawable="@drawable/progress_icon"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +124,7 @@
             android:layout_height="wrap_content"
             android:background="#0097e6"
             android:textColor="@color/white"
-            android:text="Log me in"
+            android:text="Log in"
             android:elevation="0dp"
             android:transitionName="button_tran" />
 
@@ -137,7 +138,7 @@
             android:background="#00000000"
             android:elevation="0dp"
             android:onClick="callSignUp"
-            android:text="Sign Up for an account"
+            android:text="Sign up for FREe"
             android:textColor="#000"
             android:transitionName="login_signup_tran" />
 

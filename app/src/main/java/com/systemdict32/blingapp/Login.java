@@ -2,7 +2,9 @@ package com.systemdict32.blingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -28,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
-    Button callSignUp, loginUser;
+    Button callSignUp, loginUser, passForget;
     ImageView image;
     TextView logoText, SloganText;
     TextInputLayout eml, pass;
@@ -50,6 +52,7 @@ public class Login extends AppCompatActivity {
         SloganText = findViewById(R.id.slogan_name);
         loginUser = findViewById(R.id.loginbutton);
         progressBar = findViewById(R.id.progressBar);
+       passForget = findViewById(R.id.forget_pass);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -82,9 +85,13 @@ public class Login extends AppCompatActivity {
         });
 
 
-        //signup onclick
+
 
     }
+
+
+
+
 
     public void callSignUp (View view){
 
@@ -124,7 +131,12 @@ public class Login extends AppCompatActivity {
 
         }
 
+    public void passForget(View view) {
+
+        Intent intent = new Intent(Login.this,reset.class);
+        startActivity(intent);
     }
+}
 
 
 

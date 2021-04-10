@@ -111,6 +111,8 @@
             android:text="Forgot Password?"
             android:layout_gravity="right"
             android:elevation="0dp"
+            android:onClick="passForget"
+            android:id="@+id/forget_pass"
             android:layout_margin="5dp"
             android:textColor="#000"/>
 

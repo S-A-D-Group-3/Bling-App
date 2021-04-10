@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import es.dmoral.toasty.Toasty;
+
 public class SignUp extends AppCompatActivity {
 
     //Variables natin
@@ -56,6 +58,14 @@ public class SignUp extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 String sEmail = regEmail.getEditText().getText().toString().trim();
                 String sPass = regPassword.getEditText().getText().toString().trim();
+
+                if (sEmail.isEmpty() && sPass.isEmpty() || sEmail.isEmpty() || sPass.isEmpty()) {
+                    Toasty.error(SignUp.this, "Please fill up the field(s)",
+                            Toast.LENGTH_LONG, true).show();
+                    progressBar.setVisibility(View.GONE);
+                }else{
+
+                    progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth.createUserWithEmailAndPassword(sEmail, sPass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -66,25 +76,26 @@ public class SignUp extends AppCompatActivity {
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
-                                                    if(task.isSuccessful()){
-                                                        Toast.makeText(SignUp.this, "Registered successfully. Please check your email for verification",
-                                                                Toast.LENGTH_LONG).show();
+                                                    if (task.isSuccessful()) {
+                                                       Toasty.success(SignUp.this, "Registered successfully. Please check your email for verification",
+                                                                Toast.LENGTH_LONG, true).show();
                                                         regEmail.getEditText().setText("");
                                                         regPassword.getEditText().setText("");
                                                         startActivity(new Intent(SignUp.this, Login.class));
-                                                    }else{
-                                                        Toast.makeText(SignUp.this,  task.getException().getMessage(),
-                                                                Toast.LENGTH_LONG).show();
+                                                    } else {
+                                                        Toasty.warning(SignUp.this, task.getException().getMessage(),
+                                                                Toast.LENGTH_LONG, true).show();
                                                     }
 
                                                 }
                                             });
                                 } else {
-                                    Toast.makeText(SignUp.this, task.getException().getMessage(),
-                                            Toast.LENGTH_LONG).show();
+                                   Toasty.error(SignUp.this, task.getException().getMessage(),
+                                            Toast.LENGTH_LONG, true).show();
                                 }
                             }
                         });
+            }
             }
 
 

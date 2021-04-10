@@ -28,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import es.dmoral.toasty.Toasty;
+
 public class Login extends AppCompatActivity {
 
     Button callSignUp, loginUser, passForget;
@@ -63,6 +65,14 @@ public class Login extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 String email_ = eml.getEditText().getText().toString().trim();
                 String pass_ = pass.getEditText().getText().toString().trim();
+
+                if ((email_.isEmpty() && pass_.isEmpty() || email_.isEmpty() || pass_.isEmpty())) {
+                    Toasty.error(Login.this, "Please fill up the field(s)",
+                            Toast.LENGTH_LONG, true).show();
+                    progressBar.setVisibility(View.GONE);
+                }else{
+                    progressBar.setVisibility(View.VISIBLE);
+
                 firebaseAuth.signInWithEmailAndPassword(email_, pass_)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -72,18 +82,19 @@ public class Login extends AppCompatActivity {
                                     if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                                         startActivity(new Intent(Login.this, Dashboard.class));
                                     } else {
-                                        Toast.makeText(Login.this, "Please verify your email address"
-                                                , Toast.LENGTH_LONG).show();
+                                        Toasty.info(Login.this, "Please verify it on your email address"
+                                                , Toast.LENGTH_LONG, true).show();
                                     }
                                 } else {
-                                    Toast.makeText(Login.this, task.getException().getMessage()
-                                            , Toast.LENGTH_LONG).show();
+                                    Toasty.warning(Login.this, task.getException().getMessage()
+                                            , Toast.LENGTH_LONG, true).show();
                                 }
                             }
                         });
+
+            }
             }
         });
-
 
 
 
@@ -116,7 +127,7 @@ public class Login extends AppCompatActivity {
         public void onBackPressed () {
             if (doubleBackToExitPressedOnce) {
                 this.doubleBackToExitPressedOnce = false;
-                Toast.makeText(this, "Press again to close Bling", Toast.LENGTH_SHORT).show();
+                Toasty.info(this, "Press again to close Bling", Toast.LENGTH_SHORT, true).show();
 
 
             } else if (doubleBackToExitPressedOnce) {

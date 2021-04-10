@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import es.dmoral.toasty.Toasty;
+
 public class reset extends AppCompatActivity {
 
     ProgressBar progressBar;
@@ -47,20 +49,29 @@ public class reset extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
+                if (inputEmail.getText().toString().toString().isEmpty()) {
+                    //Toasty.Config.getInstance().setTextSize(29).apply();// for resizing toasty lang e2
+                    Toasty.warning(reset.this,
+                            "It is Empty", Toast.LENGTH_LONG, true).show();
+                    progressBar.setVisibility(View.GONE);
+                }else{
+
+                    progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth.sendPasswordResetEmail(inputEmail.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(reset.this,
-                                            "Password send to your email", Toast.LENGTH_LONG).show();
+                                    Toasty.success(reset.this,
+                                            "Password reset link sent to your email", Toast.LENGTH_LONG, true).show();
                                 } else {
-                                    Toast.makeText(reset.this,
-                                            task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                    Toasty.warning(reset.this,
+                                            task.getException().getMessage(), Toast.LENGTH_LONG,true).show();
                                 }
                             }
                         });
+            }
             }
         });
 

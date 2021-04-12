@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.cv1_FirstAiderFragment">
+    tools:context=".Fragments.cv2_IncidentsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="first aider ako lods"
+        android:text="incidents"
         android:textSize="30dp" />
 
     <FrameLayout
@@ -22,5 +22,4 @@
         android:layout_marginRight="15dp">
 
     </FrameLayout>
-
 </LinearLayout>

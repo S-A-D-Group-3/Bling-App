@@ -1,8 +1,18 @@
 package com.systemdict32.blingapp.Fragments;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,6 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.Dash;
+import com.systemdict32.blingapp.Dashboard;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -18,7 +30,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements View.OnClickListener{
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -98,6 +110,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
+
+
     @Override
     public void onClick(View v) {
         if(v.getId() == cv_1.getId()){
@@ -107,7 +121,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             ft.commit();
         }
         if(v.getId() == cv_2.getId()){
-
+            cv2_IncidentsFragment cv2 = new cv2_IncidentsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_container, cv2);
+            ft.commit();
         }
         if(v.getId() == cv_3.getId()){
 

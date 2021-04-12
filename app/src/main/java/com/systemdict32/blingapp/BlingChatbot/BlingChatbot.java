@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.systemdict32.blingapp.Fragments.HomeFragment;
+import com.systemdict32.blingapp.Fragments.cv2_IncidentsFragment;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.Fragments.cv1_FirstAiderFragment;
 
@@ -50,20 +51,22 @@ public class BlingChatbot {
         String botMessage = "Pardon. I didn't get that.";
         String userMessage = speechMessage.get(0);
         Fragment selectedFragment = null;
-        if (userMessage.compareToIgnoreCase("first aid") == 0) {
-            selectedFragment = new cv1_FirstAiderFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-            botMessage = "Going to First Aider Page";
-        }
+        // nav bar
         if (userMessage.compareToIgnoreCase("home") == 0) {
             selectedFragment = new HomeFragment();
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             botMessage = "Going to Home Page";
         }
-        if (userMessage.compareToIgnoreCase("number two") == 0) {
-//            botMessage = "Transitioning to Emergency Response page";
-//            Intent intent = new Intent(context, EmergencyResponse.class);
-//            context.startActivity(intent);
+        // categories
+        if (userMessage.compareToIgnoreCase("first aid") == 0) {
+            selectedFragment = new cv1_FirstAiderFragment();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            botMessage = "Going to First Aider Page";
+        }
+        if (userMessage.compareToIgnoreCase("incidents") == 0) {
+            selectedFragment = new cv2_IncidentsFragment();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            botMessage = "Going to Incident Page";
         }
         if (userMessage.compareToIgnoreCase("number three") == 0) {
 //            botMessage = "transitioning to In-home incidents page";
@@ -110,7 +113,7 @@ public class BlingChatbot {
         return botMessage;
     }
 
-    public String HashPassword(String password){
+    public String HashPassword(String password) {
         String hashedPassword = null;
         try {
             // Create MessageDigest instance for MD5
@@ -122,15 +125,12 @@ public class BlingChatbot {
             //This bytes[] has bytes in decimal format;
             //Convert it to hexadecimal format
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
+            for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             //Get complete hashed password in hex format
             hashedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e)
-        {
+        } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return hashedPassword;

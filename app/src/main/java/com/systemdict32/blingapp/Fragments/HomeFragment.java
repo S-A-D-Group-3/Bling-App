@@ -81,7 +81,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION
             }, 100);
@@ -117,49 +118,48 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View v) {
-        if(v.getId() == cv_1.getId()){
+        if (v.getId() == cv_1.getId()) {
             cv1_FirstAiderFragment cv1 = new cv1_FirstAiderFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, cv1);
             ft.commit();
         }
-        if(v.getId() == cv_2.getId()){
+        if (v.getId() == cv_2.getId()) {
             cv2_IncidentsFragment cv2 = new cv2_IncidentsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, cv2);
             ft.commit();
         }
-        if(v.getId() == cv_3.getId()){
+        if (v.getId() == cv_3.getId()) {
 
         }
-        if(v.getId() == cv_4.getId()){
+        if (v.getId() == cv_4.getId()) {
 
         }
-        if(v.getId() == cv_5.getId()){
+        if (v.getId() == cv_5.getId()) {
 
         }
-        if(v.getId() == cv_6.getId()){
+        if (v.getId() == cv_6.getId()) {
 
         }
-        if(v.getId() == cv_7.getId()){
+        if (v.getId() == cv_7.getId()) {
 
         }
-        if(v.getId() == cv_8.getId()){
+        if (v.getId() == cv_8.getId()) {
 
         }
-        if(v.getId() == cv_9.getId()){
+        if (v.getId() == cv_9.getId()) {
 
         }
-        if(v.getId() == cv_10.getId()){
+        if (v.getId() == cv_10.getId()) {
 
         }
-        if(v.getId() == cv_11.getId()){
+        if (v.getId() == cv_11.getId()) {
 
         }
-        if(v.getId() == cv_12.getId()){
+        if (v.getId() == cv_12.getId()) {
 
         }
     }

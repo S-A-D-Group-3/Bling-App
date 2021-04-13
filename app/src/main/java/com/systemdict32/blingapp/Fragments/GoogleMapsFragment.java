@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -29,10 +30,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.systemdict32.blingapp.Dashboard;
 import com.systemdict32.blingapp.R;
+import com.systemdict32.blingapp.SignUp;
 
 import java.util.zip.Inflater;
 
-public class GoogleMapsFragment extends Fragment {
+import es.dmoral.toasty.Toasty;
+
+public class GoogleMapsFragment extends Fragment implements LocationListener{
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -49,26 +53,16 @@ public class GoogleMapsFragment extends Fragment {
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
 
-            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                }, 100);
-            }
-
             getLocation();
 
-            Criteria locationCritera = new Criteria();
-            locationCritera.setAccuracy(Criteria.ACCURACY_FINE);
-            locationCritera.setAltitudeRequired(false);
-            locationCritera.setBearingRequired(false);
-            locationCritera.setCostAllowed(true);
-            locationCritera.setPowerRequirement(Criteria.NO_REQUIREMENT);
+            if(mLocation == null){
+                Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
+                        Toast.LENGTH_LONG, true).show();
+                return;
+            }
 
-            String providerName = locationManager.getBestProvider(locationCritera, true);
-            Location location  = locationManager.getLastKnownLocation(providerName);
-
-            LATITUDE = location.getLatitude();
-            LONGITUDE = location.getLongitude();
+            LATITUDE = mLocation.getLatitude();
+            LONGITUDE = mLocation.getLongitude();
 
             LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
@@ -102,7 +96,7 @@ public class GoogleMapsFragment extends Fragment {
     }
 
     private GoogleMap mMap;
-    private double LONGITUDE, LATITUDE;
+    private double LONGITUDE = 0, LATITUDE = 0;
     private LatLng LOCATION;
 
     @Override
@@ -116,14 +110,35 @@ public class GoogleMapsFragment extends Fragment {
     }
 
     LocationManager locationManager;
+    Location mLocation;
 
     @SuppressLint("MissingPermission")
     public void getLocation() {
         try {
-            locationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(getActivity().LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, (LocationListener) getActivity());
+            locationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, GoogleMapsFragment.this);
+            mLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         } catch (Exception e) {
-
+            Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        LATITUDE = location.getLatitude();
+        LONGITUDE = location.getLongitude();
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
     }
 }

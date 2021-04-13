@@ -26,15 +26,12 @@ import es.dmoral.toasty.Toasty;
 public class SignUp extends AppCompatActivity {
 
     //Variables natin
-    TextInputLayout  regEmail, regPassword;
+    TextInputLayout regEmail, regPassword;
     Button goBack, regBtn, regToLoginBtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
-
-
-
 
     @Override
 
@@ -47,12 +44,12 @@ public class SignUp extends AppCompatActivity {
 
         regEmail = findViewById(R.id.reg_email);
         regPassword = findViewById(R.id.reg_password);
-        regBtn =  findViewById(R.id.reg_btn);
-        regToLoginBtn =  findViewById(R.id.goback);
+        regBtn = findViewById(R.id.reg_btn);
+        regToLoginBtn = findViewById(R.id.goback);
         progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        regBtn.setOnClickListener(new View.OnClickListener(){
+        regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -63,39 +60,39 @@ public class SignUp extends AppCompatActivity {
                     Toasty.error(SignUp.this, "Please fill up the field(s)",
                             Toast.LENGTH_LONG, true).show();
                     progressBar.setVisibility(View.GONE);
-                }else{
+                } else {
 
                     progressBar.setVisibility(View.VISIBLE);
-                firebaseAuth.createUserWithEmailAndPassword(sEmail, sPass)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    firebaseAuth.getCurrentUser().sendEmailVerification()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()) {
-                                                       Toasty.success(SignUp.this, "Registered successfully. Please check your email for verification",
-                                                                Toast.LENGTH_LONG, true).show();
-                                                        regEmail.getEditText().setText("");
-                                                        regPassword.getEditText().setText("");
-                                                        startActivity(new Intent(SignUp.this, Login.class));
-                                                    } else {
-                                                        Toasty.warning(SignUp.this, task.getException().getMessage(),
-                                                                Toast.LENGTH_LONG, true).show();
-                                                    }
+                    firebaseAuth.createUserWithEmailAndPassword(sEmail, sPass)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if (task.isSuccessful()) {
+                                        firebaseAuth.getCurrentUser().sendEmailVerification()
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            Toasty.success(SignUp.this, "Registered successfully. Please check your email for verification",
+                                                                    Toast.LENGTH_LONG, true).show();
+                                                            regEmail.getEditText().setText("");
+                                                            regPassword.getEditText().setText("");
+                                                            startActivity(new Intent(SignUp.this, Login.class));
+                                                        } else {
+                                                            Toasty.warning(SignUp.this, task.getException().getMessage(),
+                                                                    Toast.LENGTH_LONG, true).show();
+                                                        }
 
-                                                }
-                                            });
-                                } else {
-                                   Toasty.error(SignUp.this, task.getException().getMessage(),
-                                            Toast.LENGTH_LONG, true).show();
+                                                    }
+                                                });
+                                    } else {
+                                        Toasty.error(SignUp.this, task.getException().getMessage(),
+                                                Toast.LENGTH_LONG, true).show();
+                                    }
                                 }
-                            }
-                        });
-            }
+                            });
+                }
             }
 
 
@@ -112,57 +109,48 @@ public class SignUp extends AppCompatActivity {
         });
 
 
+    }//onCreate method end
 
 
+    /** private boolean validateEmail(){
+     String val = regEmail.getEditText().getText().toString();
+     String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
+     if(val.isEmpty()){
+     regEmail.setError("This part must be filled up");
+     return false;
+     }else if(!val.matches(emailPattern)){
+     regEmail.setError("Invalid Email");
+     return false;
+
+     }
+     else{
+     regEmail.setError(null);
+     return true;
+     }
+     }
+     **/
 
 
+    /** private boolean validatePassword(){
+     String val = regPassword.getEditText().getText().toString();
+     String passVal = "^"+
+     "(?=.*[a-zA-Z])"+
+     "(?=.*[@#$%^&+=])"+
+     ".{4,}"+"$";
 
-
-        }//onCreate method end
-
-
-
-
-
-   /** private boolean validateEmail(){
-        String val = regEmail.getEditText().getText().toString();
-        String emailPattern = "[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
-        if(val.isEmpty()){
-            regEmail.setError("This part must be filled up");
-            return false;
-        }else if(!val.matches(emailPattern)){
-            regEmail.setError("Invalid Email");
-            return false;
-
-        }
-        else{
-            regEmail.setError(null);
-            return true;
-        }
-    }
-    **/
-
-
-   /** private boolean validatePassword(){
-        String val = regPassword.getEditText().getText().toString();
-        String passVal = "^"+
-                "(?=.*[a-zA-Z])"+
-                "(?=.*[@#$%^&+=])"+
-                ".{4,}"+"$";
-
-        if(val.isEmpty()){
-            regPassword.setError("This part must be filled up");
-            return false;
-        }else if (!val.matches(passVal)){
-            regPassword.setError("Password combination is weak");
-            return false;
-        }
-        else{
-            regPassword.setError(null);
-            return true;
-        }
-    }
-    **/
+     if(val.isEmpty()){
+     regPassword.setError("This part must be filled up");
+     return false;
+     }else if (!val.matches(passVal)){
+     regPassword.setError("Password combination is weak");
+     return false;
+     }
+     else{
+     regPassword.setError(null);
+     return true;
+     }
+     }
+     **/
 
 
 }

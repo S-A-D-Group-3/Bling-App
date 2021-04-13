@@ -53,8 +53,6 @@ public class splashscreen extends AppCompatActivity {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(splashscreen.this, pairs);
             startActivity(intent,options.toBundle());
 
-
-
         }, SPLASH_SCREEN);
 
 

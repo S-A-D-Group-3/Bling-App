@@ -5,15 +5,19 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +36,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     Toolbar toolbar;
     FragmentManager fm;
     HomeFragment homeFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +57,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         /*----------navi  drawer meenuu TO PREEE------*/
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -69,7 +74,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         //switch to pre
         Fragment selectedFragment = null;
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_home:
                 selectedFragment = new HomeFragment();
                 break;
@@ -94,7 +99,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 preferences.edit().putBoolean("isFirstRun", true).apply();
                 Intent intentExit = new Intent(Dashboard.this, Login.class);
                 startActivity(intentExit);
-               System.exit(0);
+                System.exit(0);
                 break;
         }
 
@@ -102,5 +107,4 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

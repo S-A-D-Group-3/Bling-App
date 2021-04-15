@@ -32,11 +32,12 @@ import com.systemdict32.blingapp.Dashboard;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.SignUp;
 
+import java.util.List;
 import java.util.zip.Inflater;
 
 import es.dmoral.toasty.Toasty;
 
-public class GoogleMapsFragment extends Fragment implements LocationListener{
+public class GoogleMapsFragment extends Fragment implements LocationListener {
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -55,33 +56,41 @@ public class GoogleMapsFragment extends Fragment implements LocationListener{
 
             getLocation();
 
-            if(mLocation == null){
-                Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
-                        Toast.LENGTH_LONG, true).show();
+            if (mLocation == null) {
                 return;
             }
+
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                }, 100);
+            }
+
+            mMap.setMyLocationEnabled(true);
 
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
+            Toast.makeText(getActivity(), "mMap: " + String.valueOf(mLocation.getLatitude())
+                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT).show();
+
             LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
-            if(LOCATION != null){
-                mMap.addMarker(new MarkerOptions()
-                        .anchor(0.0f, 0.1f)
-                        .position(LOCATION)
-                        .title("My Location")
-                );
+            mMap.addMarker(new MarkerOptions()
+                    .anchor(0.0f, 0.1f)
+                    .position(LOCATION)
+                    .title("My Location")
+            );
 
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(LOCATION)
-                        .zoom(18)
-                        .bearing(0)
-                        .tilt(30)
-                        .build();
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(LOCATION)
+                    .zoom(18)
+                    .bearing(0)
+                    .tilt(30)
+                    .build();
 
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-            }
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         }
     };
 
@@ -117,16 +126,41 @@ public class GoogleMapsFragment extends Fragment implements LocationListener{
         try {
             locationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, GoogleMapsFragment.this);
-            mLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            mLocation = getLastKnownLocation();
+            Toast.makeText(getActivity(), "getLocation: " + String.valueOf(mLocation.getLatitude())
+                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
+    private Location getLastKnownLocation() {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION
+            }, 100);
+        }
+        // eto yung puki ng inang nagpagana sa map
+        // https://stackoverflow.com/questions/20438627/getlastknownlocation-returns-null
+        locationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+        List<String> providers = locationManager.getProviders(true);
+        Location bestLocation = null;
+        for (String provider : providers) {
+            Location l = locationManager.getLastKnownLocation(provider);
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                // Found best last known location: %s", l);
+                bestLocation = l;
+            }
+        }
+        return bestLocation;
+    }
+
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        LATITUDE = location.getLatitude();
-        LONGITUDE = location.getLongitude();
     }
 
     @Override
@@ -136,6 +170,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener{
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
+        Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
+                Toast.LENGTH_LONG, true).show();
     }
 
     @Override

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_emergency"
+            android:checked="true"
+            android:title="Nearest Emergencies"
+            android:icon="@drawable/ic_emergency_call"
+            />
+        <item
+            android:id="@+id/nav_instruction"
+            android:title="Instruction Set"
+            android:icon="@drawable/ic_instruction_set"
+            />
+    </group>
+</menu>

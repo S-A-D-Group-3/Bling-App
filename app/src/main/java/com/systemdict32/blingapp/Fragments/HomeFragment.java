@@ -1,28 +1,21 @@
 package com.systemdict32.blingapp.Fragments;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.google.android.gms.maps.model.Dash;
-import com.systemdict32.blingapp.Dashboard;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -30,7 +23,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,7 +66,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    CardView cv_1, cv_2, cv_3, cv_4, cv_5, cv_6, cv_7, cv_8, cv_9, cv_10, cv_11, cv_12;
+    BottomNavigationView top_nav_view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,79 +81,38 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }, 100);
         }
 
-        cv_1 = view.findViewById(R.id.cv_1);
-        cv_2 = view.findViewById(R.id.cv_2);
-        cv_3 = view.findViewById(R.id.cv_3);
-        cv_4 = view.findViewById(R.id.cv_4);
-        cv_5 = view.findViewById(R.id.cv_5);
-        cv_6 = view.findViewById(R.id.cv_6);
-        cv_7 = view.findViewById(R.id.cv_7);
-        cv_8 = view.findViewById(R.id.cv_8);
-        cv_9 = view.findViewById(R.id.cv_9);
-        cv_10 = view.findViewById(R.id.cv_10);
-        cv_11 = view.findViewById(R.id.cv_11);
-        cv_12 = view.findViewById(R.id.cv_12);
+        top_nav_view = view.findViewById(R.id.top_nav_view);
 
-        cv_1.setOnClickListener(this);
-        cv_2.setOnClickListener(this);
-        cv_3.setOnClickListener(this);
-        cv_4.setOnClickListener(this);
-        cv_5.setOnClickListener(this);
-        cv_6.setOnClickListener(this);
-        cv_7.setOnClickListener(this);
-        cv_8.setOnClickListener(this);
-        cv_9.setOnClickListener(this);
-        cv_10.setOnClickListener(this);
-        cv_11.setOnClickListener(this);
-        cv_12.setOnClickListener(this);
+        top_nav_view.setOnNavigationItemSelectedListener(navListener);
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        EmergencyFragment emergency = new EmergencyFragment();
+        ft.replace(R.id.home_fragment_container, emergency);
+        ft.commit();
 
         return view;
     }
 
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == cv_1.getId()) {
-            cv1_FirstAiderFragment cv1 = new cv1_FirstAiderFragment();
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, cv1);
-            ft.commit();
-        }
-        if (v.getId() == cv_2.getId()) {
-            cv2_IncidentsFragment cv2 = new cv2_IncidentsFragment();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, cv2);
-            ft.commit();
-        }
-        if (v.getId() == cv_3.getId()) {
+            switch (item.getItemId()) {
+                case R.id.nav_instruction:
+                    InstructionFragment instruction = new InstructionFragment();
+                    ft.replace(R.id.home_fragment_container, instruction);
+                    ft.commit();
+                    break;
 
+                case R.id.nav_emergency:
+                    EmergencyFragment emergency = new EmergencyFragment();
+                    ft.replace(R.id.home_fragment_container, emergency);
+                    ft.commit();
+                    break;
+            }
+            // TODO: create new fragment for Top Navigation View
+            // TODO: Attach the Navigation View to that fragment
+            return true;
         }
-        if (v.getId() == cv_4.getId()) {
-
-        }
-        if (v.getId() == cv_5.getId()) {
-
-        }
-        if (v.getId() == cv_6.getId()) {
-
-        }
-        if (v.getId() == cv_7.getId()) {
-
-        }
-        if (v.getId() == cv_8.getId()) {
-
-        }
-        if (v.getId() == cv_9.getId()) {
-
-        }
-        if (v.getId() == cv_10.getId()) {
-
-        }
-        if (v.getId() == cv_11.getId()) {
-
-        }
-        if (v.getId() == cv_12.getId()) {
-
-        }
-    }
+    };
 }

@@ -4,8 +4,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#5f27cd"
-    android:elevation="4dp"
+    android:background="@color/red"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:navigationIcon="@drawable/ic_hamburger"
     >

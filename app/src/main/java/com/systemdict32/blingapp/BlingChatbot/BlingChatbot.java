@@ -1,21 +1,14 @@
 package com.systemdict32.blingapp.BlingChatbot;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.UtteranceProgressListener;
-import android.view.View;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.systemdict32.blingapp.Fragments.HomeFragment;
 import com.systemdict32.blingapp.Fragments.cv2_IncidentsFragment;
@@ -54,18 +47,18 @@ public class BlingChatbot {
         // nav bar
         if (userMessage.compareToIgnoreCase("home") == 0) {
             selectedFragment = new HomeFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
             botMessage = "Going to Home Page";
         }
         // categories
         if (userMessage.compareToIgnoreCase("first aid") == 0) {
             selectedFragment = new cv1_FirstAiderFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
             botMessage = "Going to First Aider Page";
         }
         if (userMessage.compareToIgnoreCase("incidents") == 0) {
             selectedFragment = new cv2_IncidentsFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
             botMessage = "Going to Incident Page";
         }
         if (userMessage.compareToIgnoreCase("number three") == 0) {

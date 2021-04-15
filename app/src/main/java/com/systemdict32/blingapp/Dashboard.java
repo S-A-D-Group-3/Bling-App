@@ -2,22 +2,16 @@ package com.systemdict32.blingapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,7 +39,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         homeFragment = new HomeFragment();
         fm = getSupportFragmentManager();
 
-        fm.beginTransaction().add(R.id.fragment_container, homeFragment).commit();
+        fm.beginTransaction().add(R.id.dashboard_fragment_container, homeFragment).commit();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_vieww);
@@ -103,7 +97,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).commit();
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

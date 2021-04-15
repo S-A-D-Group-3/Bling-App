@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlingApp"
         android:hardwareAccelerated="true"
+
         >
 
         <!--

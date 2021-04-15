@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import com.google.android.gms.location.LocationServices;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -72,8 +73,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
-            Toast.makeText(getActivity(), "mMap: " + String.valueOf(mLocation.getLatitude())
-                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT).show();
+            Toasty.info(getActivity(), "mMap: " + String.valueOf(mLocation.getLatitude())
+                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT, true).show();
 
             LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
@@ -127,10 +128,10 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             locationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, GoogleMapsFragment.this);
             mLocation = getLastKnownLocation();
-            Toast.makeText(getActivity(), "getLocation: " + String.valueOf(mLocation.getLatitude())
-                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT).show();
+            Toasty.info(getActivity(), "getLocation: " + String.valueOf(mLocation.getLatitude())
+                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT, true).show();
         } catch (Exception e) {
-            Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toasty.warning(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT, true).show();
         }
     }
 

@@ -51,11 +51,11 @@ public class reset extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 if (inputEmail.getText().toString().toString().isEmpty()) {
                     //Toasty.Config.getInstance().setTextSize(29).apply();// for resizing toasty lang e2
+                    progressBar.setVisibility(View.GONE);
                     Toasty.warning(reset.this,
                             "It is Empty", Toast.LENGTH_LONG, true).show();
-                    progressBar.setVisibility(View.GONE);
-                }else{
 
+                }else{
                     progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth.sendPasswordResetEmail(inputEmail.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -11,7 +11,7 @@
         android:id="@+id/top_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
+        android:background="@color/grey_one"
         app:menu="@menu/top_nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

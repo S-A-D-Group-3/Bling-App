@@ -4,14 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.cv1_FirstAiderFragment">
+    tools:context=".Fragments.HospitalFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="first aider ako lods"
+        android:text="hospital emergency"
         android:textSize="30dp" />
+
+    <FrameLayout
+        android:id="@+id/google_map_container"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+    </FrameLayout>
 
 </LinearLayout>

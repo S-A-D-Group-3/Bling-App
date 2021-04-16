@@ -17,7 +17,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link EmergencyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EmergencyFragment extends Fragment {
+public class EmergencyFragment extends Fragment implements View.OnClickListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,12 +60,29 @@ public class EmergencyFragment extends Fragment {
         }
     }
 
+    CardView emergency_cv1, emergency_cv2, emergency_cv3, emergency_cv4;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_emergency, container, false);
 
+        emergency_cv1 = view.findViewById(R.id.emergency_cv_1);
+        emergency_cv2 = view.findViewById(R.id.emergency_cv_2);
+        emergency_cv3 = view.findViewById(R.id.emergency_cv_3);
+        emergency_cv4 = view.findViewById(R.id.emergency_cv_4);
+
+        emergency_cv1.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == emergency_cv1.getId()) {
+            HospitalFragment hospitalFragment = new HospitalFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, hospitalFragment);
+            ft.commit();
+        }
     }
 }

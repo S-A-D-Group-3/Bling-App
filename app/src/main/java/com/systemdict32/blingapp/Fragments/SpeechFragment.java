@@ -33,7 +33,7 @@ import java.util.Locale;
  * Use the {@link SpeechFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitListener{
+public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -180,8 +180,13 @@ public class SpeechFragment extends Fragment implements  TextToSpeech.OnInitList
             @Override
             // reset text view after bot speech is done
             public void onDone(String utteranceId) {
-                frag_tv_STT.setVisibility(View.INVISIBLE);
-                iv_speak_STT.setImageResource(R.drawable.microphone);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        frag_tv_STT.setVisibility(View.INVISIBLE);
+                        iv_speak_STT.setImageResource(R.drawable.microphone);
+                    }
+                });
             }
 
             @Override

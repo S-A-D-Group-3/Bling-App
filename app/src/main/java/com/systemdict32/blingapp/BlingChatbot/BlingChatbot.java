@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.systemdict32.blingapp.Fragments.HomeFragment;
+import com.systemdict32.blingapp.Fragments.ReadFirstAidFragment;
 import com.systemdict32.blingapp.Fragments.cv2_IncidentsFragment;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.Fragments.cv1_FirstAiderFragment;
@@ -102,6 +103,12 @@ public class BlingChatbot {
 //                    context.startActivity(intent);
                 }
             }, 1500);
+        }
+        // read first aid
+        if (userMessage.compareToIgnoreCase("read") == 0) {
+            ReadFirstAidFragment readFirstAidFragment = new ReadFirstAidFragment();
+            readFirstAidFragment.readFirstAid();
+            botMessage = "";
         }
         return botMessage;
     }

@@ -4,18 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.model.Dash;
 import com.google.android.material.navigation.NavigationView;
 import com.systemdict32.blingapp.Fragments.AboutFragment;
 import com.systemdict32.blingapp.Fragments.HelpFragment;
@@ -44,7 +54,6 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_vieww);
         toolbar = findViewById(R.id.toolbar);
-
 
         /*----------toolbar TO PREEE------*/
         setSupportActionBar(toolbar);
@@ -100,5 +109,75 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).commit();
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void showMessage(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+
+    private static final String CHANNEL_ID = "notif";
+    NotificationCompat.Builder builder;
+
+    public void showNotification(){
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append("Name: " + "Jan Eleven\n");
+        buffer.append("Address: " + "Marikina\n");
+        buffer.append("Blood Type: " + "O+\n");
+        buffer.append("ICE Name: " + "Wew\n");
+        buffer.append("ICE Number: " + "99999");
+
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "notification";
+            String description = "user notification";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        // Create an explicit intent for an Activity in your app
+        Intent intent = new Intent(this, Dashboard.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+
+        builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.logov2)
+                .setContentTitle("In-case of Emergency")
+                .setContentText("User Information")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(buffer.toString()))
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true).setOngoing(true);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+//            builder.setVisibility(Notification.VISIBILITY_SECRET);
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, builder.build());
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        showNotification();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        showNotification();
     }
 }

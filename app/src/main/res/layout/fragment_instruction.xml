@@ -20,12 +20,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="Instructions"
                 android:textColor="@color/black"
-                android:fontFamily="@font/baloo"
-                android:textSize="30sp" />
+                android:fontFamily="@font/lato_bold"
+                android:textSize="25sp" />
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -78,7 +78,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -116,7 +116,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -139,7 +139,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Assess \n Casualty"
+                            android:text="Assess\nCasualty"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -155,7 +155,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -178,7 +178,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Unconscious \n Casualty"
+                            android:text="Unconscious\nCasualty"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -194,7 +194,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -233,7 +233,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -256,7 +256,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Wounds \n Circulation"
+                            android:text="Wounds\nCirculation"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -272,7 +272,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -311,7 +311,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -350,7 +350,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -373,7 +373,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Bites Poison \n F.O"
+                            android:text="Bites Poison\nF.O"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -389,7 +389,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_10"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -412,7 +412,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Medical \n Conditions"
+                            android:text="Medical\nConditions"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -428,7 +428,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_11"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -467,7 +467,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
@@ -490,7 +490,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Emergency \n First Aid"
+                            android:text="Emergency\nFirst Aid"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 

@@ -1,26 +1,20 @@
 package com.systemdict32.blingapp.Fragments;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -28,7 +22,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link cv1_FirstAiderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class cv1_FirstAiderFragment extends Fragment {
+public class cv1_FirstAiderFragment extends Fragment implements FirstAidInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,13 +75,35 @@ public class cv1_FirstAiderFragment extends Fragment {
             // The callback can be enabled or disabled here or in handleOnBackPressed()
         }
     }
-
+    View view;
+    TextView tv_bleeding_first_aid;
+    public String firstAidManual = "1. Remove any clothing or debris on the wound. Don't remove large or deeply embedded objects. Don't probe the wound or attempt to clean it yet. Your first job is to stop the bleeding. Wear disposable protective gloves if available. \n" +
+            "2. Stop the bleeding. Place a sterile bandage or clean cloth on the wound. Press the bandage firmly with your palm to control bleeding. Apply constant pressure until the bleeding stops. Maintain pressure by binding the wound with a thick bandage or a piece of clean cloth. Don't put direct pressure on an eye injury or embedded object. ";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_cv1__first_aider, container, false);
+        view = inflater.inflate(R.layout.fragment_cv1__first_aider, container, false);
+
+        tv_bleeding_first_aid = view.findViewById(R.id.tv_bleeding_first_aid);
+//        SpannableStringBuilder ssb = new SpannableStringBuilder( firstAidManual );
+//        Bitmap smiley = BitmapFactory.decodeResource( getResources(), R.drawable.bleeding_first_aid );
+//        ssb.setSpan( new ImageSpan( smiley ), 231, 232, Spannable.SPAN_INCLUSkIVE_INCLUSIVE );
+//        tv_bleeding_first_aid.setText( ssb, TextView.BufferType.SPANNABLE );
+//
+//        tv_bleeding_first_aid.setCompoundDrawablesWithIntrinsicBounds(
+//                R.drawable.bleeding_first_aid, 0, 0, 0);
 
         return view;
     }
+
+    public void setFirstAidText(Spannable text){
+        tv_bleeding_first_aid = view.findViewById(R.id.tv_bleeding_first_aid);
+        tv_bleeding_first_aid.setText(text);
+    }
+
+    public String getFirstAid() {
+        return firstAidManual;
+    }
+
 }

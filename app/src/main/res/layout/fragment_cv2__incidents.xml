@@ -14,12 +14,4 @@
         android:text="incidents"
         android:textSize="30dp" />
 
-    <FrameLayout
-        android:id="@+id/google_map_container"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
-
-    </FrameLayout>
 </LinearLayout>

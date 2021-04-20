@@ -11,8 +11,13 @@
         android:id="@+id/top_nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey_one"
-        app:menu="@menu/top_nav_menu">
+        android:background="@color/toolbar"
+        app:itemIconTint="@color/drawer_item"
+        app:itemTextColor="@color/drawer_item"
+        android:fontFamily="@font/lato"
+        app:menu="@menu/top_nav_menu"
+        android:windowContentOverlay="@null"
+        >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

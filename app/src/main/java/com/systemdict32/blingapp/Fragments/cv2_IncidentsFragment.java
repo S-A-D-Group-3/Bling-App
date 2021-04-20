@@ -64,11 +64,6 @@ public class cv2_IncidentsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cv2__incidents, container, false);
 
-        GoogleMapsFragment googleMapsFragment = new GoogleMapsFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.google_map_container, googleMapsFragment);
-        ft.commit();
-
         return view;
     }
 }

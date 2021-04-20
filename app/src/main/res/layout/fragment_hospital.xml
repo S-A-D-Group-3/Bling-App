@@ -11,14 +11,19 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/lato_bold"
         android:gravity="center"
-        android:text="hospital emergency"
-        android:textSize="30dp" />
+        android:text="Hospitals"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
 
     <FrameLayout
         android:id="@+id/google_map_container"
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="400dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp">
 
     </FrameLayout>
 

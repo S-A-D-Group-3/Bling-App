@@ -8,6 +8,6 @@
         />
 
     <gradient
-        android:startColor="@color/red"
-        android:endColor="@color/red"/>
+        android:startColor="@color/chatbot_bubble"
+        android:endColor="@color/chatbot_bubble"/>
 </shape>

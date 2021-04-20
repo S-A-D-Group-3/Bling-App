@@ -1,13 +1,10 @@
 package com.systemdict32.blingapp.Fragments;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -18,7 +15,7 @@ import android.text.style.TextAppearanceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -75,7 +72,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
     }
 
-    Button btn_read_first_aid;
+    ImageView iv_read_first_aid, iv_cancel_read;
     BlingChatbot blingChatbot;
     TextToSpeech TTS;
     public FirstAidInterface firstAidInterface;
@@ -87,16 +84,32 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         View view = inflater.inflate(R.layout.fragment_read_first_aid, container, false);
         blingChatbot = new BlingChatbot();
         TTS = blingChatbot.TTS(getActivity(), this);
-        btn_read_first_aid = view.findViewById(R.id.btn_read_first_aid);
+
+        iv_read_first_aid = view.findViewById(R.id.iv_read_first_aid);
+        iv_read_first_aid.setImageResource(R.drawable.read_first_aid);
+
+        iv_cancel_read = view.findViewById(R.id.iv_cancel_read);
+        iv_cancel_read.setImageResource(R.drawable.cancel_read);
 
         firstAidInterface = (FirstAidInterface) getParentFragment();
 
-
-
-        btn_read_first_aid.setOnClickListener(new View.OnClickListener() {
+        iv_read_first_aid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 readFirstAid();
+            }
+        });
+
+        iv_cancel_read.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                highlightWordCounter=-1;
+                highlightTextPart(highlightWordCounter, "\\. ");
+                TTS.stop();
+                if(TTS.STOPPED == -2){
+                    iv_read_first_aid.setVisibility(View.VISIBLE);
+                    iv_cancel_read.setVisibility(View.GONE);
+                }
             }
         });
         return view;
@@ -124,20 +137,21 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
                     public void run() {
                         highlightTextPart(highlightWordCounter, "\\. ");
                         highlightWordCounter++;
+                        iv_cancel_read.setVisibility(View.VISIBLE);
+                        iv_read_first_aid.setVisibility(View.GONE);
                     }
                 });
             }
 
             @Override
-            // reset text view after bot speech is done
             public void onDone(String utteranceId) {
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        highlightTextPart(j, " ");
-//                        j++;
-//                    }
-//                });
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        iv_read_first_aid.setVisibility(View.VISIBLE);
+                        iv_cancel_read.setVisibility(View.GONE);
+                    }
+                });
             }
 
             @Override
@@ -204,6 +218,12 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
     @Override
     public void onPause() {
         super.onPause();
+        TTS.stop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
         TTS.stop();
     }
 }

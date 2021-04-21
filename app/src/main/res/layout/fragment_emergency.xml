@@ -29,7 +29,6 @@
                 android:fontFamily="@font/lato_bold"
                 android:textSize="25sp" />
 
-
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

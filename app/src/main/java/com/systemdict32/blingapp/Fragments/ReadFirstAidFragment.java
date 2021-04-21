@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.speech.tts.TextToSpeech;
@@ -183,8 +184,8 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(Color.YELLOW);
         spannable.setSpan(textAppearanceSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannable.setSpan(backgroundColorSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        if(firstAidInterface.getClass().equals(cv1_FirstAiderFragment.class)){
-            ((cv1_FirstAiderFragment) getParentFragment()).setFirstAidText(spannable);
+        if(firstAidInterface.getClass().equals(cv1_Read_FirstAiderFragment.class)){
+            ((cv1_Read_FirstAiderFragment) getParentFragment()).setFirstAidText(spannable);
 
         }
 //        if(firstAidInterface.getClass().equals(BleedingActivity.class)){
@@ -224,6 +225,12 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
     @Override
     public void onDestroy() {
         super.onDestroy();
+        TTS.stop();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
         TTS.stop();
     }
 }

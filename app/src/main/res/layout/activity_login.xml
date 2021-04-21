@@ -22,28 +22,28 @@
 
     <TextView
         android:id="@+id/logo_name"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:transitionName="logo_text"
-        android:fontFamily="@font/baloo"
-        android:text="Hello there!"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_extrabold_italic"
+        android:text="Hello"
         android:textColor="@color/black"
         android:textSize="40sp"
-        android:layout_marginTop="20dp"/>
+        android:transitionName="logo_text" />
 
 
-<TextView
-    android:id="@+id/slogan_name"
-    android:layout_gravity="center"
-    android:transitionName="logo_desc"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Please Sign In to Continue"
-    android:textSize="18sp"
-    android:fontFamily="@font/open_sans"
-    android:textColor="@color/black"
-    android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/slogan_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/open_sans_semibold_italic"
+        android:text="Please Sign In to Continue"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:transitionName="logo_desc" />
 
 
     <LinearLayout
@@ -106,26 +106,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:id="@+id/forget_pass"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:text="Forgot Password?"
             android:layout_gravity="right"
-            android:elevation="0dp"
-            android:onClick="passForget"
-            android:id="@+id/forget_pass"
             android:layout_margin="5dp"
-            android:textColor="#000"/>
+            android:background="#00000000"
+            android:elevation="0dp"
+            android:fontFamily="@font/open_sans_semibold_italic"
+            android:onClick="passForget"
+            android:text="Forgot Password?"
+            android:textColor="#000" />
 
         <Button
             android:id="@+id/loginbutton"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="#0097e6"
-            android:textColor="@color/white"
-            android:text="Log in"
             android:elevation="0dp"
+            android:fontFamily="@font/open_sans_extrabold"
+            android:text="Log in"
+            android:textColor="@color/white"
             android:transitionName="button_tran" />
 
 
@@ -137,6 +139,7 @@
             android:layout_margin="5dp"
             android:background="#00000000"
             android:elevation="0dp"
+            android:fontFamily="@font/open_sans_semibold_italic"
             android:onClick="callSignUp"
             android:text="Sign up for FREe"
             android:textColor="#000"

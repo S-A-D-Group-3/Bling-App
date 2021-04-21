@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/baloo"
-        android:text="Join Us!"
+        android:fontFamily="@font/open_sans_extrabold_italic"
+        android:text="Register"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:transitionName="logo_text" />
@@ -40,7 +40,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
-        android:fontFamily="@font/open_sans"
+        android:fontFamily="@font/open_sans_semibold_italic"
         android:text="Sign up quick and free"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -117,6 +117,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_extrabold"
         android:text="Sign Me Up"
         android:textColor="@color/white"
         android:transitionName="button_tran" />
@@ -126,6 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00000000"
+        android:fontFamily="@font/open_sans_semibold_italic"
         android:text="Back"
         android:textColor="@color/black"
         android:transitionName="login_signup_tran" />

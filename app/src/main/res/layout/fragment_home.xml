@@ -12,12 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/toolbar"
-        app:itemIconTint="@color/drawer_item"
-        app:itemTextColor="@color/drawer_item"
         android:fontFamily="@font/lato"
-        app:menu="@menu/top_nav_menu"
         android:windowContentOverlay="@null"
-        >
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
+        app:menu="@menu/top_nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

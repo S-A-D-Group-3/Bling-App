@@ -10,4 +10,5 @@
     <gradient
         android:startColor="@color/chatbot_bubble"
         android:endColor="@color/chatbot_bubble"/>
+
 </shape>

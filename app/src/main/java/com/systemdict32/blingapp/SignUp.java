@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,24 +16,35 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+
+import java.util.HashMap;
+import java.util.Map;
 
 import es.dmoral.toasty.Toasty;
 
 public class SignUp extends AppCompatActivity {
 
+    private static final String TAG = SignUp.class.getSimpleName();
     //Variables natin
-    TextInputLayout regEmail, regPassword;
+    TextInputLayout regEmail, regPassword, regFname;
     Button goBack, regBtn, regToLoginBtn;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
+    FirebaseFirestore fStore;
+    String userID;
 
     @Override
 
@@ -44,10 +57,12 @@ public class SignUp extends AppCompatActivity {
 
         regEmail = findViewById(R.id.reg_email);
         regPassword = findViewById(R.id.reg_password);
+        regFname = findViewById(R.id.reg_fname);
         regBtn = findViewById(R.id.reg_btn);
         regToLoginBtn = findViewById(R.id.goback);
         progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +70,9 @@ public class SignUp extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 String sEmail = regEmail.getEditText().getText().toString().trim();
                 String sPass = regPassword.getEditText().getText().toString().trim();
+                String sFname = regFname.getEditText().getText().toString().trim();
 
-                if (sEmail.isEmpty() && sPass.isEmpty() || sEmail.isEmpty() || sPass.isEmpty()) {
+                if (sEmail.isEmpty() && sPass.isEmpty()  && sFname.isEmpty()|| sEmail.isEmpty() || sFname.isEmpty() || sPass.isEmpty()) {
                     Toasty.error(SignUp.this, "Please fill up the field(s)",
                             Toast.LENGTH_LONG, true).show();
                     progressBar.setVisibility(View.GONE);
@@ -76,8 +92,26 @@ public class SignUp extends AppCompatActivity {
                                                         if (task.isSuccessful()) {
                                                             Toasty.success(SignUp.this, "Registered successfully. Please check your email for verification",
                                                                     Toast.LENGTH_LONG, true).show();
+                                                            userID = firebaseAuth.getCurrentUser().getUid();
+                                                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                                                            Map<String, Object> user = new HashMap<>();
+                                                            user.put("user_FN", sFname);
+                                                            user.put("user_Email", sEmail);
+                                                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void aVoid) {
+                                                                    Log.d(TAG, "SUCCESS ON REGISTRATION FOR : " + userID);
+
+                                                                }
+                                                            }).addOnFailureListener(new OnFailureListener() {
+                                                                @Override
+                                                                public void onFailure(@NonNull Exception e) {
+                                                                    Log.d(TAG, "failed : " + e.toString());
+                                                                }
+                                                            });
                                                             regEmail.getEditText().setText("");
                                                             regPassword.getEditText().setText("");
+                                                            regFname.getEditText().setText("");
                                                             startActivity(new Intent(SignUp.this, Login.class));
                                                         } else {
                                                             Toasty.warning(SignUp.this, task.getException().getMessage(),

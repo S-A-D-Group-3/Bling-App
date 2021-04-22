@@ -26,7 +26,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.Dash;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.systemdict32.blingapp.Fragments.AboutFragment;
 import com.systemdict32.blingapp.Fragments.HelpFragment;
 import com.systemdict32.blingapp.Fragments.HomeFragment;
@@ -40,6 +46,9 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     Toolbar toolbar;
     FragmentManager fm;
     HomeFragment homeFragment;
+    FirebaseFirestore fStore;
+    FirebaseAuth firebaseAuth;
+    String fullName, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +75,24 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
+
+        // get data from firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        fullName = document.getString("user_FN");
+                        email = document.getString("user_Email");
+                    }
+                } else {
+
+                }
+            }
+        });
     }
 
     @Override
@@ -125,7 +152,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     public void showNotification(){
         StringBuffer buffer = new StringBuffer();
 
-        buffer.append("Name: " + "Jan Eleven\n");
+        buffer.append("Name: " + fullName + "\n");
         buffer.append("Address: " + "Marikina\n");
         buffer.append("Blood Type: " + "O+\n");
         buffer.append("ICE Name: " + "Wew\n");

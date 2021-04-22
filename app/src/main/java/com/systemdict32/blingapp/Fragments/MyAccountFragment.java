@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -103,11 +104,13 @@ public class MyAccountFragment extends Fragment implements Executor {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        fullname.setText(document.getString("user_FN"));
-                        email.setText(document.getString("user_Email"));
+                        if(document.getId().equals(userId)){
+                            fullname.setText(document.getString("user_FN"));
+                            email.setText(document.getString("user_Email"));
+                        }
                     }
                 } else {
-
+                    Toast.makeText(getActivity(), "failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });

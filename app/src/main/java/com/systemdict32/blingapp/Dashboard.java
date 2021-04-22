@@ -30,6 +30,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -48,7 +49,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     HomeFragment homeFragment;
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
-    String fullName, email;
+    String fullName, email, userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +80,17 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         // get data from firebase
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        userId = firebaseAuth.getCurrentUser().getUid();
 
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        fullName = document.getString("user_FN");
-                        email = document.getString("user_Email");
+                        if(document.getId().equals(userId)) {
+                            fullName = document.getString("user_FN");
+                            email = document.getString("user_Email");
+                        }
                     }
                 } else {
 
@@ -130,6 +134,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 Intent intentExit = new Intent(Dashboard.this, Login.class);
                 startActivity(intentExit);
                 System.exit(0);
+                firebaseAuth.getInstance().signOut();
                 break;
         }
 
@@ -153,6 +158,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         StringBuffer buffer = new StringBuffer();
 
         buffer.append("Name: " + fullName + "\n");
+        buffer.append("Email: " + email + "\n");
         buffer.append("Address: " + "Marikina\n");
         buffer.append("Blood Type: " + "O+\n");
         buffer.append("ICE Name: " + "Wew\n");

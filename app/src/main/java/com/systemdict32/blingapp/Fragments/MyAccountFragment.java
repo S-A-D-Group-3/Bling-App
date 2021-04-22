@@ -2,14 +2,25 @@ package com.systemdict32.blingapp.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.systemdict32.blingapp.R;
+
+import java.util.concurrent.Executor;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +28,15 @@ import com.systemdict32.blingapp.R;
  * create an instance of this fragment.
  */
 public class MyAccountFragment extends Fragment {
+
+
+
+    TextView fullname, email;
+    FirebaseFirestore fStore;
+    FirebaseAuth firebaseAuth;
+    ImageView picture;
+    String userId;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +72,27 @@ public class MyAccountFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = firebaseAuth.getCurrentUser().getUid();
+
+        DocumentReference documentReference = fStore.collection("users").document(userId);
+        documentReference.addSnapshotListener((Executor) this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                fullname.setText(documentSnapshot.getString("user_FN"));
+               email.setText(documentSnapshot.getString("user_Email"));
+
+            }
+        });
+
+
+
+
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -61,6 +102,11 @@ public class MyAccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        fullname  = (TextView) getView().findViewById(R.id.profile_fname);
+        email = (TextView) getView().findViewById(R.id.profile_email);
+        picture = (ImageView) getView().findViewById(R.id.profile_pic);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_account, container, false);
     }

@@ -30,6 +30,8 @@ import com.systemdict32.blingapp.R;
 
 import java.util.concurrent.Executor;
 
+import es.dmoral.toasty.Toasty;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MyAccountFragment#newInstance} factory method to
@@ -110,7 +112,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                         }
                     }
                 } else {
-                    Toast.makeText(getActivity(), "failed", Toast.LENGTH_SHORT).show();
+                    Toasty.error(getActivity(), "failed", Toast.LENGTH_SHORT, true).show();
                 }
             }
         });

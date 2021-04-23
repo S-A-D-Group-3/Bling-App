@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
-            android:background="@color/action_bar"
+            android:background="@drawable/profile_shapetopbg"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/open_sans"
-                android:text="full name"
+                android:text="-----"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
 
@@ -42,8 +42,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/open_sans"
-                android:text="EMAIL"
+                android:text="---"
                 android:textColor="@color/white" />
 
 

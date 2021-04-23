@@ -80,8 +80,13 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+
+                                    Toasty.success(Login.this, "Login success, welcome to Bling"
+                                            , Toast.LENGTH_LONG, true).show();
+
                                     if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                                         startActivity(new Intent(Login.this, Dashboard.class));
+
                                     } else {
                                         Toasty.info(Login.this, "Please verify it on your email address"
                                                 , Toast.LENGTH_LONG, true).show();

@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".Fragments.HomeFragment" >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_nav_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/toolbar"
+        android:layout_height="100dp"
+        android:background="@drawable/profile_shapetopbg"
         android:fontFamily="@font/lato"
         android:windowContentOverlay="@null"
         app:itemIconTint="@drawable/tab_color"
         app:itemTextColor="@drawable/tab_color"
+
         app:menu="@menu/top_nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

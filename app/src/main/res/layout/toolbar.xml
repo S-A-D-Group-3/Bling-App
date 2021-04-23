@@ -4,10 +4,17 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:title="@string/app_name"
+    android:textAlignment="center"
     android:background="@color/toolbar"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:navigationIcon="@drawable/ic_hamburger"
+    app:layout_collapseMode="none"
     >
+
+
+
+
 
 
 

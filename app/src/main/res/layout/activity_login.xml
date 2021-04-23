@@ -66,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:inputType="textEmailAddress"
                 android:textColor="#040000" />
 
 
@@ -123,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#0097e6"
+            android:background="@drawable/button_shape"
             android:elevation="0dp"
             android:fontFamily="@font/open_sans_extrabold"
             android:text="Log in"

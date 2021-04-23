@@ -9,6 +9,7 @@
     android:padding="20dp"
     tools:context=".SignUp">
 
+
     <ImageView
         android:id="@+id/logo_image"
         android:layout_width="80dp"
@@ -128,10 +129,11 @@
     <Button
         android:id="@+id/reg_btn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans_extrabold"
+        android:background="@drawable/button_shape"
         android:text="Sign Me Up"
         android:textColor="@color/white"
         android:transitionName="button_tran" />

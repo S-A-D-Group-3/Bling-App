@@ -1,5 +1,6 @@
 package com.systemdict32.blingapp;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.Dash;
@@ -53,6 +55,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
     String fullName, email, userId;
+    TextView tv_user_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,48 +63,53 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_dashboard);
 
 
+        homeFragment = new HomeFragment();
+        fm = getSupportFragmentManager();
 
-            homeFragment = new HomeFragment();
-            fm = getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.dashboard_fragment_container, homeFragment).addToBackStack("tag").commit();
 
-            fm.beginTransaction().add(R.id.dashboard_fragment_container, homeFragment).commit();
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_vieww);
+        toolbar = findViewById(R.id.toolbar);
 
-            drawerLayout = findViewById(R.id.drawer_layout);
-            navigationView = findViewById(R.id.nav_vieww);
-            toolbar = findViewById(R.id.toolbar);
+        View header = navigationView.getHeaderView(0);
 
-            /*----------toolbar TO PREEE------*/
-            setSupportActionBar(toolbar);
+        tv_user_name = header.findViewById(R.id.tv_user_name);
 
-            /*----------navi  drawer meenuu TO PREEE------*/
-            navigationView.bringToFront();
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-            drawerLayout.addDrawerListener(toggle);
-            toggle.syncState();
+        /*----------toolbar TO PREEE------*/
+        setSupportActionBar(toolbar);
 
-            navigationView.setNavigationItemSelectedListener(this);
-            navigationView.setCheckedItem(R.id.nav_home);
+        /*----------navi  drawer meenuu TO PREEE------*/
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
-            // get data from firebase
-            firebaseAuth = FirebaseAuth.getInstance();
-            fStore = FirebaseFirestore.getInstance();
-            userId = firebaseAuth.getCurrentUser().getUid();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
 
-            fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            if (document.getId().equals(userId)) {
-                                fullName = document.getString("user_FN");
-                                email = document.getString("user_Email");
-                            }
+        // get data from firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = firebaseAuth.getCurrentUser().getUid();
+
+        fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        if (document.getId().equals(userId)) {
+                            fullName = document.getString("user_FN");
+                            email = document.getString("user_Email");
+                            // set username on nav view
+                            tv_user_name.setText(fullName);
                         }
-                    } else {
-
                     }
+                } else {
+
                 }
-            });
+            }
+        });
 
         SharedPreferences preferences = getSharedPreferences("App", Context.MODE_PRIVATE);
 
@@ -135,129 +143,132 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             builder.setCancelable(false);
             builder.setMessage("User Check, Have you Logged-in?").setPositiveButton("Yes", dialogClickListener)
                     .setNegativeButton("No", dialogClickListener).show();
-           ;
+            ;
 
 
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        //switch to pre
+        Fragment selectedFragment = null;
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                selectedFragment = new HomeFragment();
+                break;
+            case R.id.nav_account:
+                selectedFragment = new MyAccountFragment();
+                break;
+
+            case R.id.nav_ice:
+                selectedFragment = new MyICEFragment();
+                break;
+
+            case R.id.nav_help:
+                selectedFragment = new HelpFragment();
+                break;
+
+            case R.id.nav_about:
+                selectedFragment = new AboutFragment();
+                break;
+
+            case R.id.nav_exitt:
+                SharedPreferences preferences = getSharedPreferences("App", Context.MODE_PRIVATE);
+                preferences.edit().putBoolean("isFirstRun", true).apply();
+                Intent intentExit = new Intent(Dashboard.this, Login.class);
+                startActivity(intentExit);
+                System.exit(0);
+                firebaseAuth.getInstance().signOut();
+                break;
         }
 
-        @Override
-        public void onClick (View v){
+        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).addToBackStack("tag").commit();
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
+    public void showMessage(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+
+    private static final String CHANNEL_ID = "notif";
+    NotificationCompat.Builder builder;
+
+    public void showNotification() {
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append("Name: " + fullName + "\n");
+        buffer.append("Email: " + email + "\n");
+        buffer.append("Address: " + "N/A\n");
+        buffer.append("Blood Type: " + "N/A+\n");
+        buffer.append("ICE Name: " + "N/A\n");
+        buffer.append("ICE Number: " + "N/A");
+
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "notification";
+            String description = "user notification";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
         }
 
-        @Override
-        public boolean onNavigationItemSelected (@NonNull MenuItem item){
-            //switch to pre
-            Fragment selectedFragment = null;
-            switch (item.getItemId()) {
-                case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.nav_account:
-                    selectedFragment = new MyAccountFragment();
-                    break;
-
-                case R.id.nav_ice:
-                    selectedFragment = new MyICEFragment();
-                    break;
-
-                case R.id.nav_help:
-                    selectedFragment = new HelpFragment();
-                    break;
-
-                case R.id.nav_about:
-                    selectedFragment = new AboutFragment();
-                    break;
-
-                case R.id.nav_exitt:
-                    SharedPreferences preferences = getSharedPreferences("App", Context.MODE_PRIVATE);
-                    preferences.edit().putBoolean("isFirstRun", true).apply();
-                    Intent intentExit = new Intent(Dashboard.this, Login.class);
-                    startActivity(intentExit);
-                    System.exit(0);
-                    firebaseAuth.getInstance().signOut();
-                    break;
-            }
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).commit();
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
-        }
-
-        public void showMessage (String title, String message){
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setCancelable(true);
-            builder.setTitle(title);
-            builder.setMessage(message);
-            builder.show();
-        }
-
-        private static final String CHANNEL_ID = "notif";
-        NotificationCompat.Builder builder;
-
-        public void showNotification () {
-            StringBuffer buffer = new StringBuffer();
-
-            buffer.append("Name: " + fullName + "\n");
-            buffer.append("Email: " + email + "\n");
-            buffer.append("Address: " + "N/A\n");
-            buffer.append("Blood Type: " + "N/A+\n");
-            buffer.append("ICE Name: " + "N/A\n");
-            buffer.append("ICE Number: " + "N/A");
-
-            // Create the NotificationChannel, but only on API 26+ because
-            // the NotificationChannel class is new and not in the support library
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                CharSequence name = "notification";
-                String description = "user notification";
-                int importance = NotificationManager.IMPORTANCE_HIGH;
-                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-                channel.setDescription(description);
-                // Register the channel with the system; you can't change the importance
-                // or other notification behaviors after this
-                NotificationManager notificationManager = getSystemService(NotificationManager.class);
-                notificationManager.createNotificationChannel(channel);
-            }
-
-            // Create an explicit intent for an Activity in your app
-            Intent intent = new Intent(this, Dashboard.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        // Create an explicit intent for an Activity in your app
+        Intent intent = new Intent(this, Dashboard.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
 
-            builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                    .setSmallIcon(R.drawable.logov2)
-                    .setContentTitle("In-case of Emergency")
-                    .setContentText("User Information")
-                    .setStyle(new NotificationCompat.BigTextStyle()
-                            .bigText(buffer.toString()))
-                    .setPriority(NotificationCompat.PRIORITY_MAX)
-                    // Set the intent that will fire when the user taps the notification
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true).setOngoing(true);
+        builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.logov2)
+                .setContentTitle("In-case of Emergency")
+                .setContentText("User Information")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(buffer.toString()))
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true).setOngoing(true);
 
-            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 //            builder.setVisibility(Notification.VISIBILITY_SECRET);
-            // notificationId is a unique int for each notification that you must define
-            notificationManager.notify(1, builder.build());
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, builder.build());
 
-        }
+    }
 
-        @Override
-        protected void onPause () {
-            super.onPause();
-            showNotification();
-        }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        showNotification();
+    }
 
-        @Override
-        protected void onDestroy () {
-            super.onDestroy();
-            showNotification();
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        showNotification();
+    }
 
     @Override
     public void onBackPressed() {
-       ////////
+        // working pero may bugs pa
+        getSupportFragmentManager().popBackStack();
     }
-    }
+
+
+}

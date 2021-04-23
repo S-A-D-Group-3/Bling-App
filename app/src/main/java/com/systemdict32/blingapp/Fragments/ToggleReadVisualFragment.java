@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
@@ -62,7 +63,7 @@ public class ToggleReadVisualFragment extends Fragment {
         }
     }
 
-    Button btn_view_visual, btn_view_reader;
+    TextView btn_view_visual, btn_view_reader;
     public ToggleReadVisualInterface toggleReadVisualInterface;
     boolean isReader = true;
     @Override
@@ -73,8 +74,6 @@ public class ToggleReadVisualFragment extends Fragment {
 
         btn_view_reader = view.findViewById(R.id.btn_view_reader);
         btn_view_visual = view.findViewById(R.id.btn_view_visual);
-
-
 
         toggleReadVisualInterface = (ToggleReadVisualInterface) getParentFragment();
 

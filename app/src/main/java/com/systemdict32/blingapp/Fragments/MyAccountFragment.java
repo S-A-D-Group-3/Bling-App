@@ -1,10 +1,8 @@
 package com.systemdict32.blingapp.Fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,24 +16,17 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.systemdict32.blingapp.R;
-
-import java.util.concurrent.Executor;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MyAccountFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MyAccountFragment extends Fragment implements Executor {
+public class MyAccountFragment extends Fragment {
 
 
     TextView fullname, email;
@@ -117,10 +108,5 @@ public class MyAccountFragment extends Fragment implements Executor {
 
         // Inflate the layout for this fragment
         return view;
-    }
-
-    @Override
-    public void execute(Runnable command) {
-
     }
 }

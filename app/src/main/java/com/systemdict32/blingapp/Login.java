@@ -45,6 +45,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+
         /*Hooks*/
         eml = findViewById(R.id.maill);
         pass = findViewById(R.id.pass_word);

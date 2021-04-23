@@ -34,8 +34,6 @@ public class LauncherActivity extends AppCompatActivity {
 
             //For Use of Login Checking, NOT USED.
 
-
-
            /**  SharedPreferences preferences1 = getSharedPreferences("prefs", Context.MODE_PRIVATE);
 
             // Get value from shared preferences,

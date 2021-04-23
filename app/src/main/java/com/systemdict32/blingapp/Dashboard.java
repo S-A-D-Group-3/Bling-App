@@ -18,14 +18,11 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
@@ -134,7 +131,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 Intent intentExit = new Intent(Dashboard.this, Login.class);
                 startActivity(intentExit);
                 System.exit(0);
-                firebaseAuth.getInstance().signOut();
+                notificationManager.cancel(CHANNEL_ID, 1);
                 break;
         }
 
@@ -153,6 +150,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
     private static final String CHANNEL_ID = "notif";
     NotificationCompat.Builder builder;
+    NotificationManagerCompat notificationManager;
 
     public void showNotification(){
         StringBuffer buffer = new StringBuffer();
@@ -195,7 +193,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true).setOngoing(true);
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager = NotificationManagerCompat.from(this);
 //            builder.setVisibility(Notification.VISIBILITY_SECRET);
         // notificationId is a unique int for each notification that you must define
         notificationManager.notify(1, builder.build());

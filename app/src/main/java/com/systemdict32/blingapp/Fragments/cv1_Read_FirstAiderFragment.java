@@ -81,6 +81,7 @@ public class cv1_Read_FirstAiderFragment extends Fragment implements FirstAidInt
         tv_bleeding_first_aid.setText(text);
     }
 
+    @Override
     public String getFirstAid() {
         return firstAidManual;
     }

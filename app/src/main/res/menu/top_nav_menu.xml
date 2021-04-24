@@ -4,7 +4,6 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_emergency"
-            android:checked="true"
             android:title="Nearest Emergencies"
             android:icon="@drawable/ic_emergency_call"
             />

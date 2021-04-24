@@ -20,9 +20,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -31,6 +34,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,6 +46,8 @@ import com.systemdict32.blingapp.Fragments.HelpFragment;
 import com.systemdict32.blingapp.Fragments.HomeFragment;
 import com.systemdict32.blingapp.Fragments.MyAccountFragment;
 import com.systemdict32.blingapp.Fragments.MyICEFragment;
+
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
@@ -56,23 +62,29 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     FirebaseAuth firebaseAuth;
     String fullName, email, userId;
     TextView tv_user_name;
+    BottomNavigationView top_nav_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        View home = inflater.inflate(R.layout.fragment_home, null);
         homeFragment = new HomeFragment();
         fm = getSupportFragmentManager();
 
-        fm.beginTransaction().add(R.id.dashboard_fragment_container, homeFragment).addToBackStack("tag").commit();
+        fm.beginTransaction().add(R.id.dashboard_fragment_container, homeFragment).addToBackStack("nav_home").commit();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_vieww);
         toolbar = findViewById(R.id.toolbar);
+        top_nav_view = home.findViewById(R.id.top_nav_view);
 
         View header = navigationView.getHeaderView(0);
+
+        top_nav_view.setSelectedItemId(R.id.nav_emergency);
 
         tv_user_name = header.findViewById(R.id.tv_user_name);
 
@@ -117,7 +129,6 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         // if null (app is run first time) the default value (second argument) is returned
         boolean isFIrstRun = preferences.getBoolean("isFirstRun", true);
 
-
         if (isFIrstRun) {
             // set isFirstRun to false
             DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -158,24 +169,30 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         //switch to pre
         Fragment selectedFragment = null;
+        String backstackName = null;
         switch (item.getItemId()) {
             case R.id.nav_home:
                 selectedFragment = new HomeFragment();
+                backstackName = "nav_home";
                 break;
             case R.id.nav_account:
                 selectedFragment = new MyAccountFragment();
+                backstackName = "nav_account";
                 break;
 
             case R.id.nav_ice:
                 selectedFragment = new MyICEFragment();
+                backstackName = "nav_ice";
                 break;
 
             case R.id.nav_help:
                 selectedFragment = new HelpFragment();
+                backstackName = "nav_help";
                 break;
 
             case R.id.nav_about:
                 selectedFragment = new AboutFragment();
+                backstackName = "nav_about";
                 break;
 
             case R.id.nav_exitt:
@@ -188,7 +205,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 break;
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).addToBackStack("tag").commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).addToBackStack(backstackName).commit();
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -266,9 +283,54 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onBackPressed() {
-        // working pero may bugs pa
-        getSupportFragmentManager().popBackStack();
+        // working pero may bugs pa -update--- working na, dun na lang sa paglipat between nearby emergency at instruction
+        int stackCount = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (stackCount < 2) {
+            System.exit(0);
+        } else {
+            getSupportFragmentManager().popBackStack();
+            FragmentManager.BackStackEntry backStackEntry = getSupportFragmentManager().getBackStackEntryAt(stackCount - 2);
+            highlightNavViewOnBackPressed(backStackEntry.getName());
+        }
     }
 
+    public void highlightNavViewOnBackPressed(String backStackName) {
+        // not working lods
+//        if(backStackName.equals("nav_emergency")){
+//            top_nav_view.setSelectedItemId(R.id.nav_emergency);
+//            navigationView.setCheckedItem(R.id.nav_home);
+//            top_nav_view.getMenu().getItem(0).setCheckable(true);
+//            Toast.makeText(this, "check mo yung putanginang emergency = ", Toast.LENGTH_SHORT).show();
+//
+//        }
+//
+//        if(backStackName.equals("nav_instruction") || backStackName.equals("nav_home")){
+//            top_nav_view.setSelectedItemId(R.id.top_nav_view);
+//            navigationView.setCheckedItem(R.id.nav_home);
+//        }
 
+        if (backStackName.equals("nav_home")) {
+            navigationView.setCheckedItem(R.id.nav_home);
+
+        }
+
+        if (backStackName.equals("nav_account")) {
+            navigationView.setCheckedItem(R.id.nav_account);
+        }
+
+        if (backStackName.equals("nav_ice")) {
+            navigationView.setCheckedItem(R.id.nav_ice);
+        }
+
+        if (backStackName.equals("nav_help")) {
+            navigationView.setCheckedItem(R.id.nav_help);
+        }
+
+        if (backStackName.equals("nav_about")) {
+            navigationView.setCheckedItem(R.id.nav_about);
+        }
+
+
+    }
 }

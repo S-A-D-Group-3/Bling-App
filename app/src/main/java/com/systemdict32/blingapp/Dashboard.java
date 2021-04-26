@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
@@ -51,7 +52,7 @@ import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
-public class Dashboard extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -80,7 +81,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_vieww);
         toolbar = findViewById(R.id.toolbar);
-        top_nav_view = home.findViewById(R.id.top_nav_view);
+        top_nav_view = (BottomNavigationView) home.findViewById(R.id.top_nav_view);
 
         View header = navigationView.getHeaderView(0);
 
@@ -154,20 +155,12 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             builder.setCancelable(false);
             builder.setMessage("User Check, Have you Logged-in?").setPositiveButton("Yes", dialogClickListener)
                     .setNegativeButton("No", dialogClickListener).show();
-            ;
-
-
         }
     }
 
     @Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        //switch to pre
+        // get home fragment
         Fragment selectedFragment = null;
         String backstackName = null;
         switch (item.getItemId()) {
@@ -204,8 +197,9 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 firebaseAuth.getInstance().signOut();
                 break;
         }
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment).addToBackStack(backstackName).commit();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
+        ft.addToBackStack(backstackName);
+        ft.commit();
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -283,7 +277,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onBackPressed() {
-        // working pero may bugs pa -update--- working na, dun na lang sa paglipat between nearby emergency at instruction
+        // working pero may bugs pa
+        // --update-- working na, pwera dun na lang sa paglipat between nearby emergency at instruction
         int stackCount = getSupportFragmentManager().getBackStackEntryCount();
 
         if (stackCount < 2) {
@@ -300,9 +295,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 //        if(backStackName.equals("nav_emergency")){
 //            top_nav_view.setSelectedItemId(R.id.nav_emergency);
 //            navigationView.setCheckedItem(R.id.nav_home);
-//            top_nav_view.getMenu().getItem(0).setCheckable(true);
-//            Toast.makeText(this, "check mo yung putanginang emergency = ", Toast.LENGTH_SHORT).show();
 //
+//            Toast.makeText(this, "" + String.valueOf(top_nav_view.getMenu().getItem(0).isChecked()), Toast.LENGTH_SHORT).show();
 //        }
 //
 //        if(backStackName.equals("nav_instruction") || backStackName.equals("nav_home")){

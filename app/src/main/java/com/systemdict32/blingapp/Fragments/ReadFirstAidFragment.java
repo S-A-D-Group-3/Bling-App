@@ -22,9 +22,12 @@ import android.widget.Toast;
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
+import com.systemdict32.blingapp.Login;
 import com.systemdict32.blingapp.R;
 
 import java.util.Locale;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -125,6 +128,9 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
             for (int i = 0; i < splitMessage.length; i++) {
                 TTS.speak(splitMessage[i], TextToSpeech.QUEUE_ADD, null, TextToSpeech.ACTION_TTS_QUEUE_PROCESSING_COMPLETED);
             }
+        } else {
+            Toasty.warning(getActivity(), "Text to Speech API is not supported."
+                    , Toast.LENGTH_LONG, true).show();
         }
     }
 
@@ -184,6 +190,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(Color.YELLOW);
         spannable.setSpan(textAppearanceSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannable.setSpan(backgroundColorSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         if(firstAidInterface.getClass().equals(cv1_Read_FirstAiderFragment.class)){
             ((cv1_Read_FirstAiderFragment) getParentFragment()).setFirstAidText(spannable);
 
@@ -204,12 +211,6 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 // if true make a toast saying TTS is not supported
                 Toast.makeText(getActivity(), "TTS language not supported", Toast.LENGTH_SHORT).show();
-            } else {
-                // if false launch a welcome message to the user
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                        String message = "Hi, I'm Bling App.";
-//                        TTS.speak(message, TextToSpeech.QUEUE_FLUSH, null, TextToSpeech.ACTION_TTS_QUEUE_PROCESSING_COMPLETED);
-                }
             }
         } else {
             Toast.makeText(getActivity(), "TTS initialization failed.", Toast.LENGTH_SHORT).show();

@@ -221,7 +221,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         buffer.append("Name: " + fullName + "\n");
         buffer.append("Email: " + email + "\n");
         buffer.append("Address: " + "N/A\n");
-        buffer.append("Blood Type: " + "N/A+\n");
+        buffer.append("Blood Type: " + "N/A+ " +"\n");
         buffer.append("ICE Name: " + "N/A\n");
         buffer.append("ICE Number: " + "N/A");
 

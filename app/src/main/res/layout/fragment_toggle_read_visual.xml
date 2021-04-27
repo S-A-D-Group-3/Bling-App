@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     tools:context=".Fragments.ToggleReadVisualFragment">
+
 
     <TextView
         android:id="@+id/btn_view_reader"
@@ -11,11 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="false"
         android:layout_marginLeft="10dp"
-        android:background="@color/white"
+        android:background="@drawable/toggleread_shape"
         android:fontFamily="@font/lato"
         android:padding="5dp"
-        android:text="&lt;- View Reader"
-        android:textColor="@color/action_bar"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="View Reader"
+        android:textColor="@color/white"
         android:textSize="16dp"
         android:visibility="gone" />
 
@@ -24,11 +28,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
         android:layout_marginRight="10dp"
-        android:background="@color/white"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/togglereadvis_shape"
         android:fontFamily="@font/lato"
         android:padding="5dp"
-        android:text="View Visual ->"
-        android:textColor="@color/action_bar"
+        android:text="View Visual"
+        android:textColor="@color/white"
         android:textSize="16dp" />
+
+
 </RelativeLayout>

@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.systemdict32.blingapp.Fragments.InstructionFragment;
 import com.systemdict32.blingapp.R;
+import com.systemdict32.blingapp.Fragments.SubCategories.cv2_1_TrafficAccidentsFragment;
 
 import java.util.ArrayList;
 
@@ -90,9 +91,8 @@ public class cv2_IncidentsFragment extends Fragment {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-                        InstructionFragment instruction = new InstructionFragment();
-                        ft.replace(R.id.home_fragment_container, instruction);
-//                    ft.addToBackStack("nav_instruction");
+                        cv2_1_TrafficAccidentsFragment fragment = new cv2_1_TrafficAccidentsFragment();
+                        ft.replace(R.id.home_fragment_container, fragment);
                         ft.commit();
                         break;
                 }

@@ -168,6 +168,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     public void onDismiss(DialogInterface dialogInterface) {
                                     }
                                 });
+
                                 Uri imgUri = Uri.parse("android.resource://com.systemdict32.blingapp/drawable/default_user");
                                  picture = new ImageView(getActivity());
                                picture.setImageURI(imgUri);
@@ -251,7 +252,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                 fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+
                         Picasso.get().load(uri).into(picture);
+                        String bitch = fileReference.getDownloadUrl().toString();
                     }
                 });
 

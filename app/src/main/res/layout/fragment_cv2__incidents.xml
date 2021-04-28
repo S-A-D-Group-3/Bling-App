@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.cv2_IncidentsFragment">
+    tools:context=".Fragments.Categories.cv2_IncidentsFragment">
 
     <TextView
         android:id="@+id/textView4"
@@ -13,5 +13,12 @@
         android:gravity="center"
         android:text="incidents"
         android:textSize="30dp" />
+
+    <ListView
+        android:id="@+id/lv_incident_list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+
 
 </LinearLayout>

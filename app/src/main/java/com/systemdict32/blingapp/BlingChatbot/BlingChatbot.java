@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.systemdict32.blingapp.Fragments.HomeFragment;
 import com.systemdict32.blingapp.Fragments.ReadFirstAidFragment;
-import com.systemdict32.blingapp.Fragments.cv2_IncidentsFragment;
+import com.systemdict32.blingapp.Fragments.Categories.cv2_IncidentsFragment;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.Fragments.cv1_FirstAiderFragment;
 

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.systemdict32.blingapp.Fragments.Categories.cv2_IncidentsFragment;
 import com.systemdict32.blingapp.R;
 
 /**

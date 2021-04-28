@@ -1,4 +1,4 @@
-package com.systemdict32.blingapp.Fragments;
+package com.systemdict32.blingapp.Fragments.Categories;
 
 import android.os.Bundle;
 
@@ -8,8 +8,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.InstructionFragment;
 import com.systemdict32.blingapp.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,12 +64,42 @@ public class cv2_IncidentsFragment extends Fragment {
         }
     }
 
+    ListView lv_incident_list;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cv2__incidents, container, false);
 
+        lv_incident_list = (ListView) view.findViewById(R.id.lv_incident_list);
+
+        ArrayList<String> incidentList = new ArrayList<>();
+
+        incidentList.add("1. Traffic Accidents");
+        incidentList.add("2. Bleeding");
+        incidentList.add("3. Heart Attack");
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, incidentList);
+
+        lv_incident_list.setAdapter(arrayAdapter);
+
+        lv_incident_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                switch (position) {
+                    case 0:
+                        InstructionFragment instruction = new InstructionFragment();
+                        ft.replace(R.id.home_fragment_container, instruction);
+//                    ft.addToBackStack("nav_instruction");
+                        ft.commit();
+                        break;
+                }
+            }
+        });
+
         return view;
     }
+
 }

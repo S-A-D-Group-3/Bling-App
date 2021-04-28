@@ -1,11 +1,16 @@
 package com.systemdict32.blingapp.Fragments;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -13,8 +18,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,8 +57,13 @@ import com.squareup.picasso.Picasso;
 import com.systemdict32.blingapp.Dashboard;
 import com.systemdict32.blingapp.Login;
 import com.systemdict32.blingapp.R;
+import com.systemdict32.blingapp.SignUp;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.Executor;
 
 import es.dmoral.toasty.Toasty;
@@ -62,6 +76,9 @@ import es.dmoral.toasty.Toasty;
 public class MyAccountFragment extends Fragment implements Executor {
 
 
+    public static final int CAMERA_PERM_CODE = 101;
+    public static final int CAMERA_REQUEST_CODE = 102;
+    String currentPhotoPath;
     TextView fullname, email;
     Button dismiss;
     FirebaseFirestore fStore;
@@ -168,7 +185,6 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     public void onDismiss(DialogInterface dialogInterface) {
                                     }
                                 });
-
                                 Uri imgUri = Uri.parse("android.resource://com.systemdict32.blingapp/drawable/default_user");
                                  picture = new ImageView(getActivity());
                                picture.setImageURI(imgUri);
@@ -184,17 +200,19 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     public void onClick(DialogInterface dialog, int which) {
                                         switch (which) {
                                             case DialogInterface.BUTTON_POSITIVE:
+                                                useCameraPermission();
+                                               dispatchTakePictureIntent();
                                                 break;
 
                                             case DialogInterface.BUTTON_NEGATIVE:
                                                 Intent openFiles = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                                 startActivityForResult(openFiles, 1000);
-
-
                                                 break;
                                         }
                                     }
                                 };
+
+
 
 
 
@@ -203,7 +221,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 builder2.setCancelable(false);
                                 builder2.setMessage("Set Profile Photo").setPositiveButton("Use Camera", dialogClickListener)
                                         .setNegativeButton("Choose from Files", dialogClickListener).show();
-                                break;
+
                         }
                     }
                 };
@@ -226,14 +244,93 @@ public class MyAccountFragment extends Fragment implements Executor {
         return view;
     }
 
+    private void useCameraPermission() {
+        if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.CAMERA}, CAMERA_PERM_CODE);
+        }else {
+           dispatchTakePictureIntent();
+        }
+
+
+
+
+
+    }//
+
+
+
+  protected void onActivityResultt(int requestCode, int resultCode, @Nullable Intent data){
+    if(requestCode == CAMERA_REQUEST_CODE){
+        if(resultCode== Activity.RESULT_OK){
+
+            File f = new File(currentPhotoPath);
+            picture.setImageURI(Uri.fromFile(f));
+        }
+    }
+  }
+
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+//    File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",   /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(getActivity(),
+                        "com.systemdict32.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                getActivity().startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
+            }
+        }
+    }
+
+    public void onRequestPermissionResult(int requestCode,  @NonNull String[] permissions, @NonNull int[] grantResults){
+       if(requestCode == CAMERA_PERM_CODE){
+           if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+          dispatchTakePictureIntent();
+           }else{
+               Toasty.error(getActivity(), "Camera Permission Denied",
+                       Toast.LENGTH_LONG, true).show();
+           }
+       }
+
+    }
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data){
         MyAccountFragment.super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1000) {
             if(resultCode == Activity.RESULT_OK) {
-
+                String test1;
                 Uri imgUri = data.getData();
-               // picture.setImageURI(imgUri);
+                // picture.setImageURI(imgUri);
                 uploadImageToFirebase(imgUri);
 
 

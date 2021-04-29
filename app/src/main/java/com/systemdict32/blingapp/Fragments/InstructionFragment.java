@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.systemdict32.blingapp.Fragments.Categories.c1_RespiratoryProblemFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
 import com.systemdict32.blingapp.Fragments.Categories.cv2_IncidentsFragment;
+
 import com.systemdict32.blingapp.R;
 
 /**
@@ -98,7 +101,7 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v.getId() == cv_1.getId()) {
-            cv1_FirstAiderFragment cv1 = new cv1_FirstAiderFragment();
+            c1_RespiratoryProblemFragment cv1 = new c1_RespiratoryProblemFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv1);
             ft.commit();
@@ -110,7 +113,10 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             ft.commit();
         }
         if (v.getId() == cv_3.getId()) {
-
+            c3_BodyInjuriesFragment cv3 = new c3_BodyInjuriesFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv3);
+            ft.commit();
         }
         if (v.getId() == cv_4.getId()) {
 

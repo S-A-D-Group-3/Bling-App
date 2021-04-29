@@ -21,6 +21,16 @@ import android.widget.Toast;
 
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_10_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_6_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_7_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_8_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_9_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.cv2_1_ReadFragment;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.Login;
@@ -205,8 +215,8 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
 //            }
 
 //            endPos = punctuationFinder(fullText);
-            if (endPos == -1) {
-                endPos = fullText.indexOf(". ", startPos);
+            if (commaPos == -1) {
+                endPos = fullText.length();
             }
         }
 
@@ -219,12 +229,40 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
 
         if (firstAidInterface.getClass().equals(cv1_Read_FirstAiderFragment.class)) {
             ((cv1_Read_FirstAiderFragment) getParentFragment()).setFirstAidText(spannable);
-
         }
         if (firstAidInterface.getClass().equals(cv2_1_ReadFragment.class)) {
             ((cv2_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }
-
+        if (firstAidInterface.getClass().equals(c3_1_ReadFragment.class)) {
+            ((c3_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_2_ReadFragment.class)) {
+            ((c3_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_3_ReadFragment.class)) {
+            ((c3_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_4_ReadFragment.class)) {
+            ((c3_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_5_ReadFragment.class)) {
+            ((c3_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_6_ReadFragment.class)) {
+            ((c3_6_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_7_ReadFragment.class)) {
+            ((c3_7_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_8_ReadFragment.class)) {
+            ((c3_8_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_9_ReadFragment.class)) {
+            ((c3_9_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_10_ReadFragment.class)) {
+            ((c3_10_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
     }
 
     @Override

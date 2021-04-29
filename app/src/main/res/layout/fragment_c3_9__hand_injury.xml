@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.SubCategories.cv2_1_TrafficAccidentsFragment" >
+    tools:context=".Fragments.SubCategories.c3_9_HandInjuryFragment" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center|center_vertical"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -37,7 +36,7 @@
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/lato_bold"
                     android:gravity="center"
-                    android:text="Traffic Accidents"
+                    android:text="Hand Injury"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
 

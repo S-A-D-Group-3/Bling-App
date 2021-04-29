@@ -8,17 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.cv2_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.cv2_1_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_3_VisualFragment;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link cv2_1_TrafficAccidentsFragment#newInstance} factory method to
+ * Use the {@link c3_3_ElbowInjuryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class cv2_1_TrafficAccidentsFragment extends Fragment implements ToggleReadVisualInterface {
+public class c3_3_ElbowInjuryFragment extends Fragment implements ToggleReadVisualInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,7 @@ public class cv2_1_TrafficAccidentsFragment extends Fragment implements ToggleRe
     private String mParam1;
     private String mParam2;
 
-    public cv2_1_TrafficAccidentsFragment() {
+    public c3_3_ElbowInjuryFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class cv2_1_TrafficAccidentsFragment extends Fragment implements ToggleRe
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment cv2_1_TrafficAccidentsFragment.
+     * @return A new instance of fragment c3_3_ElbowInjuryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static cv2_1_TrafficAccidentsFragment newInstance(String param1, String param2) {
-        cv2_1_TrafficAccidentsFragment fragment = new cv2_1_TrafficAccidentsFragment();
+    public static c3_3_ElbowInjuryFragment newInstance(String param1, String param2) {
+        c3_3_ElbowInjuryFragment fragment = new c3_3_ElbowInjuryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,17 +64,16 @@ public class cv2_1_TrafficAccidentsFragment extends Fragment implements ToggleRe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_cv2_1__traffic_accidents, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_c3_3__elbow_injury, container, false);
     }
 
     @Override
     public Fragment getVisualFragment() {
-        return new cv2_1_VisualFragment();
+        return new c3_3_VisualFragment();
     }
 
     @Override
     public Fragment getReadFragment() {
-        return new cv2_1_ReadFragment();
+        return new c3_3_ReadFragment();
     }
 }

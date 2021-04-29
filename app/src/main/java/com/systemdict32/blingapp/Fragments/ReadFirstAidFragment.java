@@ -21,11 +21,24 @@ import android.widget.Toast;
 
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_10_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_6_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_7_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_8_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_9_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.cv2_1_ReadFragment;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.Login;
 import com.systemdict32.blingapp.R;
 
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import es.dmoral.toasty.Toasty;
 
@@ -107,10 +120,10 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         iv_cancel_read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                highlightWordCounter=-1;
-                highlightTextPart(highlightWordCounter, "\\. ");
+                highlightWordCounter = -1;
+                highlightTextPart(highlightWordCounter, "\\, |\\. |\\; |\\: ");
                 TTS.stop();
-                if(TTS.STOPPED == -2){
+                if (TTS.STOPPED == -2) {
                     iv_read_first_aid.setVisibility(View.VISIBLE);
                     iv_cancel_read.setVisibility(View.GONE);
                 }
@@ -122,9 +135,9 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
     public void readFirstAid() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             String message = firstAidInterface.getFirstAid();
-            String[] splitMessage = message.split("\\. ");
+            String[] splitMessage = message.split("\\, |\\. |\\; |\\: ");
             TTSProgressListener();
-            highlightWordCounter=0;
+            highlightWordCounter = 0;
             for (int i = 0; i < splitMessage.length; i++) {
                 TTS.speak(splitMessage[i], TextToSpeech.QUEUE_ADD, null, TextToSpeech.ACTION_TTS_QUEUE_PROCESSING_COMPLETED);
             }
@@ -135,6 +148,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
     }
 
     int highlightWordCounter = 0;
+
     public void TTSProgressListener() {
         TTS.setOnUtteranceProgressListener(new UtteranceProgressListener() {
             @Override
@@ -142,7 +156,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        highlightTextPart(highlightWordCounter, "\\. ");
+                        highlightTextPart(highlightWordCounter, "\\, |\\. |\\; |\\: ");
                         highlightWordCounter++;
                         iv_cancel_read.setVisibility(View.VISIBLE);
                         iv_read_first_aid.setVisibility(View.GONE);
@@ -178,12 +192,34 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
         if (textParts.length > 1) {
             startPos = fullText.indexOf(textParts[index]);
-            endPos = fullText.indexOf(". ", startPos);
 
-            if (endPos == -1) {
+            int commaPos = fullText.indexOf(",", startPos);
+            int dotPos = fullText.indexOf(".", startPos);
+//            int colonPos = fullText.indexOf(":", startPos);
+//            int semiColonPos = fullText.indexOf(";", startPos);
+
+            if (commaPos < dotPos) {
+                endPos = commaPos;
+            } else {
+                endPos = dotPos;
+            }
+            // working but may bug
+//            if(commaPos < dotPos && commaPos < colonPos && commaPos < semiColonPos) {
+//                endPos = commaPos;
+//            } else if (dotPos < commaPos && dotPos < colonPos && dotPos < semiColonPos) {
+//                endPos = dotPos;
+//            } else if (colonPos < commaPos && colonPos < dotPos && colonPos < semiColonPos)
+//                endPos = colonPos;
+//            else {
+//                endPos = semiColonPos;
+//            }
+
+//            endPos = punctuationFinder(fullText);
+            if (commaPos == -1) {
                 endPos = fullText.length();
             }
         }
+
         Spannable spannable = new SpannableString(fullText);
 //        ColorStateList blueColor = new ColorStateList(new int[][]{new int[]{}}, new int[]{Color.BLUE}); -- changes text color
         TextAppearanceSpan textAppearanceSpan = new TextAppearanceSpan(null, -1, -1, null, null);
@@ -191,14 +227,42 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         spannable.setSpan(textAppearanceSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannable.setSpan(backgroundColorSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        if(firstAidInterface.getClass().equals(cv1_Read_FirstAiderFragment.class)){
+        if (firstAidInterface.getClass().equals(cv1_Read_FirstAiderFragment.class)) {
             ((cv1_Read_FirstAiderFragment) getParentFragment()).setFirstAidText(spannable);
-
         }
-//        if(firstAidInterface.getClass().equals(BleedingActivity.class)){
-//            ((BleedingActivity) getActivity()).setFirstAidText(spannable);
-//        }
-
+        if (firstAidInterface.getClass().equals(cv2_1_ReadFragment.class)) {
+            ((cv2_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_1_ReadFragment.class)) {
+            ((c3_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_2_ReadFragment.class)) {
+            ((c3_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_3_ReadFragment.class)) {
+            ((c3_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_4_ReadFragment.class)) {
+            ((c3_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_5_ReadFragment.class)) {
+            ((c3_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_6_ReadFragment.class)) {
+            ((c3_6_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_7_ReadFragment.class)) {
+            ((c3_7_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_8_ReadFragment.class)) {
+            ((c3_8_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_9_ReadFragment.class)) {
+            ((c3_9_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c3_10_ReadFragment.class)) {
+            ((c3_10_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
     }
 
     @Override

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Fragments.InstructionFragment">
 
     <ScrollView
@@ -21,10 +22,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/lato_bold"
                 android:gravity="center"
                 android:text="Instructions"
                 android:textColor="@color/black"
-                android:fontFamily="@font/lato_bold"
                 android:textSize="25sp" />
 
             <GridLayout
@@ -62,7 +63,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="First Aider"
+                            android:text="Respiratory Problem"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -139,7 +140,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Assess\nCasualty"
+                            android:text="Body Injuries"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -508,4 +509,4 @@
 
 
     </ScrollView>
-</FrameLayout>
+</LinearLayout>

@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -198,10 +200,21 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        switch (which) {
+                                        switch(which) {
                                             case DialogInterface.BUTTON_POSITIVE:
+
+                                            // ONSE DITO NEED GUMAWA NG PERMISSION SA WRITE_EXTERNAL (STORAGE)
+
+                                           // case DialogInterface.BUTTON_POSITIVE:
+                                            //    if(ActivityCompat.checkSelfPermission(getContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                            //        requestPermissions(getActivity(),
+                                           //                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                             //               REQUEST_LOCATION);
+                                             //   } else {
+
                                                 useCameraPermission();
-                                               dispatchTakePictureIntent();
+                                              //  }
+                                               //dispatchTakePictureIntent();
                                                 break;
 
                                             case DialogInterface.BUTTON_NEGATIVE:
@@ -245,8 +258,8 @@ public class MyAccountFragment extends Fragment implements Executor {
     }
 
     private void useCameraPermission() {
-        if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.CAMERA}, CAMERA_PERM_CODE);
+        if(ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(),new String[] {Manifest.permission.CAMERA}, CAMERA_PERM_CODE);
         }else {
            dispatchTakePictureIntent();
         }
@@ -272,20 +285,23 @@ public class MyAccountFragment extends Fragment implements Executor {
 
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-//    File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",   /* suffix */
-                storageDir      /* directory */
-        );
 
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            String imageFileName = "JPEG_" + timeStamp + "_";
+            //  File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+            File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            File image = File.createTempFile(
+                    imageFileName,  /* prefix */
+                    ".jpg",   /* suffix */
+                    storageDir      /* directory */
+            );
+
+            // Save a file: path for use with ACTION_VIEW intents
+            currentPhotoPath = image.getAbsolutePath();
+            return image;
+        }
+
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -296,13 +312,12 @@ public class MyAccountFragment extends Fragment implements Executor {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
+              //
 
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(getActivity(),
-                        "com.systemdict32.android.fileprovider",
-                        photoFile);
+                Uri photoURI = FileProvider.getUriForFile(getActivity(), "com.systemdict32.android.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 getActivity().startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
             }

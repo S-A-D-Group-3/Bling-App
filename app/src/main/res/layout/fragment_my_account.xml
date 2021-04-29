@@ -23,7 +23,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/default_user" />
 
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
                 android:fontFamily="@font/open_sans"
-                android:text="-----"
+                android:text="Loading"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
 
@@ -44,7 +44,7 @@
                 android:layout_marginTop="9dp"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/open_sans"
-                android:text="---"
+                android:text=""
                 android:textColor="@color/white" />
 
 

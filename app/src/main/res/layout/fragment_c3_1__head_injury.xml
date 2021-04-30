@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center|center_vertical"
-        android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -25,6 +24,7 @@
                 <fragment
                     android:id="@+id/fragment8"
                     android:name="com.systemdict32.blingapp.Fragments.ToggleReadVisualFragment"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

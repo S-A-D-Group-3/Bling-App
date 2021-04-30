@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments.Categories;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_1_BlistersFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_10_EmergencyChildbirthFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_1_StrokeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_2_DrowningFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_3_HeatStrokeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_4_HeartAttackFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_5_ElectricIncidentFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_6_ElectricBurnFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_7_ChemicalBurnFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_8_SeizuresInAdultFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_9_SeizuresInChildrenFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;
@@ -77,11 +89,12 @@ public class c5_SeriousIncidentsFragment extends Fragment {
         woundsList.add("2. Drowning");
         woundsList.add("3. Heat Stroke");
         woundsList.add("4. Heart Attack");
-        woundsList.add("5. Electrecution");
-        woundsList.add("6. Epileptic Seizure");
-        woundsList.add("7. Seizures in Adults");
-        woundsList.add("8. Seizures in Children");
-        woundsList.add("9. Emergency Childbirth");
+        woundsList.add("5. Electrical Incident");
+        woundsList.add("6. Electrical Burn");
+        woundsList.add("7. Chemical Burn");
+        woundsList.add("8. Seizures in Adults");
+        woundsList.add("9. Seizures in Children");
+        woundsList.add("10. Emergency Childbirth");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, woundsList);
 
@@ -90,33 +103,57 @@ public class c5_SeriousIncidentsFragment extends Fragment {
         lv_serious_incidents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-
+                        c5_1_StrokeFragment c5_1_strokeFragment = new c5_1_StrokeFragment();
+                        ft.replace(R.id.home_fragment_container, c5_1_strokeFragment);
+                        ft.commit();
                         break;
                     case 1:
-
+                        c5_2_DrowningFragment c5_2_drowningFragment = new c5_2_DrowningFragment();
+                        ft.replace(R.id.home_fragment_container, c5_2_drowningFragment);
+                        ft.commit();
                         break;
                     case 2:
-
+                        c5_3_HeatStrokeFragment c5_3_heatStrokeFragment = new c5_3_HeatStrokeFragment();
+                        ft.replace(R.id.home_fragment_container, c5_3_heatStrokeFragment);
+                        ft.commit();
                         break;
                     case 3:
-
+                        c5_4_HeartAttackFragment c5_4_heartAttackFragment = new c5_4_HeartAttackFragment();
+                        ft.replace(R.id.home_fragment_container, c5_4_heartAttackFragment);
+                        ft.commit();
                         break;
                     case 4:
-
+                        c5_5_ElectricIncidentFragment c5_5_electricIncidentFragment = new c5_5_ElectricIncidentFragment();
+                        ft.replace(R.id.home_fragment_container, c5_5_electricIncidentFragment);
+                        ft.commit();
                         break;
                     case 5:
-
+                        c5_6_ElectricBurnFragment c5_6_electricBurnFragment = new c5_6_ElectricBurnFragment();
+                        ft.replace(R.id.home_fragment_container, c5_6_electricBurnFragment);
+                        ft.commit();
                         break;
                     case 6:
-
+                        c5_7_ChemicalBurnFragment c5_7_chemicalBurnFragment = new c5_7_ChemicalBurnFragment();
+                        ft.replace(R.id.home_fragment_container, c5_7_chemicalBurnFragment);
+                        ft.commit();
                         break;
                     case 7:
-
+                        c5_8_SeizuresInAdultFragment c5_8_seizuresInAdultFragment = new c5_8_SeizuresInAdultFragment();
+                        ft.replace(R.id.home_fragment_container, c5_8_seizuresInAdultFragment);
+                        ft.commit();
                         break;
                     case 8:
-
+                        c5_9_SeizuresInChildrenFragment c5_9_seizuresInChildrenFragment = new c5_9_SeizuresInChildrenFragment();
+                        ft.replace(R.id.home_fragment_container, c5_9_seizuresInChildrenFragment);
+                        ft.commit();
+                        break;
+                    case 9:
+                        c5_10_EmergencyChildbirthFragment c5_10_emergencyChildbirthFragment = new c5_10_EmergencyChildbirthFragment();
+                        ft.replace(R.id.home_fragment_container, c5_10_emergencyChildbirthFragment);
+                        ft.commit();
                         break;
                 }
             }

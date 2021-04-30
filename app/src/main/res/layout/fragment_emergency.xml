@@ -18,8 +18,10 @@
             android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
             android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/fragment_emergency_topshapebg"
             android:orientation="vertical">
 
@@ -28,8 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:gravity="center"
                 android:text="Nearest Services"
                 android:textColor="@color/white"

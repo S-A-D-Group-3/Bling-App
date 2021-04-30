@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.nfc.Tag;
@@ -23,6 +24,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
@@ -57,6 +60,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.systemdict32.blingapp.Dashboard;
 import com.systemdict32.blingapp.Login;
@@ -155,8 +159,22 @@ public class MyAccountFragment extends Fragment implements Executor {
         profileRefence.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(picture);
-                 get = uri.toString();
+                Picasso.get().load(uri).resize(100, 100).centerCrop().into(picture, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Bitmap imageBitmap = ((BitmapDrawable) picture.getDrawable()).getBitmap();
+                        RoundedBitmapDrawable imageDrawable = RoundedBitmapDrawableFactory.create(getResources(), imageBitmap);
+                        imageDrawable.setCircular(true);
+                        imageDrawable.setCornerRadius(Math.max(imageBitmap.getWidth(), imageBitmap.getHeight()) / 2.0f);
+                        picture.setImageDrawable(imageDrawable);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+
+                });
             }
         });
         fStore = FirebaseFirestore.getInstance();
@@ -213,9 +231,10 @@ public class MyAccountFragment extends Fragment implements Executor {
 
 
 
-                                AlertDialog.Builder builder2 = new AlertDialog.Builder(getActivity());
+                                AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
                                 builder2.create();
-                                builder2.setCancelable(false);
+                                builder2.setCancelable(true);
+                                builder2.setIcon(R.drawable.logov2);
                                 builder2.setMessage("Set Profile Photo").setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Choose from Files", dialogClickListener).show();
 
@@ -223,9 +242,10 @@ public class MyAccountFragment extends Fragment implements Executor {
                     }
                 };
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.create();
-                builder.setCancelable(false);
+                builder.setCancelable(true);
+                builder.setIcon(R.drawable.logov2);
                 builder.setMessage("Profile Photo Options").setPositiveButton("Go back", dialogClickListener)
                         .setNegativeButton("Update", dialogClickListener).show();
 
@@ -274,7 +294,22 @@ public class MyAccountFragment extends Fragment implements Executor {
                     @Override
                     public void onSuccess(Uri uri) {
 
-                        Picasso.get().load(uri).into(picture);
+                        Picasso.get().load(uri).resize(100, 100).centerCrop().into(picture, new Callback() {
+                            @Override
+                            public void onSuccess() {
+                                Bitmap imageBitmap = ((BitmapDrawable) picture.getDrawable()).getBitmap();
+                                RoundedBitmapDrawable imageDrawable = RoundedBitmapDrawableFactory.create(getResources(), imageBitmap);
+                                imageDrawable.setCircular(true);
+                                imageDrawable.setCornerRadius(Math.max(imageBitmap.getWidth(), imageBitmap.getHeight()) / 2.0f);
+                                picture.setImageDrawable(imageDrawable);
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+
+                            }
+
+                        });
                     }
                 });
 

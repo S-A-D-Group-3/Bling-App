@@ -130,7 +130,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             Toasty.info(getActivity(), "getLocation: " + String.valueOf(mLocation.getLatitude())
                     + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT, true).show();
         } catch (Exception e) {
-            Toasty.warning(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT, true).show();
+            Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
+                    Toast.LENGTH_LONG, true).show();
         }
     }
 
@@ -170,8 +171,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-        Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
-                Toast.LENGTH_LONG, true).show();
+//        Toasty.warning(getActivity(), "Google Map will not work with your location turned off!",
+//                Toast.LENGTH_LONG, true).show();
     }
 
     @Override

@@ -31,14 +31,10 @@ import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_6_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_7_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_8_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.cv2_1_ReadFragment;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
-import com.systemdict32.blingapp.Login;
 import com.systemdict32.blingapp.R;
 
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import es.dmoral.toasty.Toasty;
 
@@ -227,12 +223,6 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         spannable.setSpan(textAppearanceSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannable.setSpan(backgroundColorSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        if (firstAidInterface.getClass().equals(cv1_Read_FirstAiderFragment.class)) {
-            ((cv1_Read_FirstAiderFragment) getParentFragment()).setFirstAidText(spannable);
-        }
-        if (firstAidInterface.getClass().equals(cv2_1_ReadFragment.class)) {
-            ((cv2_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
-        }
         if (firstAidInterface.getClass().equals(c3_1_ReadFragment.class)) {
             ((c3_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }

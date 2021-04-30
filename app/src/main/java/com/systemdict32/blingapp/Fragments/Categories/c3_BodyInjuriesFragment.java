@@ -22,7 +22,6 @@ import com.systemdict32.blingapp.Fragments.SubCategories.c3_6_AnkleInjuryFragmen
 import com.systemdict32.blingapp.Fragments.SubCategories.c3_7_NoseInjuryFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c3_8_FacialInjuryFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c3_9_HandInjuryFragment;
-import com.systemdict32.blingapp.Fragments.SubCategories.cv2_1_TrafficAccidentsFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;

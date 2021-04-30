@@ -4,21 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.Categories.cv2_IncidentsFragment">
+    tools:context=".Fragments.Categories.c6_CarAccidentFragment">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/lato_bold"
         android:gravity="center"
-        android:text="incidents"
-        android:textSize="30dp" />
+        android:text="Car Accident"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
     <ListView
-        android:id="@+id/lv_incident_list"
+        android:id="@+id/lv_car_accident"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/lato"
         />
-
-
 </LinearLayout>
+

@@ -109,7 +109,7 @@
                             android:layout_below="@id/num_two"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="Incidents"
+                            android:text="Wounds"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -148,7 +148,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Body Injuries"
+                            android:text="Body Injuries\n"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -187,7 +187,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Unconscious\nCasualty"
+                            android:text="Severe Wounds"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 

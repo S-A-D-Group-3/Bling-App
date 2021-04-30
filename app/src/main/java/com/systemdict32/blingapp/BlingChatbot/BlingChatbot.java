@@ -12,9 +12,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.systemdict32.blingapp.Fragments.HomeFragment;
 import com.systemdict32.blingapp.Fragments.ReadFirstAidFragment;
-import com.systemdict32.blingapp.Fragments.Categories.cv2_IncidentsFragment;
 import com.systemdict32.blingapp.R;
-import com.systemdict32.blingapp.Fragments.cv1_FirstAiderFragment;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -52,16 +50,16 @@ public class BlingChatbot {
             botMessage = "Going to Home Page";
         }
         // categories
-        if (userMessage.compareToIgnoreCase("first aid") == 0) {
-            selectedFragment = new cv1_FirstAiderFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
-            botMessage = "Going to First Aider Page";
-        }
-        if (userMessage.compareToIgnoreCase("incidents") == 0) {
-            selectedFragment = new cv2_IncidentsFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
-            botMessage = "Going to Incident Page";
-        }
+//        if (userMessage.compareToIgnoreCase("first aid") == 0) {
+//            selectedFragment = new cv1_FirstAiderFragment();
+//            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
+//            botMessage = "Going to First Aider Page";
+//        }
+//        if (userMessage.compareToIgnoreCase("incidents") == 0) {
+//            selectedFragment = new cv2_IncidentsFragment();
+//            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
+//            botMessage = "Going to Incident Page";
+//        }
         if (userMessage.compareToIgnoreCase("number three") == 0) {
 //            botMessage = "transitioning to In-home incidents page";
 //            Intent intent = new Intent(context, InHomeIncidents.class);

@@ -63,7 +63,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="Respiratory Problem"
+                            android:text="Emergency\nBasic"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -73,7 +73,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/one" />
+                            app:srcCompat="@drawable/c1_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -111,7 +111,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/two" />
+                            app:srcCompat="@drawable/c2_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -150,7 +150,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/three" />
+                            app:srcCompat="@drawable/c3_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -179,7 +179,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Severe Wounds"
+                            android:text="Severe\nWounds"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -189,7 +189,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/four" />
+                            app:srcCompat="@drawable/c4_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -218,7 +218,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Respiratory"
+                            android:text="Serious\nIncidents"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -228,7 +228,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/five" />
+                            app:srcCompat="@drawable/c5_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -257,7 +257,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Wounds\nCirculation"
+                            android:text="Car Accident\n"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -267,7 +267,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/six" />
+                            app:srcCompat="@drawable/c6_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -296,7 +296,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="B.J.M \n Injuries"
+                            android:text="Respiratory\nProblem"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -306,7 +306,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/seven" />
+                            app:srcCompat="@drawable/c7_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -335,7 +335,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Temperature"
+                            android:text="Outdoor Incidents"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
@@ -345,7 +345,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/eight" />
+                            app:srcCompat="@drawable/c8_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -374,8 +374,8 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="Bites Poison\nF.O"
                             android:textColor="@color/black"
+                            android:text="Foreign Objects, Poisoning, Bites &amp; Stings"
                             android:textSize="18sp" />
 
                         <ImageView
@@ -384,7 +384,7 @@
                             android:layout_height="30dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/nine" />
+                            app:srcCompat="@drawable/c9_img" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 

@@ -4,24 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.Categories.c6_CarAccidentFragment">
+    tools:context=".Fragments.Categories.c9_ForeignObjectsFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/lato_bold"
         android:gravity="center"
-        android:text="Car Accident"
+        android:text="Foreign Objects, Poisoning,\nBites &amp; Sting"
         android:textColor="@color/black"
         android:textSize="25sp" />
 
     <ListView
-        android:id="@+id/lv_car_accident"
+        android:id="@+id/lv_foreign_objects"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-</LinearLayout>
+        android:layout_height="match_parent" />
 
+</LinearLayout>

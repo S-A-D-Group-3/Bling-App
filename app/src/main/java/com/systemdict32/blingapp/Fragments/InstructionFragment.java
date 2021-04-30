@@ -10,13 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.systemdict32.blingapp.Fragments.Categories.c1_RespiratoryProblemFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c1_EmergencyBasicFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c2_WoundsFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
 
 import com.systemdict32.blingapp.Fragments.Categories.c4_SevereWoundsFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c5_SeriousIncidentsFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c6_CarAccidentFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c7_RespiratoryProblemFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c8_OutdoorIncidentsFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c9_ForeignObjectsFragment;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -104,7 +107,7 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v.getId() == cv_1.getId()) {
-            c1_RespiratoryProblemFragment cv1 = new c1_RespiratoryProblemFragment();
+            c1_EmergencyBasicFragment cv1 = new c1_EmergencyBasicFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv1);
             ft.commit();
@@ -140,13 +143,22 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             ft.commit();
         }
         if (v.getId() == cv_7.getId()) {
-
+            c7_RespiratoryProblemFragment cv7 = new c7_RespiratoryProblemFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv7);
+            ft.commit();
         }
         if (v.getId() == cv_8.getId()) {
-
+            c8_OutdoorIncidentsFragment cv8 = new c8_OutdoorIncidentsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv8);
+            ft.commit();
         }
         if (v.getId() == cv_9.getId()) {
-
+            c9_ForeignObjectsFragment cv9 = new c9_ForeignObjectsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv9);
+            ft.commit();
         }
         if (v.getId() == cv_10.getId()) {
 

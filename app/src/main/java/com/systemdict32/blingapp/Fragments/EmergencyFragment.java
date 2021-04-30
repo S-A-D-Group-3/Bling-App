@@ -73,6 +73,9 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
         emergency_cv4 = view.findViewById(R.id.emergency_cv_4);
 
         emergency_cv1.setOnClickListener(this);
+        emergency_cv2.setOnClickListener(this);
+        emergency_cv3.setOnClickListener(this);
+
         return view;
     }
 
@@ -82,6 +85,18 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
             HospitalFragment hospitalFragment = new HospitalFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, hospitalFragment);
+            ft.commit();
+        }
+        if(v.getId() == emergency_cv2.getId()) {
+            PoliceStationsFragment policeStationsFragment = new PoliceStationsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, policeStationsFragment);
+            ft.commit();
+        }
+        if(v.getId() == emergency_cv3.getId()) {
+            FireStationFragment fireStationFragment = new FireStationFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, fireStationFragment);
             ft.commit();
         }
     }

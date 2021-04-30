@@ -21,6 +21,15 @@ import android.widget.Toast;
 
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_6_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_7_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_8_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_9_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_10_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_1_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_2_ReadFragment;
@@ -194,7 +203,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
 //            int colonPos = fullText.indexOf(":", startPos);
 //            int semiColonPos = fullText.indexOf(";", startPos);
 
-            if (commaPos < dotPos) {
+            if (commaPos < dotPos && commaPos != -1) {
                 endPos = commaPos;
             } else {
                 endPos = dotPos;
@@ -211,7 +220,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
 //            }
 
 //            endPos = punctuationFinder(fullText);
-            if (commaPos == -1) {
+            if (endPos == -1) {
                 endPos = fullText.length();
             }
         }
@@ -223,6 +232,40 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         spannable.setSpan(textAppearanceSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannable.setSpan(backgroundColorSpan, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+        setFirstAidText(spannable);
+    }
+
+    public void setFirstAidText(Spannable spannable){
+        // C2 WOUNDS
+        if (firstAidInterface.getClass().equals(c2_1_ReadFragment.class)) {
+            ((c2_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+
+        if (firstAidInterface.getClass().equals(c2_2_ReadFragment.class)) {
+            ((c2_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_3_ReadFragment.class)) {
+            ((c2_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_4_ReadFragment.class)) {
+            ((c2_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_5_ReadFragment.class)) {
+            ((c2_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_6_ReadFragment.class)) {
+            ((c2_6_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_7_ReadFragment.class)) {
+            ((c2_7_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_8_ReadFragment.class)) {
+            ((c2_8_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c2_9_ReadFragment.class)) {
+            ((c2_9_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        // c3 BODY INJURIES
         if (firstAidInterface.getClass().equals(c3_1_ReadFragment.class)) {
             ((c3_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }

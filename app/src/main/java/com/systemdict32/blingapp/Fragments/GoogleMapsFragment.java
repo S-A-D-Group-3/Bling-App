@@ -72,9 +72,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
-            Toasty.info(getActivity(), "mMap: " + String.valueOf(mLocation.getLatitude())
-                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT, true).show();
-
             LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
             mMap.addMarker(new MarkerOptions()
@@ -127,8 +124,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             locationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, GoogleMapsFragment.this);
             mLocation = getLastKnownLocation();
-            Toasty.info(getActivity(), "getLocation: " + String.valueOf(mLocation.getLatitude())
-                    + " " + String.valueOf(mLocation.getLongitude()), Toast.LENGTH_SHORT, true).show();
         } catch (Exception e) {
             Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
                     Toast.LENGTH_LONG, true).show();

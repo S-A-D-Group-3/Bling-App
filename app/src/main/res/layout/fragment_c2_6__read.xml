@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Fragments.ViewReaderVisual.c3_10_ReadFragment">
+    tools:context=".Fragments.ViewReaderVisual.c2_6_ReadFragment" >
 
     <fragment
         android:id="@+id/fragment6"
@@ -16,12 +16,11 @@
         android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/tv_c3_10_first_aid_manual"
+        android:id="@+id/tv_c2_6_first_aid_manual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_weight="1"
         android:fontFamily="@font/lato" />
-
 </LinearLayout>

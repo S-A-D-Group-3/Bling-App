@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments.Categories;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_1_BlistersFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_2_BruisingFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_3_EyeWoundFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_4_FingerWoundFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_5_HeadWoundsFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_6_InfectedWoundFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_7_AbdominalWoundFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_8_CutAndScrapesFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c2_9_ForeignObjectsFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c3_1_HeadInjuryFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;
@@ -91,33 +102,52 @@ public class c2_WoundsFragment extends Fragment {
         lv_wounds.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-
+                        c2_1_BlistersFragment c2_1_blistersFragment = new c2_1_BlistersFragment();
+                        ft.replace(R.id.home_fragment_container, c2_1_blistersFragment);
+                        ft.commit();
                         break;
                     case 1:
-
+                        c2_2_BruisingFragment c2_2_bruisingFragment = new c2_2_BruisingFragment();
+                        ft.replace(R.id.home_fragment_container, c2_2_bruisingFragment);
+                        ft.commit();
                         break;
                     case 2:
-
+                        c2_3_EyeWoundFragment c2_3_eyeWoundFragment = new c2_3_EyeWoundFragment();
+                        ft.replace(R.id.home_fragment_container, c2_3_eyeWoundFragment);
+                        ft.commit();
                         break;
                     case 3:
-
+                        c2_4_FingerWoundFragment c2_4_fingerWoundFragment = new c2_4_FingerWoundFragment();
+                        ft.replace(R.id.home_fragment_container, c2_4_fingerWoundFragment);
+                        ft.commit();
                         break;
                     case 4:
-
+                        c2_5_HeadWoundsFragment c2_5_headWoundsFragment = new c2_5_HeadWoundsFragment();
+                        ft.replace(R.id.home_fragment_container, c2_5_headWoundsFragment);
+                        ft.commit();
                         break;
                     case 5:
-
+                        c2_6_InfectedWoundFragment c2_6_infectedWoundFragment = new c2_6_InfectedWoundFragment();
+                        ft.replace(R.id.home_fragment_container, c2_6_infectedWoundFragment);
+                        ft.commit();
                         break;
                     case 6:
-
+                        c2_7_AbdominalWoundFragment c2_7_abdominalWoundFragment = new c2_7_AbdominalWoundFragment();
+                        ft.replace(R.id.home_fragment_container, c2_7_abdominalWoundFragment);
+                        ft.commit();
                         break;
                     case 7:
-
+                        c2_8_CutAndScrapesFragment c2_8_cutAndScrapesFragment = new c2_8_CutAndScrapesFragment();
+                        ft.replace(R.id.home_fragment_container, c2_8_cutAndScrapesFragment);
+                        ft.commit();
                         break;
                     case 8:
-
+                        c2_9_ForeignObjectsFragment c2_9_foreignObjectsFragment = new c2_9_ForeignObjectsFragment();
+                        ft.replace(R.id.home_fragment_container, c2_9_foreignObjectsFragment);
+                        ft.commit();
                         break;
                 }
             }

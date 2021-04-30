@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Fragments.ViewReaderVisual.c3_10_ReadFragment">
+    tools:context=".Fragments.ViewReaderVisual.c2_3_ReadFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <fragment
         android:id="@+id/fragment6"
         android:name="com.systemdict32.blingapp.Fragments.ReadFirstAidFragment"
@@ -16,7 +17,7 @@
         android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/tv_c3_10_first_aid_manual"
+        android:id="@+id/tv_c2_3_first_aid_manual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"

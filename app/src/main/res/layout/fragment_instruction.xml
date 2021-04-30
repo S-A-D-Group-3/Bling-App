@@ -398,122 +398,122 @@
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_10"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:clickable="true"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/cv_10"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_rowWeight="1"-->
+<!--                    android:layout_columnWeight="1"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:clickable="true"-->
+<!--                    app:cardCornerRadius="20dp"-->
+<!--                    app:cardElevation="6dp">-->
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                        <TextView
-                            android:id="@+id/txt10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/num_ten"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="Medical\nConditions"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/txt10"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@id/num_ten"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="Medical\nConditions"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
 
-                        <ImageView
-                            android:id="@+id/num_ten"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/ten" />
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+<!--                        <ImageView-->
+<!--                            android:id="@+id/num_ten"-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            app:srcCompat="@drawable/ten" />-->
+<!--                    </RelativeLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_11"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:clickable="true"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/cv_11"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_rowWeight="1"-->
+<!--                    android:layout_columnWeight="1"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:clickable="true"-->
+<!--                    app:cardCornerRadius="20dp"-->
+<!--                    app:cardElevation="6dp">-->
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                        <TextView
-                            android:id="@+id/txt11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/num_eleven"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="Technics/Equip"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/txt11"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@id/num_eleven"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="Technics/Equip"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
 
-                        <ImageView
-                            android:id="@+id/num_eleven"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/eleven" />
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+<!--                        <ImageView-->
+<!--                            android:id="@+id/num_eleven"-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            app:srcCompat="@drawable/eleven" />-->
+<!--                    </RelativeLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_12"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:clickable="true"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp">
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/cv_12"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_rowWeight="1"-->
+<!--                    android:layout_columnWeight="1"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginRight="20dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:clickable="true"-->
+<!--                    app:cardCornerRadius="20dp"-->
+<!--                    app:cardElevation="6dp">-->
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                        <TextView
-                            android:id="@+id/txt12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/num_twelve"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="Emergency\nFirst Aid"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/txt12"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_below="@id/num_twelve"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:gravity="center"-->
+<!--                            android:text="Emergency\nFirst Aid"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
 
-                        <ImageView
-                            android:id="@+id/num_twelve"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/twelve" />
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+<!--                        <ImageView-->
+<!--                            android:id="@+id/num_twelve"-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_centerHorizontal="true"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            app:srcCompat="@drawable/twelve" />-->
+<!--                    </RelativeLayout>-->
+<!--                </androidx.cardview.widget.CardView>-->
             </GridLayout>
         </LinearLayout>
 

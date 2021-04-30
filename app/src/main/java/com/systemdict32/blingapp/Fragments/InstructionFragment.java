@@ -11,9 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.systemdict32.blingapp.Fragments.Categories.c1_RespiratoryProblemFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c2_WoundsFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
-import com.systemdict32.blingapp.Fragments.Categories.cv2_IncidentsFragment;
 
+import com.systemdict32.blingapp.Fragments.Categories.c4_SevereWoundsFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c5_SeriousIncidentsFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c6_CarAccidentFragment;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -107,7 +110,7 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             ft.commit();
         }
         if (v.getId() == cv_2.getId()) {
-            cv2_IncidentsFragment cv2 = new cv2_IncidentsFragment();
+            c2_WoundsFragment cv2 = new c2_WoundsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv2);
             ft.commit();
@@ -119,13 +122,22 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             ft.commit();
         }
         if (v.getId() == cv_4.getId()) {
-
+            c4_SevereWoundsFragment cv4 = new c4_SevereWoundsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv4);
+            ft.commit();
         }
         if (v.getId() == cv_5.getId()) {
-
+            c5_SeriousIncidentsFragment cv5 = new c5_SeriousIncidentsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv5);
+            ft.commit();
         }
         if (v.getId() == cv_6.getId()) {
-
+            c6_CarAccidentFragment cv6 = new c6_CarAccidentFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, cv6);
+            ft.commit();
         }
         if (v.getId() == cv_7.getId()) {
 

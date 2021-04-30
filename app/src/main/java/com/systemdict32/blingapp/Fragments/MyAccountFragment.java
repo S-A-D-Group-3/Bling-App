@@ -205,7 +205,6 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                                             // ONSE DITO NEED GUMAWA NG PERMISSION SA WRITE_EXTERNAL (STORAGE)
 
-                                           // case DialogInterface.BUTTON_POSITIVE:
                                             //    if(ActivityCompat.checkSelfPermission(getContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                                             //        requestPermissions(getActivity(),
                                            //                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},

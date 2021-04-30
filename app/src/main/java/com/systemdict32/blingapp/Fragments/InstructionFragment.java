@@ -85,9 +85,9 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
         cv_7 = view.findViewById(R.id.cv_7);
         cv_8 = view.findViewById(R.id.cv_8);
         cv_9 = view.findViewById(R.id.cv_9);
-        cv_10 = view.findViewById(R.id.cv_10);
-        cv_11 = view.findViewById(R.id.cv_11);
-        cv_12 = view.findViewById(R.id.cv_12);
+//        cv_10 = view.findViewById(R.id.cv_10);
+//        cv_11 = view.findViewById(R.id.cv_11);
+//        cv_12 = view.findViewById(R.id.cv_12);
 
         cv_1.setOnClickListener(this);
         cv_2.setOnClickListener(this);
@@ -98,9 +98,9 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
         cv_7.setOnClickListener(this);
         cv_8.setOnClickListener(this);
         cv_9.setOnClickListener(this);
-        cv_10.setOnClickListener(this);
-        cv_11.setOnClickListener(this);
-        cv_12.setOnClickListener(this);
+//        cv_10.setOnClickListener(this);
+//        cv_11.setOnClickListener(this);
+//        cv_12.setOnClickListener(this);
         return view;
     }
 
@@ -160,15 +160,15 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             ft.replace(R.id.home_fragment_container, cv9);
             ft.commit();
         }
-        if (v.getId() == cv_10.getId()) {
-
-        }
-        if (v.getId() == cv_11.getId()) {
-
-        }
-        if (v.getId() == cv_12.getId()) {
-
-        }
+//        if (v.getId() == cv_10.getId()) {
+//
+//        }
+//        if (v.getId() == cv_11.getId()) {
+//
+//        }
+//        if (v.getId() == cv_12.getId()) {
+//
+//        }
     }
 
 }

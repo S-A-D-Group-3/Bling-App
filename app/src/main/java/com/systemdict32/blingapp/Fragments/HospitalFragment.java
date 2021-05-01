@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.systemdict32.blingapp.Interfaces.EmergencyType;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -17,7 +18,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link HospitalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HospitalFragment extends Fragment {
+public class HospitalFragment extends Fragment implements EmergencyType {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,5 +73,10 @@ public class HospitalFragment extends Fragment {
         ft.commit();
 
         return view;
+    }
+
+    @Override
+    public String getEmergencyType() {
+        return "hospital";
     }
 }

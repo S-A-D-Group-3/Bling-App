@@ -6,16 +6,20 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,13 +29,25 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.systemdict32.blingapp.Dashboard;
+//import com.systemdict32.blingapp.Interfaces.EmergencyServiceType;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.SignUp;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -54,8 +70,20 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
         public void onMapReady(GoogleMap googleMap) {
             mMap = googleMap;
 
-            getLocation();
+            List<Fragment> fragmentList = getFragmentManager().getFragments();
+            fragId = fragmentList.get(2).getId();
 
+            if(fragmentList.get(2).getClass().equals(HospitalFragment.class)){
+                emergencyType = "hospital";
+            }
+            if(fragmentList.get(2).getClass().equals(FireStationFragment.class)){
+                emergencyType = "fire_station";
+            }
+            if(fragmentList.get(2).getClass().equals(PoliceStationsFragment.class)){
+                emergencyType = "police";
+            }
+
+            getLocation();
             if (mLocation == null) {
                 return;
             }
@@ -67,30 +95,33 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                 }, 100);
             }
 
+
             mMap.setMyLocationEnabled(true);
+            mMap.getUiSettings().setZoomControlsEnabled(true);
 
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
-            LOCATION = new LatLng(LATITUDE, LONGITUDE);
+            String url = generateUrl(LATITUDE, LONGITUDE);
 
-            mMap.addMarker(new MarkerOptions()
-                    .anchor(0.0f, 0.1f)
-                    .position(LOCATION)
-                    .title("My Location")
-            );
+            new PlaceTask().execute(url);
+
+            LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(LOCATION)
-                    .zoom(18)
+                    .zoom(13)
                     .bearing(0)
                     .tilt(30)
                     .build();
 
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
         }
     };
 
+//    public EmergencyServiceType emergencyServiceType;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -104,6 +135,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
     private GoogleMap mMap;
     private double LONGITUDE = 0, LATITUDE = 0;
     private LatLng LOCATION;
+    int fragId;
+    String emergencyType = "";
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -113,6 +146,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
     }
 
     LocationManager locationManager;
@@ -161,16 +200,145 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
     @Override
     public void onProviderEnabled(@NonNull String provider) {
-
     }
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-//        Toasty.warning(getActivity(), "Google Map will not work with your location turned off!",
-//                Toast.LENGTH_LONG, true).show();
+        Toasty.warning(getActivity(), "Google Map will not work with your location turned off!",
+                Toast.LENGTH_LONG, true).show();
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
+
+    // gmap api request
+    public String generateUrl(Double lat, Double lng){
+//        String emergencyType = emergencyServiceType.getEmergencyType();
+
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
+                "location=" + lat + "," + lng +
+                "&radius=5000" +
+                "&type=" + emergencyType +
+                "&sensor=true" +
+                "&key=" + getResources().getString(R.string.google_api_key);
+
+        return url;
+    }
+
+    public class PlaceTask extends AsyncTask<String,Integer,String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String data = null;
+
+            try {
+                data = downloadUrl(strings[0]);
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+
+            return data;
+        }
+
+        public String downloadUrl(String string) throws IOException {
+            URL url= new URL(string);
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+            connection.connect();
+
+            InputStream stream = connection.getInputStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+            StringBuilder builder = new StringBuilder();
+
+            String line = "";
+
+            while((line = reader.readLine()) != null) {
+                builder.append(line);
+
+            }
+
+            Log.d("tite", String.valueOf(builder));
+
+
+            String data = builder.toString();
+
+            reader.close();
+
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s!= null){
+                new ParserTask().execute(s);
+            }
+        }
+
+        private class ParserTask extends AsyncTask<String,Integer, List<HashMap<String,String>>>{
+
+            @Override
+            protected List<HashMap<String, String>> doInBackground(String... strings) {
+                JsonParser jsonParser = new JsonParser();
+
+                List<HashMap<String, String>> mapList = null;
+                JSONObject object = null;
+                try {
+                    object = new JSONObject(strings[0]);
+
+                    mapList = jsonParser.parseResult(object);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return mapList;
+            }
+
+            @Override
+            protected void onPostExecute(List<HashMap<String, String>> hashMaps) {
+                mMap.clear();
+
+                for(int i = 0; i < hashMaps.size(); i++) {
+                    HashMap<String, String> hashMap = hashMaps.get(i);
+
+                    double lat = Double.parseDouble(hashMap.get("lat"));
+
+                    double lng = Double.parseDouble(hashMap.get("lng"));
+
+                    String name = hashMap.get("name");
+
+                    LatLng latLng = new LatLng(lat, lng);
+
+                    MarkerOptions options = new MarkerOptions();
+
+                    options.position(latLng);
+
+                    options.title(name);
+
+                    if(emergencyType.equals("fire_station")){
+                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_firestation));
+                    }
+                    if(emergencyType.equals("hospital")){
+                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_hospital));
+                    }
+                    if(emergencyType.equals("police")){
+                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_police));
+                    }
+
+                    mMap.addMarker(options);
+
+                    mMap.addMarker(new MarkerOptions()
+                            .anchor(0.0f, 0.1f)
+                            .position(LOCATION)
+                            .title("My Location")
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_main_marker))
+                    );
+
+                }
+            }
+        }
     }
 }

@@ -1,15 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Fragments.MyICEFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="my ice page lods" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/profile_shapetopbg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-</FrameLayout>
+
+        <ImageView
+            android:id="@+id/ice_headpic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/megaphone" />
+
+        <TextView
+            android:id="@+id/ice_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:fontFamily="@font/open_sans_extrabold_italic"
+            android:text="In case of Emergency"
+            android:textColor="#fff200"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ice_headinsidescroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="Your information:"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="390dp"
+               android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ice_list_topshape"
+                android:orientation="horizontal"> <!-- 1st list -->
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="Blood type: "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ice_blood.inf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>  <!-- 1st list -->
+
+
+
+
+            <LinearLayout
+
+                android:layout_width="390dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ice_list_midshape"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"> <!-- 2nd list -->
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="Medical condition: "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ice_medcon.inf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+
+            </LinearLayout>  <!-- 2nd list -->
+
+
+
+            <LinearLayout
+                android:layout_width="390dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ice_list_midshape"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"> <!--3rd list -->
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="Medicine taken: "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ice_medtake.inf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+
+            </LinearLayout>  <!-- 3rd list -->
+
+
+
+            <LinearLayout
+                android:layout_width="390dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ice_list_botshape"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"> <!--4th list -->
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="Guardian: "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ice_guardian.inf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+
+            </LinearLayout>  <!--4th list -->
+
+
+
+
+        </LinearLayout> <!-- wag lalagpas dito  -->
+
+    </ScrollView>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+

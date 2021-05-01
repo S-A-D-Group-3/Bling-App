@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/tx_bloodtype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Blood type"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/tx_medcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Medical condition"
+        android:inputType="text" />
+
+
+
+    <EditText
+        android:id="@+id/tx_medtake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Medicince taken"
+        android:inputType="text" />
+
+
+    <EditText
+        android:id="@+id/tx_personcont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact person"
+        android:inputType="text" />
+        </LinearLayout>
+

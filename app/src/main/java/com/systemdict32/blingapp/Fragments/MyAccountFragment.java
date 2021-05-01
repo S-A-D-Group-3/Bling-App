@@ -37,7 +37,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,6 +76,8 @@ import java.io.InputStream;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 import es.dmoral.toasty.Toasty;
@@ -91,7 +95,7 @@ public class MyAccountFragment extends Fragment implements Executor {
     public static final int EXTERNAL_REQUEST_CODE = 103;
     public static final int GALLERY_REQUEST_CODE = 105;
     String currentPhotoPath;
-    TextView fullname, email;
+    TextView fullname, email, btn_create, btn_update, btn_delete;
     Button dismiss;
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
@@ -99,6 +103,8 @@ public class MyAccountFragment extends Fragment implements Executor {
     ImageView picture;
     String userId;
     String get;
+  EditText txtbloodType, txtmedCon, txtmedTake, txtcontactPerson;
+
 
 
 
@@ -138,6 +144,8 @@ public class MyAccountFragment extends Fragment implements Executor {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -149,10 +157,21 @@ public class MyAccountFragment extends Fragment implements Executor {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_my_account, container, false);
+        View mview = inflater.inflate(R.layout.crud_createdialog, container, false);
         fullname = view.findViewById(R.id.profile_fname);
         email = view.findViewById(R.id.profile_email);
         picture = view.findViewById(R.id.profile_pic);
-        dismiss = view.findViewById(R.id.button_dis);
+        btn_create = view.findViewById(R.id.txtbtn_create);
+        btn_update = view.findViewById(R.id.txtbtn_update);
+        btn_delete = view.findViewById(R.id.txtbtn_delete);
+     final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
+       final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
+        final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
+        final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
+
+
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
         StorageReference profileRefence = storageReference.child("users/"+firebaseAuth.getUid()+"/profile_image.jpg");
@@ -200,6 +219,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
         picture.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 // your code here
                 DialogInterface.OnClickListener dialogClickListener= new DialogInterface.OnClickListener() {
                     @Override
@@ -253,6 +273,108 @@ public class MyAccountFragment extends Fragment implements Executor {
             }
 
         });
+
+        btn_create.setOnClickListener(new View.OnClickListener() {
+
+          // final EditText txtbloodType = new EditText(getContext());
+         //   final   EditText txtmedCon =  new EditText(getContext());
+           // final  EditText txtmedTake =  new EditText(getContext());
+          //  final  EditText txtcontactPerson =new EditText(getContext());
+
+            @Override
+
+                public void onClick(View v) {
+                    // your code here
+                    DialogInterface.OnClickListener dialogClickListener= new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+
+
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    return;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+
+                                    final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
+                                    final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
+                                    final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
+                                    final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
+
+
+                                    final String bloodType = txtbloodType.getText().toString();
+                                    final String medicalCond = txtmedCon.getText().toString();
+                                    final String medicalTaken = txtmedTake.getText().toString();
+                                    final String contactPer = txtcontactPerson.getText().toString();
+
+
+                                    if (bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty()) {
+                                        Toasty.error(getActivity(), "Please fill up the field(s)",
+                                                Toast.LENGTH_LONG, true).show();
+
+                                    } else {
+                                        firebaseAuth = FirebaseAuth.getInstance();
+                                        userId = firebaseAuth.getCurrentUser().getUid();
+                                        DocumentReference documentReference = fStore.collection("users").document(userId);
+                                        Map<String, Object> user = new HashMap<>();
+                                        user.put("user_ICE_BLOODTYPE", bloodType);
+                                        user.put("user_ICE_MEDICALCONDITION", medicalCond);
+                                        user.put("user_ICE_MEDICINETAKE", medicalTaken);
+                                        user.put("user_ICE_CONTACTPERSON", contactPer);
+                                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Toasty.success(getActivity(), "Thank you, ICE information has been added",
+                                                        Toast.LENGTH_LONG, true).show();
+
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toasty.error(getActivity(), "Error, please try again",
+                                                        Toast.LENGTH_LONG, true).show();
+                                            }
+                                        });
+
+
+                                    }
+
+
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
+                    // set the custom layout
+                final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
+                final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
+                final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
+                final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
+
+                final String bloodType =  txtbloodType.getText().toString();
+                final String medicalCond = txtmedCon.getText().toString();
+                final String medicalTaken = txtmedTake.getText().toString();
+                final String contactPer = txtcontactPerson.getText().toString();
+
+                    final View customLayout
+                            = getLayoutInflater()
+                            .inflate(R.layout.crud_createdialog, null);
+                    builderr.setView(customLayout);
+                    builderr.create();
+                    builderr.setCancelable(true);
+                    builderr.setIcon(R.drawable.logov2);
+                    builderr.setMessage("Create info").setPositiveButton("Go back", dialogClickListener)
+                            .setNegativeButton("Add info", dialogClickListener).show();
+
+                }
+
+            });
+
+
+
+
+
+
 
 
 
@@ -329,3 +451,10 @@ public class MyAccountFragment extends Fragment implements Executor {
 
     }
 }
+
+
+
+
+
+
+

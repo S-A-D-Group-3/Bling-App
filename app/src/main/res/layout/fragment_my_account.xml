@@ -1,56 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Fragments.MyAccountFragment">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/profile_shapetopbg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/default_user" />
+
+
+        <TextView
+            android:id="@+id/profile_fname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/open_sans"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/open_sans"
+            android:text=""
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+    <!--start of scroll-->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!-- TODO: Update blank fragment layout -->
+
+
+        <!--content under scroll bar -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:background="@drawable/profile_shapetopbg"
-            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/profile_pic"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+
+            <TextView
+
+                android:id="@+id/txtbtn_create"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/default_user" />
-
-
-            <TextView
-                android:id="@+id/profile_fname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:fontFamily="@font/open_sans"
-                android:text="Loading"
+                android:padding="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/open_sans_semibold_italic"
+                android:gravity="center"
+                android:text="Create ICE info"
+                android:background="@drawable/crud_create_button"
                 android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:textSize="25sp" />
+
+
+
 
             <TextView
-                android:id="@+id/profile_email"
-                android:layout_width="wrap_content"
+                android:id="@+id/txtbtn_update"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/open_sans"
-                android:text=""
-                android:textColor="@color/white" />
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/open_sans_semibold_italic"
+                android:background="@drawable/crud_update"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="Update ICE info"
+
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txtbtn_delete"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/open_sans_semibold_italic"
+                android:padding="5dp"
+                android:background="@drawable/crud_delete"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="Delete ICE info"
+
+                android:textSize="25sp" />
+
 
 
         </LinearLayout>
 
+        <!--content under scroll bar -->
+
 
     </ScrollView>
 
-</FrameLayout>
+</LinearLayout>

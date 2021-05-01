@@ -115,6 +115,13 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+
+    }
+
     LocationManager locationManager;
     Location mLocation;
 
@@ -166,8 +173,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-//        Toasty.warning(getActivity(), "Google Map will not work with your location turned off!",
-//                Toast.LENGTH_LONG, true).show();
+        Toasty.warning(getActivity(), "Google Map will not work with your location turned off!",
+                Toast.LENGTH_LONG, true).show();
     }
 
     @Override

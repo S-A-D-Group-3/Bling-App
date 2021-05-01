@@ -85,7 +85,6 @@ import es.dmoral.toasty.Toasty;
  */
 public class MyAccountFragment extends Fragment implements Executor {
 
-
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
     public static final int EXTERNAL_REQUEST_CODE = 103;
@@ -98,10 +97,6 @@ public class MyAccountFragment extends Fragment implements Executor {
     StorageReference storageReference;
     ImageView picture;
     String userId;
-    String get;
-
-
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

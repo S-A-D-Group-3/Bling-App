@@ -277,7 +277,6 @@ public class MyAccountFragment extends Fragment implements Executor {
                 // your code here
 
 
-
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -305,10 +304,19 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     userId = firebaseAuth.getCurrentUser().getUid();
                                     DocumentReference documentReference = fStore.collection("users").document(userId);
                                     Map<String, Object> user = new HashMap<>();
+                                    user.put("user_FULLNAME", fullname.getText());
+                                    user.put("user_EMAIL", email.getText());
                                     user.put("user_ICE_BLOODTYPE", bloodType);
                                     user.put("user_ICE_MEDICALCONDITION", medicalCond);
                                     user.put("user_ICE_MEDICINETAKE", medicalTaken);
                                     user.put("user_ICE_CONTACTPERSON", contactPer);
+
+                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                                        }
+                                    });
                                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {

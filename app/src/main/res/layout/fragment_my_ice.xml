@@ -79,7 +79,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/ice_blood.inf"
+                    android:id="@+id/tv_ice_blood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
@@ -117,7 +117,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/ice_medcon.inf"
+                    android:id="@+id/tv_ice_medcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
@@ -155,7 +155,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/ice_medtake.inf"
+                    android:id="@+id/tv_ice_medtake"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
@@ -193,7 +193,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/ice_contactperson.inf"
+                    android:id="@+id/tv_ice_contactperson"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"

@@ -2,13 +2,24 @@ package com.systemdict32.blingapp.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.systemdict32.blingapp.R;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +68,46 @@ public class MyICEFragment extends Fragment {
         }
     }
 
+    FirebaseFirestore fStore;
+    FirebaseAuth firebaseAuth;
+    String userId;
+    TextView tv_ice_blood, tv_ice_contactperson, tv_ice_medtake, tv_ice_medcon;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_ice, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_ice, container, false);
+
+        tv_ice_blood = view.findViewById(R.id.tv_ice_blood);
+        tv_ice_contactperson = view.findViewById(R.id.tv_ice_contactperson);
+        tv_ice_medtake = view.findViewById(R.id.tv_ice_medtake);
+        tv_ice_medcon = view.findViewById(R.id.tv_ice_medcon);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = firebaseAuth.getCurrentUser().getUid();
+
+
+        fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        if (document.getId().equals(userId)) {
+                            tv_ice_blood.setText(document.getString("user_ICE_BLOODTYPE"));
+                            tv_ice_contactperson.setText(document.getString("user_ICE_CONTACTPERSON"));
+                            tv_ice_medtake.setText(document.getString("user_ICE_MEDICALCONDITION"));
+                            tv_ice_medcon.setText(document.getString("user_ICE_MEDICINETAKE"));
+                        }
+                    }
+                } else {
+                    Toasty.error(getActivity(), "failed", Toast.LENGTH_SHORT, true).show();
+                }
+            }
+        });
+
+        return view;
+
     }
 }

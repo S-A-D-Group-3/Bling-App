@@ -344,7 +344,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                             .title("My Location")
                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_main_marker))
                     );
-
                 }
             }
         }

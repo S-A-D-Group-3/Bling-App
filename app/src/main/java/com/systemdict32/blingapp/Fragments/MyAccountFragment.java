@@ -102,10 +102,9 @@ public class MyAccountFragment extends Fragment implements Executor {
     ImageView picture;
     String userId;
     String get;
-  EditText txtbloodType, txtmedCon, txtmedTake, txtcontactPerson;
+    EditText txtbloodType, txtmedCon, txtmedTake, txtcontactPerson;
 
 
-  
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -142,7 +141,6 @@ public class MyAccountFragment extends Fragment implements Executor {
         super.onCreate(savedInstanceState);
 
 
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -161,17 +159,16 @@ public class MyAccountFragment extends Fragment implements Executor {
         btn_create = view.findViewById(R.id.txtbtn_create);
         btn_update = view.findViewById(R.id.txtbtn_update);
         btn_delete = view.findViewById(R.id.txtbtn_delete);
-     final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
-       final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
-        final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
-        final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
 
-
+        //  final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
+        //final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
+        // final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
+        // final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
 
 
         firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference profileRefence = storageReference.child("users/"+firebaseAuth.getUid()+"/profile_image.jpg");
+        StorageReference profileRefence = storageReference.child("users/" + firebaseAuth.getUid() + "/profile_image.jpg");
         profileRefence.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -197,13 +194,12 @@ public class MyAccountFragment extends Fragment implements Executor {
         userId = firebaseAuth.getCurrentUser().getUid();
 
 
-
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        if(document.getId().equals(userId)){
+                        if (document.getId().equals(userId)) {
                             fullname.setText(document.getString("user_FN"));
                             email.setText(document.getString("user_Email"));
                         }
@@ -218,12 +214,12 @@ public class MyAccountFragment extends Fragment implements Executor {
             public void onClick(View v) {
 
                 // your code here
-                DialogInterface.OnClickListener dialogClickListener= new DialogInterface.OnClickListener() {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case DialogInterface.BUTTON_POSITIVE:
-                               return;
+                                return;
 
                             case DialogInterface.BUTTON_NEGATIVE:
                                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -231,9 +227,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     public void onClick(DialogInterface dialog, int which) {
                                         switch (which) {
                                             case DialogInterface.BUTTON_POSITIVE:
-                                               return;
+                                                return;
 
-                                                //dispatchTakePictureIntent();
+                                            //dispatchTakePictureIntent();
 
 
                                             case DialogInterface.BUTTON_NEGATIVE:
@@ -243,9 +239,6 @@ public class MyAccountFragment extends Fragment implements Executor {
                                         }
                                     }
                                 };
-
-
-
 
 
                                 AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
@@ -273,107 +266,95 @@ public class MyAccountFragment extends Fragment implements Executor {
 
         btn_create.setOnClickListener(new View.OnClickListener() {
 
-          // final EditText txtbloodType = new EditText(getContext());
-         //   final   EditText txtmedCon =  new EditText(getContext());
-           // final  EditText txtmedTake =  new EditText(getContext());
-          //  final  EditText txtcontactPerson =new EditText(getContext());
+            // final EditText txtbloodType = new EditText(getContext());
+            //   final   EditText txtmedCon =  new EditText(getContext());
+            // final  EditText txtmedTake =  new EditText(getContext());
+            //  final  EditText txtcontactPerson =new EditText(getContext());
 
             @Override
 
-                public void onClick(View v) {
-                    // your code here
-                    DialogInterface.OnClickListener dialogClickListener= new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            switch (which) {
+            public void onClick(View v) {
+                // your code here
 
 
-                                case DialogInterface.BUTTON_POSITIVE:
-                                    return;
 
-                                case DialogInterface.BUTTON_NEGATIVE:
-
-                                    final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
-                                    final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
-                                    final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
-                                    final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
 
-                                    final String bloodType = txtbloodType.getText().toString();
-                                    final String medicalCond = txtmedCon.getText().toString();
-                                    final String medicalTaken = txtmedTake.getText().toString();
-                                    final String contactPer = txtcontactPerson.getText().toString();
+                        switch (which) {
 
 
-                                    if (bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty()) {
-                                        Toasty.error(getActivity(), "Please fill up the field(s)",
-                                                Toast.LENGTH_LONG, true).show();
+                            case DialogInterface.BUTTON_POSITIVE:
+                                return;
 
-                                    } else {
-                                        firebaseAuth = FirebaseAuth.getInstance();
-                                        userId = firebaseAuth.getCurrentUser().getUid();
-                                        DocumentReference documentReference = fStore.collection("users").document(userId);
-                                        Map<String, Object> user = new HashMap<>();
-                                        user.put("user_ICE_BLOODTYPE", bloodType);
-                                        user.put("user_ICE_MEDICALCONDITION", medicalCond);
-                                        user.put("user_ICE_MEDICINETAKE", medicalTaken);
-                                        user.put("user_ICE_CONTACTPERSON", contactPer);
-                                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Toasty.success(getActivity(), "Thank you, ICE information has been added",
-                                                        Toast.LENGTH_LONG, true).show();
+                            case DialogInterface.BUTTON_NEGATIVE:
 
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toasty.error(getActivity(), "Error, please try again",
-                                                        Toast.LENGTH_LONG, true).show();
-                                            }
-                                        });
+                                String bloodType = txtbloodType.getText().toString();
+                                String medicalCond = txtmedCon.getText().toString();
+                                String medicalTaken = txtmedTake.getText().toString();
+                                String contactPer = txtcontactPerson.getText().toString();
+
+                                if (bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty()) {
+                                    Toasty.error(getActivity(), "Please fill up the field(s)",
+                                            Toast.LENGTH_LONG, true).show();
+
+                                } else {
+                                    firebaseAuth = FirebaseAuth.getInstance();
+                                    userId = firebaseAuth.getCurrentUser().getUid();
+                                    DocumentReference documentReference = fStore.collection("users").document(userId);
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("user_ICE_BLOODTYPE", bloodType);
+                                    user.put("user_ICE_MEDICALCONDITION", medicalCond);
+                                    user.put("user_ICE_MEDICINETAKE", medicalTaken);
+                                    user.put("user_ICE_CONTACTPERSON", contactPer);
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Toasty.success(getActivity(), "Thank you, ICE information has been added",
+                                                    Toast.LENGTH_LONG, true).show();
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toasty.error(getActivity(), "Error, please try again",
+                                                    Toast.LENGTH_LONG, true).show();
+                                        }
+                                    });
 
 
-                                    }
+                                }
 
 
-                            }
                         }
-                    };
+                    }
+                };
 
-                    AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
-                    // set the custom layout
-                final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
-                final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
-                final EditText txtmedTake = (EditText)mview.findViewById(R.id.tx_medtake);
-                final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
+                AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
+                // set the custom layout
 
-                final String bloodType =  txtbloodType.getText().toString();
-                final String medicalCond = txtmedCon.getText().toString();
-                final String medicalTaken = txtmedTake.getText().toString();
-                final String contactPer = txtcontactPerson.getText().toString();
+                final View customLayout
+                        = getLayoutInflater()
+                        .inflate(R.layout.crud_createdialog, null);
 
-                    final View customLayout
-                            = getLayoutInflater()
-                            .inflate(R.layout.crud_createdialog, null);
-                    builderr.setView(customLayout);
-                    builderr.create();
-                    builderr.setCancelable(true);
-                    builderr.setIcon(R.drawable.logov2);
-                    builderr.setMessage("Create info").setPositiveButton("Go back", dialogClickListener)
-                            .setNegativeButton("Add info", dialogClickListener).show();
+                builderr.setView(customLayout);
 
-                }
+                txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
+                txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
+                txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
+                txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
 
-            });
+                builderr.create();
+                builderr.setCancelable(true);
+                builderr.setIcon(R.drawable.logov2);
+                builderr.setMessage("Create info").setPositiveButton("Go back", dialogClickListener)
+                        .setNegativeButton("Add info", dialogClickListener).show();
 
+            }
 
-
-
-
-
-
-
+        });
 
 
         // Inflate the layout for this fragment
@@ -381,20 +362,14 @@ public class MyAccountFragment extends Fragment implements Executor {
     }
 
 
-
-
-
-
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data){
+    public void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
         MyAccountFragment.super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1000) {
-            if(resultCode == Activity.RESULT_OK) {
+        if (requestCode == 1000) {
+            if (resultCode == Activity.RESULT_OK) {
                 Uri imgUri = data.getData();
                 // picture.setImageURI(imgUri);
                 uploadImageToFirebase(imgUri);
-
-
 
 
             }
@@ -405,7 +380,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
     private void uploadImageToFirebase(Uri uri) {
 
-        StorageReference fileReference = storageReference.child("users/"+firebaseAuth.getUid()+"/profile_image.jpg");
+        StorageReference fileReference = storageReference.child("users/" + firebaseAuth.getUid() + "/profile_image.jpg");
         fileReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -440,7 +415,6 @@ public class MyAccountFragment extends Fragment implements Executor {
             }
         });
     }
-
 
 
     @Override

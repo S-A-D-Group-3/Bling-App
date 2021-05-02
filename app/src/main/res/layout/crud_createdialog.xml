@@ -8,14 +8,14 @@
 
 
     <EditText
-        android:id="@+id/tx_bloodtype"
+        android:id="@+id/txt_bloodtype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Blood type"
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/tx_medcon"
+        android:id="@+id/txt_medcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Medical condition"
@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/tx_medtake"
+        android:id="@+id/txt_medtake"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Medicince taken"
@@ -32,7 +32,7 @@
 
 
     <EditText
-        android:id="@+id/tx_personcont"
+        android:id="@+id/txt_personcont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contact person"

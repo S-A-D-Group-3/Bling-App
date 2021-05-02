@@ -55,15 +55,16 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt1"
@@ -73,6 +74,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:paddingBottom="3dp"
                             android:text="Emergency\nBasic"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
@@ -93,16 +95,17 @@
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt2"
@@ -132,15 +135,16 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt3"
@@ -170,16 +174,17 @@
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt4"
@@ -210,15 +215,16 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt5"
@@ -227,6 +233,7 @@
                             android:layout_below="@id/num_five"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
+                            android:paddingBottom="3dp"
                             android:gravity="center"
                             android:text="Serious\nIncidents"
                             android:textColor="@color/black"
@@ -248,16 +255,17 @@
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt6"
@@ -288,15 +296,16 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt7"
@@ -306,6 +315,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:paddingBottom="3dp"
                             android:text="Respiratory\nProblem"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
@@ -326,16 +336,17 @@
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt8"
@@ -366,26 +377,28 @@
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/num_nine"
+                            android:padding="3dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
                             android:textColor="@color/black"
-                            android:text="Foreign Objects, Poisoning, Bites &amp; Stings"
+                            android:text="Foreign Objects,\n Poisoning, Bites\n &amp; Stings"
                             android:textSize="18sp" />
 
                         <ImageView

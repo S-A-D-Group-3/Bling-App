@@ -52,11 +52,11 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/emergency_cv_1"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
@@ -64,7 +64,8 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt1"
@@ -77,7 +78,7 @@
                             android:gravity="center"
                             android:text="Health Care"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <ImageView
                             android:id="@+id/e_hosp"
@@ -92,10 +93,10 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/emergency_cv_2"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:clickable="true"
@@ -104,7 +105,8 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt2"
@@ -113,9 +115,12 @@
                             android:layout_below="@id/e_pol"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:text="Police"
+                            android:fontFamily="@font/open_sans"
+                           android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:text="Security and Order"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <ImageView
                             android:id="@+id/e_pol"
@@ -130,19 +135,21 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/emergency_cv_3"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt3"
@@ -151,10 +158,11 @@
                             android:layout_below="@id/e_fire"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
+                            android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="Fire Station"
+                            android:text="Fire Safety"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <ImageView
                             android:id="@+id/e_fire"
@@ -169,19 +177,21 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/emergency_cv_4"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="100dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:clickable="true"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="6dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/card_looks">
 
                         <TextView
                             android:id="@+id/txt4"
@@ -190,10 +200,11 @@
                             android:layout_below="@id/e_lgu"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
+                            android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="L.G.U s"
+                            android:text="Local Government"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <ImageView
                             android:id="@+id/e_lgu"

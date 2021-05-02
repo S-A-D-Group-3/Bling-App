@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
-            android:fontFamily="@font/open_sans_extrabold_italic"
+            android:fontFamily="@font/lato_bold"
             android:text="In case of Emergency"
             android:textColor="#fff200"
             android:textSize="20dp" />
@@ -49,8 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/open_sans_extrabold_italic"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/lato_bold"
                 android:gravity="center"
                 android:text="Your information:"
                 android:textColor="@color/black"
@@ -58,10 +58,10 @@
 
 
             <LinearLayout
-                android:layout_marginTop="40dp"
-                android:layout_width="390dp"
-               android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_topshape"
                 android:orientation="horizontal"> <!-- 1st list -->
 
@@ -69,9 +69,9 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="5dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Blood type: "
@@ -82,9 +82,9 @@
                     android:id="@+id/ice_blood.inf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="7dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text=""
@@ -94,23 +94,22 @@
             </LinearLayout>  <!-- 1st list -->
 
 
-
-
             <LinearLayout
 
-                android:layout_width="390dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/ice_list_midshape"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!-- 2nd list -->
 
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="5dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Medical condition: "
@@ -121,9 +120,9 @@
                     android:id="@+id/ice_medcon.inf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="7dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text=""
@@ -131,25 +130,24 @@
                     android:textSize="20sp" />
 
 
-
             </LinearLayout>  <!-- 2nd list -->
 
 
-
             <LinearLayout
-                android:layout_width="390dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/ice_list_midshape"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!--3rd list -->
 
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="5dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Medicine taken: "
@@ -160,9 +158,9 @@
                     android:id="@+id/ice_medtake.inf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="7dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text=""
@@ -170,25 +168,24 @@
                     android:textSize="20sp" />
 
 
-
             </LinearLayout>  <!-- 3rd list -->
 
 
-
             <LinearLayout
-                android:layout_width="390dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/ice_list_botshape"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ice_list_botshape"
                 android:orientation="horizontal"> <!--4th list -->
 
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="5dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Contact person: "
@@ -199,9 +196,9 @@
                     android:id="@+id/ice_contactperson.inf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginStart="7dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text=""
@@ -209,10 +206,7 @@
                     android:textSize="20sp" />
 
 
-
             </LinearLayout>  <!--4th list -->
-
-
 
 
         </LinearLayout> <!-- wag lalagpas dito  -->

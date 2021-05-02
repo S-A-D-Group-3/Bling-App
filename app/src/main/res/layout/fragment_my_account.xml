@@ -66,16 +66,16 @@
             <TextView
 
                 android:id="@+id/txtbtn_create"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:padding="5dp"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/open_sans_semibold_italic"
+                android:fontFamily="@font/lato_bold"
                 android:gravity="center"
-                android:text="Create ICE info"
-                android:background="@drawable/crud_create_button"
+                android:text="Create ICE"
+                android:background="@drawable/crud_update"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
@@ -84,33 +84,33 @@
 
             <TextView
                 android:id="@+id/txtbtn_update"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/open_sans_semibold_italic"
+                android:fontFamily="@font/lato_bold"
                 android:background="@drawable/crud_update"
                 android:textColor="@color/white"
                 android:gravity="center"
-                android:text="Update ICE info"
+                android:text="Update ICE"
 
                 android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/txtbtn_delete"
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
-                android:fontFamily="@font/open_sans_semibold_italic"
+                android:fontFamily="@font/lato_bold"
                 android:padding="5dp"
-                android:background="@drawable/crud_delete"
+                android:background="@drawable/crud_update"
                 android:textColor="@color/white"
                 android:gravity="center"
-                android:text="Delete ICE info"
+                android:text="Delete ICE"
 
                 android:textSize="25sp" />
 

@@ -61,7 +61,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     HomeFragment homeFragment;
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
-    String fullName, email, userId;
+    String fullName, email, bloodType, contactPerson, medCondition, medTake, userId;
     TextView tv_user_name;
     BottomNavigationView top_nav_view;
 
@@ -112,8 +112,12 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         if (document.getId().equals(userId)) {
-                            fullName = document.getString("user_FN");
-                            email = document.getString("user_Email");
+                            fullName = document.getString("user_FULLNAME");
+                            email = document.getString("user_EMAIL");
+                            bloodType = document.getString("user_ICE_BLOODTYPE");
+                            contactPerson = document.getString("user_ICE_CONTACTPERSON");
+                            medCondition = document.getString("user_ICE_MEDICALCONDITION");
+                            medTake = document.getString("user_ICE_MEDICINETAKE");
                             // set username on nav view
                             tv_user_name.setText(fullName);
                         }
@@ -220,10 +224,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
         buffer.append("Name: " + fullName + "\n");
         buffer.append("Email: " + email + "\n");
-        buffer.append("Address: " + "N/A\n");
-        buffer.append("Blood Type: " + "N/A+ " +"\n");
-        buffer.append("ICE Name: " + "N/A\n");
-        buffer.append("ICE Number: " + "N/A");
+        buffer.append("Medical Condition: " + medCondition + "\n");
+        buffer.append("Medicine Take: " + medCondition + "\n");
+        buffer.append("Blood Type: " + bloodType +"\n");
+        buffer.append("ICE Name: " + contactPerson + "\n");
+//        buffer.append("ICE Number: " +  +"N/A");
 
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library

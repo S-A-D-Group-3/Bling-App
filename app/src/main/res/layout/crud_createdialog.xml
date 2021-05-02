@@ -8,6 +8,13 @@
 
 
     <EditText
+        android:id="@+id/txt_iceaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:inputType="text" />
+
+    <EditText
         android:id="@+id/txt_bloodtype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,5 +44,13 @@
         android:layout_height="wrap_content"
         android:hint="Contact person"
         android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txt_personcontNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact person's number"
+        android:inputType="number" />
+
         </LinearLayout>
 

@@ -102,7 +102,7 @@ public class MyAccountFragment extends Fragment implements Executor {
     ImageView picture;
     String userId;
     String get;
-    EditText txtbloodType, txtmedCon, txtmedTake, txtcontactPerson;
+    EditText txtAddress, txtbloodType, txtmedCon, txtmedTake, txtcontactPerson, txtcontPerNumber;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -289,13 +289,14 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 return;
 
                             case DialogInterface.BUTTON_NEGATIVE:
-
+                                String myAddress = txtAddress.getText().toString();
                                 String bloodType = txtbloodType.getText().toString();
                                 String medicalCond = txtmedCon.getText().toString();
                                 String medicalTaken = txtmedTake.getText().toString();
                                 String contactPer = txtcontactPerson.getText().toString();
+                                String contactPerNum = txtcontPerNumber.getText().toString();
 
-                                if (bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty()) {
+                                if (myAddress.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
                                     Toasty.error(getActivity(), "Please fill up the field(s)",
                                             Toast.LENGTH_LONG, true).show();
 
@@ -306,10 +307,13 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     Map<String, Object> user = new HashMap<>();
                                     user.put("user_FULLNAME", fullname.getText());
                                     user.put("user_EMAIL", email.getText());
+                                    user.put("user_ICE_ADDRESS", myAddress);
                                     user.put("user_ICE_BLOODTYPE", bloodType);
                                     user.put("user_ICE_MEDICALCONDITION", medicalCond);
                                     user.put("user_ICE_MEDICINETAKE", medicalTaken);
                                     user.put("user_ICE_CONTACTPERSON", contactPer);
+                                    user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
+
 
                                     documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                                         @Override
@@ -348,11 +352,13 @@ public class MyAccountFragment extends Fragment implements Executor {
                         .inflate(R.layout.crud_createdialog, null);
 
                 builderr.setView(customLayout);
-
+                txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
                 txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
                 txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
                 txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
                 txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
+                txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
+
 
                 builderr.create();
                 builderr.setCancelable(true);

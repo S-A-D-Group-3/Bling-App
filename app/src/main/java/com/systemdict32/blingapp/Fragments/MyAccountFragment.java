@@ -303,7 +303,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 } else {
                                     firebaseAuth = FirebaseAuth.getInstance();
                                     userId = firebaseAuth.getCurrentUser().getUid();
-                                    DocumentReference documentReference = fStore.collection("users").document(userId);
+                                    DocumentReference documentReference = fStore.collection("users").document(userId).collection("I.C.E").document("USER_ICE_INFO");
                                     Map<String, Object> user = new HashMap<>();
                                     user.put("user_FULLNAME", fullname.getText());
                                     user.put("user_EMAIL", email.getText());

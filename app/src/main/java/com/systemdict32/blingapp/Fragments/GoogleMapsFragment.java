@@ -102,7 +102,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
-            String url = generateUrl(LATITUDE, LONGITUDE);
+            String url = generateUrlPlace(LATITUDE, LONGITUDE);
 
             new PlaceTask().execute(url);
 
@@ -213,14 +213,22 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
     }
 
     // gmap api request
-    public String generateUrl(Double lat, Double lng){
-//        String emergencyType = emergencyServiceType.getEmergencyType();
+    public String generateUrlPlace(Double lat, Double lng){
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
                 "location=" + lat + "," + lng +
                 "&radius=5000" +
                 "&type=" + emergencyType +
                 "&sensor=true" +
+                "&key=" + getResources().getString(R.string.google_api_key);
+
+        return url;
+    }
+
+    public String generateUrlNumber(String place_id){
+
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
+                "placeid=" + place_id +
                 "&key=" + getResources().getString(R.string.google_api_key);
 
         return url;
@@ -233,6 +241,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             String data = null;
 
             try {
+                //string[0] value is the url from generate url function
                 data = downloadUrl(strings[0]);
             } catch (IOException e) {
 
@@ -261,9 +270,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                 builder.append(line);
 
             }
-
-            Log.d("tite", String.valueOf(builder));
-
 
             String data = builder.toString();
 
@@ -304,11 +310,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                 for(int i = 0; i < hashMaps.size(); i++) {
                     HashMap<String, String> hashMap = hashMaps.get(i);
 
+                    //store data in the variable
                     double lat = Double.parseDouble(hashMap.get("lat"));
-
                     double lng = Double.parseDouble(hashMap.get("lng"));
-
                     String name = hashMap.get("name");
+                    String address = hashMap.get("address");
+                    String place_id = hashMap.get("place_id");
 
                     LatLng latLng = new LatLng(lat, lng);
 
@@ -317,6 +324,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                     options.position(latLng);
 
                     options.title(name);
+                    options.snippet(address);
 
                     if(emergencyType.equals("fire_station")){
                         options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_firestation));

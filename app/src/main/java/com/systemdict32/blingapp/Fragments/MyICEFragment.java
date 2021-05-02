@@ -71,7 +71,7 @@ public class MyICEFragment extends Fragment {
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
     String userId;
-    TextView tv_ice_blood, tv_ice_contactperson, tv_ice_medtake, tv_ice_medcon;
+    TextView tv_ice_blood, tv_ice_contactperson, tv_ice_contactperson_num, tv_ice_medtake, tv_ice_medcon, tv_ice_address;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,7 +80,9 @@ public class MyICEFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_ice, container, false);
 
         tv_ice_blood = view.findViewById(R.id.tv_ice_blood);
+        tv_ice_address = view.findViewById(R.id.tv_ice_address);
         tv_ice_contactperson = view.findViewById(R.id.tv_ice_contactperson);
+        tv_ice_contactperson_num = view.findViewById(R.id.tv_ice_contactperson_num);
         tv_ice_medtake = view.findViewById(R.id.tv_ice_medtake);
         tv_ice_medcon = view.findViewById(R.id.tv_ice_medcon);
 
@@ -96,9 +98,11 @@ public class MyICEFragment extends Fragment {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         if (document.getId().equals(userId)) {
                             tv_ice_blood.setText(document.getString("user_ICE_BLOODTYPE"));
+                            tv_ice_address.setText(document.getString("user_ICE_ADDRESS"));
                             tv_ice_contactperson.setText(document.getString("user_ICE_CONTACTPERSON"));
-                            tv_ice_medtake.setText(document.getString("user_ICE_MEDICALCONDITION"));
-                            tv_ice_medcon.setText(document.getString("user_ICE_MEDICINETAKE"));
+                            tv_ice_contactperson_num.setText(document.getString("user_ICE_CONTACTPERSON_NUMBER"));
+                            tv_ice_medtake.setText(document.getString("user_ICE_MEDICINETAKE"));
+                            tv_ice_medcon.setText(document.getString("user_ICE_MEDICALCONDITION"));
                         }
                     }
                 } else {

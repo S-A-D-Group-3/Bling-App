@@ -74,6 +74,42 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
+                    android:text="Address: "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_ice_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>  <!-- 1st list -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ice_list_midshape"
+                android:orientation="horizontal"> <!-- 1st list -->
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
                     android:text="Blood type: "
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -176,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_botshape"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!--4th list -->
 
                 <TextView
@@ -207,6 +243,44 @@
 
 
             </LinearLayout>  <!--4th list -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ice_list_botshape"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"> <!--4th list -->
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="Contact person #: "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_ice_contactperson_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>  <!--5th list -->
 
 
         </LinearLayout> <!-- wag lalagpas dito  -->

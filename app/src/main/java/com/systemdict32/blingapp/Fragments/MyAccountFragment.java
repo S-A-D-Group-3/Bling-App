@@ -305,8 +305,8 @@ public class MyAccountFragment extends Fragment implements Executor {
                                     userId = firebaseAuth.getCurrentUser().getUid();
                                     DocumentReference documentReference = fStore.collection("users").document(userId);
                                     Map<String, Object> user = new HashMap<>();
-                                    user.put("user_FULLNAME", fullname.getText());
-                                    user.put("user_EMAIL", email.getText());
+                                    user.put("user_FN", fullname.getText());
+                                    user.put("user_Email", email.getText());
                                     user.put("user_ICE_ADDRESS", myAddress);
                                     user.put("user_ICE_BLOODTYPE", bloodType);
                                     user.put("user_ICE_MEDICALCONDITION", medicalCond);
@@ -357,7 +357,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                 txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
                 txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
                 txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
-                txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
+                txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
 
                 builderr.create();

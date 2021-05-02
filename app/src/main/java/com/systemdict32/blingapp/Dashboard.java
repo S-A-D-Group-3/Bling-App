@@ -61,7 +61,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     HomeFragment homeFragment;
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
-    String fullName, email, bloodType, contactPerson, medCondition, medTake, userId;
+    String fullName, email, address, bloodType, contactPerson, contactPersonNum, medCondition, medTake, userId;
     TextView tv_user_name;
     BottomNavigationView top_nav_view;
 
@@ -112,10 +112,12 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         if (document.getId().equals(userId)) {
-                            fullName = document.getString("user_FULLNAME");
-                            email = document.getString("user_EMAIL");
+                            fullName = document.getString("user_FN");
+                            email = document.getString("user_Email");
+                            address = document.getString("user_ICE_ADDRESS");
                             bloodType = document.getString("user_ICE_BLOODTYPE");
                             contactPerson = document.getString("user_ICE_CONTACTPERSON");
+                            contactPersonNum = document.getString("user_ICE_CONTACTPERSON_NUMBER");
                             medCondition = document.getString("user_ICE_MEDICALCONDITION");
                             medTake = document.getString("user_ICE_MEDICINETAKE");
                             // set username on nav view
@@ -223,11 +225,12 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         StringBuffer buffer = new StringBuffer();
 
         buffer.append("Name: " + fullName + "\n");
-        buffer.append("Email: " + email + "\n");
+        buffer.append("Address: " + address + "\n");
         buffer.append("Medical Condition: " + medCondition + "\n");
-        buffer.append("Medicine Take: " + medCondition + "\n");
+        buffer.append("Medicine Take: " + medTake + "\n");
         buffer.append("Blood Type: " + bloodType +"\n");
         buffer.append("ICE Name: " + contactPerson + "\n");
+        buffer.append("ICE Name #: " + contactPersonNum + "\n");
 //        buffer.append("ICE Number: " +  +"N/A");
 
         // Create the NotificationChannel, but only on API 26+ because

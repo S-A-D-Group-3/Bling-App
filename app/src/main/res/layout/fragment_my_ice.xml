@@ -28,10 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/open_sans"
             android:text="In case of Emergency"
             android:textColor="#fff200"
-            android:textSize="20dp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 
@@ -49,12 +49,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="25dp"
-                android:fontFamily="@font/lato_bold"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans_extrabold"
                 android:gravity="center"
-                android:text="Your information:"
+                android:text="User's information"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="*This information will be used if you are\nin an emergency situation. please make sure\nthat the information you have entered is accurate."
+                android:textColor="@color/black"
+                android:textSize="10sp" />
 
 
             <LinearLayout
@@ -73,10 +84,11 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/open_sans"
+
                     android:gravity="center"
                     android:text="Address: "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_ice_address"
@@ -89,7 +101,7 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
             </LinearLayout>  <!-- 1st list -->
 
@@ -112,7 +124,7 @@
                     android:gravity="center"
                     android:text="Blood type: "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_ice_blood"
@@ -125,7 +137,7 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
             </LinearLayout>  <!-- 1st list -->
 
@@ -150,7 +162,7 @@
                     android:gravity="center"
                     android:text="Medical condition: "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_ice_medcon"
@@ -163,7 +175,7 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>  <!-- 2nd list -->
@@ -188,7 +200,7 @@
                     android:gravity="center"
                     android:text="Medicine taken: "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_ice_medtake"
@@ -201,7 +213,7 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>  <!-- 3rd list -->
@@ -224,9 +236,9 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
-                    android:text="Contact person: "
+                    android:text="Contact person:"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_ice_contactperson"
@@ -239,7 +251,7 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>  <!--4th list -->
@@ -262,9 +274,9 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
-                    android:text="Contact person #: "
+                    android:text="Contact person #:"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_ice_contactperson_num"
@@ -277,7 +289,7 @@
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>  <!--5th list -->

@@ -65,19 +65,47 @@
 
             <TextView
 
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:gravity="center"
+                android:text="Your I.C.E Options"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="*The options below are for I.C.E only"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <TextView
+
                 android:id="@+id/txtbtn_create"
                 android:layout_width="250dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="Create ICE"
+                android:text="Put my I.C.E Info"
                 android:background="@drawable/crud_update"
-                android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
 
 
@@ -88,15 +116,14 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/open_sans"
                 android:background="@drawable/crud_update"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:gravity="center"
-                android:text="Update ICE"
-
-                android:textSize="25sp" />
+                android:text="Edit my Info"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txtbtn_delete"
@@ -105,14 +132,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
+                android:fontFamily="@font/open_sans"
+                android:padding="10dp"
                 android:background="@drawable/crud_update"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:gravity="center"
-                android:text="Delete ICE"
+                android:text="Delete my Info"
 
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
 
 

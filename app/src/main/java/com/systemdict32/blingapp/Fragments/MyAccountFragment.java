@@ -9,6 +9,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,6 +38,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -54,6 +57,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -65,9 +69,11 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.systemdict32.blingapp.Dashboard;
+import com.systemdict32.blingapp.LauncherActivity;
 import com.systemdict32.blingapp.Login;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.SignUp;
+import com.systemdict32.blingapp.splashscreen;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -103,6 +109,7 @@ public class MyAccountFragment extends Fragment implements Executor {
     String userId;
     String get;
     EditText txtAddress, txtbloodType, txtmedCon, txtmedTake, txtcontactPerson, txtcontPerNumber;
+    CheckBox chkAdd, chkBlood, chkMedCon, chkMedtake, chkContPer, chkContPerNum;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -159,6 +166,9 @@ public class MyAccountFragment extends Fragment implements Executor {
         btn_create = view.findViewById(R.id.txtbtn_create);
         btn_update = view.findViewById(R.id.txtbtn_update);
         btn_delete = view.findViewById(R.id.txtbtn_delete);
+
+
+
 
         //  final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
         //final EditText txtmedCon = (EditText)mview.findViewById(R.id.tx_medcon);
@@ -276,6 +286,143 @@ public class MyAccountFragment extends Fragment implements Executor {
             public void onClick(View v) {
                 // your code here
 
+                SharedPreferences preferences = getActivity().getSharedPreferences("fragment", Context.MODE_PRIVATE);
+
+                // Get value from shared preferences,
+                // if null (app is run first time) the default value (second argument) is returned
+                boolean isFIrstRun = preferences.getBoolean("isFirstRun", true);
+
+                if (userId != null) {
+                    if (isFIrstRun) {
+                        // set isFirstRun to false
+                        preferences.edit().putBoolean("isFirstRun", false).apply();
+
+                        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                                switch (which) {
+
+
+                                    case DialogInterface.BUTTON_POSITIVE:
+                                        return;
+
+                                    case DialogInterface.BUTTON_NEGATIVE:
+                                        String myAddress = txtAddress.getText().toString();
+                                        String bloodType = txtbloodType.getText().toString();
+                                        String medicalCond = txtmedCon.getText().toString();
+                                        String medicalTaken = txtmedTake.getText().toString();
+                                        String contactPer = txtcontactPerson.getText().toString();
+                                        String contactPerNum = txtcontPerNumber.getText().toString();
+
+                                        if (myAddress.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
+                                            Toasty.error(getActivity(), "Please fill up the field(s)",
+                                                    Toast.LENGTH_LONG, true).show();
+
+                                        } else {
+                                            firebaseAuth = FirebaseAuth.getInstance();
+                                            userId = firebaseAuth.getCurrentUser().getUid();
+                                            DocumentReference documentReference = fStore.collection("users").document(userId);
+                                            Map<String, Object> user = new HashMap<>();
+                                            user.put("user_FN", fullname.getText());
+                                            user.put("user_Email", email.getText());
+                                            user.put("user_ICE_ADDRESS", myAddress);
+                                            user.put("user_ICE_BLOODTYPE", bloodType);
+                                            user.put("user_ICE_MEDICALCONDITION", medicalCond);
+                                            user.put("user_ICE_MEDICINETAKE", medicalTaken);
+                                            user.put("user_ICE_CONTACTPERSON", contactPer);
+                                            user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
+
+
+                                            documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                                                }
+                                            });
+
+                                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Toasty.success(getActivity(), "Thank you, ICE information has been added",
+                                                            Toast.LENGTH_LONG, true).show();
+
+
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toasty.error(getActivity(), " Error, please try again",
+                                                            Toast.LENGTH_LONG, true).show();
+                                                }
+                                            });
+
+
+                                        }
+
+
+                                }
+                            }
+                        };
+
+                        AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
+                        // set the custom layout
+
+                        final View customLayout
+                                = getLayoutInflater()
+                                .inflate(R.layout.crud_createdialog, null);
+
+                        builderr.setView(customLayout);
+                        txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
+                        txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
+                        txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
+                        txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
+                        txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
+                        txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
+
+
+                        builderr.create();
+                        builderr.setCancelable(true);
+                        builderr.setIcon(R.drawable.logov2);
+                        builderr.setMessage("Put important I.C.E data").setPositiveButton("Go back", dialogClickListener)
+                                .setNegativeButton("Add my info", dialogClickListener).show();
+
+
+                    } else {
+
+                        Toasty.info(getActivity(), "You have already created your inital information on ICE, to change it, please click the Update ICE button.",
+                                Toast.LENGTH_LONG, true).show();
+
+
+                    }
+
+
+                }else{
+
+                    Toasty.warning(getActivity(), "You must login or register first before using this service, now going to login page...",
+                            Toast.LENGTH_LONG, true).show();
+
+                    startActivity(new Intent(MyAccountFragment.this.getActivity(), Login.class));
+                }
+
+            }
+
+
+        });
+
+
+        btn_update.setOnClickListener(new View.OnClickListener() {
+
+            // final EditText txtbloodType = new EditText(getContext());
+            //   final   EditText txtmedCon =  new EditText(getContext());
+            // final  EditText txtmedTake =  new EditText(getContext());
+            //  final  EditText txtcontactPerson =new EditText(getContext());
+
+            @Override
+
+            public void onClick(View v) {
+                // your code here
 
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
@@ -289,91 +436,254 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 return;
 
                             case DialogInterface.BUTTON_NEGATIVE:
-                                String myAddress = txtAddress.getText().toString();
-                                String bloodType = txtbloodType.getText().toString();
-                                String medicalCond = txtmedCon.getText().toString();
-                                String medicalTaken = txtmedTake.getText().toString();
-                                String contactPer = txtcontactPerson.getText().toString();
-                                String contactPerNum = txtcontPerNumber.getText().toString();
 
-                                if (myAddress.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
-                                    Toasty.error(getActivity(), "Please fill up the field(s)",
-                                            Toast.LENGTH_LONG, true).show();
-
-                                } else {
-                                    firebaseAuth = FirebaseAuth.getInstance();
-                                    userId = firebaseAuth.getCurrentUser().getUid();
-                                    DocumentReference documentReference = fStore.collection("users").document(userId);
-                                    Map<String, Object> user = new HashMap<>();
-                                    user.put("user_FN", fullname.getText());
-                                    user.put("user_Email", email.getText());
-                                    user.put("user_ICE_ADDRESS", myAddress);
-                                    user.put("user_ICE_BLOODTYPE", bloodType);
-                                    user.put("user_ICE_MEDICALCONDITION", medicalCond);
-                                    user.put("user_ICE_MEDICINETAKE", medicalTaken);
-                                    user.put("user_ICE_CONTACTPERSON", contactPer);
-                                    user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
+                                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
 
 
-                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                                        @Override
-                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                        switch (which) {
+
+
+                                            case DialogInterface.BUTTON_POSITIVE:
+                                                return;
+
+                                            case DialogInterface.BUTTON_NEGATIVE:
+                                                String myAddress = txtAddress.getText().toString();
+                                                String bloodType = txtbloodType.getText().toString();
+                                                String medicalCond = txtmedCon.getText().toString();
+                                                String medicalTaken = txtmedTake.getText().toString();
+                                                String contactPer = txtcontactPerson.getText().toString();
+                                                String contactPerNum = txtcontPerNumber.getText().toString();
+
+                                                if (myAddress.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
+                                                    Toasty.error(getActivity(), "Please fill up the field(s)",
+                                                            Toast.LENGTH_LONG, true).show();
+
+                                                } else {
+                                                    firebaseAuth = FirebaseAuth.getInstance();
+                                                    userId = firebaseAuth.getCurrentUser().getUid();
+                                                    DocumentReference documentReference = fStore.collection("users").document(userId);
+                                                    Map<String, Object> user = new HashMap<>();
+                                                    user.put("user_FN", fullname.getText());
+                                                    user.put("user_Email", email.getText());
+                                                    user.put("user_ICE_ADDRESS", myAddress);
+                                                    user.put("user_ICE_BLOODTYPE", bloodType);
+                                                    user.put("user_ICE_MEDICALCONDITION", medicalCond);
+                                                    user.put("user_ICE_MEDICINETAKE", medicalTaken);
+                                                    user.put("user_ICE_CONTACTPERSON", contactPer);
+                                                    user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
+
+
+                                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                        @Override
+                                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                                                        }
+                                                    });
+
+                                                    documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Toasty.success(getActivity(), "Thank you, ICE information has been updated",
+                                                                    Toast.LENGTH_LONG, true).show();
+
+
+                                                        }
+                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Toasty.error(getActivity(), " Error, please try again",
+                                                                    Toast.LENGTH_LONG, true).show();
+                                                        }
+                                                    });
+
+
+                                                }
+
 
                                         }
-                                    });
-                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            Toasty.success(getActivity(), "Thank you, ICE information has been added",
-                                                    Toast.LENGTH_LONG, true).show();
+                                    }
+                                };
 
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toasty.error(getActivity(), "Error, please try again",
-                                                    Toast.LENGTH_LONG, true).show();
-                                        }
-                                    });
+                                AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
 
 
-                                }
+
+                                // set the custom layout
+
+                                final View customLayout
+                                        = getLayoutInflater()
+                                        .inflate(R.layout.crud_createdialog, null);
+
+
+                                builderr.setView(customLayout);
+                                txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
+                                txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
+                                txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
+                                txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
+                                txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
+                                txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
+
+                                builderr.create();
+                                builderr.setCancelable(true);
+                                builderr.setIcon(R.drawable.logov2);
+                                builderr.setMessage("Update important I.C.E data").setPositiveButton("Go back", dialogClickListener)
+                                        .setNegativeButton("Update my info", dialogClickListener).show();
+
+
 
 
                         }
+
                     }
+
                 };
 
                 AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
                 // set the custom layout
 
-                final View customLayout
-                        = getLayoutInflater()
-                        .inflate(R.layout.crud_createdialog, null);
-
-                builderr.setView(customLayout);
-                txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
-                txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
-                txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
-                txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
-                txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
-                txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
-
-
                 builderr.create();
                 builderr.setCancelable(true);
                 builderr.setIcon(R.drawable.logov2);
-                builderr.setMessage("Create info").setPositiveButton("Go back", dialogClickListener)
-                        .setNegativeButton("Add info", dialogClickListener).show();
-
+                builderr.setTitle("Warning ! ! !");
+                builderr.setMessage("Once you Clicked Proceed, you must update all the data again").setPositiveButton("Go back", dialogClickListener)
+                        .setNegativeButton("Proceed", dialogClickListener).show();
             }
+
 
         });
 
 
+
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+
+            // final EditText txtbloodType = new EditText(getContext());
+            //   final   EditText txtmedCon =  new EditText(getContext());
+            // final  EditText txtmedTake =  new EditText(getContext());
+            //  final  EditText txtcontactPerson =new EditText(getContext());
+
+            @Override
+
+            public void onClick(View v) {
+                // your code here
+
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        switch (which) {
+
+
+                            case DialogInterface.BUTTON_POSITIVE:
+                                return;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+
+                                        switch (which) {
+
+
+                                            case DialogInterface.BUTTON_POSITIVE:
+                                                return;
+
+                                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                                    firebaseAuth = FirebaseAuth.getInstance();
+                                                    userId = firebaseAuth.getCurrentUser().getUid();
+                                                    DocumentReference documentReference = fStore.collection("users").document(userId);
+                                                    Map<String, Object> user = new HashMap<>();
+                                                    user.put("user_FN", fullname.getText());
+                                                    user.put("user_Email", email.getText());
+                                                    user.put("user_ICE_ADDRESS", FieldValue.delete());
+                                                    user.put("user_ICE_BLOODTYPE", FieldValue.delete());
+                                                    user.put("user_ICE_MEDICALCONDITION", FieldValue.delete());
+                                                    user.put("user_ICE_MEDICINETAKE", FieldValue.delete());
+                                                    user.put("user_ICE_CONTACTPERSON", FieldValue.delete());
+                                                    user.put("user_ICE_CONTACTPERSON_NUMBER", FieldValue.delete());
+
+
+                                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                        @Override
+                                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                                                        }
+                                                    });
+
+                                                    documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Toasty.success(getActivity(), "Your I.C.E Data has been deleted",
+                                                                    Toast.LENGTH_LONG, true).show();
+
+
+                                                        }
+                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Toasty.error(getActivity(), " Error, please try again",
+                                                                    Toast.LENGTH_LONG, true).show();
+                                                        }
+                                                    });
+
+
+
+
+
+                                        }
+                                    }
+                                };
+
+                                AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
+
+                                // set the custom layout
+                                builderr.create();
+                                builderr.setCancelable(true);
+                                builderr.setIcon(R.drawable.logov2);
+                                builderr.setMessage("Please Confirm deletion of data").setPositiveButton("Go back", dialogClickListener)
+                                        .setNegativeButton("Delete my info", dialogClickListener).show();
+
+
+                        }
+
+                    }
+
+                };
+
+                AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
+                // set the custom layout
+
+                builderr.create();
+                builderr.setCancelable(true);
+                builderr.setIcon(R.drawable.logov2);
+                builderr.setTitle("Warning ! ! !");
+                builderr.setMessage("Once you Clicked Delete, all of your I.C.E info will be gone").setPositiveButton("Go back", dialogClickListener)
+                        .setNegativeButton("Delete", dialogClickListener).show();
+            }
+
+
+        });
+
+
+
+
+
+
+
         // Inflate the layout for this fragment
+
         return view;
     }
+
+
+
+
+
 
 
     @Override

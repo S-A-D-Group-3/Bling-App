@@ -38,6 +38,31 @@
                 android:fontFamily="@font/open_sans_extrabold"
                 android:textSize="20sp" />
 
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="*The Nearest Service(s) feature of this app is \nenabled by Google LLC service."
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
         </LinearLayout>
 
             <GridLayout

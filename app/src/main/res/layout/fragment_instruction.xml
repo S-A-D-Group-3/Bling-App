@@ -39,6 +39,29 @@
 
         </LinearLayout>
 
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="250dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="*Instruction Set is a collection of textual and visual\nInformation on how to give first-aid when a service\nIs not yet coming."
+                    android:textColor="@color/black"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -527,7 +550,32 @@
 <!--                            app:srcCompat="@drawable/twelve" />-->
 <!--                    </RelativeLayout>-->
 <!--                </androidx.cardview.widget.CardView>-->
+
+
             </GridLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="250dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/open_sans"
+                    android:gravity="center"
+                    android:text="End of set."
+                    android:textColor="@color/black"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
 

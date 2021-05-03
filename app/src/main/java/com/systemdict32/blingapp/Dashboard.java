@@ -274,13 +274,17 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onPause() {
         super.onPause();
-        showNotification();
+        if(bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
+            showNotification();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        showNotification();
+        if(bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
+            showNotification();
+        }
     }
 
     @Override

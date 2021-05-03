@@ -9,8 +9,12 @@ import android.speech.tts.TextToSpeech;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
 import com.systemdict32.blingapp.Fragments.HomeFragment;
+import com.systemdict32.blingapp.Fragments.MyAccountFragment;
+import com.systemdict32.blingapp.Fragments.MyICEFragment;
 import com.systemdict32.blingapp.Fragments.ReadFirstAidFragment;
 import com.systemdict32.blingapp.R;
 
@@ -43,11 +47,44 @@ public class BlingChatbot {
         String botMessage = "Pardon. I didn't get that.";
         String userMessage = speechMessage.get(0);
         Fragment selectedFragment = null;
+        Fragment selectedFragment2 = null;
+
         // nav bar
         if (userMessage.compareToIgnoreCase("home") == 0) {
             selectedFragment = new HomeFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment).commit();
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
+            ft.addToBackStack("nav_home");
+            ft.commit();
             botMessage = "Going to Home Page";
+        }
+        if (userMessage.compareToIgnoreCase("my account") == 0) {
+            selectedFragment = new MyAccountFragment();
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
+
+            ft.addToBackStack("nav_account");
+            ft.commit();
+            botMessage = "Going to My I.C.E Page";
+        }
+        if (userMessage.compareToIgnoreCase("ice") == 0) {
+            selectedFragment = new MyICEFragment();
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
+
+            ft.addToBackStack("nav_ice");
+            ft.commit();
+            botMessage = "Going to My I.C.E Page";
+        }
+
+        if (userMessage.compareToIgnoreCase("body injury") == 0) {
+            selectedFragment = new MyICEFragment();
+            selectedFragment2 = new c3_BodyInjuriesFragment();
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
+            FragmentTransaction ft2 = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment2);
+
+            ft.addToBackStack("nav_ice");
+            ft.commit();
+            ft2.commit();
+
+            botMessage = "Going to Body Injuries Page";
         }
         // categories
 //        if (userMessage.compareToIgnoreCase("first aid") == 0) {
@@ -90,7 +127,6 @@ public class BlingChatbot {
         }
         if (userMessage.compareToIgnoreCase("thank you") == 0 || userMessage.compareToIgnoreCase("thanks") == 0) {
             botMessage = "Thank you for using bling app";
-
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -101,12 +137,6 @@ public class BlingChatbot {
 //                    context.startActivity(intent);
                 }
             }, 1500);
-        }
-        // read first aid
-        if (userMessage.compareToIgnoreCase("read") == 0) {
-            ReadFirstAidFragment readFirstAidFragment = new ReadFirstAidFragment();
-            readFirstAidFragment.readFirstAid();
-            botMessage = "";
         }
         return botMessage;
     }

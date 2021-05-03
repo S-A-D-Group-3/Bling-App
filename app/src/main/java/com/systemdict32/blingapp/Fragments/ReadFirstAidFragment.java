@@ -21,6 +21,23 @@ import android.widget.Toast;
 
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_10_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_11_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_12_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_13_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_14_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_15_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_16_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_17_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_6_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_7_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_8_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_9_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_1_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_2_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_3_ReadFragment;
@@ -246,6 +263,58 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
     }
 
     public void setFirstAidText(Spannable spannable){
+        // C1 EMERGENCY BASIC
+        if (firstAidInterface.getClass().equals(c1_1_ReadFragment.class)) {
+            ((c1_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_2_ReadFragment.class)) {
+            ((c1_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_3_ReadFragment.class)) {
+            ((c1_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_4_ReadFragment.class)) {
+            ((c1_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_5_ReadFragment.class)) {
+            ((c1_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_6_ReadFragment.class)) {
+            ((c1_6_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_7_ReadFragment.class)) {
+            ((c1_7_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_8_ReadFragment.class)) {
+            ((c1_8_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_9_ReadFragment.class)) {
+            ((c1_9_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_10_ReadFragment.class)) {
+            ((c1_10_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_11_ReadFragment.class)) {
+            ((c1_11_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_12_ReadFragment.class)) {
+            ((c1_12_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_13_ReadFragment.class)) {
+            ((c1_13_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_14_ReadFragment.class)) {
+            ((c1_14_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_15_ReadFragment.class)) {
+            ((c1_15_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_16_ReadFragment.class)) {
+            ((c1_16_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c1_17_ReadFragment.class)) {
+            ((c1_17_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
         // C2 WOUNDS
         if (firstAidInterface.getClass().equals(c2_1_ReadFragment.class)) {
             ((c2_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);

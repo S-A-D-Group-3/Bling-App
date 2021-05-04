@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments.Categories;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c3_1_HeadInjuryFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_1_ShockFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_2_ExternalBleedingFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_3_ExternalBleedingObjectFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_4_ImpalementFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_5_AmputationFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_6_CrushInjuryFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;
@@ -73,12 +81,12 @@ public class c4_SevereWoundsFragment extends Fragment {
 
         ArrayList<String> woundsList = new ArrayList<>();
 
-        woundsList.add("1. Internal Bleeding");
+        woundsList.add("1. Shock");
         woundsList.add("2. External Bleeding");
-        woundsList.add("3. Impalement");
-        woundsList.add("4. Amputation");
-        woundsList.add("5. Crush Injury");
-        woundsList.add("6. Fractures");
+        woundsList.add("3. External Bleeding w/ Object in the Wound");
+        woundsList.add("4. Impalement");
+        woundsList.add("5. Amputation");
+        woundsList.add("6. Crush Injury");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, woundsList);
 
@@ -87,33 +95,37 @@ public class c4_SevereWoundsFragment extends Fragment {
         lv_severe_wounds.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-
+                        c4_1_ShockFragment c4_1_shockFragment = new c4_1_ShockFragment();
+                        ft.replace(R.id.home_fragment_container, c4_1_shockFragment);
+                        ft.commit();
                         break;
                     case 1:
-
+                        c4_2_ExternalBleedingFragment c4_2_externalBleedingFragment = new c4_2_ExternalBleedingFragment();
+                        ft.replace(R.id.home_fragment_container, c4_2_externalBleedingFragment);
+                        ft.commit();
                         break;
                     case 2:
-
+                        c4_3_ExternalBleedingObjectFragment c4_3_externalBleedingObjectFragment = new c4_3_ExternalBleedingObjectFragment();
+                        ft.replace(R.id.home_fragment_container, c4_3_externalBleedingObjectFragment);
+                        ft.commit();
                         break;
                     case 3:
-
+                        c4_4_ImpalementFragment c4_4_impalementFragment = new c4_4_ImpalementFragment();
+                        ft.replace(R.id.home_fragment_container, c4_4_impalementFragment);
+                        ft.commit();
                         break;
                     case 4:
-
+                        c4_5_AmputationFragment c4_5_amputationFragment = new c4_5_AmputationFragment();
+                        ft.replace(R.id.home_fragment_container, c4_5_amputationFragment);
+                        ft.commit();
                         break;
                     case 5:
-
-                        break;
-                    case 6:
-
-                        break;
-                    case 7:
-
-                        break;
-                    case 8:
-
+                        c4_6_CrushInjuryFragment c4_6_crushInjuryFragment = new c4_6_CrushInjuryFragment();
+                        ft.replace(R.id.home_fragment_container, c4_6_crushInjuryFragment);
+                        ft.commit();
                         break;
                 }
             }

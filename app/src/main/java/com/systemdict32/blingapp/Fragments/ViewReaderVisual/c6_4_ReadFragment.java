@@ -15,10 +15,10 @@ import com.systemdict32.blingapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link c4_4_ReadFragment#newInstance} factory method to
+ * Use the {@link c6_4_ReadFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
+public class c6_4_ReadFragment extends Fragment implements FirstAidInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,7 @@ public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
     private String mParam1;
     private String mParam2;
 
-    public c4_4_ReadFragment() {
+    public c6_4_ReadFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment c4_4_ReadFragment.
+     * @return A new instance of fragment c6_4_ReadFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static c4_4_ReadFragment newInstance(String param1, String param2) {
-        c4_4_ReadFragment fragment = new c4_4_ReadFragment();
+    public static c6_4_ReadFragment newInstance(String param1, String param2) {
+        c6_4_ReadFragment fragment = new c6_4_ReadFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,27 +60,27 @@ public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
         }
     }
 
-    public String firstAidManual = "1. Call for emergency help. Send a helper to make the call, if possible. \n" +
-            "\n2. Explain the situation clearly to the dispatcher, so that the right equipment will be brought. \n" +
-            "\n3. Support the casualty’s body weight until the emergency services arrive and take over. \n" +
-            "\n4. Reassure the casualty while you wait for emergency help. \n";
-    TextView tv_c4_4_first_aid_manual;
+    public String firstAidManual = "1. Cover the wound with a sterile dressing or large, clean, gauze pad. Apply pressure around the injury to control bleeding; be careful not to press on a protruding bone. \n" +
+            "\n2. Carefully place a sterile wound dressing or more clean padding over and around the dressing. \n" +
+            "\n3. Secure the dressing and padding with a bandage. Bandage firmly, but not so tightly that it impairs the circulation beyond the bandage. \n" +
+            "\n4. Immobilize the injured part as for a closed fracture, and arrange to transport the casualty to the hospital. \n" +
+            "\n5. Treat the casualty for shock if necessary. Do not raise the injured leg. Monitor and record vital signs—level of response, breathing, and pulse—while waiting for help to arrive. Check the circulation beyond the bandage every ten minutes. If the circulation is impaired, loosen the bandages. \n";
+    TextView tv_c6_4_first_aid_manual;
     View view;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_c4_4__read, container, false);
+        view = inflater.inflate(R.layout.fragment_c6_4__read, container, false);
 
-        tv_c4_4_first_aid_manual = view.findViewById(R.id.tv_c4_4_first_aid_manual);
-        tv_c4_4_first_aid_manual.setText(firstAidManual);
+        tv_c6_4_first_aid_manual = view.findViewById(R.id.tv_c6_4_first_aid_manual);
+        tv_c6_4_first_aid_manual.setText(firstAidManual);
         return view;
     }
 
     public void setFirstAidText(Spannable text){
-        tv_c4_4_first_aid_manual = view.findViewById(R.id.tv_c4_4_first_aid_manual);
-        tv_c4_4_first_aid_manual.setText(text);
+        tv_c6_4_first_aid_manual = view.findViewById(R.id.tv_c6_4_first_aid_manual);
+        tv_c6_4_first_aid_manual.setText(text);
     }
 
     @Override

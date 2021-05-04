@@ -61,12 +61,12 @@ public class c4_3_ReadFragment extends Fragment implements FirstAidInterface {
     }
 
     public String firstAidManual = "1. Control bleeding by pressing firmly on either side of the embedded object to push the edges of the wound together. \n" +
-            "2. Do not press directly on the object or try to remove it. Raise the injury above the level of the heart. \n" +
-            "3. To protect the wound, drape a piece of gauze over the object. \n" +
-            "4. Build up padding on either side, then carefully bandage over the object and pads without pressing on the object. \n" +
-            "5. Check the circulation beyond the bandage every ten minutes. \n" +
-            "6. If the circulation is impaired, loosen the bandage and reapply. \n" +
-            "7. Treat for shock. Call for emergency help. Monitor and record vital signs—level of response, breathing, and pulse—while waiting for help to arrive. \n";
+            "\n2. Do not press directly on the object or try to remove it. Raise the injury above the level of the heart. \n" +
+            "\n3. To protect the wound, drape a piece of gauze over the object. \n" +
+            "\n4. Build up padding on either side, then carefully bandage over the object and pads without pressing on the object. \n" +
+            "\n5. Check the circulation beyond the bandage every ten minutes. \n" +
+            "\n6. If the circulation is impaired, loosen the bandage and reapply. \n" +
+            "\n7. Treat for shock. Call for emergency help. Monitor and record vital signs—level of response, breathing, and pulse—while waiting for help to arrive. \n";
     TextView tv_c4_3_first_aid_manual;
     View view;
     @Override

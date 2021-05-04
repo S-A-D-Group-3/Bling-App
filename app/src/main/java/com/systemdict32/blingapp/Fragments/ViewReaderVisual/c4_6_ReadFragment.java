@@ -61,11 +61,11 @@ public class c4_6_ReadFragment extends Fragment implements FirstAidInterface {
     }
 
     public String firstAidManual = "1. If you know the casualty has been crushed for less than 15 minutes and you can release him, do this as quickly as possible. \n" +
-            "2. Control external bleeding and steady and support any suspected fracture. \n" +
-            "3. Treat the casualty for shock but do not raise his legs. \n" +
-            "4. If the casualty has been crushed for more than 15 minutes, or you cannot move the cause of injury, leave him in the position found and comfort and reassure him. \n" +
-            "5. Call for emergency help, giving clear details of the incident to the dispatcher. \n" +
-            "6. Monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. \n";
+            "\n2. Control external bleeding and steady and support any suspected fracture. \n" +
+            "\n3. Treat the casualty for shock but do not raise his legs. \n" +
+            "\n4. If the casualty has been crushed for more than 15 minutes, or you cannot move the cause of injury, leave him in the position found and comfort and reassure him. \n" +
+            "\n5. Call for emergency help, giving clear details of the incident to the dispatcher. \n" +
+            "\n6. Monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. \n";
     TextView tv_c4_6_first_aid_manual;
     View view;
     @Override

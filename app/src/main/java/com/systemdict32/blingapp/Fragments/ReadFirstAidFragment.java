@@ -73,6 +73,13 @@ import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_6_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_7_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_8_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_9_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_6_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_7_ReadFragment;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.R;
 
@@ -430,6 +437,28 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
         if (firstAidInterface.getClass().equals(c5_10_ReadFragment.class)) {
             ((c5_10_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        // C6 Car Accident
+        if (firstAidInterface.getClass().equals(c6_1_ReadFragment.class)) {
+            ((c6_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c6_2_ReadFragment.class)) {
+            ((c6_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c6_3_ReadFragment.class)) {
+            ((c6_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c6_4_ReadFragment.class)) {
+            ((c6_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c6_5_ReadFragment.class)) {
+            ((c6_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c6_6_ReadFragment.class)) {
+            ((c6_6_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c6_7_ReadFragment.class)) {
+            ((c6_7_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }
     }
 

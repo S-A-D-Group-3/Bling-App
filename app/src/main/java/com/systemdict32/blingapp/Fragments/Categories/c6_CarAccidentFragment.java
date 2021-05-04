@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments.Categories;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c3_1_HeadInjuryFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c3_4_RibInjuryFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_2_ExternalBleedingFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_4_ImpalementFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_5_AmputationFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_6_CrushInjuryFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_1_StrokeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_1_SevereBurnFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_2_MildBurnFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_3_ClosedFractureFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_4_OpenFractureFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_5_ForeignObjectEyeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_6_ForeignObjectEarFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_7_ForeignObjectNoseFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;
@@ -73,18 +88,19 @@ public class c6_CarAccidentFragment extends Fragment {
 
         ArrayList<String> woundsList = new ArrayList<>();
 
-        woundsList.add("1. Burns");
-        woundsList.add("2. Fractures");
-        woundsList.add("3. Rib Injury");
-        woundsList.add("4. Head Injury");
-        woundsList.add("5. Crush Injury");
-        woundsList.add("6. Amputation");
-        woundsList.add("7. Impalement");
-        woundsList.add("8. Internal Bleeding");
-        woundsList.add("9. External Bleeding");
-        woundsList.add("10. Foreign Object (Eye)");
-        woundsList.add("11. Foreign Object (Ear)");
-        woundsList.add("12. Foreign Object (Nose)");
+        woundsList.add("1. Severe Burns and Scalds");
+        woundsList.add("2. Minor Burns and Scalds");
+        woundsList.add("3. Closed Fractures");
+        woundsList.add("4. Open Fractures");
+        woundsList.add("5. Rib Injury");
+        woundsList.add("6. Head Injury");
+        woundsList.add("7. Crush Injury");
+        woundsList.add("8. Amputation");
+        woundsList.add("9. Impalement");
+        woundsList.add("10. External Bleeding");
+        woundsList.add("11. Foreign Object (Eye)");
+        woundsList.add("12. Foreign Object (Ear)");
+        woundsList.add("13. Foreign Object (Nose)");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, woundsList);
 
@@ -93,33 +109,72 @@ public class c6_CarAccidentFragment extends Fragment {
         lv_car_accident.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-
+                        c6_1_SevereBurnFragment c6_1_severeBurnFragment = new c6_1_SevereBurnFragment();
+                        ft.replace(R.id.home_fragment_container, c6_1_severeBurnFragment);
+                        ft.commit();
                         break;
                     case 1:
-
+                        c6_2_MildBurnFragment c6_2_mildBurnFragment = new c6_2_MildBurnFragment();
+                        ft.replace(R.id.home_fragment_container, c6_2_mildBurnFragment);
+                        ft.commit();
                         break;
                     case 2:
-
+                        c6_3_ClosedFractureFragment c6_3_closedFractureFragment = new c6_3_ClosedFractureFragment();
+                        ft.replace(R.id.home_fragment_container, c6_3_closedFractureFragment);
+                        ft.commit();
                         break;
                     case 3:
-
+                        c6_4_OpenFractureFragment c6_4_openFractureFragment = new c6_4_OpenFractureFragment();
+                        ft.replace(R.id.home_fragment_container, c6_4_openFractureFragment);
+                        ft.commit();
                         break;
                     case 4:
-
+                        c3_4_RibInjuryFragment c3_4_ribInjuryFragment = new c3_4_RibInjuryFragment();
+                        ft.replace(R.id.home_fragment_container, c3_4_ribInjuryFragment);
+                        ft.commit();
                         break;
                     case 5:
-
+                        c3_1_HeadInjuryFragment c3_1_headInjuryFragment = new c3_1_HeadInjuryFragment();
+                        ft.replace(R.id.home_fragment_container, c3_1_headInjuryFragment);
+                        ft.commit();
                         break;
                     case 6:
-
+                        c4_6_CrushInjuryFragment c4_6_crushInjuryFragment = new c4_6_CrushInjuryFragment();
+                        ft.replace(R.id.home_fragment_container, c4_6_crushInjuryFragment);
+                        ft.commit();
                         break;
                     case 7:
-
+                        c4_5_AmputationFragment c4_5_amputationFragment = new c4_5_AmputationFragment();
+                        ft.replace(R.id.home_fragment_container, c4_5_amputationFragment);
+                        ft.commit();
                         break;
                     case 8:
-
+                        c4_4_ImpalementFragment c4_4_impalementFragment = new c4_4_ImpalementFragment();
+                        ft.replace(R.id.home_fragment_container, c4_4_impalementFragment);
+                        ft.commit();
+                        break;
+                    case 9:
+                        c4_2_ExternalBleedingFragment c4_2_externalBleedingFragment = new c4_2_ExternalBleedingFragment();
+                        ft.replace(R.id.home_fragment_container, c4_2_externalBleedingFragment);
+                        ft.commit();
+                        break;
+                    case 10:
+                        c6_5_ForeignObjectEyeFragment c6_5_foreignObjectEyeFragment = new c6_5_ForeignObjectEyeFragment();
+                        ft.replace(R.id.home_fragment_container, c6_5_foreignObjectEyeFragment);
+                        ft.commit();
+                        break;
+                    case 11:
+                        c6_6_ForeignObjectEarFragment c6_6_foreignObjectEarFragment = new c6_6_ForeignObjectEarFragment();
+                        ft.replace(R.id.home_fragment_container, c6_6_foreignObjectEarFragment);
+                        ft.commit();
+                        break;
+                    case 12:
+                        c6_7_ForeignObjectNoseFragment c6_7_foreignObjectNoseFragment = new c6_7_ForeignObjectNoseFragment();
+                        ft.replace(R.id.home_fragment_container, c6_7_foreignObjectNoseFragment);
+                        ft.commit();
                         break;
                 }
             }

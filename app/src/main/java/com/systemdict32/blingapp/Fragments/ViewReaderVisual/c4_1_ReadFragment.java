@@ -61,12 +61,12 @@ public class c4_1_ReadFragment extends Fragment implements FirstAidInterface {
     }
 
     public String firstAidManual = "1. Treat any possible cause of shock that you can detect, such as severe or serious burns. Reassure the casualty. \n" +
-            "2. Help the casualty lie down—on a rug or blanket if there is one, because this will protect him from the cold. \n" +
-            "3. Raise and support his legs above the level of his heart to improve blood supply to the vital organs. \n" +
-            "4. Call 911 for emergency help. Tell the dispatcher that you suspect shock. \n" +
-            "5. Loosen tight clothing to reduce constriction at the neck, chest, and waist. \n" +
-            "6. Keep the casualty warm by covering his body and legs with coats or blankets. \n" +
-            "7. Monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. \n";
+            "\n2. Help the casualty lie down—on a rug or blanket if there is one, because this will protect him from the cold. \n" +
+            "\n3. Raise and support his legs above the level of his heart to improve blood supply to the vital organs. \n" +
+            "\n4. Call 911 for emergency help. Tell the dispatcher that you suspect shock. \n" +
+            "\n5. Loosen tight clothing to reduce constriction at the neck, chest, and waist. \n" +
+            "\n6. Keep the casualty warm by covering his body and legs with coats or blankets. \n" +
+            "\n7. Monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. \n";
     TextView tv_c4_1_first_aid_manual;
     View view;
     @Override

@@ -61,13 +61,13 @@ public class c4_5_ReadFragment extends Fragment implements FirstAidInterface {
     }
 
     public String firstAidManual = "1. Control blood loss by applying direct pressure and raising the injured part above the casualty’s heart. \n" +
-            "2. Place a sterile dressing or a clean gauze pad on the wound and secure it with a bandage. If you are trained to use a tourniquet, it may be appropriate. \n" +
-            "3. Treat the casualty for shock. \n" +
-            "4. Call for emergency help. Tell the dispatcher that an amputation is involved. Monitor and record vital signs—level of response, breathing, and pulse—while waiting for help to arrive. \n" +
-            "5. Wrap the severed part in plastic wrap or a plastic bag. \n" +
-            "6. Wrap the package in gauze or soft fabric and place it in a container full of crushed ice. \n" +
-            "7. Mark the container with the time of injury and the casualty’s name. \n" +
-            "8. Give it to the emergency service personnel yourself. \n";
+            "\n2. Place a sterile dressing or a clean gauze pad on the wound and secure it with a bandage. If you are trained to use a tourniquet, it may be appropriate. \n" +
+            "\n3. Treat the casualty for shock. \n" +
+            "\n4. Call for emergency help. Tell the dispatcher that an amputation is involved. Monitor and record vital signs—level of response, breathing, and pulse—while waiting for help to arrive. \n" +
+            "\n5. Wrap the severed part in plastic wrap or a plastic bag. \n" +
+            "\n6. Wrap the package in gauze or soft fabric and place it in a container full of crushed ice. \n" +
+            "\n7. Mark the container with the time of injury and the casualty’s name. \n" +
+            "\n8. Give it to the emergency service personnel yourself. \n";
     TextView tv_c4_5_first_aid_manual;
     View view;
     @Override

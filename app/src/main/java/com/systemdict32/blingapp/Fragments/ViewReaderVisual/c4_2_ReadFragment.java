@@ -61,19 +61,19 @@ public class c4_2_ReadFragment extends Fragment implements FirstAidInterface {
     }
 
     public String firstAidManual = "1. Remove or cut clothing as necessary to expose the wound. \n" +
-            "2. Apply direct pressure over the wound with your fingers using a sterile dressing or clean, gauze pad. \n" +
-            "3. If you do not have a dressing, ask the casualty to apply direct pressure himself. If there is an object in the wound, apply pressure on either side of the object (opposite). \n" +
-            "4. Maintain direct pressure on the wound to control bleeding. \n" +
-            "5. Raise and support the injured limb above the level of the casualty’s heart to reduce blood loss. \n" +
-            "6. Help the casualty lie down—on a rug or blanket if there is one, because this will protect him from the cold. \n" +
-            "7. Since shock may develop, raise, and support his legs so that they are above the level of his heart. \n" +
-            "8. Ask a helper to call for emergency help, and to give the dispatcher details of the site and extent of the bleeding. \n" +
-            "9. Secure the dressing with a bandage that is firm enough to maintain pressure, but not so tight that it impairs circulation. \n" +
-            "10. Call for emergency help if this has not been done already. \n" +
-            "11. If bleeding shows through the dressing, apply a second one on top of the first. If blood seeps through the second dressing, remove both and apply a fresh one, ensuring that pressure is applied accurately at the point of bleeding. \n" +
-            "12. Support the injured part in a raised position with a sling and/or bandage. \n" +
-            "13. Check the circulation beyond the bandage every ten minutes. If the circulation is impaired, loosen the bandage and reapply. \n" +
-            "14. Monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. \n";
+            "\n2. Apply direct pressure over the wound with your fingers using a sterile dressing or clean, gauze pad. \n" +
+            "\n3. If you do not have a dressing, ask the casualty to apply direct pressure himself. If there is an object in the wound, apply pressure on either side of the object (opposite). \n" +
+            "\n4. Maintain direct pressure on the wound to control bleeding. \n" +
+            "\n5. Raise and support the injured limb above the level of the casualty’s heart to reduce blood loss. \n" +
+            "\n6. Help the casualty lie down—on a rug or blanket if there is one, because this will protect him from the cold. \n" +
+            "\n7. Since shock may develop, raise, and support his legs so that they are above the level of his heart. \n" +
+            "\n8. Ask a helper to call for emergency help, and to give the dispatcher details of the site and extent of the bleeding. \n" +
+            "\n9. Secure the dressing with a bandage that is firm enough to maintain pressure, but not so tight that it impairs circulation. \n" +
+            "\n10. Call for emergency help if this has not been done already. \n" +
+            "\n11. If bleeding shows through the dressing, apply a second one on top of the first. If blood seeps through the second dressing, remove both and apply a fresh one, ensuring that pressure is applied accurately at the point of bleeding. \n" +
+            "\n12. Support the injured part in a raised position with a sling and/or bandage. \n" +
+            "\n13. Check the circulation beyond the bandage every ten minutes. If the circulation is impaired, loosen the bandage and reapply. \n" +
+            "\n14. Monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. \n";
     TextView tv_c4_2_first_aid_manual;
     View view;
 

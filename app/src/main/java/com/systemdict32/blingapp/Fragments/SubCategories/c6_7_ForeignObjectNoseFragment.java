@@ -1,24 +1,24 @@
-package com.systemdict32.blingapp.Fragments.ViewReaderVisual;
+package com.systemdict32.blingapp.Fragments.SubCategories;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.text.Spannable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_7_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_7_VisualFragment;
+import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link c4_4_ReadFragment#newInstance} factory method to
+ * Use the {@link c6_7_ForeignObjectNoseFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
+public class c6_7_ForeignObjectNoseFragment extends Fragment implements ToggleReadVisualInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,7 @@ public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
     private String mParam1;
     private String mParam2;
 
-    public c4_4_ReadFragment() {
+    public c6_7_ForeignObjectNoseFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment c4_4_ReadFragment.
+     * @return A new instance of fragment c6_7_ForeignObjectNoseFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static c4_4_ReadFragment newInstance(String param1, String param2) {
-        c4_4_ReadFragment fragment = new c4_4_ReadFragment();
+    public static c6_7_ForeignObjectNoseFragment newInstance(String param1, String param2) {
+        c6_7_ForeignObjectNoseFragment fragment = new c6_7_ForeignObjectNoseFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,31 +60,20 @@ public class c4_4_ReadFragment extends Fragment implements FirstAidInterface {
         }
     }
 
-    public String firstAidManual = "1. Call for emergency help. Send a helper to make the call, if possible. \n" +
-            "\n2. Explain the situation clearly to the dispatcher, so that the right equipment will be brought. \n" +
-            "\n3. Support the casualty’s body weight until the emergency services arrive and take over. \n" +
-            "\n4. Reassure the casualty while you wait for emergency help. \n";
-    TextView tv_c4_4_first_aid_manual;
-    View view;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_c4_4__read, container, false);
-
-        tv_c4_4_first_aid_manual = view.findViewById(R.id.tv_c4_4_first_aid_manual);
-        tv_c4_4_first_aid_manual.setText(firstAidManual);
-        return view;
-    }
-
-    public void setFirstAidText(Spannable text){
-        tv_c4_4_first_aid_manual = view.findViewById(R.id.tv_c4_4_first_aid_manual);
-        tv_c4_4_first_aid_manual.setText(text);
+        return inflater.inflate(R.layout.fragment_c6_7__foreign_object_nose, container, false);
     }
 
     @Override
-    public String getFirstAid() {
-        return firstAidManual;
+    public Fragment getVisualFragment() {
+        return new c6_7_VisualFragment();
+    }
+
+    @Override
+    public Fragment getReadFragment() {
+        return new c6_7_ReadFragment();
     }
 }

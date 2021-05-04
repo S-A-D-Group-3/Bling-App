@@ -30,7 +30,7 @@
             android:layout_marginBottom="25dp"
             android:fontFamily="@font/open_sans"
             android:text="In case of Emergency"
-            android:textColor="#fff200"
+            android:textColor="@color/white"
             android:textSize="25sp" />
 
     </LinearLayout>
@@ -72,6 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_topshape"
                 android:orientation="horizontal"> <!-- 1st list -->
@@ -109,6 +111,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!-- 1st list -->
@@ -146,6 +150,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
@@ -184,6 +190,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
@@ -223,6 +231,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!--4th list -->
@@ -261,6 +271,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
                 android:background="@drawable/ice_list_botshape"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal"> <!--4th list -->
@@ -294,6 +306,17 @@
 
             </LinearLayout>  <!--5th list -->
 
+            <TextView
+
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/open_sans"
+                android:text="*End of ICE data "
+                android:textColor="@color/black"
+                android:textSize="10sp" />
 
         </LinearLayout> <!-- wag lalagpas dito  -->
 

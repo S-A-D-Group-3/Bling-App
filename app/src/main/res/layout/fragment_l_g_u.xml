@@ -23,45 +23,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:fontFamily="@font/lato_bold"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/open_sans_extrabold"
                 android:gravity="center"
                 android:text="LGU Hotlines"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_currently_on"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="You are currently on"
+                android:text="*You are currently located in: "
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_user_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/open_sans"
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="35sp" />
+                android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
                 android:layout_marginBottom="30dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -72,9 +77,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:fontFamily="@font/open_sans"
+                            android:layout_marginLeft="4dp"
                             android:text="Emergency Hotline: "
-                            android:textColor="@color/chatbot_bubble"
+                            android:textColor="@color/action_bar"
                             android:textSize="20sp" />
 
                         <TextView
@@ -82,6 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
+                            android:layout_marginLeft="4dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -93,6 +100,8 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/ic_phone_call" />
 
@@ -100,7 +109,12 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -111,7 +125,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/open_sans"
                             android:text="Fire Dept. Hotline: "
                             android:textColor="@color/chatbot_bubble"
                             android:textSize="20sp" />
@@ -121,6 +136,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
+                            android:layout_marginLeft="4dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -132,6 +148,8 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/ic_phone_call" />
 
@@ -139,7 +157,12 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -150,7 +173,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/open_sans"
                             android:text="Rescue Hotline: "
                             android:textColor="@color/chatbot_bubble"
                             android:textSize="20sp" />
@@ -160,6 +184,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
+                            android:layout_marginLeft="4dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -171,6 +196,8 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/ic_phone_call" />
 
@@ -178,7 +205,12 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -188,8 +220,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:fontFamily="@font/open_sans"
                             android:text="City Police Hotline: "
                             android:textColor="@color/chatbot_bubble"
                             android:textSize="20sp" />
@@ -198,6 +231,7 @@
                             android:id="@+id/tv_cp_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
@@ -210,6 +244,8 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/ic_phone_call" />
 
@@ -217,7 +253,12 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -228,7 +269,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/open_sans"
                             android:text="Health Dept. Hotline: "
                             android:textColor="@color/chatbot_bubble"
                             android:textSize="20sp" />
@@ -237,6 +279,7 @@
                             android:id="@+id/tv_hd_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
@@ -250,13 +293,20 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -266,8 +316,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:fontFamily="@font/open_sans"
                             android:text="Red Cross Hotline: "
                             android:textColor="@color/chatbot_bubble"
                             android:textSize="20sp" />
@@ -277,6 +328,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="15dp"
+                            android:layout_marginLeft="4dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -289,13 +341,20 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card_looks_list"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
                     android:gravity="center_vertical">
 
                     <LinearLayout
@@ -305,8 +364,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="10dp"
-                            android:fontFamily="@font/lato"
+                            android:fontFamily="@font/open_sans"
                             android:text="Covid19 Hotline: "
                             android:textColor="@color/chatbot_bubble"
                             android:textSize="20sp" />
@@ -315,6 +375,7 @@
                             android:id="@+id/tv_covid_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
@@ -327,6 +388,8 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:clickable="true"
                         android:layout_alignParentRight="true"
                         android:src="@drawable/ic_phone_call" />
 

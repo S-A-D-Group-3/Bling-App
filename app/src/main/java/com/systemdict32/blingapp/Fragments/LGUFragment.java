@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -89,8 +90,8 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         }
     }
 
-    TextView tv_user_city, tv_e_hotline, tv_fd_hotline, tv_r_hotline, tv_cp_hotline, tv_hd_hotline, tv_rc_hotline, tv_covid_hotline;
-    TextView btn_call_e_hotline, btn_call_fd_hotline, btn_call_r_hotline, btn_call_cp_hotline, btn_call_hd_hotline, btn_call_rc_hotline, btn_call_covid_hotline;
+    TextView tv_currently_on, tv_user_city, tv_e_hotline, tv_fd_hotline, tv_r_hotline, tv_cp_hotline, tv_hd_hotline, tv_rc_hotline, tv_covid_hotline;
+    ImageView btn_call_e_hotline, btn_call_fd_hotline, btn_call_r_hotline, btn_call_cp_hotline, btn_call_hd_hotline, btn_call_rc_hotline, btn_call_covid_hotline;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,6 +108,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         tv_rc_hotline = view.findViewById(R.id.tv_rc_hotline);
         tv_covid_hotline = view.findViewById(R.id.tv_covid_hotline);
 
+        tv_currently_on = view.findViewById(R.id.tv_currently_on);
         btn_call_covid_hotline = view.findViewById(R.id.btn_call_covid_hotline);
         btn_call_cp_hotline = view.findViewById(R.id.btn_call_cp_hotline);
         btn_call_e_hotline = view.findViewById(R.id.btn_call_e_hotline);
@@ -227,6 +229,20 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
     }
 
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+        Toasty.warning(getContext(), "Turn on your gps/location!",
+                Toast.LENGTH_LONG, true).show();
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
+
     public String generateAddress(Double lat, Double lng){
 
         String url = "https://maps.googleapis.com/maps/api/geocode/json?" +
@@ -315,13 +331,19 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
                     //store data in the variable
                     String address = hashMap.get("address");
 
-                    tv_user_city.setText(address);
+                    String[] splitAddress = address.split(",");
+
 
                     generateCityHotline(address);
 
+                    if(splitAddress[0].contains("City")) {
+                        tv_user_city.setText(splitAddress[0]);
+                    } else {
+                        tv_user_city.setText(splitAddress[0] + " City");
+                    }
+
                     if(!isNCR) {
-                        tv_user_city.setText("You are not on NCR!");
-                        return;
+                        tv_currently_on.setText("We don't have data in your current location.\n:((");
                     }
 
                     tv_e_hotline.setText(e_hotline);
@@ -336,28 +358,39 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         }
     }
 
-    String e_hotline, fd_hotline, r_hotline, cp_hotline, hd_hotline, rc_hotline, covid_hotline;
+    String e_hotline = "", fd_hotline = "", r_hotline = "", cp_hotline = "", hd_hotline = "", rc_hotline = "", covid_hotline = "";
     boolean isNCR = false;
 
     public boolean generateCityHotline(String city) {
+        if (city.contains("Manila")) {
+            e_hotline = "8527-5174 ";
+            fd_hotline = "(02) 527-3627";
+            r_hotline = "871-5811";
+            cp_hotline = "117 / (02) 8722-0650";
+            hd_hotline = "(02) 8527 4950";
+            rc_hotline = "(02) 8257 2161 ";
+            covid_hotline = "09610627013";
+            isNCR = true;
+        }
+
         if (city.contains("Marikina")) {
             e_hotline = "161";
             fd_hotline = "933-3076";
             r_hotline = "646-2423";
             cp_hotline = "646-1631";
-            hd_hotline = "646 2360";
-            rc_hotline = "8681 483";
+            hd_hotline = "(032) 646 2360";
+            rc_hotline = "(02) 8681 483";
             covid_hotline = "09455176926";
             isNCR = true;
         }
 
         if (city.contains("Taguig")) {
             e_hotline = "8-789-3200";
-            fd_hotline = "837-0740";
+            fd_hotline = "(02) 837-0740";
             r_hotline = "165-7777";
-            cp_hotline = "8642 2062";
-            hd_hotline = "8642 126 ";
-            rc_hotline = "8470 9611";
+            cp_hotline = "(02) 8642 2062";
+            hd_hotline = "(02) 8642 126 ";
+            rc_hotline = "(02) 8470 9611";
             covid_hotline = "09664194150 / 8628-3449";
             isNCR = true;
         }
@@ -372,6 +405,150 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             covid_hotline = "09162558130 / 09615716959";
             isNCR = true;
         }
+
+        if (city.contains("Caloocan")) {
+            e_hotline = "5310-6972";
+            fd_hotline = "(02) 362 - 4037";
+            r_hotline = "288 - 8811 (2295)";
+            cp_hotline = "53657230";
+            hd_hotline = "Smart/Tnt: 0947-8834430 Globe/Tm: 0977-2393931";
+            rc_hotline = "(02) 8364-5752";
+            covid_hotline = "5310.6972 / 09478834430 ";
+            isNCR = true;
+        }
+
+        if (city.contains("Malabon")) {
+            e_hotline = "(02) 8921 - 6009";
+            fd_hotline = "(02) 361 - 9712";
+            r_hotline = "921 - 6009 ";
+            cp_hotline = "Tel#: 287-36-52 / 932-21-34, Mobile#: 09217050770";
+            hd_hotline = "(02) 8281 4999";
+            rc_hotline = "(02) 8366 6470";
+            covid_hotline = "0917-9863823";
+            isNCR = true;
+        }
+
+        if (city.contains("Navotas")) {
+            e_hotline = "8281-1111";
+            fd_hotline = "(02) 281 - 0854";
+            r_hotline = "281 - 8531";
+            cp_hotline = "(02) 8281 - 9099";
+            hd_hotline = "(02) 8283 - 0697";
+            rc_hotline = "(02) 8281-9003";
+            covid_hotline = "8281.1111";
+            isNCR = true;
+        }
+
+        if (city.contains("Valenzuela")) {
+            e_hotline = "8352-5000 / 8292-140";
+            fd_hotline = "292-3519";
+            r_hotline = "8352 - 5000";
+            cp_hotline = "8352 - 4000 ";
+            hd_hotline = "8352 - 6000";
+            rc_hotline = "3432 - 0273";
+            covid_hotline = "8292-1405";
+            isNCR = true;
+        }
+
+        if (city.contains("Quezon City")) {
+            e_hotline = "122";
+            fd_hotline = "8924-1922";
+            r_hotline = "928-4386";
+            cp_hotline = "8925-8326 ";
+            hd_hotline = "(02) 8929 8038";
+            rc_hotline = "(02) 3433 2151";
+            covid_hotline = "122";
+            isNCR = true;
+        }
+
+        if (city.contains("Pasig")) {
+            e_hotline = "641-1907";
+            fd_hotline = "641-1939";
+            r_hotline = "641-0439";
+            cp_hotline = "641-0433";
+            hd_hotline = "(02) 8642 7754";
+            rc_hotline = "(02) 8470 9611";
+            covid_hotline = "8643.0000";
+            isNCR = true;
+        }
+
+        if (city.contains("Makati")) {
+            e_hotline = "168 / 8236-5790";
+            fd_hotline = "(02) 818-5150";
+            r_hotline = "870-1940";
+            cp_hotline = "8887-1798 / 09297936525";
+            hd_hotline = "882-6316 to 36";
+            rc_hotline = "(02) 8403 5826";
+            covid_hotline = "168 / 8870-195959";
+            isNCR = true;
+        }
+
+        if (city.contains("San Juan")) {
+            e_hotline = "7238-4333";
+            fd_hotline = "(02) 725-8044";
+            r_hotline = "718-0338";
+            cp_hotline = "(02) 8724 2515";
+            hd_hotline = "744-0736 / 497-4978 / 724-0721";
+            rc_hotline = "(02) 3416 1343";
+            covid_hotline = "8655-5000 / 7949-8359";
+            isNCR = true;
+        }
+
+        if (city.contains("Pasay")) {
+            e_hotline = "8551-7777";
+            fd_hotline = "(02) 844-2120";
+            r_hotline = "833-8512";
+            cp_hotline = "(02) 8832 1125";
+            hd_hotline = "(02) 8831 8201";
+            rc_hotline = "(02) 8884 2748";
+            covid_hotline = "09567786253 / 09089937024";
+            isNCR = true;
+        }
+
+        if (city.contains("Parañaque")) {
+            e_hotline = "911 / 8820-7783";
+            fd_hotline = "(02) 826-9131";
+            r_hotline = "825-1099";
+            cp_hotline = "(02) 8286 2877";
+            hd_hotline = "826-61-47";
+            rc_hotline = "(02) 8836 4790";
+            covid_hotline = "8820-7783";
+            isNCR = true;
+        }
+
+        if (city.contains("Las Piñas")) {
+            e_hotline = "8552-7694 / 8776-7268";
+            fd_hotline = "(02) 245-0387";
+            r_hotline = "871-4334";
+            cp_hotline = "+638808-7395 ";
+            hd_hotline = "824-5764 / 874-6408 / 776-7268";
+            rc_hotline = "(02) 8556 7659";
+            covid_hotline = "8994-5782 / 09776726211";
+            isNCR = true;
+        }
+
+        if (city.contains("Muntinlupa")) {
+            e_hotline = "8925-4351";
+            fd_hotline = "(02) 842-2201";
+            r_hotline = "862-0047";
+            cp_hotline = "(02) 8862 2721";
+            hd_hotline = " 88622711";
+            rc_hotline = "09178387672";
+            covid_hotline = "09772405218 / 09772405217";
+            isNCR = true;
+        }
+
+        if (city.contains("Pateros")) {
+            e_hotline = "8642-5159";
+            fd_hotline = "(02) 641-1365";
+            r_hotline = "642-5159";
+            cp_hotline = "+63 (2) 8875-8596";
+            hd_hotline = "(02) 8641 0614";
+            rc_hotline = "(02) 8470 9611 ";
+            covid_hotline = "8642-5159";
+            isNCR = true;
+        }
+
         return isNCR;
     }
 }

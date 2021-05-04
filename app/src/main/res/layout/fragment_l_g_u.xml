@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +31,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/tv_currently_on"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -38,7 +39,7 @@
                 android:gravity="center"
                 android:text="You are currently on"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_user_city"
@@ -51,302 +52,285 @@
                 android:textColor="@color/black"
                 android:textSize="35sp" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/lato_bold"
-                android:text="Here are the hotline numbers:"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:layout_marginLeft="10dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="30dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Emergency Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="Emergency Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_e_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_e_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_e_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Fire Dept. Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="Fire Dept. Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_fd_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_fd_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_fd_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Rescue Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="Rescue Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_r_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_r_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_r_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="City Police Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="City Police Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_cp_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_cp_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_cp_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Health Dept. Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="Health Dept. Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_hd_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_hd_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_hd_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Red Cross Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="Red Cross Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_rc_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_rc_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_rc_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
 
-                <LinearLayout
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="COVID19 Hotline: "
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/lato"
+                            android:text="Covid19 Hotline: "
+                            android:textColor="@color/chatbot_bubble"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tv_covid_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/tv_covid_hotline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:fontFamily="@font/lato"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/btn_call_covid_hotline"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:fontFamily="@font/lato"
-                        android:text="Call"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
-                        android:background="@color/toolbar"/>
-                </LinearLayout>
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_phone_call" />
+
+                </RelativeLayout>
             </LinearLayout>
 
         </LinearLayout>

@@ -17,7 +17,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:fontFamily="@font/open_sans"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="7dp"
         android:text="View Reader"
@@ -37,7 +37,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:fontFamily="@font/open_sans"
-        android:padding="15dp"
+        android:padding="10dp"
         android:text="View Visual"
         android:textColor="@color/white"
         android:textSize="16dp" />

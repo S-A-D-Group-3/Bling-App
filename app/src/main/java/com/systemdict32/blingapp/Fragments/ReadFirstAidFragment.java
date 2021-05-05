@@ -94,6 +94,14 @@ import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_2_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_3_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_4_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_5_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_6_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_7_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_8_ReadFragment;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.R;
 
@@ -517,6 +525,31 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
         if (firstAidInterface.getClass().equals(c8_5_ReadFragment.class)) {
             ((c8_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        // C9 Foreign Objects
+        if (firstAidInterface.getClass().equals(c9_1_ReadFragment.class)) {
+            ((c9_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_2_ReadFragment.class)) {
+            ((c9_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_3_ReadFragment.class)) {
+            ((c9_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_4_ReadFragment.class)) {
+            ((c9_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_5_ReadFragment.class)) {
+            ((c9_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_6_ReadFragment.class)) {
+            ((c9_6_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_7_ReadFragment.class)) {
+            ((c9_7_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c9_8_ReadFragment.class)) {
+            ((c9_8_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }
     }
 

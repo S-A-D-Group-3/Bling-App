@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments.Categories;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_5_ForeignObjectEyeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_6_ForeignObjectEarFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c6_7_ForeignObjectNoseFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c8_1_SunburnFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_1_TickBiteFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_2_SnakeBiteFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_3_InsectStingFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_4_SeaCreatureFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_5_AnimalHumanFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_6_OtherBitesFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_7_DrugPoisoningFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c9_8_SwallowedFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;
@@ -92,33 +105,62 @@ public class c9_ForeignObjectsFragment extends Fragment {
         lv_foreign_objects.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-
+                        c9_1_TickBiteFragment c9_1_tickBiteFragment = new c9_1_TickBiteFragment();
+                        ft.replace(R.id.home_fragment_container, c9_1_tickBiteFragment);
+                        ft.commit();
                         break;
                     case 1:
-
+                        c9_2_SnakeBiteFragment c9_2_snakeBiteFragment = new c9_2_SnakeBiteFragment();
+                        ft.replace(R.id.home_fragment_container, c9_2_snakeBiteFragment);
+                        ft.commit();
                         break;
                     case 2:
-
+                        c9_3_InsectStingFragment c9_3_insectStingFragment = new c9_3_InsectStingFragment();
+                        ft.replace(R.id.home_fragment_container, c9_3_insectStingFragment);
+                        ft.commit();
                         break;
                     case 3:
-
+                        c9_4_SeaCreatureFragment c9_4_seaCreatureFragment = new c9_4_SeaCreatureFragment();
+                        ft.replace(R.id.home_fragment_container, c9_4_seaCreatureFragment);
+                        ft.commit();
                         break;
                     case 4:
-
+                        c9_5_AnimalHumanFragment c9_5_animalHumanFragment = new c9_5_AnimalHumanFragment();
+                        ft.replace(R.id.home_fragment_container, c9_5_animalHumanFragment);
+                        ft.commit();
                         break;
                     case 5:
-
+                        c9_6_OtherBitesFragment c9_6_otherBitesFragment = new c9_6_OtherBitesFragment();
+                        ft.replace(R.id.home_fragment_container, c9_6_otherBitesFragment);
+                        ft.commit();
                         break;
                     case 6:
-
+                        c9_7_DrugPoisoningFragment c9_7_drugPoisoningFragment = new c9_7_DrugPoisoningFragment();
+                        ft.replace(R.id.home_fragment_container, c9_7_drugPoisoningFragment);
+                        ft.commit();
                         break;
                     case 7:
-
+                        c6_5_ForeignObjectEyeFragment c6_5_foreignObjectEyeFragment = new c6_5_ForeignObjectEyeFragment();
+                        ft.replace(R.id.home_fragment_container, c6_5_foreignObjectEyeFragment);
+                        ft.commit();
                         break;
                     case 8:
-
+                        c6_6_ForeignObjectEarFragment c6_6_foreignObjectEarFragment = new c6_6_ForeignObjectEarFragment();
+                        ft.replace(R.id.home_fragment_container, c6_6_foreignObjectEarFragment);
+                        ft.commit();
+                        break;
+                    case 9:
+                        c6_7_ForeignObjectNoseFragment c6_7_foreignObjectNoseFragment = new c6_7_ForeignObjectNoseFragment();
+                        ft.replace(R.id.home_fragment_container, c6_7_foreignObjectNoseFragment);
+                        ft.commit();
+                        break;
+                    case 10:
+                        c9_8_SwallowedFragment c9_8_swallowedFragment = new c9_8_SwallowedFragment();
+                        ft.replace(R.id.home_fragment_container, c9_8_swallowedFragment);
+                        ft.commit();
                         break;
                 }
             }

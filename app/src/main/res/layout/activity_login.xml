@@ -53,20 +53,35 @@
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/maill"
-            android:hint="Email"
+            android:hint="E-mail"
             android:transitionName="username_tran"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/action_bar"
+            style="@style/MyTextInputLayout"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:inputType="textEmailAddress"
+                android:textSize="20sp"
                 android:textColor="#040000" />
 
 
@@ -78,17 +93,46 @@
             android:id="@+id/pass_word"
             android:hint="Password"
             android:transitionName="password_tran"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             app:passwordToggleEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            style="@style/MyTextInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:inputType="textPassword" />
+                android:textSize="20sp"
+                android:inputType="textPassword"
+                android:textColor="#040000"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/disclaimernotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/open_sans"
+            android:text="*By using this application, you understood and agree to our "
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/disclaimernoticeLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/open_sans"
+            android:clickable="true"
+            android:text="Terms and Conditions"
+            android:textColor="@color/action_bar"
+            android:textSize="10sp"/>
 
 
         <ProgressBar
@@ -97,7 +141,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:indeterminateDrawable="@drawable/progress_icon"
             android:visibility="gone"
@@ -142,9 +186,12 @@
             android:elevation="0dp"
             android:fontFamily="@font/open_sans_semibold_italic"
             android:onClick="callSignUp"
-            android:text="Sign up for FREe"
+            android:text="Sign up for FREE"
             android:textColor="#000"
             android:transitionName="login_signup_tran" />
+
+        </LinearLayout>
+        </ScrollView>
 
 
 

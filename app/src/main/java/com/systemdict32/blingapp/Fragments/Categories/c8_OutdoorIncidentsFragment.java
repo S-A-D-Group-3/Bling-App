@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments.Categories;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_3_HeatStrokeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c7_1_ChokingAdultFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c8_1_SunburnFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c8_2_FrostbiteFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c8_3_DehydrationFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c8_4_HypothermiaFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c8_5_HeatExhaustionFragment;
 import com.systemdict32.blingapp.R;
 
 import java.util.ArrayList;
@@ -87,24 +95,37 @@ public class c8_OutdoorIncidentsFragment extends Fragment {
         lv_outdoor_incidents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
                 switch (position) {
                     case 0:
-
+                        c8_1_SunburnFragment c8_1_sunburnFragment = new c8_1_SunburnFragment();
+                        ft.replace(R.id.home_fragment_container, c8_1_sunburnFragment);
+                        ft.commit();
                         break;
                     case 1:
-
+                        c8_2_FrostbiteFragment c8_2_frostbiteFragment = new c8_2_FrostbiteFragment();
+                        ft.replace(R.id.home_fragment_container, c8_2_frostbiteFragment);
+                        ft.commit();
                         break;
                     case 2:
-
+                        c8_3_DehydrationFragment c8_3_dehydrationFragment = new c8_3_DehydrationFragment();
+                        ft.replace(R.id.home_fragment_container, c8_3_dehydrationFragment);
+                        ft.commit();
                         break;
                     case 3:
-
+                        c8_4_HypothermiaFragment c8_4_hypothermiaFragment = new c8_4_HypothermiaFragment();
+                        ft.replace(R.id.home_fragment_container, c8_4_hypothermiaFragment);
+                        ft.commit();
                         break;
                     case 4:
-
+                        c5_3_HeatStrokeFragment c5_3_heatStrokeFragment = new c5_3_HeatStrokeFragment();
+                        ft.replace(R.id.home_fragment_container, c5_3_heatStrokeFragment);
+                        ft.commit();
                         break;
                     case 5:
-
+                        c8_5_HeatExhaustionFragment c8_5_heatExhaustionFragment = new c8_5_HeatExhaustionFragment();
+                        ft.replace(R.id.home_fragment_container, c8_5_heatExhaustionFragment);
+                        ft.commit();
                         break;
                 }
             }

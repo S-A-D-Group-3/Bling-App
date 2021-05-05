@@ -89,6 +89,11 @@ import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_6_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_7_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_8_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_9_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_4_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_5_ReadFragment;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.R;
 
@@ -496,6 +501,22 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
         if (firstAidInterface.getClass().equals(c7_9_ReadFragment.class)) {
             ((c7_9_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        // C8 Outdoor Incidents
+        if (firstAidInterface.getClass().equals(c8_1_ReadFragment.class)) {
+            ((c8_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c8_2_ReadFragment.class)) {
+            ((c8_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c8_3_ReadFragment.class)) {
+            ((c8_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c8_4_ReadFragment.class)) {
+            ((c8_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c8_5_ReadFragment.class)) {
+            ((c8_5_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }
     }
 

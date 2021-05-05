@@ -80,11 +80,10 @@ public class c9_ForeignObjectsFragment extends Fragment {
         woundsList.add("5. Animal and Human Bites");
         woundsList.add("6. Other Bites and Stings");
         woundsList.add("7. Drug Poisoning");
-        woundsList.add("8. Alcohol Poisoning");
-        woundsList.add("9. Foreign Objects (Eye)");
-        woundsList.add("7. Foreign Objects (Ear)");
-        woundsList.add("8. Foreign Objects (Nose)");
-        woundsList.add("9. Swallowed Foreign Objects");
+        woundsList.add("8. Foreign Objects (Eye)");
+        woundsList.add("9. Foreign Objects (Ear)");
+        woundsList.add("10. Foreign Objects (Nose)");
+        woundsList.add("11. Swallowed Foreign Objects");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, woundsList);
 

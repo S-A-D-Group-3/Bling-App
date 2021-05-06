@@ -110,7 +110,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(LOCATION)
-                    .zoom(15)
+                    .zoom(13)
                     .bearing(0)
                     .tilt(30)
                     .build();
@@ -164,7 +164,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, GoogleMapsFragment.this);
             mLocation = getLastKnownLocation();
         } catch (Exception e) {
-            Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
+            Toasty.error(getActivity(), "Location provider not found! Please turn on your location!",
                     Toast.LENGTH_LONG, true).show();
         }
     }
@@ -204,7 +204,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-        Toasty.warning(getActivity(), "Google Map will not work with your location turned off!",
+        Toasty.warning(getActivity(), "Please turn on your gps!",
                 Toast.LENGTH_LONG, true).show();
     }
 

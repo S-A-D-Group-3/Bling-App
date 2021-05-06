@@ -2,15 +2,20 @@ package com.systemdict32.blingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,7 +39,7 @@ public class Login extends AppCompatActivity {
 
     Button callSignUp, loginUser, passForget;
     ImageView image;
-    TextView logoText, SloganText;
+    TextView logoText, SloganText, disclaimerDesc, disclaimerLink;
     TextInputLayout eml, pass;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
@@ -56,6 +61,54 @@ public class Login extends AppCompatActivity {
         loginUser = findViewById(R.id.loginbutton);
         progressBar = findViewById(R.id.progressBar);
        passForget = findViewById(R.id.forget_pass);
+       disclaimerDesc = findViewById(R.id.disclaimernotice);
+        disclaimerLink = findViewById(R.id.disclaimernoticeLink);
+
+
+
+
+       disclaimerLink.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+
+               DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       switch (which) {
+
+               case DialogInterface.BUTTON_NEGATIVE:
+
+                    return;
+
+
+                                       }
+                                   }
+                               };
+
+
+
+               AlertDialog.Builder builderTC = new AlertDialog.Builder(Login.this);
+               LayoutInflater inflater = getLayoutInflater();
+               View dialoglayout = inflater.inflate(R.layout.terms_condi_disc, null);
+               builderTC.setView(dialoglayout);
+               disclaimerDesc = findViewById(R.id.disclaimernotice);
+               disclaimerLink = findViewById(R.id.disclaimernoticeLink);
+
+               builderTC.create();
+               builderTC.setCancelable(false);
+               builderTC.setIcon(R.drawable.logov2);
+               builderTC.setTitle("Terms and Conditions")
+                 .setNegativeButton("I understand", dialogClickListener).show();
+
+
+
+                       }
+
+
+
+
+
+       });
+
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -105,6 +158,8 @@ public class Login extends AppCompatActivity {
 
 
     }
+
+
 
 
 

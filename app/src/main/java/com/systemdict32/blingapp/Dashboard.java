@@ -310,11 +310,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         // --update-- working na, pwera dun na lang sa paglipat between nearby emergency at instruction
         int stackCount = getSupportFragmentManager().getBackStackEntryCount();
 
+//        Toast.makeText(this, String.valueOf(getSupportFragmentManager().getBackStackEntryAt(stackCount - 2)), Toast.LENGTH_SHORT).show();
         if (stackCount < 2) {
             System.exit(0);
         } else {
             getSupportFragmentManager().popBackStack();
             FragmentManager.BackStackEntry backStackEntry = getSupportFragmentManager().getBackStackEntryAt(stackCount - 2);
+            Toast.makeText(this, String.valueOf(backStackEntry.getId()), Toast.LENGTH_SHORT).show();
+
             highlightNavViewOnBackPressed(backStackEntry.getName());
         }
     }

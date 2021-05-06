@@ -11,18 +11,23 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,6 +37,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.systemdict32.blingapp.Dashboard;
 //import com.systemdict32.blingapp.Interfaces.EmergencyServiceType;
@@ -47,13 +53,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.zip.Inflater;
 
 import es.dmoral.toasty.Toasty;
 
-public class GoogleMapsFragment extends Fragment implements LocationListener {
+public class GoogleMapsFragment extends Fragment implements LocationListener, View.OnClickListener {
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -73,13 +80,13 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             List<Fragment> fragmentList = getFragmentManager().getFragments();
             fragId = fragmentList.get(2).getId();
 
-            if(fragmentList.get(2).getClass().equals(HospitalFragment.class)){
+            if (fragmentList.get(2).getClass().equals(HospitalFragment.class)) {
                 emergencyType = "hospital";
             }
-            if(fragmentList.get(2).getClass().equals(FireStationFragment.class)){
+            if (fragmentList.get(2).getClass().equals(FireStationFragment.class)) {
                 emergencyType = "fire_station";
             }
-            if(fragmentList.get(2).getClass().equals(PoliceStationsFragment.class)){
+            if (fragmentList.get(2).getClass().equals(PoliceStationsFragment.class)) {
                 emergencyType = "police";
             }
 
@@ -121,7 +128,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
         }
     };
 
-//    public EmergencyServiceType emergencyServiceType;
+    //    public EmergencyServiceType emergencyServiceType;
+    TextView tv_np_name, tv_np_address, tv_np_cp_number, tv_np_tp_number;
+    RelativeLayout place_data_container;
+    ImageView btn_call_np_tp_hotline, btn_call_np_cp_hotline;
+    String tp_num, cp_num;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -129,7 +141,31 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_google_maps, container, false);
 
+        tv_np_cp_number = view.findViewById(R.id.tv_np_cp_number);
+        tv_np_name = view.findViewById(R.id.tv_np_name);
+        tv_np_address = view.findViewById(R.id.tv_np_address);
+        tv_np_tp_number = view.findViewById(R.id.tv_np_tp_number);
+        place_data_container = view.findViewById(R.id.place_data_container);
+        btn_call_np_tp_hotline = view.findViewById(R.id.btn_call_np_tp_hotline);
+        btn_call_np_cp_hotline = view.findViewById(R.id.btn_call_np_cp_hotline);
+
+        btn_call_np_cp_hotline.setOnClickListener(this);
+        btn_call_np_tp_hotline.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == btn_call_np_cp_hotline.getId()) {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + cp_num));
+            getActivity().startActivity(intent);
+        }
+
+        if (v.getId() == btn_call_np_tp_hotline.getId()) {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + tp_num));
+            getActivity().startActivity(intent);
+        }
     }
 
     private GoogleMap mMap;
@@ -213,7 +249,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
     }
 
     // gmap api request
-    public String generateUrlPlace(Double lat, Double lng){
+    public String generateUrlPlace(Double lat, Double lng) {
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
                 "location=" + lat + "," + lng +
@@ -225,16 +261,20 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
         return url;
     }
 
-    public String generateUrlNumber(String place_id){
+    public String generateUrlNumber(String place_id) {
 
-        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
+        String url = "https://maps.googleapis.com/maps/api/place/details/json?" +
                 "placeid=" + place_id +
                 "&key=" + getResources().getString(R.string.google_api_key);
 
         return url;
     }
 
-    public class PlaceTask extends AsyncTask<String,Integer,String> {
+    ArrayList<String> nearbyPlaceName = new ArrayList<>();
+    ArrayList<String> nearbyPlaceId = new ArrayList<>();
+
+    // nearby place
+    public class PlaceTask extends AsyncTask<String, Integer, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -252,7 +292,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
         }
 
         public String downloadUrl(String string) throws IOException {
-            URL url= new URL(string);
+            URL url = new URL(string);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -266,7 +306,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
             String line = "";
 
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 builder.append(line);
 
             }
@@ -278,9 +318,10 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             return data;
         }
 
+
         @Override
         protected void onPostExecute(String s) {
-            if (!s.contains("ZERO_RESULTS")){
+            if (!s.contains("ZERO_RESULTS")) {
                 new ParserTask().execute(s);
             } else {
                 Toasty.warning(getActivity(), "Sorry, we're unable to locate any nearby services in your area.",
@@ -288,7 +329,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             }
         }
 
-        private class ParserTask extends AsyncTask<String,Integer, List<HashMap<String,String>>>{
+        private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
 
             @Override
             protected List<HashMap<String, String>> doInBackground(String... strings) {
@@ -309,8 +350,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
             @Override
             protected void onPostExecute(List<HashMap<String, String>> hashMaps) {
                 mMap.clear();
-
-                for(int i = 0; i < hashMaps.size(); i++) {
+                for (int i = 0; i < hashMaps.size(); i++) {
                     HashMap<String, String> hashMap = hashMaps.get(i);
 
                     //store data in the variable
@@ -329,13 +369,16 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                     options.title(name);
                     options.snippet(address);
 
-                    if(emergencyType.equals("fire_station")){
+                    nearbyPlaceName.add(name);
+                    nearbyPlaceId.add(place_id);
+
+                    if (emergencyType.equals("fire_station")) {
                         options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_firestation));
                     }
-                    if(emergencyType.equals("hospital")){
+                    if (emergencyType.equals("hospital")) {
                         options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_hospital));
                     }
-                    if(emergencyType.equals("police")){
+                    if (emergencyType.equals("police")) {
                         options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nearby_police));
                     }
 
@@ -348,7 +391,128 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_main_marker))
                     );
                 }
+                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker) {
+                        String title = marker.getTitle();
+                        String place_id = null;
+
+                        for (int i = 0; i < nearbyPlaceName.size(); i++) {
+                            if (title.equals(nearbyPlaceName.get(i))) {
+                                place_id = nearbyPlaceId.get(i);
+                            }
+                        }
+
+                        String urlNumber = generateUrlNumber(place_id);
+                        new PlaceTaskPlace().execute(urlNumber);
+
+                        return false;
+                    }
+                });
+
             }
         }
     }
+
+    // place number
+    public class PlaceTaskPlace extends AsyncTask<String, Integer, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String data = null;
+
+            try {
+                //string[0] value is the url from generate url function
+                data = downloadUrl(strings[0]);
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+
+            return data;
+        }
+
+        public String downloadUrl(String string) throws IOException {
+            URL url = new URL(string);
+
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+            connection.connect();
+
+            InputStream stream = connection.getInputStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+            StringBuilder builder = new StringBuilder();
+
+            String line = "";
+
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+
+            }
+
+            String data = builder.toString();
+
+            reader.close();
+
+            return data;
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s.contains("formatted_phone_number") && s.contains("international_phone_number")) {
+                new ParserTaskPlace().execute(s);
+            } else {
+                Toasty.warning(getActivity(), "Walang phone number si google map api dyan lods.",
+                        Toast.LENGTH_LONG, true).show();
+                tv_np_name.setText("Sorry, no data");
+                tv_np_address.setText("Sorry, no data");
+                tv_np_cp_number.setText("Sorry, no data");
+                tv_np_tp_number.setText("Sorry, no data");
+            }
+        }
+
+        private class ParserTaskPlace extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
+
+            @Override
+            protected List<HashMap<String, String>> doInBackground(String... strings) {
+                JsonParserPlace jsonParserPlace = new JsonParserPlace();
+
+                List<HashMap<String, String>> mapList = null;
+                JSONObject object = null;
+                try {
+                    object = new JSONObject(strings[0]);
+
+                    mapList = jsonParserPlace.parseResult(object);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+                return mapList;
+            }
+
+            @Override
+            protected void onPostExecute(List<HashMap<String, String>> hashMaps) {
+                HashMap<String, String> hashMap = hashMaps.get(0);
+
+                //store data in the variable
+                String name = hashMap.get("name");
+                String address = hashMap.get("address");
+                String phone_num = hashMap.get("phone_num");
+                String cellphone_num = hashMap.get("cellphone_num");
+
+                tv_np_name.setText(name);
+                tv_np_address.setText(address);
+                tv_np_cp_number.setText(cellphone_num);
+                tv_np_tp_number.setText(phone_num);
+
+                tp_num = phone_num;
+                cp_num = cellphone_num;
+            }
+        }
+    }
+
+
 }

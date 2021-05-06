@@ -93,7 +93,8 @@ public class HomeFragment extends Fragment {
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         EmergencyFragment emergency = new EmergencyFragment();
-        ft.replace(R.id.home_fragment_container, emergency);
+        ft.add(R.id.home_fragment_container, emergency);
+        ft.addToBackStack("nav_emergency");
         ft.commit();
 
         return view;
@@ -107,14 +108,14 @@ public class HomeFragment extends Fragment {
                 case R.id.nav_instruction:
                     InstructionFragment instruction = new InstructionFragment();
                     ft.replace(R.id.home_fragment_container, instruction);
-//                    ft.addToBackStack("nav_instruction");
+                    ft.addToBackStack("nav_instruction");
                     ft.commit();
                     break;
 
                 case R.id.nav_emergency:
                     EmergencyFragment emergency = new EmergencyFragment();
                     ft.replace(R.id.home_fragment_container, emergency);
-//                    ft.addToBackStack("nav_emergency");
+                    ft.addToBackStack("nav_emergency");
                     ft.commit();
                     break;
             }

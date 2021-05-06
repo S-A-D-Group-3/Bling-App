@@ -1,6 +1,8 @@
 package com.systemdict32.blingapp;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -60,55 +62,47 @@ public class Login extends AppCompatActivity {
         SloganText = findViewById(R.id.slogan_name);
         loginUser = findViewById(R.id.loginbutton);
         progressBar = findViewById(R.id.progressBar);
-       passForget = findViewById(R.id.forget_pass);
-       disclaimerDesc = findViewById(R.id.disclaimernotice);
+        passForget = findViewById(R.id.forget_pass);
+        disclaimerDesc = findViewById(R.id.disclaimernotice);
         disclaimerLink = findViewById(R.id.disclaimernoticeLink);
 
 
+        disclaimerLink.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                return;
 
 
-       disclaimerLink.setOnClickListener(new View.OnClickListener() {
-           public void onClick(View v) {
-
-               DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                   @Override
-                   public void onClick(DialogInterface dialog, int which) {
-                       switch (which) {
-
-               case DialogInterface.BUTTON_NEGATIVE:
-
-                    return;
+                        }
+                    }
+                };
 
 
-                                       }
-                                   }
-                               };
+                AlertDialog.Builder builderTC = new AlertDialog.Builder(Login.this);
+                LayoutInflater inflater = getLayoutInflater();
+                View dialoglayout = inflater.inflate(R.layout.terms_condi_disc, null);
+                builderTC.setView(dialoglayout);
+                disclaimerDesc = findViewById(R.id.disclaimernotice);
+                disclaimerLink = findViewById(R.id.disclaimernoticeLink);
+
+                builderTC.create();
+                builderTC.setCancelable(false);
+                builderTC.setIcon(R.drawable.logov2);
+                builderTC.setTitle("Terms and Conditions")
+                        .setNegativeButton("I understand", dialogClickListener).show();
 
 
-
-               AlertDialog.Builder builderTC = new AlertDialog.Builder(Login.this);
-               LayoutInflater inflater = getLayoutInflater();
-               View dialoglayout = inflater.inflate(R.layout.terms_condi_disc, null);
-               builderTC.setView(dialoglayout);
-               disclaimerDesc = findViewById(R.id.disclaimernotice);
-               disclaimerLink = findViewById(R.id.disclaimernoticeLink);
-
-               builderTC.create();
-               builderTC.setCancelable(false);
-               builderTC.setIcon(R.drawable.logov2);
-               builderTC.setTitle("Terms and Conditions")
-                 .setNegativeButton("I understand", dialogClickListener).show();
+            }
 
 
-
-                       }
-
-
-
-
-
-       });
-
+        });
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -124,48 +118,42 @@ public class Login extends AppCompatActivity {
                     Toasty.error(Login.this, "Please fill up the field(s)",
                             Toast.LENGTH_LONG, true).show();
                     progressBar.setVisibility(View.GONE);
-                }else{
+                } else {
                     progressBar.setVisibility(View.VISIBLE);
 
-                firebaseAuth.signInWithEmailAndPassword(email_, pass_)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
+                    firebaseAuth.signInWithEmailAndPassword(email_, pass_)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if (task.isSuccessful()) {
 
-                                    Toasty.success(Login.this, "Login success, welcome to Bling"
-                                            , Toast.LENGTH_LONG, true).show();
+                                        Toasty.success(Login.this, "Login success, welcome to Bling"
+                                                , Toast.LENGTH_LONG, true).show();
 
-                                    if (firebaseAuth.getCurrentUser().isEmailVerified()) {
-                                        startActivity(new Intent(Login.this, Dashboard.class));
+                                        if (firebaseAuth.getCurrentUser().isEmailVerified()) {
+                                            startActivity(new Intent(Login.this, Dashboard.class));
 
+                                        } else {
+                                            Toasty.info(Login.this, "Please verify it on your email address"
+                                                    , Toast.LENGTH_LONG, true).show();
+                                        }
                                     } else {
-                                        Toasty.info(Login.this, "Please verify it on your email address"
+                                        Toasty.warning(Login.this, task.getException().getMessage()
                                                 , Toast.LENGTH_LONG, true).show();
                                     }
-                                } else {
-                                    Toasty.warning(Login.this, task.getException().getMessage()
-                                            , Toast.LENGTH_LONG, true).show();
                                 }
-                            }
-                        });
+                            });
 
-            }
+                }
             }
         });
-
 
 
     }
 
 
-
-
-
-
-
-    public void callSignUp (View view){
+    public void callSignUp(View view) {
 
 
         Intent intent = new Intent(Login.this, SignUp.class);
@@ -183,29 +171,30 @@ public class Login extends AppCompatActivity {
 
     }
 
-        private boolean doubleBackToExitPressedOnce = true;
-        @Override
-        public void onBackPressed () {
-            if (doubleBackToExitPressedOnce) {
-                this.doubleBackToExitPressedOnce = false;
-                Toasty.info(this, "Press again to close Bling", Toast.LENGTH_SHORT, true).show();
+    private boolean doubleBackToExitPressedOnce = true;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            this.doubleBackToExitPressedOnce = false;
+            Toasty.info(this, "Press again to close Bling", Toast.LENGTH_SHORT, true).show();
 
 
-            } else if (doubleBackToExitPressedOnce) {
-                this.doubleBackToExitPressedOnce = true;
-                finishAffinity();
+        } else if (doubleBackToExitPressedOnce) {
+            this.doubleBackToExitPressedOnce = true;
+            finishAffinity();
 
 
-            } else {
-                finishAffinity();
-
-            }
+        } else {
+            finishAffinity();
 
         }
 
+    }
+
     public void passForget(View view) {
 
-        Intent intent = new Intent(Login.this,reset.class);
+        Intent intent = new Intent(Login.this, reset.class);
         startActivity(intent);
     }
 }

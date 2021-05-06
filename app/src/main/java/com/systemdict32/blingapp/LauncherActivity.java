@@ -27,10 +27,13 @@ public class LauncherActivity extends AppCompatActivity {
             // set isFirstRun to false
             preferences.edit().putBoolean("isFirstRun", false).apply();
 
-            Intent intent = new Intent(LauncherActivity.this, splashscreen.class);
+            Intent intent = new Intent(getApplicationContext(), splashscreen.class);
             startActivity(intent);
 
         } else {
+
+            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+            startActivity(intent);
 
             //For Use of Login Checking, NOT USED.
 
@@ -63,7 +66,7 @@ public class LauncherActivity extends AppCompatActivity {
 
                 builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
 
-                    @Override
+
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(LauncherActivity.this, Login.class);
                         startActivity(intent);
@@ -82,8 +85,7 @@ public class LauncherActivity extends AppCompatActivity {
             editor.apply();
             }**/
 
-            Intent intent = new Intent(LauncherActivity.this, Dashboard.class);
-            startActivity(intent);
+
         }
     }
 }

@@ -64,11 +64,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     String fullName, email, address, bloodType, contactPerson, contactPersonNum, medCondition, medTake, userId;
     TextView tv_user_name;
     BottomNavigationView top_nav_view;
+    private FirebaseAuth mFireAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        mFireAuth = FirebaseAuth.getInstance();
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -112,6 +115,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             return;
         }
 
+
+
+
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -136,39 +142,34 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
-        SharedPreferences preferences = getSharedPreferences("App", Context.MODE_PRIVATE);
 
-        // Get value from shared preferences,
-        // if null (app is run first time) the default value (second argument) is returned
-        boolean isFIrstRun = preferences.getBoolean("isFirstRun", true);
 
-        if (isFIrstRun) {
-            // set isFirstRun to false
-            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    switch (which) {
-                        case DialogInterface.BUTTON_POSITIVE:
-                            Toasty.info(Dashboard.this, "Okay",
-                                    Toast.LENGTH_LONG, true).show();
-                            return;
-
-                        case DialogInterface.BUTTON_NEGATIVE:
-                            preferences.edit().putBoolean("isFirstRun", false).apply();
-                            Intent intent = new Intent(Dashboard.this, Login.class);
-                            startActivity(intent);
-                            break;
-                    }
-                }
-            };
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(Dashboard.this);
-            builder.create();
-            builder.setCancelable(false);
-            builder.setMessage("User Check, Have you Logged-in?").setPositiveButton("Yes", dialogClickListener)
-                    .setNegativeButton("No", dialogClickListener).show();
-        }
     }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        FirebaseUser mFireUser = mFireAuth.getCurrentUser();
+        if(mFireUser!=null){
+
+            // eto onse yung di na need ng sharedpref//
+           // Toasty.info(Dashboard.this, "Login verified"
+           //                   , Toast.LENGTH_LONG, true).show();
+        }else{
+            Toasty.info(Dashboard.this, "Please login first"
+                    , Toast.LENGTH_LONG, true).show();
+            Intent intentCheck = new Intent(getApplicationContext(), Login.class);
+            intentCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intentCheck);
+            finish();
+
+
+        }
+
+
+    }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -201,13 +202,23 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 break;
 
             case R.id.nav_exitt:
-                SharedPreferences preferences = getSharedPreferences("App", Context.MODE_PRIVATE);
-                preferences.edit().putBoolean("isFirstRun", true).apply();
-                Intent intentExit = new Intent(Dashboard.this, Login.class);
+                firebaseAuth.getInstance().signOut();
+                mFireAuth.signOut();
+                fullName = null;
+                address = null;
+                medCondition = null;
+                medTake = null;
+                bloodType = null;
+                contactPerson = null;
+                contactPersonNum = null;
+                showNotification();
+                Intent intentExit = new Intent(getApplicationContext(), Login.class);
+                intentExit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentExit);
                 System.exit(0);
-                firebaseAuth.getInstance().signOut();
-                break;
+
+
+
         }
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
         ft.addToBackStack(backstackName);
@@ -233,10 +244,10 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         buffer.append("Name: " + fullName + "\n");
         buffer.append("Address: " + address + "\n");
         buffer.append("Medical Condition: " + medCondition + "\n");
-        buffer.append("Medicine Take: " + medTake + "\n");
+        buffer.append("Medicine Taken: " + medTake + "\n");
         buffer.append("Blood Type: " + bloodType +"\n");
-        buffer.append("ICE Name: " + contactPerson + "\n");
-        buffer.append("ICE Name #: " + contactPersonNum + "\n");
+        buffer.append("ICE Contact Person: " + contactPerson + "\n");
+        buffer.append("ICE Contact Person #: " + contactPersonNum + "\n");
 //        buffer.append("ICE Number: " +  +"N/A");
 
         // Create the NotificationChannel, but only on API 26+ because

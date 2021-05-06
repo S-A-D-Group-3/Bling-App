@@ -104,7 +104,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         // get data from firebase
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        userId = firebaseAuth.getCurrentUser().getUid();
+        if(firebaseAuth.getCurrentUser() != null) {
+            userId = firebaseAuth.getCurrentUser().getUid();
+        } else {
+            Intent intent = new Intent(Dashboard.this, Login.class);
+            startActivity(intent);
+            return;
+        }
 
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

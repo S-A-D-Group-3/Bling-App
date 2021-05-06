@@ -343,7 +343,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
                     }
 
                     if(!isNCR) {
-                        tv_currently_on.setText("We don't have data in your current location.\n:((");
+                        tv_currently_on.setText("Sorry, this feature is not available at your current location.");
                     }
 
                     tv_e_hotline.setText(e_hotline);

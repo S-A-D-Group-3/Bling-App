@@ -110,7 +110,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(LOCATION)
-                    .zoom(13)
+                    .zoom(15)
                     .bearing(0)
                     .tilt(30)
                     .build();
@@ -280,8 +280,11 @@ public class GoogleMapsFragment extends Fragment implements LocationListener {
 
         @Override
         protected void onPostExecute(String s) {
-            if (s!= null){
+            if (!s.contains("ZERO_RESULTS")){
                 new ParserTask().execute(s);
+            } else {
+                Toasty.warning(getActivity(), "Sorry, we're unable to locate any nearby services in your area.",
+                        Toast.LENGTH_LONG, true).show();
             }
         }
 

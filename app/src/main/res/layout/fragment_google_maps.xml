@@ -10,13 +10,13 @@
     <ScrollView
         android:id="@+id/sv_hospital"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@drawable/scrollbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <fragment
                 android:id="@+id/map"
@@ -32,14 +32,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="Tap on one of the marker to display its contacts."
+                android:text="*Choose a marker that is shown in the map\n to reveal its contact information below."
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="Marker's information:"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
 
             <RelativeLayout
                 android:id="@+id/place_data_container"
@@ -47,14 +59,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/card_looks_list"
+                android:paddingStart="5dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="center_vertical">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="400dp"
                     android:layout_height="wrap_content"
+                    android:paddingStart="5dp"
+                    android:background="@drawable/card_looks_list"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -129,12 +143,14 @@
 
                         <ImageView
                             android:id="@+id/btn_call_np_cp_hotline"
+                            android:layout_gravity="right"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginLeft="20dp"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
-                            android:src="@drawable/ic_phone_call" />
+                            android:src="@drawable/ic_phone_call"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -163,17 +179,20 @@
                         <ImageView
                             android:id="@+id/btn_call_np_tp_hotline"
                             android:layout_width="20dp"
+                            android:layout_gravity="right"
                             android:layout_height="20dp"
                             android:layout_marginLeft="20dp"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
-                            android:src="@drawable/ic_phone_call" />
+                            android:src="@drawable/ic_phone_call"
+                            android:visibility="gone"/>
                     </LinearLayout>
                 </LinearLayout>
 
             </RelativeLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

@@ -189,12 +189,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     @Override
     public void onClick(View v) {
         if (v.getId() == btn_call_np_cp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_num));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_num.trim()));
             getActivity().startActivity(intent);
         }
 
         if (v.getId() == btn_call_np_tp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + tp_num));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + tp_num.trim()));
             getActivity().startActivity(intent);
         }
     }
@@ -494,8 +494,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
         @Override
         protected void onPostExecute(String s) {
             if (s.contains("formatted_phone_number") && s.contains("international_phone_number")) {
+                btn_call_np_cp_hotline.setVisibility(View.VISIBLE);
+                btn_call_np_tp_hotline.setVisibility(View.VISIBLE);
                 new ParserTaskPlace().execute(s);
             } else {
+                btn_call_np_cp_hotline.setVisibility(View.GONE);
+                btn_call_np_tp_hotline.setVisibility(View.GONE);
                 Toasty.warning(getActivity(), "Walang phone number si google map api dyan lods.",
                         Toast.LENGTH_LONG, true).show();
                 tv_np_name.setText("Sorry, no data");

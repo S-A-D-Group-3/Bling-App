@@ -104,6 +104,7 @@ public class c3_BodyInjuriesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.addToBackStack("instruction_sub_category");
                 switch (position) {
                     case 0:
                         c3_1_HeadInjuryFragment c3_1_headInjuryFragment = new c3_1_HeadInjuryFragment();

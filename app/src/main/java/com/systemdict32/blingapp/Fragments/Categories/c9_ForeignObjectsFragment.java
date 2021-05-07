@@ -106,6 +106,7 @@ public class c9_ForeignObjectsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.addToBackStack("instruction_sub_category");
                 switch (position) {
                     case 0:
                         c9_1_TickBiteFragment c9_1_tickBiteFragment = new c9_1_TickBiteFragment();

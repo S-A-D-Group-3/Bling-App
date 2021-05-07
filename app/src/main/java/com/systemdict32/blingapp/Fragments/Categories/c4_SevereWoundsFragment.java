@@ -96,6 +96,7 @@ public class c4_SevereWoundsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.addToBackStack("instruction_sub_category");
                 switch (position) {
                     case 0:
                         c4_1_ShockFragment c4_1_shockFragment = new c4_1_ShockFragment();

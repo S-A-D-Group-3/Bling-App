@@ -104,6 +104,7 @@ public class c7_RespiratoryProblemFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.addToBackStack("instruction_sub_category");
                 switch(position) {
                     case 0:
                         c7_1_ChokingAdultFragment c7_1_chokingAdultFragment = new c7_1_ChokingAdultFragment();

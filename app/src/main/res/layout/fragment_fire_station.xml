@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Fragments.FireStationFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -32,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="40dp">
+                android:layout_marginBottom="20dp">
 
             </FrameLayout>
 

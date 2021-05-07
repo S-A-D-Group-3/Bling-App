@@ -536,14 +536,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
                 tv_np_name.setText(name);
                 tv_np_address.setText(address);
-                tv_np_cp_number.setText(cellphone_num);
-                tv_np_tp_number.setText(phone_num);
+                tv_np_cp_number.setText(cellphone_num.trim());
+                tv_np_tp_number.setText(phone_num.trim());
 
                 tp_num = phone_num;
                 cp_num = cellphone_num;
             }
         }
     }
-
-
 }

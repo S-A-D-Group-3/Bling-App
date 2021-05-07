@@ -87,24 +87,28 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
             HospitalFragment hospitalFragment = new HospitalFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, hospitalFragment);
+            ft.addToBackStack("emergency_services");
             ft.commit();
         }
         if(v.getId() == emergency_cv2.getId()) {
             PoliceStationsFragment policeStationsFragment = new PoliceStationsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, policeStationsFragment);
+            ft.addToBackStack("emergency_services");
             ft.commit();
         }
         if(v.getId() == emergency_cv3.getId()) {
             FireStationFragment fireStationFragment = new FireStationFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, fireStationFragment);
+            ft.addToBackStack("emergency_services");
             ft.commit();
         }
         if(v.getId() == emergency_cv4.getId()) {
             LGUFragment lguFragment = new LGUFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, lguFragment);
+            ft.addToBackStack("emergency_services");
             ft.commit();
         }
     }

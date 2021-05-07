@@ -96,6 +96,7 @@ public class c8_OutdoorIncidentsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.addToBackStack("instruction_sub_category");
                 switch (position) {
                     case 0:
                         c8_1_SunburnFragment c8_1_sunburnFragment = new c8_1_SunburnFragment();

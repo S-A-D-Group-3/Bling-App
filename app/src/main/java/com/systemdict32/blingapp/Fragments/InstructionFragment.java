@@ -110,54 +110,63 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             c1_EmergencyBasicFragment cv1 = new c1_EmergencyBasicFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv1);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_2.getId()) {
             c2_WoundsFragment cv2 = new c2_WoundsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv2);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_3.getId()) {
             c3_BodyInjuriesFragment cv3 = new c3_BodyInjuriesFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv3);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_4.getId()) {
             c4_SevereWoundsFragment cv4 = new c4_SevereWoundsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv4);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_5.getId()) {
             c5_SeriousIncidentsFragment cv5 = new c5_SeriousIncidentsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv5);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_6.getId()) {
             c6_CarAccidentFragment cv6 = new c6_CarAccidentFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv6);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_7.getId()) {
             c7_RespiratoryProblemFragment cv7 = new c7_RespiratoryProblemFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv7);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_8.getId()) {
             c8_OutdoorIncidentsFragment cv8 = new c8_OutdoorIncidentsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv8);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
         if (v.getId() == cv_9.getId()) {
             c9_ForeignObjectsFragment cv9 = new c9_ForeignObjectsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, cv9);
+            ft.addToBackStack("instruction_category");
             ft.commit();
         }
 //        if (v.getId() == cv_10.getId()) {

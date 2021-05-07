@@ -26,6 +26,8 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -107,15 +109,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         // get data from firebase
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        if(firebaseAuth.getCurrentUser() != null) {
+        if (firebaseAuth.getCurrentUser() != null) {
             userId = firebaseAuth.getCurrentUser().getUid();
         } else {
             Intent intent = new Intent(Dashboard.this, Login.class);
             startActivity(intent);
             return;
         }
-
-
 
 
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -143,19 +143,18 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         });
 
 
-
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         FirebaseUser mFireUser = mFireAuth.getCurrentUser();
-        if(mFireUser!=null){
+        if (mFireUser != null) {
 
             // eto onse yung di na need ng sharedpref//
-           // Toasty.info(Dashboard.this, "Login verified"
-           //                   , Toast.LENGTH_LONG, true).show();
-        }else{
+            // Toasty.info(Dashboard.this, "Login verified"
+            //                   , Toast.LENGTH_LONG, true).show();
+        } else {
             Toasty.warning(Dashboard.this, "Oops, you must login first!"
                     , Toast.LENGTH_LONG, true).show();
             Intent intentCheck = new Intent(getApplicationContext(), Login.class);
@@ -168,7 +167,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
     }
-
 
 
     @Override
@@ -218,7 +216,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 System.exit(0);
 
 
-
         }
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
         ft.addToBackStack(backstackName);
@@ -245,7 +242,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         buffer.append("Address: " + address + "\n");
         buffer.append("Medical Condition: " + medCondition + "\n");
         buffer.append("Medicine Taken: " + medTake + "\n");
-        buffer.append("Blood Type: " + bloodType +"\n");
+        buffer.append("Blood Type: " + bloodType + "\n");
         buffer.append("ICE Contact Person: " + contactPerson + "\n");
         buffer.append("ICE Contact Person #: " + contactPersonNum + "\n");
 //        buffer.append("ICE Number: " +  +"N/A");
@@ -291,7 +288,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onPause() {
         super.onPause();
-        if(bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
+        if (bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
             showNotification();
         }
     }
@@ -299,25 +296,40 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
+        if (bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
             showNotification();
         }
     }
+
+    boolean isExit = false;
 
     @Override
     public void onBackPressed() {
         // working pero may bugs pa
         // --update-- working na, pwera dun na lang sa paglipat between nearby emergency at instruction
         int stackCount = getSupportFragmentManager().getBackStackEntryCount();
-
 //        Toast.makeText(this, String.valueOf(getSupportFragmentManager().getBackStackEntryAt(stackCount - 2)), Toast.LENGTH_SHORT).show();
-        if (stackCount < 2) {
-            System.exit(0);
+        if (stackCount < 3) {
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    isExit = false;
+                }
+            }, 2000);
+
+            if (isExit) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+            isExit = true;
+
         } else {
             getSupportFragmentManager().popBackStack();
             FragmentManager.BackStackEntry backStackEntry = getSupportFragmentManager().getBackStackEntryAt(stackCount - 2);
-            Toast.makeText(this, String.valueOf(backStackEntry.getId()), Toast.LENGTH_SHORT).show();
-
             highlightNavViewOnBackPressed(backStackEntry.getName());
         }
     }

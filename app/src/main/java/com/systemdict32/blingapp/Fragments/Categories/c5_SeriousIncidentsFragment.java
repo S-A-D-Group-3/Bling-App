@@ -104,6 +104,7 @@ public class c5_SeriousIncidentsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.addToBackStack("instruction_sub_category");
                 switch (position) {
                     case 0:
                         c5_1_StrokeFragment c5_1_strokeFragment = new c5_1_StrokeFragment();

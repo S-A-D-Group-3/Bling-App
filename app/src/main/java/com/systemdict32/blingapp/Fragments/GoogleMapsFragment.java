@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -133,13 +134,20 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     RelativeLayout place_data_container;
     ImageView btn_call_np_tp_hotline, btn_call_np_cp_hotline;
     String tp_num, cp_num;
+    ScrollView sv_hospital;
+    View view;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_google_maps, container, false);
+        view = inflater.inflate(R.layout.fragment_google_maps, container, false);
 
         tv_np_cp_number = view.findViewById(R.id.tv_np_cp_number);
         tv_np_name = view.findViewById(R.id.tv_np_name);
@@ -151,6 +159,29 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
         btn_call_np_cp_hotline.setOnClickListener(this);
         btn_call_np_tp_hotline.setOnClickListener(this);
+
+        if (mMap == null) {
+            SupportMapFragment mapFragment = (WorkaroundMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap googleMap)
+                {
+                    mMap = googleMap;
+                    mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    mMap.getUiSettings().setZoomControlsEnabled(true);
+
+                    sv_hospital = view.findViewById(R.id.sv_hospital); //parent scrollview in xml, give your scrollview id value
+                    ((WorkaroundMapFragment) getChildFragmentManager().findFragmentById(R.id.map))
+                            .setListener(new WorkaroundMapFragment.OnTouchListener() {
+                                @Override
+                                public void onTouch()
+                                {
+                                    sv_hospital.requestDisallowInterceptTouchEvent(true);
+                                }
+                            });
+                }
+            });
+        }
 
         return view;
     }

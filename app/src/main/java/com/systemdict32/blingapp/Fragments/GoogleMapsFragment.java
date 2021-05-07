@@ -189,12 +189,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     @Override
     public void onClick(View v) {
         if (v.getId() == btn_call_np_cp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + cp_num));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_num));
             getActivity().startActivity(intent);
         }
 
         if (v.getId() == btn_call_np_tp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + tp_num));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + tp_num));
             getActivity().startActivity(intent);
         }
     }

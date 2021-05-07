@@ -156,7 +156,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
            // Toasty.info(Dashboard.this, "Login verified"
            //                   , Toast.LENGTH_LONG, true).show();
         }else{
-            Toasty.info(Dashboard.this, "Please login first"
+            Toasty.warning(Dashboard.this, "Oops, you must login first!"
                     , Toast.LENGTH_LONG, true).show();
             Intent intentCheck = new Intent(getApplicationContext(), Login.class);
             intentCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

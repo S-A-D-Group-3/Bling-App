@@ -38,7 +38,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/open_sans_extrabold_italic"
-        android:text="Register"
+        android:text="Welcome aboard"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:transitionName="logo_text" />
@@ -50,9 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="@font/open_sans_semibold_italic"
-        android:text="Sign up quick and free"
+        android:text="Create your account now"
         android:textColor="@color/black"
         android:textSize="18sp"
 
@@ -171,13 +171,13 @@
 
     <Button
         android:id="@+id/reg_btn"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans_extrabold"
         android:background="@drawable/button_shape"
-        android:text="Sign Me Up"
+        android:text="Sign me up"
         android:textColor="@color/white"
         android:transitionName="button_tran" />
 

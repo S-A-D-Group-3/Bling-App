@@ -98,7 +98,7 @@ public class Login extends AppCompatActivity {
                builderTC.setCancelable(false);
                builderTC.setIcon(R.drawable.logov2);
                builderTC.setTitle("Terms and Conditions")
-                 .setNegativeButton("I understand", dialogClickListener).show();
+                 .setNegativeButton("Okay", dialogClickListener).show();
 
 
 
@@ -135,7 +135,7 @@ public class Login extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
 
-                                    Toasty.success(Login.this, "Login success, welcome to Bling"
+                                    Toasty.success(Login.this, "Login successful, welcome to Bling app!"
                                             , Toast.LENGTH_LONG, true).show();
 
 
@@ -143,7 +143,7 @@ public class Login extends AppCompatActivity {
                                         startActivity(new Intent(Login.this, Dashboard.class));
 
                                     } else {
-                                        Toasty.info(Login.this, "Please verify it on your email address"
+                                        Toasty.info(Login.this, "A verification link was sent to your e-mail address."
                                                 , Toast.LENGTH_LONG, true).show();
                                     }
                                 } else {

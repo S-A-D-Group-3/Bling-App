@@ -60,6 +60,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/abt_ourmissionhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -72,6 +73,7 @@
 
 
             <TextView
+                android:id="@+id/abt_ourmission1"
 
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
@@ -85,7 +87,7 @@
                 android:textSize="15sp" />
 
             <TextView
-
+                android:id="@+id/abt_ourmission2"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +114,7 @@
 
 
             <TextView
-
+                android:id="@+id/abt_ourteam1"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,6 +127,7 @@
 
 
             <TextView
+                android:id="@+id/abt_attrib"
                 android:layout_width="145dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
@@ -138,6 +141,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/abt_attrib1"
 
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
@@ -150,7 +154,7 @@
                 android:textSize="15sp" />
 
             <TextView
-
+                android:id="@+id/abt_attrib2"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,7 +167,7 @@
 
 
             <TextView
-
+                android:id="@+id/abt_ender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -175,14 +179,6 @@
     </ScrollView>
 
 </LinearLayout>
-
-
-
-
-
-
-
-
 
 
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.systemdict32.blingapp.R;
 
@@ -57,10 +58,25 @@ public class AboutFragment extends Fragment {
         }
     }
 
+    TextView tv_ourmission, tv_missionhead, tv_m1, tv_m2, tv_ourteam, tv_t1, tv_attrib, tv_a1, tv_a2, tv_end;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about, container, false);
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
+
+        tv_ourmission = view.findViewById(R.id.abt_ourmission);
+        tv_missionhead = view.findViewById(R.id.abt_ourmissionhead);
+        tv_m1 = view.findViewById(R.id.abt_ourmission1);
+        tv_m2 = view.findViewById(R.id.abt_ourmission2);
+        tv_ourteam = view.findViewById(R.id.abt_ourteam);
+        tv_t1 = view.findViewById(R.id.abt_ourteam1);
+        tv_attrib = view.findViewById(R.id.abt_attrib);
+        tv_a1 = view.findViewById(R.id.abt_attrib1);
+        tv_a2 = view.findViewById(R.id.abt_attrib2);
+        tv_end = view.findViewById(R.id.abt_ender);
+
+        return view;
     }
 }

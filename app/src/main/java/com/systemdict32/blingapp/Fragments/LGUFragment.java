@@ -117,6 +117,15 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         btn_call_r_hotline = view.findViewById(R.id.btn_call_r_hotline);
         btn_call_rc_hotline = view.findViewById(R.id.btn_call_rc_hotline);
 
+        btn_call_covid_hotline.setVisibility(View.GONE);
+        btn_call_cp_hotline.setVisibility(View.GONE);
+        btn_call_e_hotline.setVisibility(View.GONE);
+        btn_call_fd_hotline.setVisibility(View.GONE);
+        btn_call_hd_hotline.setVisibility(View.GONE);
+        btn_call_r_hotline.setVisibility(View.GONE);
+        btn_call_rc_hotline.setVisibility(View.GONE);
+
+
         btn_call_covid_hotline.setOnClickListener(this);
         btn_call_cp_hotline.setOnClickListener(this);
         btn_call_e_hotline.setOnClickListener(this);
@@ -133,31 +142,31 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
     @Override
     public void onClick(View v) {
         if(v.getId() == btn_call_covid_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + covid_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + covid_hotline));
             getActivity().startActivity(intent);
         }
         if(v.getId() == btn_call_cp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + cp_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_hotline));
             getActivity().startActivity(intent);
         }
         if(v.getId() == btn_call_e_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + e_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + e_hotline));
             getActivity().startActivity(intent);
         }
         if(v.getId() == btn_call_fd_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + fd_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + fd_hotline));
             getActivity().startActivity(intent);
         }
         if(v.getId() == btn_call_hd_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + hd_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + hd_hotline));
             getActivity().startActivity(intent);
         }
         if(v.getId() == btn_call_r_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + r_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + r_hotline));
             getActivity().startActivity(intent);
         }
         if(v.getId() == btn_call_rc_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + rc_hotline));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + rc_hotline));
             getActivity().startActivity(intent);
         }
     }
@@ -338,12 +347,14 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
                     if(splitAddress[0].contains("City")) {
                         tv_user_city.setText(splitAddress[0]);
+
                     } else {
                         tv_user_city.setText(splitAddress[0] + " City");
                     }
 
                     if(!isNCR) {
                         tv_currently_on.setText("Sorry, this feature is not available at your current location.");
+                        return;
                     }
 
                     tv_e_hotline.setText(e_hotline);
@@ -353,6 +364,18 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
                     tv_hd_hotline.setText(hd_hotline);
                     tv_r_hotline.setText(r_hotline);
                     tv_rc_hotline.setText(rc_hotline);
+
+
+                    btn_call_covid_hotline.setVisibility(View.VISIBLE);
+                    btn_call_cp_hotline.setVisibility(View.VISIBLE);
+                    btn_call_e_hotline.setVisibility(View.VISIBLE);
+                    btn_call_fd_hotline.setVisibility(View.VISIBLE);
+                    btn_call_hd_hotline.setVisibility(View.VISIBLE);
+                    btn_call_r_hotline.setVisibility(View.VISIBLE);
+                    btn_call_rc_hotline.setVisibility(View.VISIBLE);
+
+
+
                 }
             }
         }

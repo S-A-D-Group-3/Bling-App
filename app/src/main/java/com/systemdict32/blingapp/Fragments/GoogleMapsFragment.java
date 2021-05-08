@@ -261,6 +261,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
         return bestLocation;
     }
 
+
     @Override
     public void onLocationChanged(@NonNull Location location) {
     }
@@ -322,6 +323,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             return data;
         }
 
+
         public String downloadUrl(String string) throws IOException {
             URL url = new URL(string);
 
@@ -348,7 +350,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             return data;
         }
-
 
         @Override
         protected void onPostExecute(String s) {
@@ -500,12 +501,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             } else {
                 btn_call_np_cp_hotline.setVisibility(View.GONE);
                 btn_call_np_tp_hotline.setVisibility(View.GONE);
-                Toasty.warning(getActivity(), "Walang phone number si google map api dyan lods.",
+                Toasty.warning(getActivity(), "No information fetched on that current marker.",
                         Toast.LENGTH_LONG, true).show();
-                tv_np_name.setText("Sorry, no data");
-                tv_np_address.setText("Sorry, no data");
-                tv_np_cp_number.setText("Sorry, no data");
-                tv_np_tp_number.setText("Sorry, no data");
+                tv_np_name.setText("No data ");
+                tv_np_address.setText("This marker didn't provide a data");
+                tv_np_cp_number.setText("This marker didn't provide a data");
+                tv_np_tp_number.setText("This marker didn't provide a data");
             }
         }
 
@@ -549,3 +550,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
         }
     }
 }
+
+
+

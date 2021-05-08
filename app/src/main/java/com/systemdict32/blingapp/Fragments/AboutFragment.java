@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.systemdict32.blingapp.R;
@@ -59,7 +60,7 @@ public class AboutFragment extends Fragment {
     }
 
     TextView tv_ourmission, tv_missionhead, tv_m1, tv_m2, tv_ourteam, tv_t1, tv_attrib, tv_a1, tv_a2, tv_end;
-
+    ImageView aboutlogo;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class AboutFragment extends Fragment {
 
         tv_ourmission = view.findViewById(R.id.abt_ourmission);
         tv_missionhead = view.findViewById(R.id.abt_ourmissionhead);
+        aboutlogo = view.findViewById(R.id.abt_headpic);
         tv_m1 = view.findViewById(R.id.abt_ourmission1);
         tv_m2 = view.findViewById(R.id.abt_ourmission2);
         tv_ourteam = view.findViewById(R.id.abt_ourteam);

@@ -6,21 +6,27 @@ import android.net.Uri;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.systemdict32.blingapp.Fragments.Categories.c1_EmergencyBasicFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
+import com.systemdict32.blingapp.Fragments.EmergencyFragment;
 import com.systemdict32.blingapp.Fragments.HomeFragment;
+import com.systemdict32.blingapp.Fragments.HospitalFragment;
 import com.systemdict32.blingapp.Fragments.MyAccountFragment;
 import com.systemdict32.blingapp.Fragments.MyICEFragment;
 import com.systemdict32.blingapp.Fragments.ReadFirstAidFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c3_1_HeadInjuryFragment;
 import com.systemdict32.blingapp.R;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class BlingChatbot {
@@ -48,6 +54,7 @@ public class BlingChatbot {
         String userMessage = speechMessage.get(0);
         Fragment selectedFragment = null;
         Fragment selectedFragment2 = null;
+        Fragment selectedFragment3 = null;
 
         // nav bar
         if (userMessage.compareToIgnoreCase("home") == 0) {
@@ -63,7 +70,7 @@ public class BlingChatbot {
 
             ft.addToBackStack("nav_account");
             ft.commit();
-            botMessage = "Going to My I.C.E Page";
+            botMessage = "Going to My Account Page";
         }
         if (userMessage.compareToIgnoreCase("ice") == 0) {
             selectedFragment = new MyICEFragment();
@@ -74,17 +81,38 @@ public class BlingChatbot {
             botMessage = "Going to My I.C.E Page";
         }
 
-        if (userMessage.compareToIgnoreCase("body injury") == 0) {
-            selectedFragment = new MyICEFragment();
-            selectedFragment2 = new c3_BodyInjuriesFragment();
-            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.dashboard_fragment_container, selectedFragment);
-            FragmentTransaction ft2 = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, selectedFragment2);
+        if (userMessage.compareToIgnoreCase("head injury") == 0) {
+            activity.getSupportFragmentManager().beginTransaction().add(R.id.dashboard_fragment_container, new HomeFragment()).commit();
 
-            ft.addToBackStack("nav_ice");
-            ft.commit();
-            ft2.commit();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c3_1_HeadInjuryFragment());
+                    ft.addToBackStack("head_injury");
+                    ft.commit();
+                }
+            }, 10);
 
-            botMessage = "Going to Body Injuries Page";
+
+            botMessage = "Going to Head Injuries Page";
+        }
+
+        if (userMessage.contains("medic") || userMessage.contains("hospital") || userMessage.contains("medical")) {
+            activity.getSupportFragmentManager().beginTransaction().add(R.id.dashboard_fragment_container, new HomeFragment()).commit();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new HospitalFragment());
+                    ft.addToBackStack("emergency_services");
+                    ft.commit();
+                }
+            }, 10);
+
+
+            botMessage = "Going to Nearby Hospital Page";
         }
         // categories
 //        if (userMessage.compareToIgnoreCase("first aid") == 0) {

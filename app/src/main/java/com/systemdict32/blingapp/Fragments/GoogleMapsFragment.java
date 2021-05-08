@@ -267,12 +267,16 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
     @Override
     public void onProviderEnabled(@NonNull String provider) {
+        Toasty.warning(getActivity(), "Please refresh this page to enable gps.",
+                Toast.LENGTH_LONG, true).show();
     }
+
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-        Toasty.warning(getActivity(), "Please turn on your gps!",
-                Toast.LENGTH_LONG, true).show();
+//        may error
+//        Toasty.warning(getActivity(), "Please turn on your gps!",
+//                Toast.LENGTH_LONG, true).show();
     }
 
     @Override
@@ -331,6 +335,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             InputStream stream = connection.getInputStream();
 
+            connection.getErrorStream();
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
             StringBuilder builder = new StringBuilder();
@@ -352,8 +358,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
         @Override
         protected void onPostExecute(String s) {
+            if(s == null) {
+                Toast.makeText(getActivity(), "Please check your internet connection.", Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (!s.contains("ZERO_RESULTS")) {
-                new ParserTask().execute(s);
+                    new ParserTask().execute(s);
             } else {
                 Toasty.warning(getActivity(), "Sorry, we're unable to locate any nearby services in your area.",
                         Toast.LENGTH_LONG, true).show();

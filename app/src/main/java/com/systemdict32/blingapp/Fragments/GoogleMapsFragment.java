@@ -18,6 +18,8 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -110,10 +112,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
-            String url = generateUrlPlace(LATITUDE, LONGITUDE);
-
-            new PlaceTask().execute(url);
-
             LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -125,7 +123,22 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
+            boolean connected = false;
+            ConnectivityManager connectivityManager = (ConnectivityManager)getActivity().getSystemService(getActivity().CONNECTIVITY_SERVICE);
+            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+                //we are connected to a network
+                connected = true;
+            }
+            else {
+                connected = false;
+                Toasty.warning(getContext(), "You can't use this feature without cellular data or internet connection!", Toast.LENGTH_LONG).show();
+                return;
+            }
 
+            String url = generateUrlPlace(LATITUDE, LONGITUDE);
+
+            new PlaceTask().execute(url);
         }
     };
 
@@ -268,12 +281,16 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
     @Override
     public void onProviderEnabled(@NonNull String provider) {
+        Toasty.warning(getActivity(), "Please refresh this page to enable gps.",
+                Toast.LENGTH_LONG, true).show();
     }
+
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-        Toasty.warning(getActivity(), "Please turn on your gps!",
-                Toast.LENGTH_LONG, true).show();
+//        may error
+//        Toasty.warning(getActivity(), "Please turn on your gps!",
+//                Toast.LENGTH_LONG, true).show();
     }
 
     @Override
@@ -333,6 +350,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             InputStream stream = connection.getInputStream();
 
+            connection.getErrorStream();
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
             StringBuilder builder = new StringBuilder();
@@ -353,8 +372,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
         @Override
         protected void onPostExecute(String s) {
+            if(s == null) {
+                Toast.makeText(getActivity(), "Please check your internet connection.", Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (!s.contains("ZERO_RESULTS")) {
-                new ParserTask().execute(s);
+                    new ParserTask().execute(s);
             } else {
                 Toasty.warning(getActivity(), "Sorry, we're unable to locate any nearby services in your area.",
                         Toast.LENGTH_LONG, true).show();

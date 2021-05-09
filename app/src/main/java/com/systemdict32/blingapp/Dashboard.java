@@ -266,6 +266,10 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
+        Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
+        broadcastIntent.putExtra("ice_cell_num", contactPersonNum);
+        PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
 
         builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.logov2)
@@ -276,6 +280,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntent)
+                .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
                 .setAutoCancel(true).setOngoing(true);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
@@ -336,17 +341,16 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     public void highlightNavViewOnBackPressed(String backStackName) {
         // not working lods
-//        if(backStackName.equals("nav_emergency")){
-//            top_nav_view.setSelectedItemId(R.id.nav_emergency);
-//            navigationView.setCheckedItem(R.id.nav_home);
-//
-//            Toast.makeText(this, "" + String.valueOf(top_nav_view.getMenu().getItem(0).isChecked()), Toast.LENGTH_SHORT).show();
-//        }
-//
-//        if(backStackName.equals("nav_instruction") || backStackName.equals("nav_home")){
-//            top_nav_view.setSelectedItemId(R.id.top_nav_view);
-//            navigationView.setCheckedItem(R.id.nav_home);
-//        }
+        if(backStackName.equals("nav_emergency")){
+            top_nav_view.setSelectedItemId(R.id.nav_emergency);
+            navigationView.setCheckedItem(R.id.nav_home);
+
+        }
+
+        if(backStackName.equals("nav_instruction") || backStackName.equals("nav_home")){
+            top_nav_view.setSelectedItemId(R.id.top_nav_view);
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
 
         if (backStackName.equals("nav_home")) {
             navigationView.setCheckedItem(R.id.nav_home);

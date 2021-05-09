@@ -2,6 +2,8 @@ package com.systemdict32.blingapp.Fragments;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -87,6 +89,18 @@ public class HomeFragment extends Fragment {
                     Manifest.permission.ACCESS_FINE_LOCATION,  Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE
                     , Manifest.permission.CALL_PHONE
             }, 100);
+        }
+
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getActivity().getSystemService(getActivity().CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else {
+            connected = false;
+            Toasty.info(getContext(), "You are on offline mode!", Toast.LENGTH_LONG).show();
         }
 
         top_nav_view = view.findViewById(R.id.top_nav_view);

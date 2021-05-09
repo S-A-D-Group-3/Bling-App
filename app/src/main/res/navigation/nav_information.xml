@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_information"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.systemdict32.blingapp.Fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_c1_1_CrampFootFragment"
+            app:destination="@id/c1_1_CrampFootFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/c1_1_CrampFootFragment"
+        android:name="com.systemdict32.blingapp.Fragments.SubCategories.c1_1_CrampFootFragment"
+        android:label="fragment_c1_1__cramp_foot"
+        tools:layout="@layout/fragment_c1_1__cramp_foot" />
+</navigation>

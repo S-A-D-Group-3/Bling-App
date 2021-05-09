@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.systemdict32.blingapp.R;
 
@@ -46,7 +48,10 @@ public class HelpFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+
     }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,10 +62,20 @@ public class HelpFragment extends Fragment {
         }
     }
 
+
+    TextView hlptitle;
+    ImageView helplogo;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_help, container, false);
+        View view = inflater.inflate(R.layout.fragment_help, container, false);
+        hlptitle = view.findViewById(R.id.hlp_head);
+        helplogo = view.findViewById(R.id.hlp_headpic);
+
+
+        return view;
     }
 }

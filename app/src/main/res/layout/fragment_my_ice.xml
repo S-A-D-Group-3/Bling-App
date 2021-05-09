@@ -47,24 +47,26 @@
 
             <TextView
                 android:id="@+id/ice_headinsidescroll"
-                android:layout_width="match_parent"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans_extrabold"
-                android:gravity="center"
+              android:layout_gravity="left"
+                android:padding="5dp"
+                android:background="@drawable/abt_left"
                 android:text="User's information"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="*This information will be used if you are\nin an emergency situation. please make sure\nthat the information you have entered is accurate."
+                android:text="*This information will be used if you are\nin an emergency situation. please make sure\nthat the information you have entered is true."
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 

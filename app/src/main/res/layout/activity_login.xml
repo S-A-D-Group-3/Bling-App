@@ -130,7 +130,7 @@
             android:layout_marginTop="0dp"
             android:fontFamily="@font/open_sans"
             android:clickable="true"
-            android:text="Terms and Conditions"
+            android:text="Terms of use and Privacy policy"
             android:textColor="@color/action_bar"
             android:textSize="10sp"/>
 

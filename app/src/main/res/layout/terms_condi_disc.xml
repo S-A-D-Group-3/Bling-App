@@ -27,7 +27,7 @@
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="Terms and Conidtions"
+                android:text="Terms of Use"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -41,10 +41,51 @@
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="Hello, User! \n We are currently working on what \nto put in this part.\nthank you!"
+                android:text="Hello, User!, Welcome to Bling App"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:text="INTRODUCTION"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:text="1.1)  Bling Emergency Service \n(hereinafter referred as APP) are develop-\ned by Group 3 of DICT 3-2 for Capstone.\n(hereinafter referred to us as US/WE). we\n contribute to provide Users with the service that helps on emergencies.\n(Hereinafter referred to us as SERVICES)."
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:text="1.2) Individuals ( hereinafter referred as \nYOU or USERS) shall thoroughly and care\nfully read the Terms of Use (herein referred to us as AGREEMENT) before \nusing or acccessing our services. while using our SERVICES, You are demmed to fully understood and accepted and are willing to abide by all of the following terms and conditions, and this agreement shall become effective immediately between USERS and and BLING EMEREGENCY SERVICE APP. if you disagree with this agreement, You can terminate our SERVICES at any time. if you have any questions with this agreement, please contact our technical team lead via 2.janelevensalvador@gmail.com\n\n\n\n\n\n\n\n\n\n\n\n\n"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
 
         </LinearLayout>
 

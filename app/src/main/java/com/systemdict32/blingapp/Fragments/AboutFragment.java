@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,7 @@ public class AboutFragment extends Fragment {
         }
     }
 
-    TextView tv_ourmission, tv_missionhead, tv_m1, tv_m2, tv_ourteam, tv_t1, tv_attrib, tv_a1, tv_a2, tv_end;
+    TextView tv_ourmission, tv_missionhead, tv_m1, tv_m2, tv_ourteam, tv_t1, tv_attrib, tv_a1, tv_a2, tv_link;
     ImageView aboutlogo;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,7 +78,12 @@ public class AboutFragment extends Fragment {
         tv_attrib = view.findViewById(R.id.abt_attrib);
         tv_a1 = view.findViewById(R.id.abt_attrib1);
         tv_a2 = view.findViewById(R.id.abt_attrib2);
-        tv_end = view.findViewById(R.id.abt_ender);
+       tv_link = view.findViewById(R.id.abt_attrib3);
+
+
+        if (tv_link != null) {
+            tv_link.setMovementMethod(LinkMovementMethod.getInstance());
+        }
 
         return view;
     }

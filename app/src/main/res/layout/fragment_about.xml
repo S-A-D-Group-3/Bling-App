@@ -82,7 +82,7 @@
                 android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:text="We are focused in creating the best companion\n application that you can use in an emergency\nsituation.One that empowers people to learn\n and perform necessary measures with brave-\nness and confidence. to achieve this, we are\ncontinuously upgrading the functionality of our\n app to make sure that no lives lives will ever be\nin vain."
+                android:text="We are focused in creating the best companion\n application that you can use in an emergency\nsituation.One that empowers people to learn\n and perform necessary measures with brave-\nness and confidence. to achieve this, we are\ncontinuously upgrading the functionality of our\n app to make sure that no lives will ever be\nin vain."
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -121,7 +121,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/open_sans"
-                android:text="Our team consists of passionate individuals\nfrom the Institute of technology, PUP MANILA.\nWe are Information Technology students com-\nmited to create an idea into reality."
+                android:text="Our team consists of passionate individuals\nfrom the Institute of technology, PUP MANILA.\nWe are commited to create an idea into reality."
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -147,9 +147,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/open_sans"
-               android:text="Icons used inside this applications may be\nattributed from:"
+               android:text="Icons used inside this application were attributed from\nFreepik using the Flaticon webpage"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -159,20 +159,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/open_sans_extrabold"
-                android:text="Flaticon and Freepik"
+                android:text="Free License Attributed from Flaticon"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-
             <TextView
-                android:id="@+id/abt_ender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/abt_attrib3"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:background="@color/action_bar" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/link1"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
 
         </LinearLayout> <!-- wag lalagpas dito  -->
 

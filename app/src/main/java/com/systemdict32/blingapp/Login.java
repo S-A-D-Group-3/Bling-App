@@ -97,8 +97,7 @@ public class Login extends AppCompatActivity {
                builderTC.create();
                builderTC.setCancelable(false);
                builderTC.setIcon(R.drawable.logov2);
-               builderTC.setTitle("Terms and Conditions")
-                 .setNegativeButton("Okay", dialogClickListener).show();
+                builderTC.setNegativeButton("Okay", dialogClickListener).show();
 
 
 

@@ -280,6 +280,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 // Set the intent that will fire when the user taps the notification
                 .setContentIntent(pendingIntent)
+                .setColor(Color.BLUE)
                 .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
                 .setAutoCancel(true).setOngoing(true);
 

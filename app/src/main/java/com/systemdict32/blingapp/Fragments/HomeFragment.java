@@ -97,11 +97,10 @@ public class HomeFragment extends Fragment {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
             //we are connected to a network
             connected = true;
-            Toast.makeText(getContext(), "connected", Toast.LENGTH_SHORT).show();
         }
         else {
             connected = false;
-            Toast.makeText(getContext(), "not connected", Toast.LENGTH_SHORT).show();
+            Toasty.info(getContext(), "You are on offline mode!", Toast.LENGTH_LONG).show();
         }
 
         top_nav_view = view.findViewById(R.id.top_nav_view);

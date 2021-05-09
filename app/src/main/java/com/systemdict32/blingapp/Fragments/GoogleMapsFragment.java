@@ -18,6 +18,8 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -110,10 +112,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             LATITUDE = mLocation.getLatitude();
             LONGITUDE = mLocation.getLongitude();
 
-            String url = generateUrlPlace(LATITUDE, LONGITUDE);
-
-            new PlaceTask().execute(url);
-
             LOCATION = new LatLng(LATITUDE, LONGITUDE);
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -125,7 +123,22 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
+            boolean connected = false;
+            ConnectivityManager connectivityManager = (ConnectivityManager)getActivity().getSystemService(getActivity().CONNECTIVITY_SERVICE);
+            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+                //we are connected to a network
+                connected = true;
+            }
+            else {
+                connected = false;
+                Toasty.warning(getContext(), "You can't use this feature without cellular data or internet connection!", Toast.LENGTH_LONG).show();
+                return;
+            }
 
+            String url = generateUrlPlace(LATITUDE, LONGITUDE);
+
+            new PlaceTask().execute(url);
         }
     };
 

@@ -90,6 +90,8 @@
 
         </activity>
 
+        <receiver android:name=".NotificationReceiver" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.systemdict32.android.fileprovider"

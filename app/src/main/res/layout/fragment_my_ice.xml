@@ -53,6 +53,7 @@
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans_extrabold"
               android:layout_gravity="left"
+                android:gravity="center"
                 android:padding="5dp"
                 android:background="@drawable/abt_left"
                 android:text="User's information"

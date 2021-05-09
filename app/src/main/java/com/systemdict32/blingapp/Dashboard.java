@@ -342,13 +342,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     public void highlightNavViewOnBackPressed(String backStackName) {
         // not working lods
-        if(backStackName.equals("nav_emergency")){
+        if(backStackName.equals("nav_emergency") || backStackName.equals("emergency_services")){
             top_nav_view.setSelectedItemId(R.id.nav_emergency);
             navigationView.setCheckedItem(R.id.nav_home);
 
         }
 
-        if(backStackName.equals("nav_instruction") || backStackName.equals("nav_home")){
+        if(backStackName.equals("nav_instruction") || backStackName.equals("instruction_category") || backStackName.equals("instruction_sub_category")){
             top_nav_view.setSelectedItemId(R.id.top_nav_view);
             navigationView.setCheckedItem(R.id.nav_home);
         }

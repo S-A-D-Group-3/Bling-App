@@ -14,7 +14,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:justificationMode="inter_word">
 
 
             <TextView
@@ -72,7 +73,7 @@
                 android:fontFamily="@font/open_sans"
                 android:justificationMode="inter_word"
                 android:gravity="left"
-                android:text="1.1) Bling Emergency Service (hereinafter referred as APP) are developed by Group 3 of DICT 3-2 for Capstone.(hereinafter referred to us as US/WE). We contribute to provide Users with the service that helps on emergencies.(Hereinafter referred to us as SERVICES)."
+                android:text="1.1) Bling Emergency Service (hereinafter referred us as APP) are developed by Group 3 of DICT 3-2 for Capstone.(hereinafter referred to us as US/WE). We contribute to provide Users with the service that helps on emergencies.(Hereinafter referred to us as SERVICES)."
                 android:textColor="@color/black"
                 android:textSize="15sp"/>
 
@@ -145,7 +146,7 @@
                 android:fontFamily="@font/open_sans"
                 android:justificationMode="inter_word"
                 android:gravity="left"
-                android:text="2.1) To use out Services in this Application, You will be required to provide the minimum information needed to realize the basic functions of this application, such as login, sotware version, connection method and type of network, Permissions on accessing file, accessing network, accessing location and accessing phone call or contacts. IF you fail to maintain the accurate, complete and up-to-date information, you may not be able to acces the partial features and servies in this application. Your USER ACCOUNT gives YOU access to this Application and its functionalities that we may establish and maintain from time to time and at our sole discretion. Group 3 Team care about the integrity and secrity of your personal information. However, We cannot GUARANTEE that unauthorized THIRD PARTIES will never be able to defeat our security measures or use of your personal information for improper or illegal purposes. You acknowledge that You provide your PERSONAL INFORMATION at YOUR OWN RISK>"
+                android:text="2.1) To use out Services in this Application, You will be required to provide the minimum information needed to realize the basic functions of this application, such as login, sotware version, connection method and type of network, Permissions on accessing file, accessing network, accessing location and accessing phone call or contacts. IF you fail to maintain the accurate, complete and up-to-date information, you may not be able to acces the partial features and servies in this application. Your USER ACCOUNT gives YOU access to this Application and its functionalities that we may establish and maintain from time to time and at our sole discretion. Group 3 Team care about the integrity and secrity of your personal information. However, We cannot GUARANTEE that unauthorized THIRD PARTIES will never be able to defeat our security measures or use of your personal information for improper or illegal purposes. You acknowledge that You provide your PERSONAL INFORMATION at YOUR OWN RISK"
                 android:textColor="@color/black"
                 android:textSize="15sp"/>
 
@@ -321,6 +322,35 @@
                 android:text="[xii] Bypassing the measures we may use to prevent or restrict access to our apllication, including without limitation features that prevent or restrict use of copying of any content or enforce limitations on use of the appliation's content therein."
                 android:textColor="@color/black"
                 android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="2.3) We may without prior notice, change the applications, to stop providing the features of the app. to You or create usage limits for our application. We may permanently or temporarily terminate or suspend your access to the application, or delete any User Content, without notice and liability for any reason , including if in our sole determination You violate any provision on this agreement, or for no reason. Upon termination for any reasons or no reason at all, You continue to bound by this Agreement."
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="2.4) Your are solely responsible for your conducts and any data, text, files, information, images, photo or video, sound recordings, musical works, narration, works of authorship, links and other contents or materials that you submit, post, or display on or via our application. GROUP 3 shall have no liability for conduct in relation to your usage of this application."
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
 
 
 

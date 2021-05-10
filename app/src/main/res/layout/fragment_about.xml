@@ -77,25 +77,27 @@
                 android:id="@+id/abt_ourmission1"
 
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:padding="2dp"
                 android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
                 android:fontFamily="@font/open_sans"
-                android:text="We are focused in creating the best companion\n application that you can use in an emergency\nsituation.One that empowers people to learn\n and perform necessary measures with brave-\nness and confidence. to achieve this, we are\ncontinuously upgrading the functionality of our\n app to make sure that no lives will ever be\nin vain."
+                android:text="We are focused in creating the best companion application that you can use in an emergency situation.One that empowers people to learn and perform necessary measures with braveness and confidence. to achieve this, we are continuously upgrading the functionality of our app to make sure that no lives will ever be in vain."
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/abt_ourmission2"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/open_sans"
-                android:text="Because we believe that every second count.\nand every lives really matter."
+                android:text="Because we believe that every second count. and every lives really matter."
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -105,9 +107,10 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="0dp"
-                android:fontFamily="@font/open_sans_extrabold"
                 android:layout_gravity="right"
-                android:text="    Our team"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:text="Our team"
                 android:padding="5dp"
                 android:background="@drawable/abt_right"
                 android:textColor="@color/white"
@@ -117,25 +120,26 @@
             <TextView
                 android:id="@+id/abt_ourteam1"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/open_sans"
-                android:text="Our team consists of passionate individuals\nfrom the Institute of technology, PUP MANILA.\nWe are commited to create an idea into reality."
+                android:text="Our team consists of passionate individuals from the Institute of technology, PUP MANILA. We are commited to create an idea into reality."
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
 
             <TextView
                 android:id="@+id/abt_attrib"
-                android:layout_width="145dp"
+                android:layout_width="155dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="0dp"
-                android:fontFamily="@font/open_sans_extrabold"
                 android:layout_gravity="left"
                 android:gravity="center"
+                android:fontFamily="@font/open_sans_extrabold"
                 android:text="Attributions"
                 android:padding="5dp"
                 android:background="@drawable/abt_left"
@@ -146,12 +150,13 @@
                 android:id="@+id/abt_attrib1"
 
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:justificationMode="inter_word"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/open_sans"
-               android:text="Icons used inside this application were attributed from\nFreepik using the Flaticon webpage"
+               android:text="Icons used inside this application were attributed from Freepik using the Flaticon webpage"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 

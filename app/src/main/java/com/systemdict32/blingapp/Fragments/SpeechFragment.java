@@ -155,8 +155,7 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
                 // if false launch a welcome message to the user
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     TTSProgressListener();
-                    String message = "Hi, I'm Bling App. How can I help you?";
-                    TTS.speak(message, TextToSpeech.QUEUE_FLUSH, null, TextToSpeech.ACTION_TTS_QUEUE_PROCESSING_COMPLETED);
+                    String message = "Press me to use Chatbot Assistance";
                     frag_tv_STT.setText(message);
                     iv_speak_STT.setImageResource(R.drawable.chatbot);
                     frag_tv_STT.setVisibility(View.VISIBLE);

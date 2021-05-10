@@ -65,6 +65,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     FirebaseAuth firebaseAuth;
     String fullName, email, address, bloodType, contactPerson, contactPersonNum, medCondition, medTake, userId;
     TextView tv_user_name;
+    View chatbot_fragment;
     BottomNavigationView top_nav_view;
     private FirebaseAuth mFireAuth;
 
@@ -87,6 +88,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         navigationView = findViewById(R.id.nav_vieww);
         toolbar = findViewById(R.id.toolbar);
         top_nav_view = (BottomNavigationView) home.findViewById(R.id.top_nav_view);
+        chatbot_fragment = findViewById(R.id.chatbot_fragment);
 
         View header = navigationView.getHeaderView(0);
 
@@ -161,11 +163,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             intentCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intentCheck);
             finish();
-
-
         }
-
-
     }
 
 
@@ -178,25 +176,30 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_home:
                 selectedFragment = new HomeFragment();
                 backstackName = "nav_home";
+                chatbot_fragment.setVisibility(View.VISIBLE);
                 break;
             case R.id.nav_account:
                 selectedFragment = new MyAccountFragment();
                 backstackName = "nav_account";
+                chatbot_fragment.setVisibility(View.GONE);
                 break;
 
             case R.id.nav_ice:
                 selectedFragment = new MyICEFragment();
                 backstackName = "nav_ice";
+                chatbot_fragment.setVisibility(View.GONE);
                 break;
 
             case R.id.nav_help:
                 selectedFragment = new HelpFragment();
                 backstackName = "nav_help";
+                chatbot_fragment.setVisibility(View.GONE);
                 break;
 
             case R.id.nav_about:
                 selectedFragment = new AboutFragment();
                 backstackName = "nav_about";
+                chatbot_fragment.setVisibility(View.GONE);
                 break;
 
             case R.id.nav_exitt:
@@ -342,13 +345,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     public void highlightNavViewOnBackPressed(String backStackName) {
         // not working lods
-        if(backStackName.equals("nav_emergency") || backStackName.equals("emergency_services")){
+        if (backStackName.equals("nav_emergency") || backStackName.equals("emergency_services")) {
             top_nav_view.setSelectedItemId(R.id.nav_emergency);
             navigationView.setCheckedItem(R.id.nav_home);
 
         }
 
-        if(backStackName.equals("nav_instruction") || backStackName.equals("instruction_category") || backStackName.equals("instruction_sub_category")){
+        if (backStackName.equals("nav_instruction") || backStackName.equals("instruction_category") || backStackName.equals("instruction_sub_category")) {
             top_nav_view.setSelectedItemId(R.id.top_nav_view);
             navigationView.setCheckedItem(R.id.nav_home);
         }

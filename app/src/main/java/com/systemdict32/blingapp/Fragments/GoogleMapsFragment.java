@@ -526,7 +526,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                 btn_call_np_tp_hotline.setVisibility(View.GONE);
                 Toasty.warning(getActivity(), "No information fetched on that current marker.",
                         Toast.LENGTH_LONG, true).show();
-                tv_np_name.setText("No data ");
+                tv_np_name.setText("This marker didn't provide a data ");
                 tv_np_address.setText("This marker didn't provide a data");
                 tv_np_cp_number.setText("This marker didn't provide a data");
                 tv_np_tp_number.setText("This marker didn't provide a data");

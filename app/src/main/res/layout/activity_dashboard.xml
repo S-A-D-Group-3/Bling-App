@@ -48,7 +48,7 @@
         android:layout_height="match_parent">
 
         <fragment
-            android:id="@+id/fragment5"
+            android:id="@+id/chatbot_fragment"
             android:name="com.systemdict32.blingapp.Fragments.SpeechFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

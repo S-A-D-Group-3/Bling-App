@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -33,7 +34,7 @@ import java.util.Locale;
  * Use the {@link SpeechFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListener{
+public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -100,7 +101,7 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
             public void onClick(View v) {
                 Intent intent = blingChatbot.STT();
 
-                try{
+                try {
                     startActivityForResult(intent, 1);
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -111,14 +112,15 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
         return view;
     }
 
+    final Handler handler = new Handler();
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch(requestCode){
+        switch (requestCode) {
             case 1:
-                if(resultCode == Activity.RESULT_OK && data != null)
-                {
+                if (resultCode == Activity.RESULT_OK && data != null) {
                     // get the speech from user
                     ArrayList<String> speech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     // call bling chatbot, pass the speech, chatbot will return a string message, store the message to the string botMessage variable
@@ -139,19 +141,15 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
 
     @Override
     public void onInit(int status) {
-        if(status == TextToSpeech.SUCCESS)
-        {
+        if (status == TextToSpeech.SUCCESS) {
             int result = TTS.setLanguage(Locale.getDefault());
             TTS.setSpeechRate(1);
             TTS.setPitch(1);
             // check if TTS support on user , if false create speak to user
-            if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED)
-            {
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 // if true make a toast saying TTS is not supported
                 Toast.makeText(getActivity(), "TTS language not supported", Toast.LENGTH_SHORT).show();
-            }
-            else
-            {
+            } else {
                 // if false launch a welcome message to the user
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     TTSProgressListener();
@@ -159,13 +157,22 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
                     frag_tv_STT.setText(message);
                     iv_speak_STT.setImageResource(R.drawable.chatbot);
                     frag_tv_STT.setVisibility(View.VISIBLE);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    frag_tv_STT.setVisibility(View.INVISIBLE);
+                                }
+                            }, 3000);
+                        }
+                    });
                 } else {
                     Toast.makeText(getActivity(), "TTS language not supported", Toast.LENGTH_SHORT).show();
                 }
             }
-        }
-        else
-        {
+        } else {
             Toast.makeText(getActivity(), "TTS initialization failed.", Toast.LENGTH_SHORT).show();
         }
     }

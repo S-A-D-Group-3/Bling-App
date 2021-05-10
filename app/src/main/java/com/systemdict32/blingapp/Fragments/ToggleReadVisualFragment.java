@@ -3,6 +3,7 @@ package com.systemdict32.blingapp.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.speech.tts.TextToSpeech;
@@ -63,17 +64,20 @@ public class ToggleReadVisualFragment extends Fragment {
         }
     }
 
-    TextView btn_view_visual, btn_view_reader;
+    TextView btn_view_visual, btn_view_reader, btn_nearby_hospital;
     public ToggleReadVisualInterface toggleReadVisualInterface;
     boolean isReader = true;
+    View homeFrag;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_toggle_read_visual, container, false);
+        homeFrag = inflater.inflate(R.layout.fragment_home, container, false);
 
         btn_view_reader = view.findViewById(R.id.btn_view_reader);
         btn_view_visual = view.findViewById(R.id.btn_view_visual);
+        btn_nearby_hospital = view.findViewById(R.id.btn_nearby_hospital);
 
         toggleReadVisualInterface = (ToggleReadVisualInterface) getParentFragment();
 
@@ -110,6 +114,17 @@ public class ToggleReadVisualFragment extends Fragment {
                     btn_view_reader.setVisibility(View.VISIBLE);
                     isReader = !isReader;
                 }
+            }
+        });
+
+        btn_nearby_hospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.home_fragment_container, new HospitalFragment());
+                ft.addToBackStack(null);
+                ft.commit();
             }
         });
 

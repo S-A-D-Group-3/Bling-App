@@ -438,6 +438,79 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"/>
 
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="3.3) If you share your user content with GROUP 3 orl ink your user content to GROUP 3 on a third party service (including, for exmaple using the tag #Group3 or #BlingApp on Instagram, or facebook) You expressly grant, and you represent and warrant that you have all rights necessary to grant, to GROUP 3 a royalty-free, sublicensable, tranferable, perpetual, irrevocable, non exclusive, world-wide license to use, reproduce, modify, publish, lsit information regarding  edit, translate, distribute, syndicate, publicly perform, publicly display and make derivative works of all such  user content and  your name, voice, and/or likeness, as contained in your user content, , in whole or in part , and in any form, media or technology, whether now known or hereafter developed, for use in connection with the application and GROUP 3, including but not limited to promote and redistribute part or all of our application in any media formats and trough any media channels"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="3. OUR PROPRIETARY RIGHTS"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="4.1) The Bling Emergency Service App contains materials owned or attributed from a third party, by GROUP 3 (hereinafter collectively referred to as GROUP 3 developement team). Bling Emergency Service app may be protected by copyright, trademark, patent, trade secret, and other laws, and as between You and GROUP 3, GROUP 3 owns and retains all rights. You will not remove, alter, or conceal any of the copyright, trademark, service mark, or other proprietary rights notices if any, incorporated in or accompanying the application and You will not reproduce, modify, adapt, perpare derivative works based on, perform, display, publish, distribute, transmit, broadcast, sell license or otherwise exploit the application. "
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="4.2) You may choose to or we may invite you to submit comments or ideas about the application, including without limitation, about how to improve the app(hereinafter referred as Idea). By submitting any idea, you agree that your disclosure  is gratuitous, unsolicited and withour restriction andd will not place GROUP 3 under fiduciary or other obligation and that we are free to use the idea without any additional compensation to you, and/or to disclose the idea on a non-confidential basis or otherwise to anyone, You further acknowledge that by acceptance of your submission,GROUP 3 does not waive any rights to use similar or related ideas previously known to GROUP 3, or developed by its memmbers, or obtained from sources other than you."
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:padding="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:justificationMode="inter_word"
+                android:gravity="left"
+                android:text="3. OUR SERVICES"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
 
 

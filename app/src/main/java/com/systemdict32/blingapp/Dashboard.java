@@ -269,28 +269,31 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-        Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
-        broadcastIntent.putExtra("ice_cell_num", contactPersonNum);
-        PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
-        builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.logov2)
-                .setContentTitle("In-case of Emergency")
-                .setContentText("User Information")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(buffer.toString()))
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                // Set the intent that will fire when the user taps the notification
-                .setContentIntent(pendingIntent)
-                .setColor(Color.BLUE)
-                .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
-                .setAutoCancel(true).setOngoing(true);
+            Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
+            broadcastIntent.putExtra("ice_cell_num", contactPersonNum);
+            PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+            builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                    .setSmallIcon(R.drawable.logov2)
+                    .setContentTitle("In Case of Emergency")
+                    .setContentText("User Information")
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(buffer.toString()))
+                    .setPriority(NotificationCompat.PRIORITY_MAX)
+                    // Set the intent that will fire when the user taps the notification
+                    .setContentIntent(pendingIntent)
+                    .setColor(Color.BLUE)
+                    .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
+                    .setAutoCancel(true).setOngoing(true);
+
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 //            builder.setVisibility(Notification.VISIBILITY_SECRET);
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(1, builder.build());
+            // notificationId is a unique int for each notification that you must define
+            notificationManager.notify(1, builder.build());
+
 
     }
 

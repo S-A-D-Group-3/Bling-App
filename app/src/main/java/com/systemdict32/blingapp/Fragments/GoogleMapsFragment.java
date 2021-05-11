@@ -281,8 +281,9 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
     @Override
     public void onProviderEnabled(@NonNull String provider) {
-        Toasty.warning(getActivity(), "Please refresh this page to enable gps.",
-                Toast.LENGTH_LONG, true).show();
+        // crash app dito lods
+//        Toasty.warning(getActivity(), "Please refresh this page to enable gps.",
+//                Toast.LENGTH_LONG, true).show();
     }
 
 

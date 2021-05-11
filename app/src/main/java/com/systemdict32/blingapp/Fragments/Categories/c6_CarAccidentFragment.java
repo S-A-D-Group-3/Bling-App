@@ -110,7 +110,7 @@ public class c6_CarAccidentFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.addToBackStack("instruction_sub_category");
+                ft.addToBackStack("nav_home");
                 switch (position) {
                     case 0:
                         c6_1_SevereBurnFragment c6_1_severeBurnFragment = new c6_1_SevereBurnFragment();

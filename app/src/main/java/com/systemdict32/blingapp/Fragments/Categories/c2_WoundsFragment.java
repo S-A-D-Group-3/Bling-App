@@ -103,7 +103,7 @@ public class c2_WoundsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.addToBackStack("instruction_sub_category");
+                ft.addToBackStack("nav_home");
 
                 switch (position) {
                     case 0:

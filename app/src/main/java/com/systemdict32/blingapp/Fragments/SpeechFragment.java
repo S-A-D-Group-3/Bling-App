@@ -165,7 +165,7 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
                                 public void run() {
                                     frag_tv_STT.setVisibility(View.INVISIBLE);
                                 }
-                            }, 3000);
+                            }, 5000);
                         }
                     });
                 } else {

@@ -91,18 +91,6 @@ public class HomeFragment extends Fragment {
             }, 100);
         }
 
-        boolean connected = false;
-        ConnectivityManager connectivityManager = (ConnectivityManager)getActivity().getSystemService(getActivity().CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
-            connected = true;
-        }
-        else {
-            connected = false;
-            Toasty.info(getContext(), "You are on offline mode!", Toast.LENGTH_LONG).show();
-        }
-
         top_nav_view = view.findViewById(R.id.top_nav_view);
 
         top_nav_view.setOnNavigationItemSelectedListener(navListener);
@@ -110,7 +98,7 @@ public class HomeFragment extends Fragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         EmergencyFragment emergency = new EmergencyFragment();
         ft.add(R.id.home_fragment_container, emergency);
-        ft.addToBackStack("nav_emergency");
+        ft.addToBackStack("nav_home");
         ft.commit();
 
         return view;
@@ -124,14 +112,14 @@ public class HomeFragment extends Fragment {
                 case R.id.nav_instruction:
                     InstructionFragment instruction = new InstructionFragment();
                     ft.replace(R.id.home_fragment_container, instruction);
-                    ft.addToBackStack("nav_instruction");
+                    ft.addToBackStack("nav_home");
                     ft.commit();
                     break;
 
                 case R.id.nav_emergency:
                     EmergencyFragment emergency = new EmergencyFragment();
                     ft.replace(R.id.home_fragment_container, emergency);
-                    ft.addToBackStack("nav_emergency");
+                    ft.addToBackStack("nav_home");
                     ft.commit();
                     break;
             }

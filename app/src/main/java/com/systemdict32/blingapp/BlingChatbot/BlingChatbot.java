@@ -70,7 +70,6 @@ import java.util.Locale;
 
 public class BlingChatbot {
     final Handler handler = new Handler();
-    FragmentActivity fa = new FragmentActivity();
 
     public BlingChatbot() {
     }
@@ -78,8 +77,8 @@ public class BlingChatbot {
     public Intent STT() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.JAPANESE);
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hi speak something");
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Hi, say what you need about first aid.");
         return intent;
     }
 
@@ -89,7 +88,7 @@ public class BlingChatbot {
     }
 
     public String MainChatbot(ArrayList<String> speechMessage, Context context, FragmentActivity activity) {
-        String botMessage = "Pardon. I didn't get that.";
+        String botMessage = "Pardon. Please try another word.";
         String userMessage = speechMessage.get(0);
 
         // ------------------------------------------ instruction set -----------------------------------

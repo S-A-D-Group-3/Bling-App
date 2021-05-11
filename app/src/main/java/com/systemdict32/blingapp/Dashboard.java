@@ -24,6 +24,8 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -150,20 +152,32 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser mFireUser = mFireAuth.getCurrentUser();
-        if (mFireUser != null) {
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+            FirebaseUser mFireUser = mFireAuth.getCurrentUser();
+            if (mFireUser != null) {
 
-            // eto onse yung di na need ng sharedpref//
-            // Toasty.info(Dashboard.this, "Login verified"
-            //                   , Toast.LENGTH_LONG, true).show();
+                // eto onse yung di na need ng sharedpref//
+                // Toasty.info(Dashboard.this, "Login verified"
+                //                   , Toast.LENGTH_LONG, true).show();
+            } else {
+                Toasty.warning(Dashboard.this, "Oops, you must login first!"
+                        , Toast.LENGTH_LONG, true).show();
+                Intent intentCheck = new Intent(getApplicationContext(), Login.class);
+                intentCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentCheck);
+                finish();
+            }
         } else {
-            Toasty.warning(Dashboard.this, "Oops, you must login first!"
-                    , Toast.LENGTH_LONG, true).show();
-            Intent intentCheck = new Intent(getApplicationContext(), Login.class);
-            intentCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intentCheck);
-            finish();
+            connected = false;
+            Toasty.info(this, "You are on offline mode!", Toast.LENGTH_LONG).show();
         }
+
+
     }
 
 
@@ -205,14 +219,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_exitt:
                 firebaseAuth.getInstance().signOut();
                 mFireAuth.signOut();
-                fullName = null;
-                address = null;
-                medCondition = null;
-                medTake = null;
-                bloodType = null;
-                contactPerson = null;
-                contactPersonNum = null;
-                showNotification();
+                hideNotification();
                 Intent intentExit = new Intent(getApplicationContext(), Login.class);
                 intentExit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentExit);
@@ -237,6 +244,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     private static final String CHANNEL_ID = "notif";
     NotificationCompat.Builder builder;
+    NotificationManagerCompat notificationManager;
 
     public void showNotification() {
         StringBuffer buffer = new StringBuffer();
@@ -269,32 +277,35 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
+        Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
+        broadcastIntent.putExtra("ice_cell_num", contactPersonNum);
+        PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.logov2)
+                .setContentTitle("In Case of Emergency")
+                .setContentText("User Information")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(buffer.toString()))
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntent)
+                .setColor(Color.BLUE)
+                .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
+                .setAutoCancel(true).setOngoing(true);
 
-            Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
-            broadcastIntent.putExtra("ice_cell_num", contactPersonNum);
-            PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-            builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                    .setSmallIcon(R.drawable.logov2)
-                    .setContentTitle("In Case of Emergency")
-                    .setContentText("User Information")
-                    .setStyle(new NotificationCompat.BigTextStyle()
-                            .bigText(buffer.toString()))
-                    .setPriority(NotificationCompat.PRIORITY_MAX)
-                    // Set the intent that will fire when the user taps the notification
-                    .setContentIntent(pendingIntent)
-                    .setColor(Color.BLUE)
-                    .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
-                    .setAutoCancel(true).setOngoing(true);
-
-            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager = NotificationManagerCompat.from(this);
 //            builder.setVisibility(Notification.VISIBILITY_SECRET);
-            // notificationId is a unique int for each notification that you must define
-            notificationManager.notify(1, builder.build());
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(1, builder.build());
+    }
 
+    public void hideNotification() {
+        notificationManager = NotificationManagerCompat.from(this);
 
+        if(notificationManager.areNotificationsEnabled()){
+            notificationManager.cancel(1);
+        }
     }
 
     @Override
@@ -348,16 +359,16 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     public void highlightNavViewOnBackPressed(String backStackName) {
         // not working lods
-        if (backStackName.equals("nav_emergency") || backStackName.equals("emergency_services")) {
-            top_nav_view.setSelectedItemId(R.id.nav_emergency);
-            navigationView.setCheckedItem(R.id.nav_home);
-
-        }
-
-        if (backStackName.equals("nav_instruction") || backStackName.equals("instruction_category") || backStackName.equals("instruction_sub_category")) {
-            top_nav_view.setSelectedItemId(R.id.top_nav_view);
-            navigationView.setCheckedItem(R.id.nav_home);
-        }
+//        if (backStackName.equals("nav_emergency") || backStackName.equals("emergency_services")) {
+//            top_nav_view.setSelectedItemId(R.id.nav_emergency);
+//            navigationView.setCheckedItem(R.id.nav_home);
+//
+//        }
+//
+//        if (backStackName.equals("nav_instruction") || backStackName.equals("instruction_category") || backStackName.equals("instruction_sub_category")) {
+//            top_nav_view.setSelectedItemId(R.id.top_nav_view);
+//            navigationView.setCheckedItem(R.id.nav_home);
+//        }
 
         if (backStackName.equals("nav_home")) {
             navigationView.setCheckedItem(R.id.nav_home);

@@ -30,9 +30,10 @@
                 android:id="@+id/textdesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                
                 android:gravity="center"
                 android:text="Nearest Services"
                 android:textColor="@color/white"

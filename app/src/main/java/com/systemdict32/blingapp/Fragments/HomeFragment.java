@@ -98,7 +98,6 @@ public class HomeFragment extends Fragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         EmergencyFragment emergency = new EmergencyFragment();
         ft.add(R.id.home_fragment_container, emergency);
-        ft.addToBackStack("nav_home");
         ft.commit();
 
         return view;

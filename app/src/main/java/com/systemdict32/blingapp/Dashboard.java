@@ -332,7 +332,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         // --update-- working na, pwera dun na lang sa paglipat between nearby emergency at instruction
         int stackCount = getSupportFragmentManager().getBackStackEntryCount();
 //        Toast.makeText(this, String.valueOf(getSupportFragmentManager().getBackStackEntryAt(stackCount - 2)), Toast.LENGTH_SHORT).show();
-        if (stackCount < 3) {
+        if (stackCount < 2) {
             Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
 
@@ -370,24 +370,24 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 //            navigationView.setCheckedItem(R.id.nav_home);
 //        }
 
-        if (backStackName.equals("nav_home")) {
+        if (backStackName.equals("nav_home") && backStackName != null) {
             navigationView.setCheckedItem(R.id.nav_home);
 
         }
 
-        if (backStackName.equals("nav_account")) {
+        if (backStackName.equals("nav_account") && backStackName != null) {
             navigationView.setCheckedItem(R.id.nav_account);
         }
 
-        if (backStackName.equals("nav_ice")) {
+        if (backStackName.equals("nav_ice") && backStackName != null) {
             navigationView.setCheckedItem(R.id.nav_ice);
         }
 
-        if (backStackName.equals("nav_help")) {
+        if (backStackName.equals("nav_help") && backStackName != null) {
             navigationView.setCheckedItem(R.id.nav_help);
         }
 
-        if (backStackName.equals("nav_about")) {
+        if (backStackName.equals("nav_about") && backStackName != null) {
             navigationView.setCheckedItem(R.id.nav_about);
         }
 

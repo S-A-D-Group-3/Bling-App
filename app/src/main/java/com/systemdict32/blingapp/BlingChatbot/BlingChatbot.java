@@ -425,7 +425,7 @@ public class BlingChatbot {
 
             botMessage = "Going to Nearby Police Station Page";
         }
-        if (userMessage.contains("fire fighter") || userMessage.contains("fire station")) {
+        if (userMessage.contains("firefighter") || userMessage.contains("fire station") || userMessage.contains("fireman")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FireStationFragment());
             ft.addToBackStack("nav_home");
             ft.commit();

@@ -841,7 +841,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="left"
                 android:justificationMode="inter_word"
@@ -849,6 +849,305 @@
                 android:text="YOU UNDERTAKE TO INDEMNIFY US AND OUR MEMBERS, ON DEMAND AGAINST ALL CLAIMS, ACTIONS, CHARGES, COSTS, EXPESNSES, DEMANDS, DAMAGES, LIABILITIES, PROCEEDINGS AOR JUDGEMENTS WHICH ARISING OUT OF OR IN CONNECTIN WITH YOUR BREACH OR VIOLATIONS OF THIS AGREEMENT, OR INFRINGMENT OF ANY THIRD PARTY RIGHTS."
                 android:textColor="@color/black"
                 android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="PRIVACY POLICY"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="1. INTRODUCTION"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="1.1) GROUP3 DEVELOPMENT TEAM (hereinafter referred to as WE) takes users privacy seriously, and We are commited to protecting and respecting User's privacy. that value powers all of the decisions we make, including how we collect, use, store and respects User's personal data."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="1.2) this privacy ploicy (hereinafter referred to as POLICY) applies to Users (hereinafter referred to as YOU or USERS) of our Application: Bling Emergency Service( hereinafter referred to as us APPLICATION or APP). it is important that you read this policy together with any other privacy policies or fair processing plocies we mat provide on specific occcasions so that you are fully aware of when , why, and how we collect and process your personal data. if you disagree with this policy in whole or part, you are entitled to terminate using our apps at any given time."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="1.3) GROUP 3 DEVELOPMENT TEAM reserves the right to amend this Policy or related agreements at any time without notice, which shall take effect and apply immediately. If You disagree, You have the right to stop the Services agreed herein. Once the changes of our agreements have been published, You continually using GROUP 3'sServices are deemed to have fully read, understood, and accepted the changed agreements, and shall abide by such agreements."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="1.4) PLEASE NOTE THAT this Policy DOES NOT apply to the following cases: (1)Any information or personal data collected by any third party services, products, applications, websites, and/or platforms, regardless of whether they are accessible through our Apps; or(2) Any information or personal data collected by other companies or institutions that provide advertising services through our Apps.In such circumstances, You should refer directly to the Privacy Policies for the relevant third party."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="2.DATA CONTROLLER AND DATA PROCESSOR"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="2.1) GROUP 3 DEVELOPMENT TEAM is both the data controller and data processor, who determines the purposes and methods of the data processing concerning your personal data collected by us, and is responsible for the data processing for your use of our services. If You have any questions, You can contact GROUP 3 by 2.janelevensalvador@gmail.com or via 2.vincentcostales@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="3.PERSONAL DATA WE COLLECT"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="3.1)  Generally, We require You to create an account on our Application, and therefore, We collect  personal data from You when in order to help you in case of any emergency situation"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="3.2) PLEASE NOTE THAT our services require access to your device’s storage application in order for you to upload your own profile photo. but We do not take any information, videos, photos, or other content from your device’s video storage application. You can also disable such access permission in the settings of your phone if You do not think it’s necessary. also, our services requires access to your Phone or Contacts in order to make a call to aid when emergency is goin on, and access to location at internet service in order to get the nearest services available in the are of emergency.\n This app may requests sensitive permissions and use them as an element of app: \n• READ_EXTERNAL_STORAGE : To load photos, videos\n• CALL_PHONE : To access dialer and make direct phone calls\n•ACCESS_FINE_LOCATION - to access user's location\n•ACCESS_COARSE_LOCATION - to access user's location\n•ACCESS_BACKGROUND_LOCATION  - to access user's location\n•INTERNET - to access user's internet service\n•ACCESS_NETWORK_STATE   - to access user's internet service"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="3.3 )  All features and services within the App don’t require the collection of face data. We may guarantee that face data may not be collected, used, stored, and shared."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="3.4) PLEASE NOTE THAT unless otherwise expressed in this Policy, We DO NOT  collect and/or store any of your personal data (such as your social platform account password, credit card information except for e-mail that is used for verification and additional credential for a user) in any circumstances."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="4.HOW WE USE YOUR PERSONAL DATA"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="4.1) We will use the personal data We collect about You in accordance with the laws of applicable jurisdictions in the following ways: – To enter into and to perform our contract with You, or to perform any steps You require from us before entering into a contract with You; – To communicate with You, including but not limited to respond to your request for any help with our services or for exercising your rights with respect to your personal data; – To provide You with the services You request; – To pursue our legitimate interests（or those of a third party）as We deem fit and necessary, where your interests and fundamental rights do not override those legitimate interests of ours (or any third party’s), such as: 1) to understand, improve, optimize and develop our services; 2) to enforce our Terms of Use; or 3) to respond to complaints, hearings, arbitrations, lawsuits, or other governmental or regulatory proceedings. – To comply with our legal obligations under relevant laws, regulations, and orders (including subpoenas), injunctions, or any other legal documents issued by the court or competent governmental or regulatory authorities.and 4) to conduct research and monitor the quality of our services;"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="4.2) GROUP 3 DOES NOT share, sell, rent, or trade information (unless it has been anonymized or de-identified) with third parties for their own promotional purposes"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="4.3) Our service includes and links to features and services (including but not limited to, Platforms like Google) that are provided by a third party. We do not control such third-party sites or services and are not responsible for the content or functionality of such sites or services. Our inclusion of links does not imply any endorsement or association with their operators. The terms applicable to the use of such third party services will apply and We will not be responsible for anything that is done by You or the third-party service provider in connection with your use of their service. Please note that We do not keep your private personal information like your account, ID, password and etc. on the third-party apps/websites in our services."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="5. IF YOU FAIL TO PROVIDE PERSONAL DATA "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="5.1)  If You fail to provide the personal data as requested where We need to collect such personal data by law, under the terms of a contract We have with You, to enter into a contract with You, or to provide You with the services, We may not be able to perform the contract We have or are trying to enter into with You, or to provide You with, in part or in a whole, certain features or the services that You request."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+
+
+
+
+
+
+
+
+
 
 
 

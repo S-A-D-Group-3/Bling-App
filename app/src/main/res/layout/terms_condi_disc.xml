@@ -1139,6 +1139,236 @@
                 android:textSize="15sp" />
 
 
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6. YOUR RIGHTS  "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6.1)  You have rights under applicable data protection law in relation to our use of your personal data, including: – Data Access. You have the right to request access to your personal data; – Rectification. You have the right to update or amend your personal data if it is inaccurate or incomplete; – Objection. You have the right to object to certain uses of your personal data, including direct marketing, processing based on legitimate interests, and processing for purposes of scientific or historical research and statistics, on grounds relating to your particular situation; – Erasure. You have the right to request the deletion of your personal data, or restrict its use, in certain circumstances (for example You can request that We erase your personal data where it is no longer necessary for the purpose for which it was collected unless certain exceptions apply); PLEASE NOTE THAT if You request the erasure of your personal information:"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="1) We need to keep the data according to the requirements of e-commerce supervisory authority and transportation supervisory authority according to the relevant laws (for example, certain laws require us to keep records of your transactions for a certain period of time before We can delete them); 2) We may retain your personal information as necessary for our legitimate business interests, such as prevention of money laundering, fraud detection and prevention, and enhancing safety."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="– Portability. You have the right to request certain copies of your personal data You have provided to us, to use for your own purposes (often called the right to data portability). PLEASE NOTE THAT We may not able to provide any copy of your personal data since We usually not store any of your personal data; – Withdrawing Consent. If We are processing your personal information based on your consent You can withdraw your consent at any time by changing your account settings or by sending a communication to us or the Data Processor specifying which consent You are withdrawing. Please note that the withdrawal of your consent does not affect the lawfulness of any processing activities based on such consent before its withdrawal;"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6.2) If You have any question about these rights or You would like exercise any of them, please contact us by the provided email address. Before We can respond to a request to exercise one or more of the rights listed above, You may be required to verify your identity or your account details. Please note that your ability to access or control your personal data will be limited in some cases, as required or permitted by applicable law. (We will reply to you within 14 working days of receiving your email. When the email is sent successfully, our reply will be deemed to have been delivered.)"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6.3) PLEASE NOTE THAT if You decide not to provide the personal data We request (such as your contact detail to communicate with You) We may not be able to timely or adequately respond to your needs or proposals with respect to your rights as set forth above."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="7. SECURITY OF PERSONAL DATA"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:text="7.1) The security, integrity, and confidentiality of your personal data are extremely important to us. We will use various technologies and administrative measures to protect your personal data which have been collected and/or stored by us from being lost, being misused, unauthorized accessed, or leaking. In addition, all processing by our staff is based on their work assignments and bound by confidentiality obligations."
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:text="7.2) PLEASE NOTE THAT despite our best efforts to provide security protection for your personal data, due to the limit of technology as well as various possible malicious means in the internet industry, no security measures are perfect or impenetrable. We will regularly review our security procedures to consider appropriate new technology and methods."
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8. WHERE WE STORE YOUR PERSONAL DATA "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:text="We store your data through a cloud platform specifically Google platform, Firebase. "
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="9. HOW LONG DO WE STORE YOUR DATA"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:text="We use firebase database to store all of your data, it is a secured cloud based platform. we do not interfere with your data on our database, you have the rights to delete or update your information anytime. but on the purpose of having an existing data in order to aid on emergency situation, your data can be stored on the database for a long time unless the user, or YOU, would delete it."
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="10. CONTACT US "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:text="If You have any questions about this Privacy Policy or our privacy practices, or if You wish to exercise your rights in respect of your personal data, please contact us in the following ways:\n Email: 2.janelevensalvador@gmail.com/2.vincentcostales@gmail.com"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
 
 
 

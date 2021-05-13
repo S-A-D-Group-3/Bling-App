@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.systemdict32.blingapp.Dashboard;
 import com.systemdict32.blingapp.R;
 
 import es.dmoral.toasty.Toasty;
@@ -71,7 +72,8 @@ public class MyICEFragment extends Fragment {
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
     String userId;
-    TextView tv_ice_blood, tv_ice_contactperson, tv_ice_contactperson_num, tv_ice_medtake, tv_ice_medcon, tv_ice_address;
+    String fullname, address, medCon, medTake, blood, cPerson, cPersonNum;
+    TextView btn_remove_notif, tv_ice_blood, tv_ice_contactperson, tv_ice_contactperson_num, tv_ice_medtake, tv_ice_medcon, tv_ice_address;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,6 +87,7 @@ public class MyICEFragment extends Fragment {
         tv_ice_contactperson_num = view.findViewById(R.id.tv_ice_contactperson_num);
         tv_ice_medtake = view.findViewById(R.id.tv_ice_medtake);
         tv_ice_medcon = view.findViewById(R.id.tv_ice_medcon);
+        btn_remove_notif = view.findViewById(R.id.btn_remove_notif);
 
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -98,12 +101,20 @@ public class MyICEFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         if (document.getId().equals(userId)) {
-                            tv_ice_blood.setText(document.getString("user_ICE_BLOODTYPE"));
-                            tv_ice_address.setText(document.getString("user_ICE_ADDRESS"));
-                            tv_ice_contactperson.setText(document.getString("user_ICE_CONTACTPERSON"));
-                            tv_ice_contactperson_num.setText(document.getString("user_ICE_CONTACTPERSON_NUMBER"));
-                            tv_ice_medtake.setText(document.getString("user_ICE_MEDICINETAKE"));
-                            tv_ice_medcon.setText(document.getString("user_ICE_MEDICALCONDITION"));
+                            fullname = document.getString("user_FN");
+                            address = document.getString("user_ICE_ADDRESS");
+                            medCon = document.getString("user_ICE_MEDICALCONDITION");
+                            medTake = document.getString("user_ICE_MEDICINETAKE");
+                            blood = document.getString("user_ICE_BLOODTYPE");
+                            cPerson = document.getString("user_ICE_CONTACTPERSON");
+                            cPersonNum = document.getString("user_ICE_CONTACTPERSON_NUMBER");
+
+                            tv_ice_blood.setText(blood);
+                            tv_ice_address.setText(address);
+                            tv_ice_contactperson.setText(cPerson);
+                            tv_ice_contactperson_num.setText(cPersonNum);
+                            tv_ice_medtake.setText(medTake);
+                            tv_ice_medcon.setText(medCon);
                         }
                     }
                 } else {
@@ -112,7 +123,14 @@ public class MyICEFragment extends Fragment {
             }
         });
 
-        return view;
+        btn_remove_notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dashboard dashboard = new Dashboard();
+                dashboard.hideNotification(getActivity());
+            }
+        });
 
+        return view;
     }
 }

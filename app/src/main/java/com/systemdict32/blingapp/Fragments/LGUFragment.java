@@ -386,7 +386,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
     public boolean generateCityHotline(String city) {
         if (city.contains("Manila")) {
-            e_hotline = "8527-5174 ";
+            e_hotline = "8527-5174";
             fd_hotline = "(02) 527-3627";
             r_hotline = "871-5811";
             cp_hotline = "117 / (02) 8722-0650";
@@ -463,7 +463,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         }
 
         if (city.contains("Valenzuela")) {
-            e_hotline = "8352-5000 / 8292-140";
+            e_hotline = "8352-5000";
             fd_hotline = "292-3519";
             r_hotline = "8352 - 5000";
             cp_hotline = "8352 - 4000 ";

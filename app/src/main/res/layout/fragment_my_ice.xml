@@ -71,6 +71,23 @@
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 
+            <TextView
+                android:id="@+id/btn_remove_notif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/remove_notif_shape"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                android:fontFamily="@font/open_sans"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:foregroundGravity="center_vertical"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Remove I.C.E Notification"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

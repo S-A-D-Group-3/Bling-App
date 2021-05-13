@@ -277,6 +277,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
+        LATITUDE = location.getLatitude();
+        LONGITUDE = location.getLongitude();
     }
 
     @Override

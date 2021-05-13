@@ -90,6 +90,7 @@
         </activity>
 
         <receiver android:name=".NotificationReceiver" />
+        <receiver android:name=".NotificationReceiver2" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

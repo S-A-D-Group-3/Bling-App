@@ -14,20 +14,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:justificationMode="inter_word">
+            android:justificationMode="inter_word"
+            android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/dialogTC_head"
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:padding="5dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
+                android:padding="5dp"
                 android:text="Terms of Use"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -35,14 +35,14 @@
             <TextView
                 android:id="@+id/dialogTC_body"
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:padding="2dp"
-                android:justificationMode="inter_word"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="Hello, User!, Welcome to Bling App"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -50,469 +50,805 @@
             <TextView
 
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="2dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="1. INTRODUCTION"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="1.1) Bling Emergency Service (hereinafter referred us as APP) are developed by Group 3 of DICT 3-2 for Capstone. (hereinafter referred to us as US/WE). We contribute to provide Users with the service that helps on emergencies. (Hereinafter referred to us as SERVICES)."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="1.2) Individuals (hereinafter referred as YOU or USERS) shall thoroughly and carefully read the Terms of Use (herein referred to us as AGREEMENT) before using or acccessing our SERVICES. while using our SERVICES, You are demmed to fully understood and accepted and are willing to abide by all of the following terms and conditions, and this agreement shall become effective immediately between USERS and and BLING EMEREGENCY SERVICE APP. if you disagree with this agreement, You can terminate our SERVICES at any time. if you have any questions with this agreement, please contact our technical team lead via 2.janelevensalvador@gmail.com"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="1.3) Group 3 has other agreements supplementing this Agreement, e.g. our Privacy Policy which is also stated after the Terms of Use. Group 3 reserves the right to ammend this agreement or relatd agreements at any time without notice, which shall take effect and will be applied immidiately. If you disagree, You have the right to stop our Services agreed herein. ONce the changes of our agreements have been published, You continually using Group 3's Services are deemed to have fully read, fully understood, and accepted the changes on agreements, and shall abide by such agreements stated herein."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="1.4) Our Services are not available for use by people who are under the age of 13 (hereinafter referred to us as CHILDREN). Children may not be allowed to receive any services from Group 3's Bling application unless the services are ordered bt the CHILDREN'S GUARDIAN personally. In this case, the Guardian is responsible for the Children's activity on our Services."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
 
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="2. USER ACCOUNTS"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="2.1) To use our Services in this Application, You will be required to provide the minimum information needed to realize the basic functions of this application, such as login, sotware version, connection method and type of network, Permissions on accessing file, accessing network, accessing location and accessing phone call or contacts. IF you fail to maintain the accurate, complete and up-to-date information, you may not be able to acces the partial features and servies in this application. Your USER ACCOUNT gives YOU access to this Application and its functionalities that we may establish and maintain from time to time and at our sole discretion. Group 3 Team care about the integrity and secrity of your personal information. However, We cannot GUARANTEE that unauthorized THIRD PARTIES will never be able to defeat our security measures or use of your personal information for improper or illegal purposes. You acknowledge that You provide your PERSONAL INFORMATION at YOUR OWN RISK"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="2.2) YOU agree not to engage in any of the following prohibited activities:"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[i] Copying, distributing, or disclosing any part of the Application in any medium, including without limitation by any automated scraping. "
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[ii] Transmitting spam, chain letters, or ohter unsolicited emails;"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[iii] Attempting to interfere with, compromise the system integrity or security or decipher any transmissions on data to and fro the application."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[iv] Taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our system infrastracture."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[v] Uploading invalid data, viruses, worms or ohter software agents through this apllication."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
-
+                android:textSize="15sp" />
 
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[vi] Collecting or harvesting any personally identifiable information, including account names, from the apllication."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[vii] Using the application for commercial purposes without having all necessary rights and licenses to the User Content (defined below)."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[viii] Impersonating another person or otherwise misinterpreting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[ix] Interfering with the proper process and work of the application."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[x] Accessing any content of the application through any technological means other than those capabilities provided by the application, or:"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="[xii] Bypassing the measures we may use to prevent or restrict access to our apllication, including without limitation features that prevent or restrict use of copying of any content or enforce limitations on use of the appliation's content therein."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="2.3) We may without prior notice, change the application, to stop providing the features of the app. to You or create usage limits for our application. We may permanently or temporarily terminate or suspend your access to the application, or delete any User Content, without notice and liability for any reason , including if in our sole determination You violate any provision on this agreement, or for no reason. Upon termination for any reasons or no reason at all, You continue to bound by this Agreement."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="2.4) Your are solely responsible for your conducts and any data, text, files, information, images, photo or video, sound recordings, musical works, narration, works of authorship, links and other contents or materials that you submit, post, or display on or via our application. GROUP 3 shall have no liability for conduct in relation to your usage of this application."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="2.5) If it is found that your account on our application have been illegally used by other entity, You shall immediately report through us to avoid unnecessary losses, If and as permitted by applicable law, We may, but have no obligations to (i) ask you to provide identification or other information, (ii)undertake checks designed to help verify your identity or background (iii) screen you against third-party databases or other sources and request reports from service providers, and (iv) obtain reports from public records of criminal convictions and et cetera."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
 
             <TextView
 
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="3. USER CONTENTS"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="3.1) Any such materials a user provides, shares, submits, displays, or otherwise creates using the application, ar user contents. We claim no ownership rights over user contents created by YOU."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="GROUP 3 has the right (but not the obligation) in its sole discretion to remove any user content."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="3.2) You agree not to post, store, transmit, create or share any user content that:"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="(i) may create risk of harm, loss, physical or mental injury, emotional distress, death, disability, dissfigurement, or physical or mental illness to you, to any other person, or to any animal; (ii) may create risk of any loss or damage to any person or property; (iii) seeks to harm or exploit chidlren by exposing them to inappropriate content, asking for personally identifiable details or otherwise: (iv) may constitute or contribute to crime or tort; (v) conains any information or content that we deem to be unlawful, harmful, abusive, racially or ethnically offensive, defamatory, infringing, invasive of personal privacy or publicly rights, harassing humuliating to other people, libelous, threatening, profane or otherwise objectionable; (vi) contains any information or content that is illegal including without limitation, the disclosure of insider information under securities law or of another party, or, (vii) contains any information or content that you do not have a right to make available under any law or under contractual or fiduciary relationships, You agree that any user content that you create, store, or share does not and will not violate third party right of any kind, including without limitation any intellectual Property rights or rights of privacy, GROUP 3 reserves the right but is not obligated, to reject and/or remove any user content that GROUP 3 believes, in its sole discretion, violates this provisions. "
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="3.3) If you share your user content with GROUP 3 orl ink your user content to GROUP 3 on a third party service (including, for exmaple using the tag #Group3 or #BlingApp on Instagram, or facebook) You expressly grant, and you represent and warrant that you have all rights necessary to grant, to GROUP 3 a royalty-free, sublicensable, tranferable, perpetual, irrevocable, non exclusive, world-wide license to use, reproduce, modify, publish, lsit information regarding  edit, translate, distribute, syndicate, publicly perform, publicly display and make derivative works of all such  user content and  your name, voice, and/or likeness, as contained in your user content, , in whole or in part , and in any form, media or technology, whether now known or hereafter developed, for use in connection with the application and GROUP 3, including but not limited to promote and redistribute part or all of our application in any media formats and trough any media channels"
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
 
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
-                android:text="3. OUR PROPRIETARY RIGHTS"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="4. OUR PROPRIETARY RIGHTS"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="4.1) The Bling Emergency Service App contains materials owned or attributed from a third party, by GROUP 3 (hereinafter collectively referred to as GROUP 3 developement team). Bling Emergency Service app may be protected by copyright, trademark, patent, trade secret, and other laws, and as between You and GROUP 3, GROUP 3 owns and retains all rights. You will not remove, alter, or conceal any of the copyright, trademark, service mark, or other proprietary rights notices if any, incorporated in or accompanying the application and You will not reproduce, modify, adapt, perpare derivative works based on, perform, display, publish, distribute, transmit, broadcast, sell license or otherwise exploit the application. "
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
                 android:text="4.2) You may choose to or we may invite you to submit comments or ideas about the application, including without limitation, about how to improve the app(hereinafter referred as Idea). By submitting any idea, you agree that your disclosure  is gratuitous, unsolicited and withour restriction andd will not place GROUP 3 under fiduciary or other obligation and that we are free to use the idea without any additional compensation to you, and/or to disclose the idea on a non-confidential basis or otherwise to anyone, You further acknowledge that by acceptance of your submission,GROUP 3 does not waive any rights to use similar or related ideas previously known to GROUP 3, or developed by its memmbers, or obtained from sources other than you."
                 android:textColor="@color/black"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <TextView
 
                 android:layout_width="250dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="7dp"
-                android:padding="2dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans"
-                android:justificationMode="inter_word"
                 android:gravity="left"
-                android:text="4. OUR SERVICES"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="5. OUR SERVICES"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
 
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="5.1) We will provide You with emergency services and other services in accordance with this agreement."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="5.2) We will use Google cloud services in this application. "
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6. LIMITATION AND LIABILITY"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6.1) To the extent permitted by applicable law, We shall not be liable for the following:"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="(1)Any lossed that coould not reasonably be expected to arise from our negligence or breach of the agreement. (2) any losses relating to your business or any other third party business (3) any costs, fees, expenses, losses, damages, or liabilities suffered by anyone other than You in connection with your use of our services."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="6.2) Provided that We are liable to You in connection withe the services, our liability will be limited to an amount equal to the services you have paid for the corresponding services in aggregate. "
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="7. DISPUTE RESOLUTION"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="7.1) Amicable dispute resolution, Users may bring any disputes to Group 3 develpoment team who will try to resolve them amicably. While Users right to take legal action shall always remain unaffected, in the event of any controversy regarding the use of the app or its services, Users are kindly asked to contact us through the email stated earlier. Users may submit the complaint including the brief description(s) via 2.vincentcostalaes@gmail.com or via 2.janelevensalvador@gmail.com respectively."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8. MISCELLANEOUS"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8.1) The Bling Emergency Servie App may contain third party websites, or website links, and you sahll decide whether to access these links. We are not responsible for the accuracy, completeness, adequacy, and reliability of any information, data, pictures, statements, or suggestions made available on these websites. If you decide to visit any third party website linked the app, You shall be solely responsible for the results and risks therefrom."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8.2) If any provision of this agreement is held to be illegal, invalid or unenforceable under applicable law, such provision thereof shall to that extent be deemed not to form part of this Agreement, and shall not affeect the legality, validity, and enforeceability of other provisions."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8.3) You agree the We may assign or transfer this agreement in whole or in part to either a subsidiary of affiliate of us or a successor by merger or acquisition."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8.4) DISCLAIMER"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="*Please get the PERMISSION from the owner before you repost videos or photos or personal data related to the app's content."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="*We are not responsible for any intellectual or  property violation or personal data that results from any violations commited."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="*This app is not associated with any other applications. specially on first aid related applications."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="*This application stores personal data of the user in order to use it for any emergency situations, data will be stored in a safe and secured cloud service. please be reminded that WE DO NOT SHARE PERSONAL DAT OF THE USERS."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="*This application will only work with acceptance of permissions like PERMISSION TO READ USER'S STORAGE, PERMISSION TO ACCESS USER'S LOCATION, AND PERMISSION TO USE USERS INTERNET CONNECTIVITY. these permissions are only asked in order for the application to work only."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="*This application uses API from GOOGLE. services like Google Maps and Google Places helps the application fetch data on nearest places or services, We cannot assure the reliability and authenticity of any information it will show on the apllcation."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="8.5) LIMITATION OF LIABILITY"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="WE SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE OR CONSQUENTIAL DAMAGES, INCLUDING LOST PROFITS, LOST DATA, PERSONAL INJURY, OR PROPERTY DAMAGE RELATED TO, IN CONNECTION WITH, OR OTHERWISE RESULTING FROM ANY USE OF THE SERVICES WE OFFER IN THE APPLICATION, EVEN IF WE HAVE BEEN ADVISED OF POSSIBILITY OF SUCH DAMAGES, WE SHALL NOT BE LIABLE FOR ANY DAMAGES, LIABILITY, OR LOSSES ARISING OF (1) YOU USE OR RELIANCE ON THE SERVICES OR YOUR INABILITY TO ACCESS OR USE THE SERVICES, OR  (2) ANY TRANSACTION OR  RELATIONSHIP BETWEEN YOU AND ANY OTHER THIRD PARTY PROVIDER, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, WE SHALL NOT BE LIABLE FOR DELAY OR FAILURE IN PERFORMANCE RESULTING FROM CAUSES BEYOND OUR REASONABLE CONTROL. IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU IN CONNECTION WITH THE SERVICES FOR ALL DAMAGES, LOSSES AND CAUSES OF ACTION."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="THE LIMITATIONS AND DISCLAIMERS DO NOT PURPORT TO LIMIT LIABILITY OR ALTER YOUR RIGHTS AS A CONSUMER THAT CANNOT BE EXCLUDED UNDER APPLICABLE LAW."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="left"
+                android:justificationMode="inter_word"
+                android:padding="2dp"
+                android:text="YOU UNDERTAKE TO INDEMNIFY US AND OUR MEMBERS, ON DEMAND AGAINST ALL CLAIMS, ACTIONS, CHARGES, COSTS, EXPESNSES, DEMANDS, DAMAGES, LIABILITIES, PROCEEDINGS AOR JUDGEMENTS WHICH ARISING OUT OF OR IN CONNECTIN WITH YOUR BREACH OR VIOLATIONS OF THIS AGREEMENT, OR INFRINGMENT OF ANY THIRD PARTY RIGHTS."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
 

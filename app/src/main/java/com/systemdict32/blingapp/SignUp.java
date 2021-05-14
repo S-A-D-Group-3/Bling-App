@@ -113,6 +113,8 @@ public class SignUp extends AppCompatActivity {
                                                             regPassword.getEditText().setText("");
                                                             regFname.getEditText().setText("");
                                                             startActivity(new Intent(SignUp.this, Login.class));
+
+
                                                         } else {
                                                             Toasty.warning(SignUp.this, task.getException().getMessage(),
                                                                     Toast.LENGTH_LONG, true).show();
@@ -138,6 +140,7 @@ public class SignUp extends AppCompatActivity {
 
                 Intent intent = new Intent(SignUp.this, Login.class);
                 startActivity(intent);
+
 
             }
         });

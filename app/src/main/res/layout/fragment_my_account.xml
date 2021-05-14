@@ -134,7 +134,7 @@
                 android:background="@drawable/crud_update"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:text="Edit my Info"
+                android:text="Change my Info"
                 android:textSize="15sp" />
 
             <TextView
@@ -152,7 +152,7 @@
                 android:background="@drawable/crud_update"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:text="Delete my Info"
+                android:text="Remove my Info"
                 android:textSize="15sp" />
 
 

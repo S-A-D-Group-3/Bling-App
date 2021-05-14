@@ -184,12 +184,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 // Toasty.info(Dashboard.this, "Login verified"
                 //                   , Toast.LENGTH_LONG, true).show();
             } else {
-                Toasty.warning(Dashboard.this, "Oops, you must login first!"
+                Toasty.warning(Dashboard.this, "Please login first"
                         , Toast.LENGTH_LONG, true).show();
                 Intent intentCheck = new Intent(getApplicationContext(), Login.class);
                 intentCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentCheck);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
+
             }
         } else {
             connected = false;
@@ -242,6 +244,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Intent intentExit = new Intent(getApplicationContext(), Login.class);
                 intentExit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentExit);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 System.exit(0);
 
 
@@ -277,7 +280,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         int stackCount = getSupportFragmentManager().getBackStackEntryCount();
 //        Toast.makeText(this, String.valueOf(getSupportFragmentManager().getBackStackEntryAt(stackCount - 2)), Toast.LENGTH_SHORT).show();
         if (stackCount < 2) {
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            Toasty.info(this, "Please click BACK again to exit", Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
 
                 @Override
@@ -291,6 +295,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
             isExit = true;
 

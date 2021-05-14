@@ -140,6 +140,7 @@ public class Login extends AppCompatActivity {
 
                                     if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                                         startActivity(new Intent(Login.this, Dashboard.class));
+                                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                                     } else {
                                         Toasty.info(Login.this, "A verification link was sent to your e-mail address."
@@ -171,6 +172,7 @@ public class Login extends AppCompatActivity {
 
         Intent intent = new Intent(Login.this, SignUp.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
         Pair[] pairs = new Pair[7];
         pairs[0] = new Pair<View, String>(image, "logo_image");
@@ -195,10 +197,12 @@ public class Login extends AppCompatActivity {
             } else if (doubleBackToExitPressedOnce) {
                 this.doubleBackToExitPressedOnce = true;
                 finishAffinity();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
 
             } else {
                 finishAffinity();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             }
 
@@ -208,6 +212,7 @@ public class Login extends AppCompatActivity {
 
         Intent intent = new Intent(Login.this,reset.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
 

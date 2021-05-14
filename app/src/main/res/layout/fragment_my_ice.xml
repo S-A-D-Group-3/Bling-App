@@ -56,7 +56,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:background="@drawable/abt_left"
-                android:text="User's information"
+                android:text="Your information"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -71,15 +71,6 @@
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 
-            <Switch
-                android:id="@+id/sw_notif"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/open_sans"
-                android:textSize="18sp"
-                android:text="Notification" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -324,13 +315,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/open_sans"
                 android:text="*End of ICE data "
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/abt_left"
+                android:text="Notification Toggle"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="You can decide whether to turn \nthe ICE NOTIFICATION ON of OFF"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <Switch
+                android:id="@+id/sw_notif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/switcher_shape"
+                android:padding="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="18sp"
+                android:text="Notification" />
+
+
         </LinearLayout> <!-- wag lalagpas dito  -->
+
 
     </ScrollView>
 

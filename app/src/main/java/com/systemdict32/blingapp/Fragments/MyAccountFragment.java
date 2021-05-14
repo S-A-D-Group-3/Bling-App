@@ -556,7 +556,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 builderr.create();
                                 builderr.setCancelable(true);
                                 builderr.setIcon(R.drawable.logov2);
-                                builderr.setMessage("Update important I.C.E data").setPositiveButton("Go back", dialogClickListener)
+                                builderr.setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Update my info", dialogClickListener).show();
 
 

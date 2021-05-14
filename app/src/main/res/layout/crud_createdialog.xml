@@ -7,50 +7,132 @@
     android:layout_height="match_parent">
 
 
-    <EditText
-        android:id="@+id/txt_iceaddress"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Address"
-        android:inputType="text" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/txt_bloodtype"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Blood type"
-        android:inputType="text" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/txt_medcon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Medical condition"
-        android:inputType="text" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="Update Importan I.C.E Data"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Address:" />
+
+            <EditText
+                android:id="@+id/txt_iceaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Blood Type:" />
+
+            <EditText
+                android:id="@+id/txt_bloodtype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Blood type"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Medical Condition:" />
+
+            <EditText
+                android:id="@+id/txt_medcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Medical condition"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Medicine Taken:" />
+
+            <EditText
+                android:id="@+id/txt_medtake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Medicince taken"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Contact Person:" />
+
+            <EditText
+                android:id="@+id/txt_personcont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact person"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Contact Person Number:" />
+
+            <EditText
+                android:id="@+id/txt_personcontNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact person's number"
+                android:inputType="number" />
+        </LinearLayout>
+    </ScrollView>
 
 
-
-    <EditText
-        android:id="@+id/txt_medtake"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Medicince taken"
-        android:inputType="text" />
-
-
-    <EditText
-        android:id="@+id/txt_personcont"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contact person"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/txt_personcontNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contact person's number"
-        android:inputType="number" />
 
         </LinearLayout>
 

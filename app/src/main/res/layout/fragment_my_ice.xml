@@ -46,10 +46,47 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/ice_headinsidescroll"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/abt_left"
+                android:text="Notification Toggle"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="You can decide whether to turn \nthe ICE NOTIFICATION ON of OFF"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <Switch
+                android:id="@+id/sw_notif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/switcher_shape"
+                android:padding="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:text="Notification"/>
+
+            <TextView
+                android:id="@+id/ice_headinsidescroll"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/open_sans_extrabold"
               android:layout_gravity="left"
@@ -93,6 +130,7 @@
                     android:gravity="center"
                     android:text="Address: "
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
 
                 <TextView
@@ -130,6 +168,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Blood type: "
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -170,6 +209,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Medical condition: "
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -210,6 +250,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Medicine taken: "
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -250,6 +291,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Contact person:"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -290,6 +332,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Contact person #:"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -321,42 +364,7 @@
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 
-            <TextView
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="0dp"
-                android:fontFamily="@font/open_sans_extrabold"
-                android:layout_gravity="left"
-                android:gravity="center"
-                android:padding="5dp"
-                android:background="@drawable/abt_left"
-                android:text="Notification Toggle"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:text="You can decide whether to turn \nthe ICE NOTIFICATION ON of OFF"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-
-            <Switch
-                android:id="@+id/sw_notif"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/switcher_shape"
-                android:padding="10dp"
-                android:fontFamily="@font/open_sans"
-                android:textSize="18sp"
-                android:text="Notification" />
 
 
         </LinearLayout> <!-- wag lalagpas dito  -->

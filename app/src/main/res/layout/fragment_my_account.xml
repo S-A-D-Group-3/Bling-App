@@ -100,13 +100,14 @@
             <TextView
 
                 android:id="@+id/txtbtn_create"
-                android:layout_width="250dp"
+                android:layout_width="180dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/open_sans"
+                android:drawableLeft="@drawable/add_ice"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:gravity="center"
@@ -120,7 +121,7 @@
 
             <TextView
                 android:id="@+id/txtbtn_update"
-                android:layout_width="250dp"
+                android:layout_width="180dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -129,6 +130,7 @@
                 android:fontFamily="@font/open_sans"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
+                android:drawableLeft="@drawable/edit_ice"
                 android:background="@drawable/crud_update"
                 android:textColor="@color/black"
                 android:gravity="center"
@@ -137,12 +139,13 @@
 
             <TextView
                 android:id="@+id/txtbtn_delete"
-                android:layout_width="250dp"
+                android:layout_width="180dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="50dp"
                 android:fontFamily="@font/open_sans"
+                android:drawableLeft="@drawable/remove_ice"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:padding="10dp"
@@ -150,7 +153,6 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:text="Delete my Info"
-
                 android:textSize="15sp" />
 
 

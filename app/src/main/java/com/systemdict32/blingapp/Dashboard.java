@@ -77,7 +77,7 @@ import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
-public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, LocationListener {
+public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -166,8 +166,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 }
             }
         });
-
-        getLatLng();
     }
 
     @Override
@@ -240,7 +238,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_exitt:
                 firebaseAuth.getInstance().signOut();
                 mFireAuth.signOut();
-                hideNotification(this);
+//                hideNotification(this);
                 Intent intentExit = new Intent(getApplicationContext(), Login.class);
                 intentExit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentExit);
@@ -255,96 +253,19 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         return true;
     }
 
-    private static final String CHANNEL_ID = "notif";
-    NotificationCompat.Builder builder;
-    NotificationManagerCompat notificationManager;
-    String lgu_hotline_num;
-
-    public void showNotification(String mFullname, String mAddress, String mMedCondition, String mMedTake
-    , String mBloodType, String mContactPerson, String mContactPersonNum) {
-        StringBuffer buffer = new StringBuffer();
-
-        buffer.append("Name: " + mFullname + "\n");
-        buffer.append("Address: " + mAddress + "\n");
-        buffer.append("Medical Condition: " + mMedCondition + "\n");
-        buffer.append("Medicine Taken: " + mMedTake + "\n");
-        buffer.append("Blood Type: " + mBloodType + "\n");
-        buffer.append("ICE Contact Person: " + mContactPerson + "\n");
-        buffer.append("ICE Contact Person #: " + mContactPersonNum + "\n");
-//        buffer.append("ICE Number: " +  +"N/A");
-
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "notification";
-            String description = "user notification";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
-
-        // Create an explicit intent for an Activity in your app
-        Intent intent = new Intent(this, Dashboard.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        // call ice button
-        Intent broadcastIntent = new Intent(this, NotificationReceiver.class);
-        broadcastIntent.putExtra("ice_cell_num", mContactPersonNum);
-        PendingIntent actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        // call emergency hotline
-        Intent broadcastIntent2 = new Intent(this, NotificationReceiver2.class);
-        broadcastIntent2.putExtra("lgu_hotline_num", lgu_hotline_num);
-        PendingIntent actionIntent2 = PendingIntent.getBroadcast(this, 2, broadcastIntent2, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.logov2)
-                .setContentTitle("In Case of Emergency")
-                .setContentText("User Information")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(buffer.toString()))
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                // Set the intent that will fire when the user taps the notification
-                .setContentIntent(pendingIntent)
-                .setColor(Color.BLUE)
-                .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
-                .setAutoCancel(true).setOngoing(true);
-
-        if(isNCR) {
-            builder.addAction(R.drawable.ic_baseline_call, "Call E-Hotline", actionIntent2);
-        }
-
-        notificationManager = NotificationManagerCompat.from(this);
-//            builder.setVisibility(Notification.VISIBILITY_SECRET);
-        // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(1, builder.build());
-    }
-
-    public void hideNotification(Context context) {
-        notificationManager = NotificationManagerCompat.from(context);
-
-        if (notificationManager.areNotificationsEnabled()) {
-            notificationManager.cancel(1);
-        }
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        if (bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
-            showNotification(fullName, address, medCondition, medTake, bloodType, contactPerson, contactPersonNum);
-        }
+//        MyICEFragment myICEFragment = new MyICEFragment();
+//        if (bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
+//            myICEFragment.showNotification(fullName, address, medCondition, medTake, bloodType, contactPerson, contactPersonNum);
+//        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (bloodType != null && address != null && contactPersonNum != null && contactPerson != null && medTake != null && medCondition != null) {
-            showNotification(fullName, address, medCondition, medTake, bloodType, contactPerson, contactPersonNum);
-        }
+
     }
 
     boolean isExit = false;
@@ -417,275 +338,5 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
     }
 
-    // get lgu hotline
-    public void getLatLng() {
-        getLocation();
-        if (mLocation == null) {
-            return;
-        }
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION
-            }, 100);
-        }
-
-        LATITUDE = mLocation.getLatitude();
-        LONGITUDE = mLocation.getLongitude();
-
-        String url = generateAddress(LATITUDE, LONGITUDE);
-
-        new PlaceTask().execute(url);
-    }
-
-    LocationManager locationManager;
-    Location mLocation;
-    private double LONGITUDE = 0, LATITUDE = 0;
-
-    @SuppressLint("MissingPermission")
-    public void getLocation() {
-        try {
-            locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
-            mLocation = getLastKnownLocation();
-        } catch (Exception e) {
-            Toasty.error(this, "Location provider not found! Turn on your location!",
-                    Toast.LENGTH_LONG, true).show();
-        }
-    }
-
-    private Location getLastKnownLocation() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION
-            }, 100);
-        }
-        // eto yung puki ng inang nagpagana sa map
-        // https://stackoverflow.com/questions/20438627/getlastknownlocation-returns-null
-        locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
-        List<String> providers = locationManager.getProviders(true);
-        Location bestLocation = null;
-        for (String provider : providers) {
-            Location l = locationManager.getLastKnownLocation(provider);
-            if (l == null) {
-                continue;
-            }
-            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
-                // Found best last known location: %s", l);
-                bestLocation = l;
-            }
-        }
-        return bestLocation;
-    }
-
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(@NonNull String provider) {
-    }
-
-    @Override
-    public void onProviderDisabled(@NonNull String provider) {
-        Toasty.warning(this, "Turn on your gps/location!",
-                Toast.LENGTH_LONG, true).show();
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-    }
-
-    public String generateAddress(Double lat, Double lng) {
-
-        String url = "https://maps.googleapis.com/maps/api/geocode/json?" +
-                "latlng=" + lat + "," + lng +
-                "&result_type=locality" +
-                "&key=" + getResources().getString(R.string.google_api_key);
-
-        return url;
-    }
-
-    public class PlaceTask extends AsyncTask<String, Integer, String> {
-
-        @Override
-        protected String doInBackground(String... strings) {
-            String data = null;
-
-            try {
-                //string[0] value is the url from generate url function
-                data = downloadUrl(strings[0]);
-            } catch (IOException e) {
-
-                e.printStackTrace();
-            }
-
-            return data;
-        }
-
-        public String downloadUrl(String string) throws IOException {
-            URL url = new URL(string);
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            connection.connect();
-
-            InputStream stream = connection.getInputStream();
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-
-            StringBuilder builder = new StringBuilder();
-
-            String line = "";
-
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-
-            }
-
-            String data = builder.toString();
-
-            reader.close();
-
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            if (s != null) {
-                new ParserTask().execute(s);
-            }
-        }
-
-        private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
-
-            @Override
-            protected List<HashMap<String, String>> doInBackground(String... strings) {
-                JsonParserLGU jsonParser = new JsonParserLGU();
-
-                List<HashMap<String, String>> mapList = null;
-                JSONObject object = null;
-                try {
-                    object = new JSONObject(strings[0]);
-
-                    mapList = jsonParser.parseResult(object);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return mapList;
-            }
-
-            @Override
-            protected void onPostExecute(List<HashMap<String, String>> hashMaps) {
-
-                for (int i = 0; i < hashMaps.size(); i++) {
-                    HashMap<String, String> hashMap = hashMaps.get(i);
-
-                    //store data in the variable
-                    String address = hashMap.get("address");
-
-                    generateCityHotline(address);
-
-                    if(!isNCR) {
-                        lgu_hotline_num = null;
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-
-
-    boolean isNCR = false;
-
-    public void generateCityHotline(String city) {
-        if (city.contains("Manila")) {
-            lgu_hotline_num = "8527-5174";
-            isNCR = true;
-        }
-
-        if (city.contains("Marikina")) {
-            lgu_hotline_num = "161";
-            isNCR = true;
-        }
-
-        if (city.contains("Taguig")) {
-            lgu_hotline_num = "8-789-3200";
-            isNCR = true;
-        }
-
-        if (city.contains("Mandaluyong")) {
-            lgu_hotline_num = "8533-2225";
-            isNCR = true;
-        }
-
-        if (city.contains("Caloocan")) {
-            lgu_hotline_num = "5310-6972";
-            isNCR = true;
-        }
-
-        if (city.contains("Malabon")) {
-            lgu_hotline_num = "(02) 8921 - 6009";
-            isNCR = true;
-        }
-
-        if (city.contains("Navotas")) {
-            lgu_hotline_num = "8281-1111";
-            isNCR = true;
-        }
-
-        if (city.contains("Valenzuela")) {
-            lgu_hotline_num = "8352-5000";
-            isNCR = true;
-        }
-
-        if (city.contains("Quezon City")) {
-            lgu_hotline_num = "122";
-            isNCR = true;
-        }
-
-        if (city.contains("Pasig")) {
-            lgu_hotline_num = "641-1907";
-            isNCR = true;
-        }
-
-        if (city.contains("Makati")) {
-            lgu_hotline_num = "168";
-            isNCR = true;
-        }
-
-        if (city.contains("San Juan")) {
-            lgu_hotline_num = "7238-4333";
-            isNCR = true;
-        }
-
-        if (city.contains("Pasay")) {
-            lgu_hotline_num = "8551-7777";
-            isNCR = true;
-        }
-
-        if (city.contains("Parañaque")) {
-            lgu_hotline_num = "8820-7783";
-            isNCR = true;
-        }
-
-        if (city.contains("Las Piñas")) {
-            lgu_hotline_num = "8776-7268";
-            isNCR = true;
-        }
-
-        if (city.contains("Muntinlupa")) {
-            lgu_hotline_num = "8925-4351";
-            isNCR = true;
-        }
-
-        if (city.contains("Pateros")) {
-            lgu_hotline_num = "8642-5159";
-            isNCR = true;
-        }
-    }
 }

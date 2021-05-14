@@ -154,6 +154,8 @@ public class MyAccountFragment extends Fragment implements Executor {
         }
     }
 
+    String fullName2, email2, address2, bloodType2, contactPerson2, contactPersonNum2, medCondition2, medTake2, userId2;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -167,7 +169,30 @@ public class MyAccountFragment extends Fragment implements Executor {
         btn_update = view.findViewById(R.id.txtbtn_update);
         btn_delete = view.findViewById(R.id.txtbtn_delete);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userId = firebaseAuth.getCurrentUser().getUid();
+        fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        if (document.getId().equals(userId)) {
+                            fullName2 = document.getString("user_FN");
+                            email2 = document.getString("user_Email");
+                            address2 = document.getString("user_ICE_ADDRESS");
+                            bloodType2 = document.getString("user_ICE_BLOODTYPE");
+                            contactPerson2 = document.getString("user_ICE_CONTACTPERSON");
+                            contactPersonNum2 = document.getString("user_ICE_CONTACTPERSON_NUMBER");
+                            medCondition2 = document.getString("user_ICE_MEDICALCONDITION");
+                            medTake2 = document.getString("user_ICE_MEDICINETAKE");
+                        }
+                    }
+                } else {
 
+                }
+            }
+        });
 
 
         //  final EditText txtbloodType = (EditText)mview.findViewById(R.id.tx_bloodtype);
@@ -176,7 +201,6 @@ public class MyAccountFragment extends Fragment implements Executor {
         // final EditText txtcontactPerson = (EditText)mview.findViewById(R.id.tx_personcont);
 
 
-        firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
         StorageReference profileRefence = storageReference.child("users/" + firebaseAuth.getUid() + "/profile_image.jpg");
         profileRefence.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -200,8 +224,6 @@ public class MyAccountFragment extends Fragment implements Executor {
                 });
             }
         });
-        fStore = FirebaseFirestore.getInstance();
-        userId = firebaseAuth.getCurrentUser().getUid();
 
 
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -398,7 +420,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                     }
 
 
-                }else{
+                } else {
 
                     Toasty.warning(getActivity(), "You must login or register first before using this service, now going to login page...",
                             Toast.LENGTH_LONG, true).show();
@@ -509,14 +531,13 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 AlertDialog.Builder builderr = new AlertDialog.Builder(getActivity());
 
 
-
                                 // set the custom layout
 
                                 final View customLayout
                                         = getLayoutInflater()
                                         .inflate(R.layout.crud_createdialog, null);
 
-
+                                //wew
                                 builderr.setView(customLayout);
                                 txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
                                 txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
@@ -525,13 +546,18 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                                 txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
+                                txtAddress.setText(address2);
+                                txtbloodType.setText(bloodType2);
+                                txtmedCon.setText(medCondition2);
+                                txtmedTake.setText(medTake2);
+                                txtcontactPerson.setText(contactPerson2);
+                                txtcontPerNumber.setText(contactPersonNum2);
+
                                 builderr.create();
                                 builderr.setCancelable(true);
                                 builderr.setIcon(R.drawable.logov2);
                                 builderr.setMessage("Update important I.C.E data").setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Update my info", dialogClickListener).show();
-
-
 
 
                         }
@@ -553,7 +579,6 @@ public class MyAccountFragment extends Fragment implements Executor {
 
 
         });
-
 
 
         btn_delete.setOnClickListener(new View.OnClickListener() {
@@ -594,45 +619,42 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                                             case DialogInterface.BUTTON_NEGATIVE:
 
-                                                    firebaseAuth = FirebaseAuth.getInstance();
-                                                    userId = firebaseAuth.getCurrentUser().getUid();
-                                                    DocumentReference documentReference = fStore.collection("users").document(userId);
-                                                    Map<String, Object> user = new HashMap<>();
-                                                    user.put("user_FN", fullname.getText());
-                                                    user.put("user_Email", email.getText());
-                                                    user.put("user_ICE_ADDRESS", FieldValue.delete());
-                                                    user.put("user_ICE_BLOODTYPE", FieldValue.delete());
-                                                    user.put("user_ICE_MEDICALCONDITION", FieldValue.delete());
-                                                    user.put("user_ICE_MEDICINETAKE", FieldValue.delete());
-                                                    user.put("user_ICE_CONTACTPERSON", FieldValue.delete());
-                                                    user.put("user_ICE_CONTACTPERSON_NUMBER", FieldValue.delete());
+                                                firebaseAuth = FirebaseAuth.getInstance();
+                                                userId = firebaseAuth.getCurrentUser().getUid();
+                                                DocumentReference documentReference = fStore.collection("users").document(userId);
+                                                Map<String, Object> user = new HashMap<>();
+                                                user.put("user_FN", fullname.getText());
+                                                user.put("user_Email", email.getText());
+                                                user.put("user_ICE_ADDRESS", FieldValue.delete());
+                                                user.put("user_ICE_BLOODTYPE", FieldValue.delete());
+                                                user.put("user_ICE_MEDICALCONDITION", FieldValue.delete());
+                                                user.put("user_ICE_MEDICINETAKE", FieldValue.delete());
+                                                user.put("user_ICE_CONTACTPERSON", FieldValue.delete());
+                                                user.put("user_ICE_CONTACTPERSON_NUMBER", FieldValue.delete());
 
 
-                                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                                                        @Override
-                                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                                documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                                                        }
-                                                    });
+                                                    }
+                                                });
 
-                                                    documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void aVoid) {
-                                                            Toasty.success(getActivity(), "Your I.C.E Data has been deleted",
-                                                                    Toast.LENGTH_LONG, true).show();
-
-
-                                                        }
-                                                    }).addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            Toasty.error(getActivity(), " Error, please try again",
-                                                                    Toast.LENGTH_LONG, true).show();
-                                                        }
-                                                    });
+                                                documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toasty.success(getActivity(), "Your I.C.E Data has been deleted",
+                                                                Toast.LENGTH_LONG, true).show();
 
 
-
+                                                    }
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Toasty.error(getActivity(), " Error, please try again",
+                                                                Toast.LENGTH_LONG, true).show();
+                                                    }
+                                                });
 
 
                                         }
@@ -670,20 +692,10 @@ public class MyAccountFragment extends Fragment implements Executor {
         });
 
 
-
-
-
-
-
         // Inflate the layout for this fragment
 
         return view;
     }
-
-
-
-
-
 
 
     @Override

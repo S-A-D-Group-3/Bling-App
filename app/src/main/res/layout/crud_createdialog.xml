@@ -23,7 +23,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="Update Importan I.C.E Data"
+                android:text="Update Important I.C.E Data"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -93,7 +93,7 @@
                 android:id="@+id/txt_medtake"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Medicince taken"
+                android:hint="Medicine taken"
                 android:inputType="text" />
 
             <TextView

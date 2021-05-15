@@ -10,14 +10,14 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/logov2"/>
+        android:src="@drawable/logo_wtbox"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/open_sans_semibold_italic"
-        android:text="Hello There!"
+        android:text="How can we help?"
         android:textColor="@color/white"
         android:textSize="24sp" />
 

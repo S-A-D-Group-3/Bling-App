@@ -27,7 +27,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
-        android:src="@drawable/logov2"
+        android:src="@drawable/logo_bling"
         android:transitionName="logo_image" />
 
 

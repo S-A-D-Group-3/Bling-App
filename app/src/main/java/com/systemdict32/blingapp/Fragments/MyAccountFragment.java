@@ -276,7 +276,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
                                 builder2.create();
                                 builder2.setCancelable(true);
-                                builder2.setIcon(R.drawable.logov2);
+                                builder2.setIcon(R.drawable.logo_bling);
                                 builder2.setMessage("Set Profile Photo").setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Choose from Files", dialogClickListener).show();
 
@@ -287,7 +287,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.create();
                 builder.setCancelable(true);
-                builder.setIcon(R.drawable.logov2);
+                builder.setIcon(R.drawable.logo_bling);
                 builder.setMessage("Profile Photo Options").setPositiveButton("Go back", dialogClickListener)
                         .setNegativeButton("Update", dialogClickListener).show();
 
@@ -406,7 +406,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                         builderr.create();
                         builderr.setCancelable(true);
-                        builderr.setIcon(R.drawable.logov2);
+                        builderr.setIcon(R.drawable.logo_bling);
                         builderr.setMessage("Put important I.C.E data").setPositiveButton("Go back", dialogClickListener)
                                 .setNegativeButton("Add my info", dialogClickListener).show();
 
@@ -555,7 +555,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                                 builderr.create();
                                 builderr.setCancelable(true);
-                                builderr.setIcon(R.drawable.logov2);
+                                builderr.setIcon(R.drawable.logo_bling);
                                 builderr.setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Update my info", dialogClickListener).show();
 
@@ -571,7 +571,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                 builderr.create();
                 builderr.setCancelable(true);
-                builderr.setIcon(R.drawable.logov2);
+                builderr.setIcon(R.drawable.logo_bling);
                 builderr.setTitle("Warning ! ! !");
                 builderr.setMessage("Once you Clicked Proceed, you must update all the data again").setPositiveButton("Go back", dialogClickListener)
                         .setNegativeButton("Proceed", dialogClickListener).show();
@@ -666,7 +666,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 // set the custom layout
                                 builderr.create();
                                 builderr.setCancelable(true);
-                                builderr.setIcon(R.drawable.logov2);
+                                builderr.setIcon(R.drawable.logo_bling);
                                 builderr.setMessage("Please Confirm deletion of data").setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Delete my info", dialogClickListener).show();
 
@@ -682,7 +682,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                 builderr.create();
                 builderr.setCancelable(true);
-                builderr.setIcon(R.drawable.logov2);
+                builderr.setIcon(R.drawable.logo_bling);
                 builderr.setTitle("Warning ! ! !");
                 builderr.setMessage("Once you Clicked Delete, all of your I.C.E info will be gone").setPositiveButton("Go back", dialogClickListener)
                         .setNegativeButton("Delete", dialogClickListener).show();

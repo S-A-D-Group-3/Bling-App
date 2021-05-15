@@ -5,18 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3B61A6"
+    android:background="@drawable/gradient_implementor"
     tools:context=".splashscreen">
 
     <ImageView
         android:id="@+id/kit"
         android:layout_width="259dp"
-        android:layout_height="137dp"
+        android:layout_height="150dp"
         android:transitionName="logo_image"
         android:layout_marginStart="10dp"
         android:layout_marginTop="144dp"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/logov2"
+        android:src="@drawable/logo_bling"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:fontFamily="@font/fugaz_one"
-        android:text="BLING"
+        android:text="Bling App"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
@@ -36,7 +36,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kit" />
+        app:layout_constraintTop_toBottomOf="@+id/kit"
+        android:shadowColor="#05c46b"
+        android:shadowDx="1.5"
+        android:shadowDy="11"
+        android:shadowRadius="3.0"
+        android:elevation="10dp"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -44,14 +49,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/open_sans_semibold_italic"
-        android:text="Emergency Response App "
+        android:text="Emergency Service"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:shadowColor="#2c2c54"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="3.0"
+        android:elevation="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

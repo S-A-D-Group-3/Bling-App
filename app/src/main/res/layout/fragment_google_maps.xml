@@ -29,17 +29,37 @@
                 tools:mapType="hybrid" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="13dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="5dp"
+                android:padding="6dp"
+              android:layout_marginBottom="10dp"
+                android:background="@drawable/crud_update"
                 android:fontFamily="@font/open_sans"
+                android:drawableLeft="@drawable/ic_inff"
                 android:gravity="center"
-                android:text="*Choose a marker that is shown in the map\n to reveal its contact information below."
+                android:text="Please tap a marker on map to start"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold|italic" />
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:paddingStart="5dp"
+                android:padding="6dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/crud_update"
+                android:fontFamily="@font/open_sans"
+                android:drawableLeft="@drawable/ic_inff"
+                android:gravity="center"
+                android:text="Information provided by Google Maps"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
 
 

@@ -61,7 +61,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="*The Nearest Service(s) feature of this app is \nenabled by Google LLC service."
+                android:text="*The Nearest Service(s) feature of this app is \nenabled by Google Cloud service."
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 

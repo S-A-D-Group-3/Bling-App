@@ -169,7 +169,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
         place_data_container = view.findViewById(R.id.place_data_container);
         btn_call_np_tp_hotline = view.findViewById(R.id.btn_call_np_tp_hotline);
         btn_call_np_cp_hotline = view.findViewById(R.id.btn_call_np_cp_hotline);
-
+        sv_hospital = view.findViewById(R.id.sv_hospital);
         btn_call_np_cp_hotline.setOnClickListener(this);
         btn_call_np_tp_hotline.setOnClickListener(this);
 
@@ -523,16 +523,20 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             if (s.contains("formatted_phone_number") && s.contains("international_phone_number")) {
                 btn_call_np_cp_hotline.setVisibility(View.VISIBLE);
                 btn_call_np_tp_hotline.setVisibility(View.VISIBLE);
+                Toasty.success(getActivity(), "Please scroll down to see information.",
+                        Toast.LENGTH_LONG, true).show();
                 new ParserTaskPlace().execute(s);
+
+
             } else {
                 btn_call_np_cp_hotline.setVisibility(View.GONE);
                 btn_call_np_tp_hotline.setVisibility(View.GONE);
-                Toasty.warning(getActivity(), "No information fetched on that current marker.",
+                Toasty.warning(getActivity(), "No contact information fetched on that current marker.",
                         Toast.LENGTH_LONG, true).show();
-                tv_np_name.setText("This marker didn't provide a data ");
-                tv_np_address.setText("This marker didn't provide a data");
-                tv_np_cp_number.setText("This marker didn't provide a data");
-                tv_np_tp_number.setText("This marker didn't provide a data");
+                tv_np_name.setText("This marker didn't provide a contact data ");
+                tv_np_address.setText("This marker didn't provide a contact data");
+                tv_np_cp_number.setText("This marker didn't provide a contact data");
+                tv_np_tp_number.setText("This marker didn't provide a contact data");
             }
         }
 
@@ -575,6 +579,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             }
         }
     }
+
+
 }
 
 

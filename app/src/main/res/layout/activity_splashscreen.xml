@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/kit"
         android:layout_width="259dp"
-        android:layout_height="150dp"
+        android:layout_height="135dp"
         android:transitionName="logo_image"
         android:layout_marginStart="10dp"
         android:layout_marginTop="144dp"

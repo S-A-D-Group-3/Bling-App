@@ -5,12 +5,13 @@
     android:orientation="vertical"
     android:background="@drawable/navhead_shape"
     android:gravity="bottom"
-    android:padding="20dp">
+    android:paddingLeft="20dp"
+    >
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/hi"/>
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo_bling_inverted"/>
 
     <TextView
         android:layout_width="wrap_content"

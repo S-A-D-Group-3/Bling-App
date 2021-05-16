@@ -101,7 +101,7 @@ public class SignUp extends AppCompatActivity {
                     regEmail.setError(null);
                     regFname.setError(null);
                     regPassword.setError("Password combination is weak");
-                    Toasty.error(SignUp.this, "Password is weak",
+                    Toasty.info(SignUp.this, "Password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]",
                             Toast.LENGTH_LONG, true).show();
                             progressBar.setVisibility(View.GONE);
                 }

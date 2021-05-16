@@ -3,41 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Fragments.HospitalFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/google_map_container"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="Health Care"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <FrameLayout
-                android:id="@+id/google_map_container"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp">
-
-            </FrameLayout>
-        </LinearLayout>
-    </ScrollView>
+    </FrameLayout>
 
 </LinearLayout>

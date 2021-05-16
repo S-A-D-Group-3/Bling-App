@@ -85,12 +85,15 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             if (fragmentList.get(2).getClass().equals(HospitalFragment.class)) {
                 emergencyType = "hospital";
+                tv_nearby_services_name.setText("Health Care");
             }
             if (fragmentList.get(2).getClass().equals(FireStationFragment.class)) {
                 emergencyType = "fire_station";
+                tv_nearby_services_name.setText("Fire Safety");
             }
             if (fragmentList.get(2).getClass().equals(PoliceStationsFragment.class)) {
                 emergencyType = "police";
+                tv_nearby_services_name.setText("Security and Order");
             }
 
             getLocation();
@@ -124,13 +127,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
             boolean connected = false;
-            ConnectivityManager connectivityManager = (ConnectivityManager)getActivity().getSystemService(getActivity().CONNECTIVITY_SERVICE);
-            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+            ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(getActivity().CONNECTIVITY_SERVICE);
+            if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                     connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
                 //we are connected to a network
                 connected = true;
-            }
-            else {
+            } else {
                 connected = false;
                 Toasty.warning(getContext(), "You can't use this feature without cellular data or internet connection!", Toast.LENGTH_LONG).show();
                 return;
@@ -143,12 +145,13 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     };
 
     //    public EmergencyServiceType emergencyServiceType;
-    TextView tv_np_name, tv_np_address, tv_np_cp_number, tv_np_tp_number;
+    TextView tv_np_name, tv_np_address, tv_np_cp_number, tv_np_tp_number, tv_nearby_services_name;
     RelativeLayout place_data_container;
     ImageView btn_call_np_tp_hotline, btn_call_np_cp_hotline;
     String tp_num, cp_num;
     ScrollView sv_hospital;
     View view;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,6 +169,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
         tv_np_name = view.findViewById(R.id.tv_np_name);
         tv_np_address = view.findViewById(R.id.tv_np_address);
         tv_np_tp_number = view.findViewById(R.id.tv_np_tp_number);
+        tv_nearby_services_name = view.findViewById(R.id.tv_nearby_services_name);
         place_data_container = view.findViewById(R.id.place_data_container);
         btn_call_np_tp_hotline = view.findViewById(R.id.btn_call_np_tp_hotline);
         btn_call_np_cp_hotline = view.findViewById(R.id.btn_call_np_cp_hotline);
@@ -177,8 +181,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             SupportMapFragment mapFragment = (WorkaroundMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
             mapFragment.getMapAsync(new OnMapReadyCallback() {
                 @Override
-                public void onMapReady(GoogleMap googleMap)
-                {
+                public void onMapReady(GoogleMap googleMap) {
                     mMap = googleMap;
                     mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                     mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -187,8 +190,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                     ((WorkaroundMapFragment) getChildFragmentManager().findFragmentById(R.id.map))
                             .setListener(new WorkaroundMapFragment.OnTouchListener() {
                                 @Override
-                                public void onTouch()
-                                {
+                                public void onTouch() {
                                     sv_hospital.requestDisallowInterceptTouchEvent(true);
                                 }
                             });
@@ -375,12 +377,12 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
         @Override
         protected void onPostExecute(String s) {
-            if(s == null) {
+            if (s == null) {
                 Toast.makeText(getActivity(), "Please check your internet connection.", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!s.contains("ZERO_RESULTS")) {
-                    new ParserTask().execute(s);
+                new ParserTask().execute(s);
             } else {
                 Toasty.warning(getActivity(), "Sorry, we're unable to locate any nearby services in your area.",
                         Toast.LENGTH_LONG, true).show();
@@ -525,6 +527,11 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                 btn_call_np_tp_hotline.setVisibility(View.VISIBLE);
                 Toasty.success(getActivity(), "Please scroll down to see information.",
                         Toast.LENGTH_LONG, true).show();
+                sv_hospital.post(new Runnable() {
+                    public void run() {
+                        sv_hospital.smoothScrollBy(0, sv_hospital.getBottom());
+                    }
+                });
                 new ParserTaskPlace().execute(s);
 
 

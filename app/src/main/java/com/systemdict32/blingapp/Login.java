@@ -115,12 +115,15 @@ public class Login extends AppCompatActivity {
                 String pass_ = pass.getEditText().getText().toString().trim();
 
                 if ((email_.isEmpty() && pass_.isEmpty() || email_.isEmpty() || pass_.isEmpty())) {
+                    eml.setError("Must not be empty");
+                   pass.setError("Must not be empty");
                     Toasty.error(Login.this, "Please fill up the field(s)",
                             Toast.LENGTH_LONG, true).show();
                     progressBar.setVisibility(View.GONE);
                 } else {
+                    eml.setError(null);
+                    pass.setError(null);
                     progressBar.setVisibility(View.VISIBLE);
-
                     firebaseAuth.signInWithEmailAndPassword(email_, pass_)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override

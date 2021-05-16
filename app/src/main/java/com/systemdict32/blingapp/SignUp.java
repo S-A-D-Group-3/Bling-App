@@ -30,10 +30,22 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import es.dmoral.toasty.Toasty;
 
 public class SignUp extends AppCompatActivity {
+
+    public static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{8,}" +               //at least 4 characters
+                    "$");
 
     private static final String TAG = SignUp.class.getSimpleName();
     //Variables natin
@@ -55,6 +67,9 @@ public class SignUp extends AppCompatActivity {
 
         //hooks to signup.xml
 
+
+
+
         regEmail = findViewById(R.id.reg_email);
         regPassword = findViewById(R.id.reg_password);
         regFname = findViewById(R.id.reg_fname);
@@ -63,6 +78,8 @@ public class SignUp extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+
+
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,10 +90,29 @@ public class SignUp extends AppCompatActivity {
                 String sFname = regFname.getEditText().getText().toString().trim();
 
                 if (sEmail.isEmpty() && sPass.isEmpty()  && sFname.isEmpty()|| sEmail.isEmpty() || sFname.isEmpty() || sPass.isEmpty()) {
+                   regEmail.setError("This field is empty");
+                   regFname.setError("This field is empty");
+                   regPassword.setError("This field is empty");
                     Toasty.error(SignUp.this, "Please fill up the field(s)",
                             Toast.LENGTH_LONG, true).show();
                     progressBar.setVisibility(View.GONE);
-                } else {
+                }
+                else if (!PASSWORD_PATTERN.matcher(sPass).matches()) {
+                    regEmail.setError(null);
+                    regFname.setError(null);
+                    regPassword.setError("Password combination is weak");
+                    Toasty.error(SignUp.this, "Password is weak",
+                            Toast.LENGTH_LONG, true).show();
+                            progressBar.setVisibility(View.GONE);
+                }
+
+                else {
+
+                    regEmail.setError(null);
+                    regFname.setError(null);
+                    regPassword.setError(null);
+
+
 
                     progressBar.setVisibility(View.VISIBLE);
                     firebaseAuth.createUserWithEmailAndPassword(sEmail, sPass)
@@ -130,6 +166,8 @@ public class SignUp extends AppCompatActivity {
                             });
                 }
             }
+
+
 
 
         });//register button method end

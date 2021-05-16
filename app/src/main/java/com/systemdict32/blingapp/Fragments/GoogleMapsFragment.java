@@ -525,8 +525,6 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             if (s.contains("formatted_phone_number") && s.contains("international_phone_number")) {
                 btn_call_np_cp_hotline.setVisibility(View.VISIBLE);
                 btn_call_np_tp_hotline.setVisibility(View.VISIBLE);
-                Toasty.success(getActivity(), "Please scroll down to see information.",
-                        Toast.LENGTH_LONG, true).show();
                 sv_hospital.post(new Runnable() {
                     public void run() {
                         sv_hospital.smoothScrollBy(0, sv_hospital.getBottom());

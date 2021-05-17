@@ -62,7 +62,7 @@ public class c9_3_ReadFragment extends Fragment implements FirstAidInterface {
 
     public String firstAidManual = "1. Reassure the casualty. If the sting is visible, brush or scrape it off sideways with the edge of a credit card or your fingernail. Do not use tweezers because you could squeeze the stinger and inject more poison into the casualty. \n" +
             "\n2. Raise the affected part if possible, and apply a cold compress such as an ice pack to minimize swelling. Advise the casualty to keep the compress in place for at least ten minutes. Tell her to seek medical advice if the pain and swelling persist. \n" +
-            "\n3. Monitor vital signs—level of response, breathing, and pulse (pp.52–53). Watch for signs of an allergic reaction, such as wheezing and/or reddened, swollen, itchy skin. \n";
+            "\n3. Monitor vital signs—level of response, breathing, and pulse. Watch for signs of an allergic reaction, such as wheezing and/or reddened, swollen, itchy skin. \n";
     View view;
     TextView tv_c9_3_first_aid_manual;
     @Override

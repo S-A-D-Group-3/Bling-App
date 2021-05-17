@@ -46,6 +46,355 @@
             android:orientation="vertical">
 
 
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:text="Parts of this app"
+                android:padding="5dp"
+                android:background="@drawable/abt_left"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="1.) Home page"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="Home page refers to the default page of the application. our home page is the NEAREST SERVICES page. it is to minimize the delay time of finding emeregency services in case of any emergency situation."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="It consist of 2 tabs : NEAREST EMERGENCY and INSTRUCTION SET page. the instruction set page is a collection of first aid instruction. you can use it while waiting for an emergency service."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="2.) My account"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="My account page is where you can see your profile information, and options to update, change or even delete your I.C.E information."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="3.) My I.C.E"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="My I.C.E page helps you view your I.C.E information only if you have an existing information."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="4.) Help "
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="Help page is where you are located now and will help or guide you navigate the application."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="5.) About this app "
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="About the app page shows information on our team's Mission, Team description and attributions used to build this application"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="6.) Sign out "
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="Just like any other applications that needs login, our application also have a functionality to enable users to opt out of the app."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="7.) Chatbot "
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="Our application has a feature called chatbot. you can use it to interact or help you navigate on specific parts of the app."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans_extrabold"
+                android:text="Help section"
+                android:padding="5dp"
+                android:background="@drawable/abt_left"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="1.) Setting up GPS connectivity"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="GPS / Location connectivity will be asked to enable upon succesful sign up and login. if GPS connectivity error persists, you can check the app's information on your phone's settings and enable it there: \n Applications > Application Mnager > Bling Emergency Service > Permissions > Enable Location"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="2.) Internet connectivity"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="Please note that Google Nearby Services and other features of this application will only work while using internet connection. being offline means you can only access the instruction set and its content"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="3.) Nearby services doesn't work"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="0dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="Normally, upon enabling Location permission, and having a good internet connection. clicking any of the Nearby Emergency Services option will automatically find any services related to your preference that is nearby. if it happen that it can't detect services : you may go back the home page or restart the application. and it only take short time for it to work properly."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="4.) Setting up your I.C.E information"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="50dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="You can manage your In Case of Emergency Information by naviagating: \n Menu > My account > In Case of Emergency\nPlease note that you can only put initial I.C.E data once. in case of being unaware of this feature, you can put your initial I.C.E data using CHANGE MY INFO option. you should complete all the fields there for it to accept your changes/ updates. you can also delete the entire information using the DELETE INFO option but it is not advisable."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+
+
         </LinearLayout> <!-- wag lalagpas dito  -->
 
     </ScrollView>

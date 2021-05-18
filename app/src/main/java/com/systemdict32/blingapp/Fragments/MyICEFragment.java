@@ -159,7 +159,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
                             birthDate =  document.getString("user_ICE_BDATE");
                             mainTenance =  document.getString("user_ICE_MAINTENANCE");
 
-
                             tv_ice_name.setText(fullname);
                             tv_ice_bdate.setText(birthDate);
                             tv_ice_allergy.setText(allerGy);
@@ -325,7 +324,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
             mLocation = getLastKnownLocation();
         } catch (Exception e) {
-            Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
+            Toasty.error(getActivity(), "Location provider not found!,  Turn on your location!",
                     Toast.LENGTH_LONG, true).show();
         }
     }

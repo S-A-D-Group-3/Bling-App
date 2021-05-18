@@ -155,7 +155,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!-- 2nd add list -->
 
                 <TextView
@@ -194,7 +194,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!-- 1st list -->
 
                 <TextView
@@ -358,7 +358,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!-- maintenance list -->
 
                 <TextView
@@ -395,18 +395,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -414,7 +402,7 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
                 android:orientation="horizontal"> <!-- allergic reaction list -->
 
                 <TextView

@@ -563,6 +563,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                                 txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
+
                                 txtAddress.setText(address2);
                                 txtbloodType.setText(bloodType2);
                                 txtmedCon.setText(medCondition2);

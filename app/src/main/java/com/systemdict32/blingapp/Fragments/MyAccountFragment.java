@@ -108,7 +108,7 @@ public class MyAccountFragment extends Fragment implements Executor {
     ImageView picture;
     String userId;
     String get;
-    EditText txtAddress, txtbloodType, txtmedCon, txtmedTake, txtcontactPerson, txtcontPerNumber;
+    EditText txtAddress, txtbloodType, txtmedCon, txtmedTake, txtcontactPerson, txtcontPerNumber, txtBdate, txtAllergy, txtMaintenance;
     CheckBox chkAdd, chkBlood, chkMedCon, chkMedtake, chkContPer, chkContPerNum;
 
 
@@ -331,6 +331,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                                         return;
 
                                     case DialogInterface.BUTTON_NEGATIVE:
+                                       String myAllergy = txtAllergy.getText().toString();
+                                       String myBdate = txtBdate.getText().toString();
+                                       String myMaintenance =  txtMaintenance.getText().toString();
                                         String myAddress = txtAddress.getText().toString();
                                         String bloodType = txtbloodType.getText().toString();
                                         String medicalCond = txtmedCon.getText().toString();
@@ -338,8 +341,8 @@ public class MyAccountFragment extends Fragment implements Executor {
                                         String contactPer = txtcontactPerson.getText().toString();
                                         String contactPerNum = txtcontPerNumber.getText().toString();
 
-                                        if (myAddress.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
-                                            Toasty.error(getActivity(), "Please fill up the field(s)",
+                                        if (myAddress.isEmpty() || myAllergy.isEmpty() || myBdate.isEmpty() || myMaintenance.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
+                                            Toasty.error(getActivity(), "Please complete up the field(s)",
                                                     Toast.LENGTH_LONG, true).show();
 
                                         } else {
@@ -350,8 +353,11 @@ public class MyAccountFragment extends Fragment implements Executor {
                                             user.put("user_FN", fullname.getText());
                                             user.put("user_Email", email.getText());
                                             user.put("user_ICE_ADDRESS", myAddress);
+                                            user.put("user_ICE_BDATE", myBdate);
                                             user.put("user_ICE_BLOODTYPE", bloodType);
                                             user.put("user_ICE_MEDICALCONDITION", medicalCond);
+                                            user.put("user_ICE_ALLERGY", myAllergy);
+                                            user.put("user_ICE_MAINTENANCE", myMaintenance);
                                             user.put("user_ICE_MEDICINETAKE", medicalTaken);
                                             user.put("user_ICE_CONTACTPERSON", contactPer);
                                             user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
@@ -396,10 +402,13 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 .inflate(R.layout.crud_createdialog, null);
 
                         builderr.setView(customLayout);
+                        txtBdate = (EditText) customLayout.findViewById(R.id.txt_icebdate);
                         txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
                         txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
                         txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
                         txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
+                       txtMaintenance = (EditText) customLayout.findViewById(R.id.txt_maintenance);
+                       txtAllergy = (EditText) customLayout.findViewById(R.id.txt_allergy);
                         txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                         txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
@@ -471,6 +480,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                 return;
 
                                             case DialogInterface.BUTTON_NEGATIVE:
+                                                String myAllergy = txtAllergy.getText().toString();
+                                                String myBdate = txtBdate.getText().toString();
+                                                String myMaintenance =  txtMaintenance.getText().toString();
                                                 String myAddress = txtAddress.getText().toString();
                                                 String bloodType = txtbloodType.getText().toString();
                                                 String medicalCond = txtmedCon.getText().toString();
@@ -478,8 +490,8 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                 String contactPer = txtcontactPerson.getText().toString();
                                                 String contactPerNum = txtcontPerNumber.getText().toString();
 
-                                                if (myAddress.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
-                                                    Toasty.error(getActivity(), "Please fill up the field(s)",
+                                                if (myAddress.isEmpty() || myAllergy.isEmpty() || myBdate.isEmpty() || myMaintenance.isEmpty() ||bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
+                                                    Toasty.error(getActivity(), "Please complete up the field(s)",
                                                             Toast.LENGTH_LONG, true).show();
 
                                                 } else {
@@ -490,12 +502,14 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                     user.put("user_FN", fullname.getText());
                                                     user.put("user_Email", email.getText());
                                                     user.put("user_ICE_ADDRESS", myAddress);
+                                                    user.put("user_ICE_BDATE", myBdate);
                                                     user.put("user_ICE_BLOODTYPE", bloodType);
                                                     user.put("user_ICE_MEDICALCONDITION", medicalCond);
+                                                    user.put("user_ICE_ALLERGY", myAllergy);
+                                                    user.put("user_ICE_MAINTENANCE", myMaintenance);
                                                     user.put("user_ICE_MEDICINETAKE", medicalTaken);
                                                     user.put("user_ICE_CONTACTPERSON", contactPer);
                                                     user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
-
 
                                                     documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                                                         @Override
@@ -539,10 +553,13 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                                 //wew
                                 builderr.setView(customLayout);
+                                txtBdate = (EditText) customLayout.findViewById(R.id.txt_icebdate);
                                 txtAddress = (EditText) customLayout.findViewById(R.id.txt_iceaddress);
                                 txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
                                 txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
                                 txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
+                                txtMaintenance = (EditText) customLayout.findViewById(R.id.txt_maintenance);
+                                txtAllergy = (EditText) customLayout.findViewById(R.id.txt_allergy);
                                 txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                                 txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
@@ -626,6 +643,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                 user.put("user_FN", fullname.getText());
                                                 user.put("user_Email", email.getText());
                                                 user.put("user_ICE_ADDRESS", FieldValue.delete());
+                                                user.put("user_ICE_BDATE", FieldValue.delete());
+                                                user.put("user_ICE_ALLERGY", FieldValue.delete());
+                                                user.put("user_ICE_MAINTENANCE", FieldValue.delete());
                                                 user.put("user_ICE_BLOODTYPE", FieldValue.delete());
                                                 user.put("user_ICE_MEDICALCONDITION", FieldValue.delete());
                                                 user.put("user_ICE_MEDICINETAKE", FieldValue.delete());

@@ -36,6 +36,24 @@
                 android:textSize="15sp"
                 android:textColor="@color/color_blue_1"
                 android:textStyle="bold"
+                android:text="Birthdate:" />
+
+            <EditText
+                android:id="@+id/txt_icebdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Birthday"
+                android:inputType="date" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
                 android:text="Address:" />
 
             <EditText
@@ -94,6 +112,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Medicine taken"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Maintenance:" />
+
+            <EditText
+                android:id="@+id/txt_maintenance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Medicine taken"
+                android:inputType="text" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans"
+                android:textSize="15sp"
+                android:textColor="@color/color_blue_1"
+                android:textStyle="bold"
+                android:text="Allergies:" />
+
+            <EditText
+                android:id="@+id/txt_allergy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Allergic Reactions"
                 android:inputType="text" />
 
             <TextView

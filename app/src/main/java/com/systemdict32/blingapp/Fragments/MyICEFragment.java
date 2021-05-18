@@ -108,8 +108,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
     FirebaseFirestore fStore;
     FirebaseAuth firebaseAuth;
     String userId;
-    String fullname, address, medCon, medTake, blood, cPerson, cPersonNum;
-    TextView tv_ice_blood, tv_ice_contactperson, tv_ice_contactperson_num, tv_ice_medtake, tv_ice_medcon, tv_ice_address;
+    String fullname, address, medCon, medTake, blood, cPerson, cPersonNum, allerGy, mainTenance, birthDate;
+    TextView tv_ice_blood, tv_ice_contactperson, tv_ice_contactperson_num, tv_ice_medtake, tv_ice_medcon, tv_ice_address, tv_ice_name, tv_ice_allergy, tv_ice_maintenance, tv_ice_bdate;
     Switch sw_notif;
     SharedPreferences settings;
 
@@ -121,6 +121,10 @@ public class MyICEFragment extends Fragment implements LocationListener {
 
         getLatLng();
 
+        tv_ice_bdate  = view.findViewById(R.id.tv_ice_bdate);
+        tv_ice_name  = view.findViewById(R.id.tv_ice_name); //ONSE DI KO NA TANDA PANO TO FEFETCH HAHAHAHA
+        tv_ice_maintenance  = view.findViewById(R.id.tv_ice_maintenance);
+        tv_ice_allergy = view.findViewById(R.id.tv_ice_allergy);
         tv_ice_blood = view.findViewById(R.id.tv_ice_blood);
         tv_ice_address = view.findViewById(R.id.tv_ice_address);
         tv_ice_contactperson = view.findViewById(R.id.tv_ice_contactperson);
@@ -128,7 +132,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
         tv_ice_medtake = view.findViewById(R.id.tv_ice_medtake);
         tv_ice_medcon = view.findViewById(R.id.tv_ice_medcon);
         sw_notif = view.findViewById(R.id.sw_notif);
-
         settings = getActivity().getSharedPreferences(PREFS_NAME, 0);
         boolean silent = settings.getBoolean("switchkey", false);
         sw_notif.setChecked(silent);
@@ -152,7 +155,15 @@ public class MyICEFragment extends Fragment implements LocationListener {
                             blood = document.getString("user_ICE_BLOODTYPE");
                             cPerson = document.getString("user_ICE_CONTACTPERSON");
                             cPersonNum = document.getString("user_ICE_CONTACTPERSON_NUMBER");
+                            allerGy =  document.getString("user_ICE_ALLERGY");
+                            birthDate =  document.getString("user_ICE_BDATE");
+                            mainTenance =  document.getString("user_ICE_MAINTENANCE");
 
+
+                            tv_ice_name.setText(fullname);
+                            tv_ice_bdate.setText(birthDate);
+                            tv_ice_allergy.setText(allerGy);
+                            tv_ice_maintenance.setText(mainTenance);
                             tv_ice_blood.setText(blood);
                             tv_ice_address.setText(address);
                             tv_ice_contactperson.setText(cPerson);

@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_1_CprAdultFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_1_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_2_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_3_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_4_VisualFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_1_VisualFragment;
 import com.systemdict32.blingapp.R;
 
@@ -75,6 +78,15 @@ public class VisualPageHandlerFragment extends Fragment {
 
         if(getParentFragment().getClass().equals(c10_1_VisualFragment.class)){
             imgs = getResources().obtainTypedArray(R.array.cpr_adult);
+        }
+        if(getParentFragment().getClass().equals(c10_2_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.cpr_child);
+        }
+        if(getParentFragment().getClass().equals(c10_3_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.cpr_infant);
+        }
+        if(getParentFragment().getClass().equals(c10_4_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.cpr_compression);
         }
         if(getParentFragment().getClass().equals(c7_1_VisualFragment.class)){
             imgs = getResources().obtainTypedArray(R.array.choking_adult);

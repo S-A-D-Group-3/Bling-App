@@ -21,6 +21,10 @@ import android.widget.Toast;
 
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_1_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_2_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_3_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_4_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_10_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_11_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_12_ReadFragment;
@@ -550,6 +554,19 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
         if (firstAidInterface.getClass().equals(c9_8_ReadFragment.class)) {
             ((c9_8_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        // c10 first aid basic
+        if (firstAidInterface.getClass().equals(c10_1_ReadFragment.class)) {
+            ((c10_1_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c10_2_ReadFragment.class)) {
+            ((c10_2_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c10_3_ReadFragment.class)) {
+            ((c10_3_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c10_4_ReadFragment.class)) {
+            ((c10_4_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }
     }
 

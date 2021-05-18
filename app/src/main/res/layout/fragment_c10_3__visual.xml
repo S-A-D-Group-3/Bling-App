@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ViewReaderVisual.c7_1_VisualFragment">
+    tools:context=".Fragments.ViewReaderVisual.c10_3_VisualFragment">
 
     <fragment
-        android:id="@+id/fragment3"
+        android:id="@+id/fragment5"
         android:name="com.systemdict32.blingapp.Fragments.VisualPageHandlerFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

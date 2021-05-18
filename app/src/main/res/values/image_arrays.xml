@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="choking_adult">
+        <item>@drawable/choke_adult_1</item>
+        <item>@drawable/choke_adult_2</item>
+        <item>@drawable/choke_adult_3</item>
+    </array>
+
+    <array name="cpr_adult">
+        <item>@drawable/cpr_adult1</item>
+        <item>@drawable/cpr_adult2</item>
+        <item>@drawable/cpr_adult3</item>
+        <item>@drawable/cpr_adult4</item>
+        <item>@drawable/cpr_adult5</item>
+    </array>
+
+    <array name="cpr_child">
+        <item>@drawable/cpr_child1</item>
+        <item>@drawable/cpr_child2</item>
+        <item>@drawable/cpr_child3</item>
+        <item>@drawable/cpr_child4</item>
+        <item>@drawable/cpr_child5</item>
+    </array>
+
+    <array name="cpr_infant">
+        <item>@drawable/cpr_infant1</item>
+        <item>@drawable/cpr_infant2</item>
+        <item>@drawable/cpr_infant3</item>
+    </array>
+
+    <array name="cpr_compression">
+        <item>@drawable/cpr_compression1</item>
+        <item>@drawable/cpr_compression2</item>
+        <item>@drawable/cpr_compression3</item>
+    </array>
+</resources>

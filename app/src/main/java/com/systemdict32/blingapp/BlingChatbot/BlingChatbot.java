@@ -30,6 +30,7 @@ import com.systemdict32.blingapp.Fragments.MyAccountFragment;
 import com.systemdict32.blingapp.Fragments.MyICEFragment;
 import com.systemdict32.blingapp.Fragments.PoliceStationsFragment;
 import com.systemdict32.blingapp.Fragments.ReadFirstAidFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_1_CprAdultFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c1_10_NoseBleedFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c1_12_SoreThroatFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c1_13_AbdominalPainFragment;
@@ -409,6 +410,14 @@ public class BlingChatbot {
             ft.commit();
 
             botMessage = "Going to Drug Poisoning Page";
+        }
+        // c10
+        if (userMessage.contains("cpr") || userMessage.contains("C.P.R.") || userMessage.contains("CPR")) {
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_1_CprAdultFragment());
+            ft.addToBackStack("nav_home");
+            ft.commit();
+
+            botMessage = "Going to CPR Page";
         }
         // emergency services
         if (userMessage.contains("medic") || userMessage.contains("hospital") || userMessage.contains("medical")) {

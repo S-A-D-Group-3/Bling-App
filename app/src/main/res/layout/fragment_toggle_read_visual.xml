@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     tools:context=".Fragments.ToggleReadVisualFragment">
 
     <TextView
@@ -53,15 +52,16 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="7dp"
         android:background="@drawable/togglereadvis_shape"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:drawableRight="@drawable/ic_right"
         android:clickable="true"
+        android:drawableRight="@drawable/ic_right"
         android:fontFamily="@font/open_sans"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:foregroundGravity="center_vertical"
         android:padding="10dp"
         android:text=" Visual"
-        android:foregroundGravity="center_vertical"
         android:textColor="@color/white"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:visibility="gone" />
 
 
 </RelativeLayout>

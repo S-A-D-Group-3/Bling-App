@@ -62,7 +62,7 @@ public class c7_8_ReadFragment extends Fragment implements FirstAidInterface {
     public String firstAidManual = "1. Sit your child on your knee, supporting her back. Calmly reassure the child. \n" +
             "\n2. Try not to panic because this will only alarm her, which is likely to make the attack worse. \n" +
             "\n3. If it is safe to do so, create a steamy atmosphere. Take the child into the bathroom and run a hot faucet or shower or boil some water in the kitchen. Keep the child away from hot running water or steam. \n" +
-            "\n4. Call medical help or, if the croup is severe, call 911 for emergency help. Keep monitoring her vital signs— level of response, breathing, and pulse (pp.52–53)—until help arrives. \n";
+            "\n4. Call medical help or, if the croup is severe. Keep monitoring her vital signs— level of response, breathing, and pulse —until help arrives. \n";
     View view;
     TextView tv_c7_8_first_aid_manual;
     @Override

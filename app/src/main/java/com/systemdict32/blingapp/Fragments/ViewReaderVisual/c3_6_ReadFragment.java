@@ -63,8 +63,7 @@ public class c3_6_ReadFragment extends Fragment implements FirstAidInterface {
     public String firstAidManual = "1. Support the ankle in the most comfortable position for the casualty, preferably raised. \n" +
             "\n2. Apply a cold compress, such as an ice pack or a cold pad, to the site to reduce swelling and bruising. \n" +
             "\n3. Apply comfortable support to the ankle. Leave the cold compress in place or wrap a layer of soft padding around the area. Bandage the ankle with a support bandage that extends from the base of the foot to the upper extent of the pain. \n" +
-            "\n4. Raise and support the injured limb. Check the circulation beyond the bandaging every ten minutes. To do this, first thing to do, press one of the nails or the skin beyond the bandage, for five seconds until it turns pale, then release the pressure. If the color does not return within two seconds, the bandage is too tight. Second, loosen a tight bandage by unrolling enough turns for warmth and color to return to the skin. The casualty may feel a tingling sensation. If necessary, loosen and reapply the bandage. Recheck every ten minutes. \n" +
-            "If the circulation is impaired, loosen the bandage. If you suspect a broken bone, arrange to send the casualty to the hospital. \n";
+            "\n4. Raise and support the injured limb. Check the circulation beyond the bandaging every ten minutes. If the circulation is impaired, loosen the bandage. If you suspect a broken bone, arrange to send the casualty to the hospital. \n";
     View view;
     TextView tv_c3_6_first_aid_manual;
     @Override

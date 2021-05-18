@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.systemdict32.blingapp.Fragments.Categories.c10_FirstAidBasicFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c1_EmergencyBasicFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c2_WoundsFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
@@ -69,7 +70,7 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
         }
     }
 
-    CardView cv_1, cv_2, cv_3, cv_4, cv_5, cv_6, cv_7, cv_8, cv_9, cv_10, cv_11, cv_12;
+    CardView cv_1, cv_2, cv_3, cv_4, cv_5, cv_6, cv_7, cv_8, cv_9, cv_10;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,7 +86,7 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
         cv_7 = view.findViewById(R.id.cv_7);
         cv_8 = view.findViewById(R.id.cv_8);
         cv_9 = view.findViewById(R.id.cv_9);
-//        cv_10 = view.findViewById(R.id.cv_10);
+        cv_10 = view.findViewById(R.id.cv_10);
 //        cv_11 = view.findViewById(R.id.cv_11);
 //        cv_12 = view.findViewById(R.id.cv_12);
 
@@ -98,7 +99,7 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
         cv_7.setOnClickListener(this);
         cv_8.setOnClickListener(this);
         cv_9.setOnClickListener(this);
-//        cv_10.setOnClickListener(this);
+        cv_10.setOnClickListener(this);
 //        cv_11.setOnClickListener(this);
 //        cv_12.setOnClickListener(this);
         return view;
@@ -169,9 +170,13 @@ public class InstructionFragment extends Fragment implements View.OnClickListene
             ft.addToBackStack("instruction_category");
             ft.commit();
         }
-//        if (v.getId() == cv_10.getId()) {
-//
-//        }
+        if (v.getId() == cv_10.getId()) {
+            c10_FirstAidBasicFragment c10 = new c10_FirstAidBasicFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.home_fragment_container, c10);
+            ft.addToBackStack("instruction_category");
+            ft.commit();
+        }
 //        if (v.getId() == cv_11.getId()) {
 //
 //        }

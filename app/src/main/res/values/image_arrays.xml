@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="choking_adult">
+        <item>@drawable/choke_adult_1</item>
+        <item>@drawable/choke_adult_2</item>
+        <item>@drawable/choke_adult_3</item>
+    </array>
+
+    <array name="cpr_adult">
+        <item>@drawable/cpr_adult1</item>
+        <item>@drawable/cpr_adult2</item>
+        <item>@drawable/cpr_adult3</item>
+        <item>@drawable/cpr_adult4</item>
+        <item>@drawable/cpr_adult5</item>
+    </array>
+</resources>

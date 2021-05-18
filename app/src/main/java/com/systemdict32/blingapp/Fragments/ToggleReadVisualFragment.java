@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_1_CprAdultFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c7_1_ChokingAdultFragment;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
@@ -127,6 +129,13 @@ public class ToggleReadVisualFragment extends Fragment {
                 ft.commit();
             }
         });
+
+        if(getParentFragment().getClass().equals(c10_1_CprAdultFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c7_1_ChokingAdultFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
 
         return view;
     }

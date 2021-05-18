@@ -48,13 +48,13 @@
             <TextView
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/abt_left"
                 android:fontFamily="@font/open_sans_extrabold"
-                android:layout_gravity="left"
                 android:gravity="center"
                 android:padding="5dp"
-                android:background="@drawable/abt_left"
                 android:text="Notification Toggle"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -77,22 +77,22 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/switcher_shape"
-                android:padding="10dp"
                 android:fontFamily="@font/open_sans"
-                android:textSize="15sp"
-                android:text="Notification"/>
+                android:padding="10dp"
+                android:text="Notification"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/ice_headinsidescroll"
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/abt_left"
                 android:fontFamily="@font/open_sans_extrabold"
-              android:layout_gravity="left"
                 android:gravity="center"
                 android:padding="5dp"
-                android:background="@drawable/abt_left"
                 android:text="Your information"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -113,10 +113,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_topshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- 1st addtional list -->
 
                 <TextView
@@ -130,8 +130,8 @@
                     android:gravity="center"
                     android:text="Name: "
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_name"
@@ -152,10 +152,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- 2nd add list -->
 
                 <TextView
@@ -169,8 +169,8 @@
                     android:gravity="center"
                     android:text="Birthdate: "
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_bdate"
@@ -191,10 +191,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- 1st list -->
 
                 <TextView
@@ -208,8 +208,8 @@
                     android:gravity="center"
                     android:text="Address: "
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_address"
@@ -230,10 +230,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- 1st list -->
 
                 <TextView
@@ -246,9 +246,9 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Blood type: "
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_blood"
@@ -270,11 +270,11 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- 2nd list -->
 
                 <TextView
@@ -287,9 +287,9 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Medical condition: "
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_medcon"
@@ -311,11 +311,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!--3rd list -->
 
                 <TextView
@@ -328,9 +328,9 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Medicine taken: "
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_medtake"
@@ -349,16 +349,14 @@
             </LinearLayout>  <!-- 3rd list -->
 
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- maintenance list -->
 
                 <TextView
@@ -372,8 +370,8 @@
                     android:gravity="center"
                     android:text="Maintenance: "
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_maintenance"
@@ -389,32 +387,14 @@
                     android:textSize="18sp" />
 
             </LinearLayout>  <!--maintenance list -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/ice_list_topshape"
+                android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!-- allergic reaction list -->
 
                 <TextView
@@ -428,8 +408,8 @@
                     android:gravity="center"
                     android:text="Allergic Reaction(s): "
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_allergy"
@@ -447,15 +427,14 @@
             </LinearLayout>  <!--allergic reaction list -->
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ice_list_midshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!--4th list -->
 
                 <TextView
@@ -468,9 +447,9 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Contact person:"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_contactperson"
@@ -493,10 +472,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:background="@drawable/ice_list_botshape"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/ice_list_botshape"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"> <!--4th list -->
 
                 <TextView
@@ -509,9 +488,9 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:text="Contact person #:"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_ice_contactperson_num"
@@ -531,17 +510,15 @@
 
             <TextView
 
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/open_sans"
                 android:text="*End of ICE data "
                 android:textColor="@color/black"
                 android:textSize="10sp" />
-
-
 
 
         </LinearLayout> <!-- wag lalagpas dito  -->

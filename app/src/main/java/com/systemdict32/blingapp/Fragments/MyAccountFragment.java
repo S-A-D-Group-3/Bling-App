@@ -533,11 +533,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                                     Toast.LENGTH_LONG, true).show();
                                                         }
                                                     });
-
-
                                                 }
-
-
                                         }
                                     }
                                 };

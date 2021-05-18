@@ -128,7 +128,7 @@
                 android:id="@+id/txt_maintenance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Medicine taken"
+                android:hint="Maintenance"
                 android:inputType="text" />
 
 

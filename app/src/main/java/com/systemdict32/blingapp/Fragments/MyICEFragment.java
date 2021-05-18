@@ -121,9 +121,9 @@ public class MyICEFragment extends Fragment implements LocationListener {
 
         getLatLng();
 
-        tv_ice_bdate  = view.findViewById(R.id.tv_ice_bdate);
-        tv_ice_name  = view.findViewById(R.id.tv_ice_name); //ONSE DI KO NA TANDA PANO TO FEFETCH HAHAHAHA
-        tv_ice_maintenance  = view.findViewById(R.id.tv_ice_maintenance);
+        tv_ice_bdate = view.findViewById(R.id.tv_ice_bdate);
+        tv_ice_name = view.findViewById(R.id.tv_ice_name); //ONSE DI KO NA TANDA PANO TO FEFETCH HAHAHAHA
+        tv_ice_maintenance = view.findViewById(R.id.tv_ice_maintenance);
         tv_ice_allergy = view.findViewById(R.id.tv_ice_allergy);
         tv_ice_blood = view.findViewById(R.id.tv_ice_blood);
         tv_ice_address = view.findViewById(R.id.tv_ice_address);
@@ -142,7 +142,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
 
 
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-       // fStore.collection("I.C.E").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            // fStore.collection("I.C.E").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -155,9 +155,9 @@ public class MyICEFragment extends Fragment implements LocationListener {
                             blood = document.getString("user_ICE_BLOODTYPE");
                             cPerson = document.getString("user_ICE_CONTACTPERSON");
                             cPersonNum = document.getString("user_ICE_CONTACTPERSON_NUMBER");
-                            allerGy =  document.getString("user_ICE_ALLERGY");
-                            birthDate =  document.getString("user_ICE_BDATE");
-                            mainTenance =  document.getString("user_ICE_MAINTENANCE");
+                            allerGy = document.getString("user_ICE_ALLERGY");
+                            birthDate = document.getString("user_ICE_BDATE");
+                            mainTenance = document.getString("user_ICE_MAINTENANCE");
 
                             tv_ice_name.setText(fullname);
                             tv_ice_bdate.setText(birthDate);
@@ -180,8 +180,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
         sw_notif.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
-                    showNotification(fullname, address, medCon, medTake, blood, cPerson, cPersonNum);
+                if (isChecked) {
+                    showNotification(fullname, birthDate, address, blood, medCon, medTake, mainTenance, allerGy, cPerson, cPersonNum);
                 } else {
                     hideNotification(getActivity());
                 }
@@ -200,18 +200,20 @@ public class MyICEFragment extends Fragment implements LocationListener {
     NotificationManagerCompat notificationManager;
     String lgu_hotline_num;
 
-    public void showNotification(String mFullname, String mAddress, String mMedCondition, String mMedTake
-            , String mBloodType, String mContactPerson, String mContactPersonNum) {
+    public void showNotification(String mFullname, String mBday, String mAddress, String mBloodType, String mMedCondition, String mMedTake,
+                                 String mMainte, String mAllergy, String mContactPerson, String mContactPersonNum) {
         StringBuffer buffer = new StringBuffer();
 
         buffer.append("Name: " + mFullname + "\n");
+        buffer.append("Birthday: " + mBday + "\n");
         buffer.append("Address: " + mAddress + "\n");
+        buffer.append("Blood Type: " + mBloodType + "\n");
         buffer.append("Medical Condition: " + mMedCondition + "\n");
         buffer.append("Medicine Taken: " + mMedTake + "\n");
-        buffer.append("Blood Type: " + mBloodType + "\n");
+        buffer.append("Maintenance: " + mMainte + "\n");
+        buffer.append("Allergic Reaction: " + mAllergy + "\n");
         buffer.append("ICE Contact Person: " + mContactPerson + "\n");
         buffer.append("ICE Contact Person #: " + mContactPersonNum + "\n");
-//        buffer.append("ICE Number: " +  +"N/A");
 
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -253,7 +255,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
                 .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
                 .setAutoCancel(true).setOngoing(true);
 
-        if(isNCR) {
+        if (isNCR) {
             builder.addAction(R.drawable.ic_baseline_call, "Call E-Hotline", actionIntent2);
         }
 
@@ -276,8 +278,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
         super.onPause();
         boolean silent = settings.getBoolean("switchkey", false);
 
-        if(silent) {
-            showNotification(fullname, address, medCon, medTake, blood, cPerson, cPersonNum);
+        if (silent) {
+            showNotification(fullname, birthDate, address, blood, medCon, medTake, mainTenance, allerGy, cPerson, cPersonNum);
         }
     }
 
@@ -286,8 +288,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
         super.onDestroy();
         boolean silent = settings.getBoolean("switchkey", false);
 
-        if(silent) {
-            showNotification(fullname, address, medCon, medTake, blood, cPerson, cPersonNum);
+        if (silent) {
+            showNotification(fullname, birthDate, address, blood, medCon, medTake, mainTenance, allerGy, cPerson, cPersonNum);
         }
     }
 
@@ -463,7 +465,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
 
                     generateCityHotline(address);
 
-                    if(!isNCR) {
+                    if (!isNCR) {
                         lgu_hotline_num = null;
                         return;
                     }
@@ -471,7 +473,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
             }
         }
     }
-
 
 
     boolean isNCR = false;

@@ -181,7 +181,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    showNotification(fullname, birthDate, address, blood, medCon, medTake, mainTenance, allerGy, cPerson, cPersonNum);
+                    showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
+                    showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
                 } else {
                     hideNotification(getActivity());
                 }
@@ -200,18 +201,13 @@ public class MyICEFragment extends Fragment implements LocationListener {
     NotificationManagerCompat notificationManager;
     String lgu_hotline_num;
 
-    public void showNotification(String mFullname, String mBday, String mAddress, String mBloodType, String mMedCondition, String mMedTake,
-                                 String mMainte, String mAllergy, String mContactPerson, String mContactPersonNum) {
+
+    public void showNotificationPersonalInfo(String mFullname, String mBday, String mAddress, String mContactPerson, String mContactPersonNum) {
         StringBuffer buffer = new StringBuffer();
 
         buffer.append("Name: " + mFullname + "\n");
         buffer.append("Birthday: " + mBday + "\n");
         buffer.append("Address: " + mAddress + "\n");
-        buffer.append("Blood Type: " + mBloodType + "\n");
-        buffer.append("Medical Condition: " + mMedCondition + "\n");
-        buffer.append("Medicine Taken: " + mMedTake + "\n");
-        buffer.append("Maintenance: " + mMainte + "\n");
-        buffer.append("Allergic Reaction: " + mAllergy + "\n");
         buffer.append("ICE Contact Person: " + mContactPerson + "\n");
         buffer.append("ICE Contact Person #: " + mContactPersonNum + "\n");
 
@@ -245,7 +241,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
         builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
                 .setSmallIcon(R.drawable.logov2)
                 .setContentTitle("In Case of Emergency")
-                .setContentText("User Information")
+                .setContentText("Personal Information")
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(buffer.toString()))
                 .setPriority(NotificationCompat.PRIORITY_MAX)
@@ -265,11 +261,58 @@ public class MyICEFragment extends Fragment implements LocationListener {
         notificationManager.notify(1, builder.build());
     }
 
+    public void showNotificationMedInfo(String mBloodType, String mMedCondition, String mMedTake, String mMainte, String mAllergy) {
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append("Blood Type: " + mBloodType + "\n");
+        buffer.append("Medical Condition: " + mMedCondition + "\n");
+        buffer.append("Medicine Taken: " + mMedTake + "\n");
+        buffer.append("Maintenance: " + mMainte + "\n");
+        buffer.append("Allergic Reaction: " + mAllergy + "\n");
+
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "notification";
+            String description = "user notification";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        // Create an explicit intent for an Activity in your app
+        Intent intent = new Intent(getActivity(), Dashboard.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, 0);
+
+        builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
+                .setSmallIcon(R.drawable.logov2)
+                .setContentTitle("Medical Information")
+                .setContentText("Medical Information")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(buffer.toString()))
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                // Set the intent that will fire when the user taps the notification
+                .setContentIntent(pendingIntent)
+                .setColor(Color.BLUE)
+                .setAutoCancel(true).setOngoing(true);
+
+        notificationManager = NotificationManagerCompat.from(getActivity());
+//            builder.setVisibility(Notification.VISIBILITY_SECRET);
+        // notificationId is a unique int for each notification that you must define
+        notificationManager.notify(2, builder.build());
+    }
+
     public void hideNotification(Context context) {
         notificationManager = NotificationManagerCompat.from(context);
 
         if (notificationManager.areNotificationsEnabled()) {
             notificationManager.cancel(1);
+            notificationManager.cancel(2);
         }
     }
 
@@ -279,7 +322,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
         boolean silent = settings.getBoolean("switchkey", false);
 
         if (silent) {
-            showNotification(fullname, birthDate, address, blood, medCon, medTake, mainTenance, allerGy, cPerson, cPersonNum);
+            showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
+            showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
         }
     }
 
@@ -289,7 +333,8 @@ public class MyICEFragment extends Fragment implements LocationListener {
         boolean silent = settings.getBoolean("switchkey", false);
 
         if (silent) {
-            showNotification(fullname, birthDate, address, blood, medCon, medTake, mainTenance, allerGy, cPerson, cPersonNum);
+            showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
+            showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
         }
     }
 

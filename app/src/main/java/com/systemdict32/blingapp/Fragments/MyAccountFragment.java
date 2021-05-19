@@ -154,13 +154,13 @@ public class MyAccountFragment extends Fragment implements Executor {
         }
     }
 
-    String fullName2, email2, address2, bloodType2, contactPerson2, contactPersonNum2, medCondition2, medTake2, userId2;
+    String fullName2, email2, address2, bloodType2, contactPerson2, contactPersonNum2, medCondition2, medTake2, userId2, bday2, mainte2, allergy2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_my_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_account, container,   false);
         View mview = inflater.inflate(R.layout.crud_createdialog, container, false);
         fullname = view.findViewById(R.id.profile_fname);
         email = view.findViewById(R.id.profile_email);
@@ -186,6 +186,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                             contactPersonNum2 = document.getString("user_ICE_CONTACTPERSON_NUMBER");
                             medCondition2 = document.getString("user_ICE_MEDICALCONDITION");
                             medTake2 = document.getString("user_ICE_MEDICINETAKE");
+                            allergy2 = document.getString("user_ICE_ALLERGY");
+                            bday2 = document.getString("user_ICE_BDATE");
+                            mainte2 = document.getString("user_ICE_MAINTENANCE");
                         }
                     }
                 } else {
@@ -566,6 +569,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 txtmedTake.setText(medTake2);
                                 txtcontactPerson.setText(contactPerson2);
                                 txtcontPerNumber.setText(contactPersonNum2);
+                                txtAllergy.setText(allergy2);
+                                txtBdate.setText(bday2);
+                                txtMaintenance.setText(mainte2);
 
                                 builderr.create();
                                 builderr.setCancelable(true);

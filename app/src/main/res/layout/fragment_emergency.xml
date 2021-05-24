@@ -20,7 +20,7 @@
 
         <LinearLayout
             android:layout_marginTop="15dp"
-            android:layout_width="250dp"
+            android:layout_width="310dp"
             android:layout_gravity="center_horizontal"
             android:layout_height="match_parent"
             android:background="@drawable/fragment_emergency_topshapebg"
@@ -45,15 +45,16 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="15dp"
-            android:layout_width="250dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="310dp"
             android:layout_gravity="center_horizontal"
             android:layout_height="match_parent"
+            android:background="@drawable/infohead_shape"
             android:orientation="vertical">
 
             <TextView
 
-                android:layout_width="250dp"
+                android:layout_width="310dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_1_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_1_VisualFragment;
+import com.systemdict32.blingapp.Interfaces.RelatedFirstAidInterface;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
@@ -18,7 +19,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link c5_1_StrokeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class c5_1_StrokeFragment extends Fragment implements ToggleReadVisualInterface {
+public class c5_1_StrokeFragment extends Fragment implements ToggleReadVisualInterface, RelatedFirstAidInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,5 +76,11 @@ public class c5_1_StrokeFragment extends Fragment implements ToggleReadVisualInt
     @Override
     public Fragment getReadFragment() {
         return new c5_1_ReadFragment();
+    }
+
+    @Override
+    public boolean[] isFirstAidRelated() {
+        boolean isRelated[] = {true, false, false, false, false, false, false, false, false, false, false};
+        return isRelated;
     }
 }

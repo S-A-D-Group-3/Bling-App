@@ -21,104 +21,7 @@ import android.widget.Toast;
 
 
 import com.systemdict32.blingapp.BlingChatbot.BlingChatbot;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_10_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_11_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_12_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_13_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_14_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_15_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_16_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_17_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_8_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_10_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_11_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_12_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_13_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_14_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_15_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_16_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_17_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_8_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c1_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_8_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c2_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_10_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_8_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c3_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_10_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_8_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c6_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_8_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_9_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c8_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_1_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_2_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_3_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_4_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_6_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_7_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c9_8_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.*;
 import com.systemdict32.blingapp.Interfaces.FirstAidInterface;
 import com.systemdict32.blingapp.R;
 
@@ -620,6 +523,9 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         }
         if (firstAidInterface.getClass().equals(c10_17_ReadFragment.class)) {
             ((c10_17_ReadFragment) getParentFragment()).setFirstAidText(spannable);
+        }
+        if (firstAidInterface.getClass().equals(c10_18_ReadFragment.class)) {
+            ((c10_18_ReadFragment) getParentFragment()).setFirstAidText(spannable);
         }
     }
 

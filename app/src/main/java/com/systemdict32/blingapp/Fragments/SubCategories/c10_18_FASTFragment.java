@@ -8,18 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_5_ReadFragment;
-import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_5_VisualFragment;
-import com.systemdict32.blingapp.Interfaces.RelatedFirstAidInterface;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_18_ReadFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_18_VisualFragment;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link c4_5_AmputationFragment#newInstance} factory method to
+ * Use the {@link c10_18_FASTFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class c4_5_AmputationFragment extends Fragment implements ToggleReadVisualInterface, RelatedFirstAidInterface {
+public class c10_18_FASTFragment extends Fragment implements ToggleReadVisualInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +29,7 @@ public class c4_5_AmputationFragment extends Fragment implements ToggleReadVisua
     private String mParam1;
     private String mParam2;
 
-    public c4_5_AmputationFragment() {
+    public c10_18_FASTFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +39,11 @@ public class c4_5_AmputationFragment extends Fragment implements ToggleReadVisua
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment c4_5_AmputationFragment.
+     * @return A new instance of fragment c10_18_FASTFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static c4_5_AmputationFragment newInstance(String param1, String param2) {
-        c4_5_AmputationFragment fragment = new c4_5_AmputationFragment();
+    public static c10_18_FASTFragment newInstance(String param1, String param2) {
+        c10_18_FASTFragment fragment = new c10_18_FASTFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,22 +64,16 @@ public class c4_5_AmputationFragment extends Fragment implements ToggleReadVisua
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_c4_5__amputation, container, false);
+        return inflater.inflate(R.layout.fragment_c10_18__f_a_s_t, container, false);
     }
 
     @Override
     public Fragment getVisualFragment() {
-        return new c4_5_VisualFragment();
+        return new c10_18_VisualFragment();
     }
 
     @Override
     public Fragment getReadFragment() {
-        return new c4_5_ReadFragment();
-    }
-
-    @Override
-    public boolean[] isFirstAidRelated() {
-        boolean isRelated[] = {true, false, false, true, false, false, false, false, false, false, false};
-        return isRelated;
+        return new c10_18_ReadFragment();
     }
 }

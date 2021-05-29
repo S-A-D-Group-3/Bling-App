@@ -47,6 +47,12 @@
                     android:layout_marginTop="15dp">
 
                 </FrameLayout>
+
+                <fragment
+                    android:id="@+id/fragment42"
+                    android:name="com.systemdict32.blingapp.Fragments.RelatedFirstAidFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
 

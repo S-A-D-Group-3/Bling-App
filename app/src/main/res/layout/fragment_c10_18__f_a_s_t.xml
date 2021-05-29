@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.SubCategories.c1_16_UnconciousChildFragment">
+    tools:context=".Fragments.SubCategories.c10_18_FASTFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/lato_bold"
                     android:gravity="center"
-                    android:text="Unconcious Child"
+                    android:text="Stroke\n(F.A.S.T Guide)"
                     android:textColor="@color/black"
                     android:textSize="30sp" />
 
@@ -47,12 +47,6 @@
                     android:layout_marginTop="15dp">
 
                 </FrameLayout>
-
-                <fragment
-                    android:id="@+id/fragment17"
-                    android:name="com.systemdict32.blingapp.Fragments.RelatedFirstAidFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
 

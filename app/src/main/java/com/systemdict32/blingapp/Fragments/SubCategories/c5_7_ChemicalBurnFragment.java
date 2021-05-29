@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_7_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_7_VisualFragment;
+import com.systemdict32.blingapp.Interfaces.RelatedFirstAidInterface;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
@@ -18,7 +19,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link c5_7_ChemicalBurnFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class c5_7_ChemicalBurnFragment extends Fragment implements ToggleReadVisualInterface {
+public class c5_7_ChemicalBurnFragment extends Fragment implements ToggleReadVisualInterface, RelatedFirstAidInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,5 +76,11 @@ public class c5_7_ChemicalBurnFragment extends Fragment implements ToggleReadVis
     @Override
     public Fragment getReadFragment() {
         return new c5_7_ReadFragment();
+    }
+
+    @Override
+    public boolean[] isFirstAidRelated() {
+        boolean isRelated[] = {true, false, false, false, false, false, false, false, false, false, false};
+        return isRelated;
     }
 }

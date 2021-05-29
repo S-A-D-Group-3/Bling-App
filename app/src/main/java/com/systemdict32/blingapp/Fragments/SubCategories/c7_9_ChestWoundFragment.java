@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_9_ReadFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_9_VisualFragment;
+import com.systemdict32.blingapp.Interfaces.RelatedFirstAidInterface;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
@@ -18,7 +19,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link c7_9_ChestWoundFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class c7_9_ChestWoundFragment extends Fragment implements ToggleReadVisualInterface {
+public class c7_9_ChestWoundFragment extends Fragment implements ToggleReadVisualInterface, RelatedFirstAidInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,5 +76,11 @@ public class c7_9_ChestWoundFragment extends Fragment implements ToggleReadVisua
     @Override
     public Fragment getReadFragment() {
         return new c7_9_ReadFragment();
+    }
+
+    @Override
+    public boolean[] isFirstAidRelated() {
+        boolean isRelated[] = {true, false, false, false, false, false, false, false, false, false, true};
+        return isRelated;
     }
 }

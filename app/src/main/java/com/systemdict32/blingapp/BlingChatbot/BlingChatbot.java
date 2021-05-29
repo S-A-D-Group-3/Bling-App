@@ -12,6 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.systemdict32.blingapp.Fragments.Categories.c10_1_CprFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c10_2_VitalSignsFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c10_3_ChokingsFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c10_4_BandagesFragment;
+import com.systemdict32.blingapp.Fragments.Categories.c10_FirstAidBasicFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c1_EmergencyBasicFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c2_WoundsFragment;
 import com.systemdict32.blingapp.Fragments.Categories.c3_BodyInjuriesFragment;
@@ -102,6 +107,8 @@ public class BlingChatbot {
             botMessage = "Going to First Aid Instruction Page";
         }
         // ------------------------------------------ first aid categories -----------------------------------
+
+        // c1 emergency basic
         if (userMessage.contains("emergency basic") || userMessage.contains("emergency first aid")
                 || userMessage.contains("cramp") || userMessage.contains("cramps")
                 || userMessage.contains("unconscious") || userMessage.contains("comatose")
@@ -157,8 +164,7 @@ public class BlingChatbot {
             botMessage = "Going to Car Accident Page";
         }
         if (userMessage.contains("respiratory problem") || userMessage.contains("respiratory problems")
-                || userMessage.contains("respiratory")
-                || userMessage.contains("choke") || userMessage.contains("choking")) {
+                || userMessage.contains("respiratory")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c7_RespiratoryProblemFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -412,12 +418,44 @@ public class BlingChatbot {
             botMessage = "Going to Drug Poisoning Page";
         }
         // c10
+        // first aid basic
+        if (userMessage.contains("first aid basic") || userMessage.contains("First aid basic")) {
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_FirstAidBasicFragment());
+            ft.addToBackStack("nav_home");
+            ft.commit();
+
+            botMessage = "Going to First Aid Basic Page";
+        }
         if (userMessage.contains("cpr") || userMessage.contains("C.P.R.") || userMessage.contains("CPR")) {
-            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_1_CprAdultFragment());
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_1_CprFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to CPR Page";
+        }
+        if (userMessage.contains("vital signs") || userMessage.contains("vital sign")
+                || userMessage.contains("Vital signs") || userMessage.contains("Vital sign")) {
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_2_VitalSignsFragment());
+            ft.addToBackStack("nav_home");
+            ft.commit();
+
+            botMessage = "Going to Vital Signs Page";
+        }
+        if (userMessage.contains("choke") || userMessage.contains("choking")
+                || userMessage.contains("Choke") || userMessage.contains("Choking")) {
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_3_ChokingsFragment());
+            ft.addToBackStack("nav_home");
+            ft.commit();
+
+            botMessage = "Going to Choking Page";
+        }
+        if (userMessage.contains("Bandage") || userMessage.contains("Bandages")
+                || userMessage.contains("bandage") || userMessage.contains("bandages")) {
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_4_BandagesFragment());
+            ft.addToBackStack("nav_home");
+            ft.commit();
+
+            botMessage = "Going to Bandages Page";
         }
         // emergency services
         if (userMessage.contains("medic") || userMessage.contains("hospital") || userMessage.contains("medical")) {

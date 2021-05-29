@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ViewReaderVisual.c4_1_VisualFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
+        android:id="@+id/fragment13"
+        android:name="com.systemdict32.blingapp.Fragments.VisualPageHandlerFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_height="wrap_content" />
 </FrameLayout>

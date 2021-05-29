@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Fragments.LGUFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView9"
@@ -54,33 +54,44 @@
                 android:textColor="@color/black"
                 android:textSize="30sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:text="Last updated: April, 2021"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_gravity="center"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/open_sans"
-                            android:layout_marginLeft="4dp"
                             android:text="Emergency Hotline: "
                             android:textColor="@color/action_bar"
                             android:textSize="20sp" />
@@ -89,8 +100,8 @@
                             android:id="@+id/tv_e_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -100,34 +111,34 @@
                         android:id="@+id/btn_call_e_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
-                        android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
-
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="10dp"
                             android:fontFamily="@font/open_sans"
                             android:text="Fire Dept. Hotline: "
                             android:textColor="@color/chatbot_bubble"
@@ -137,8 +148,8 @@
                             android:id="@+id/tv_fd_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -148,34 +159,35 @@
                         android:id="@+id/btn_call_fd_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
-                        android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="10dp"
                             android:fontFamily="@font/open_sans"
                             android:text="Rescue Hotline: "
                             android:textColor="@color/chatbot_bubble"
@@ -185,8 +197,8 @@
                             android:id="@+id/tv_r_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -196,29 +208,30 @@
                         android:id="@+id/btn_call_r_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
-                        android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -244,34 +257,35 @@
                         android:id="@+id/btn_call_cp_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
-                        android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="10dp"
                             android:fontFamily="@font/open_sans"
                             android:text="Health Dept. Hotline: "
                             android:textColor="@color/chatbot_bubble"
@@ -292,29 +306,30 @@
                         android:id="@+id/btn_call_hd_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_alignParentRight="true"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -329,8 +344,8 @@
                             android:id="@+id/tv_rc_hotline"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
                             android:layout_marginLeft="4dp"
+                            android:layout_marginBottom="15dp"
                             android:fontFamily="@font/lato"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -340,29 +355,30 @@
                         android:id="@+id/btn_call_rc_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_alignParentRight="true"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/card_looks_list"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -388,11 +404,11 @@
                         android:id="@+id/btn_call_covid_hotline"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
                         android:layout_marginTop="20dp"
                         android:layout_marginRight="20dp"
-                        android:foreground="?android:attr/selectableItemBackground"
                         android:clickable="true"
-                        android:layout_alignParentRight="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_phone_call" />
 
                 </RelativeLayout>

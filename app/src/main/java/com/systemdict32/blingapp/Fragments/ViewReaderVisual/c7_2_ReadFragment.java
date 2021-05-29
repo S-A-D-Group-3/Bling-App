@@ -60,13 +60,9 @@ public class c7_2_ReadFragment extends Fragment implements FirstAidInterface {
         }
     }
 
-    public String firstAidManual = "1. If the child is breathing, encourage her to continue coughing. If she is not coughing and not able to breathe, she is choking. Proceed to next step. \n" +
-            "\n2. Put your arms around the child’s upper abdomen. \n" +
-            "\n3. Place your fist between the navel and the bottom of her breastbone and grasp it with your other hand. \n" +
-            "\n4. Pull sharply inward and upward until the object is dislodged or the child becomes unconscious. \n" +
-            "\n5. if the child becomes unresponsive, carefully support her to the ground and start CPR with chest compressions. \n" +
-            "\n6. After 30 compressions, open the airway and look in her mouth. If a foreign body is seen, remove it but do not perform blind finger sweeps. Then attempt to give two breaths and continue with cycles of chest compressions and ventilation until the object is expelled. \n" +
-            "\n7. After two minutes, if no one has already done so, the obstruction still has not cleared or the child has not regained consciousness, call for emergency help. Then continue CPR until help arrives. \n";
+    public String firstAidManual = "1. If the child is breathing, encourage her to cough to try to remove the obstruction herself. If this fails, go to step 2. \n" +
+            "\n2. Stand behind the child. Put your arms around her and put one fist between her navel and the bottom of her breastbone. Grasp your fist with your other hand and pull sharply inward and upward until the object is expelled. \n" +
+            "\n3. Continue abdominal thrusts until the obstruction clears. If the child loses consciousness, call for emergency help, then begin CPR starting with chest compressions. \n";
     View view;
     TextView tv_c7_2_first_aid_manual;
 

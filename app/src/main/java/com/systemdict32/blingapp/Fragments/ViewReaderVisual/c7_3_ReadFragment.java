@@ -61,14 +61,10 @@ public class c7_3_ReadFragment extends Fragment implements FirstAidInterface {
         }
     }
 
-    public String firstAidManual = "1. If the infant is distressed, is unable to cry, cough, or breathe, lay him face down along your forearm, with his head low, and support his back and head. \n" +
-            "\n2. Give up to five back blows, with the heel of your hand. \n" +
-            "\n3. If back blows fail to clear the obstruction, turn the infant onto his back and give chest compressions. \n" +
-            "\n4. Using two fingers, push against the infant’s breastbone, in the nipple line. \n" +
-            "\n5. Perform up to five chest compressions. The aim is to relieve the obstruction with each chest compression rather than necessarily doing all five. \n" +
-            "\n6. Check the infant’s mouth; remove any obvious obstructions with your fingertips. Do not sweep the mouth with your finger because this may push the object farther down the throat. \n" +
-            "\n7. Repeat steps 1–6 until the object clears or the infant loses consciousness. \n" +
-            "\n8. If the obstruction has not cleared and he becomes unconscious, call for emergency help, then start CPR with chest compressions. Continue until help arrives. \n";
+    public String firstAidManual = "1. If the infant is unable to cough or breathe, lay him face down along your forearm (head low), and support his body and head. Give up to five back blows between the shoulder blades with the heel of your hand. \n" +
+            "\n2. Turn the infant face up along your other forearm, supporting his back and head. Check the mouth. Pick out any obvious obstructions. If choking persists, proceed to step 3. \n" +
+            "\n3. Place two fingertips on the lower half of the infant’s breastbone, in the nipple line. Give up to five compressions. Recheck the mouth. \n" +
+            "\n4. Repeat steps 1 to 3 until the object is expelled or the infant loses consciousness. Do CPR on the unconscious infant for two minutes, call for emergency help, then continue CPR until help arrives. \n";
     View view;
     TextView tv_c7_3_first_aid_manual;
 

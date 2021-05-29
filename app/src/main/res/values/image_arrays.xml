@@ -6,6 +6,19 @@
         <item>@drawable/choke_adult_3</item>
     </array>
 
+    <array name="choking_child">
+        <item>@drawable/choke_child1</item>
+        <item>@drawable/choke_child2</item>
+        <item>@drawable/choke_child3</item>
+    </array>
+
+    <array name="choking_infant">
+        <item>@drawable/choke_infant1</item>
+        <item>@drawable/choke_infant2</item>
+        <item>@drawable/choke_infant3</item>
+        <item>@drawable/choke_infant4</item>
+    </array>
+
     <array name="cpr_adult">
         <item>@drawable/cpr_adult1</item>
         <item>@drawable/cpr_adult2</item>
@@ -32,5 +45,30 @@
         <item>@drawable/cpr_compression1</item>
         <item>@drawable/cpr_compression2</item>
         <item>@drawable/cpr_compression3</item>
+    </array>
+
+    <array name="heart_attack">
+        <item>@drawable/heart_attack1</item>
+        <item>@drawable/heart_attack2</item>
+        <item>@drawable/heart_attack3</item>
+        <item>@drawable/heart_attack4</item>
+    </array>
+
+    <array name="pulse_location">
+        <item>@drawable/pulse_location1</item>
+        <item>@drawable/pulse_location2</item>
+        <item>@drawable/pulse_location3</item>
+    </array>
+
+    <array name="shock">
+        <item>@drawable/shock1</item>
+        <item>@drawable/shock2</item>
+    </array>
+
+    <array name="stroke">
+        <item>@drawable/stroke1</item>
+        <item>@drawable/stroke2</item>
+        <item>@drawable/stroke3</item>
+        <item>@drawable/stroke4</item>
     </array>
 </resources>

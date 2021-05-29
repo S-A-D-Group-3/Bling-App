@@ -18,7 +18,13 @@ import com.systemdict32.blingapp.Fragments.SubCategories.c10_1_CprAdultFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_2_CprChildFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_3_CprInfantFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_4_CprCompFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_5_PulseLocationFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_1_ShockFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_1_StrokeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_4_HeartAttackFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c7_1_ChokingAdultFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c7_2_ChokingChildFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c7_3_ChokingInfantFragment;
 import com.systemdict32.blingapp.Interfaces.ToggleReadVisualInterface;
 import com.systemdict32.blingapp.R;
 
@@ -136,9 +142,6 @@ public class ToggleReadVisualFragment extends Fragment {
         if(getParentFragment().getClass().equals(c10_1_CprAdultFragment.class)) {
             btn_view_visual.setVisibility(View.VISIBLE);
         }
-        if(getParentFragment().getClass().equals(c7_1_ChokingAdultFragment.class)) {
-            btn_view_visual.setVisibility(View.VISIBLE);
-        }
         if(getParentFragment().getClass().equals(c10_2_CprChildFragment.class)) {
             btn_view_visual.setVisibility(View.VISIBLE);
         }
@@ -148,6 +151,28 @@ public class ToggleReadVisualFragment extends Fragment {
         if(getParentFragment().getClass().equals(c10_4_CprCompFragment.class)) {
             btn_view_visual.setVisibility(View.VISIBLE);
         }
+        if(getParentFragment().getClass().equals(c10_5_PulseLocationFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c7_1_ChokingAdultFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c7_2_ChokingChildFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c7_3_ChokingInfantFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c5_4_HeartAttackFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c4_1_ShockFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+        if(getParentFragment().getClass().equals(c5_1_StrokeFragment.class)) {
+            btn_view_visual.setVisibility(View.VISIBLE);
+        }
+
 
         return view;
     }

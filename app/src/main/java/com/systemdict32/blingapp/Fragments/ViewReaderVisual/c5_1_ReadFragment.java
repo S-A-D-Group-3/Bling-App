@@ -60,12 +60,11 @@ public class c5_1_ReadFragment extends Fragment implements FirstAidInterface {
         }
     }
 
-    public String firstAidManual = "1. Look at the casualty’s face. Ask him to smile; if he has had a stroke, he may only be able to smile on one side—the other side of his mouth may droop. \n" +
-            "\n2. Ask the casualty to raise both his arms; if he has had stroke, he may be able to lift only one arm. \n" +
-            "\n3. Find out whether the person can speak clearly and understand what you say. When you ask a question, does he respond appropriately to you?. \n" +
-            "\n4. Call for emergency help. Tell the dispatcher that you have used the FAST guide and you suspect a stroke. \n" +
-            "\n5. Keep the casualty comfortable and supported. If the casualty is conscious, you can help him lie down. Reassure him that help is on the way. \n" +
-            "\n6. Regularly monitor and record vital signs—level of response, breathing, and pulse— while waiting for help to arrive. Do not give the casualty anything to eat or drink because it may be difficult for him to swallow. \n";
+    public String firstAidManual = "FAST (Face-Arm-Speech-Time) GUIDE. \n" +
+            "\nF. Facial weakness—the casualty is unable to smile evenly and the mouth or eye may be droopy.\n" +
+            "\nA. Arm weakness—the casualty is only able to raise one of his arms. \n" +
+            "\nS. Speech problems—the casualty is unable to speak clearly or may not understand the spoken word. \n" +
+            "\nT. Time to call for emergency help if you suspect that the casualty has had a stroke. \n";
     TextView tv_c5_1_first_aid_manual;
     View view;
     @Override

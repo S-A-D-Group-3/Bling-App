@@ -16,7 +16,13 @@ import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_1_VisualFragment
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_2_VisualFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_3_VisualFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_4_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c10_5_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c4_1_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_1_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c5_4_VisualFragment;
 import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_1_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_2_VisualFragment;
+import com.systemdict32.blingapp.Fragments.ViewReaderVisual.c7_3_VisualFragment;
 import com.systemdict32.blingapp.R;
 
 /**
@@ -90,6 +96,24 @@ public class VisualPageHandlerFragment extends Fragment {
         }
         if(getParentFragment().getClass().equals(c7_1_VisualFragment.class)){
             imgs = getResources().obtainTypedArray(R.array.choking_adult);
+        }
+        if(getParentFragment().getClass().equals(c7_2_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.choking_child);
+        }
+        if(getParentFragment().getClass().equals(c7_3_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.choking_infant);
+        }
+        if(getParentFragment().getClass().equals(c5_4_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.heart_attack);
+        }
+        if(getParentFragment().getClass().equals(c4_1_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.shock);
+        }
+        if(getParentFragment().getClass().equals(c10_5_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.pulse_location);
+        }
+        if(getParentFragment().getClass().equals(c5_1_VisualFragment.class)){
+            imgs = getResources().obtainTypedArray(R.array.stroke);
         }
 
         tv_visual_cur_page = view.findViewById(R.id.tv_visual_cur_page);

@@ -315,21 +315,22 @@ public class MyICEFragment extends Fragment implements LocationListener {
             notificationManager.cancel(2);
         }
     }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        boolean silent = settings.getBoolean("switchkey", false);
+//
+//        if (silent) {
+//            showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
+//            showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
+//        }
+//    }
+
 
     @Override
-    public void onPause() {
-        super.onPause();
-        boolean silent = settings.getBoolean("switchkey", false);
-
-        if (silent) {
-            showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
-            showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStart() {
+        super.onStart();
         boolean silent = settings.getBoolean("switchkey", false);
 
         if (silent) {

@@ -12,14 +12,27 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_10_ColdCompressFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_16_ArmSlingFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_17_ElevateSlingFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_1_CprAdultFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_2_CprChildFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_3_CprInfantFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c10_4_CprCompFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_5_PulseLocationFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_6_LvlResponseFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_7_PulseRateFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_8_BreathingFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_9_CirculationFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c4_1_ShockFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_1_StrokeFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c5_4_HeartAttackFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c6_5_ForeignObjectEyeFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c6_6_ForeignObjectEarFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c6_7_ForeignObjectNoseFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c7_1_ChokingAdultFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c7_2_ChokingChildFragment;
+import com.systemdict32.blingapp.Fragments.SubCategories.c7_3_ChokingInfantFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c9_1_TickBiteFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c9_2_SnakeBiteFragment;
 import com.systemdict32.blingapp.Fragments.SubCategories.c9_3_InsectStingFragment;
@@ -91,18 +104,13 @@ public class c10_FirstAidBasicFragment extends Fragment {
 
         ArrayList<String> firstAidBasicList = new ArrayList<>();
 
-        firstAidBasicList.add("CPR for Adult");
-        firstAidBasicList.add("CPR for Children");
-        firstAidBasicList.add("CPR for Infant");
-        firstAidBasicList.add("CPR Compression");
-        firstAidBasicList.add("Choking Adult");
-        firstAidBasicList.add("Choking Child");
-        firstAidBasicList.add("Choking Infant");
-        firstAidBasicList.add("Shock");
-        firstAidBasicList.add("Level of Response");
-        firstAidBasicList.add("How To Identify Pulse Rate");
-        firstAidBasicList.add("How To Identify Pulse Location");
-        firstAidBasicList.add("Breathing");
+        firstAidBasicList.add("CPR");
+        firstAidBasicList.add("Vital Signs");
+        firstAidBasicList.add("Choking");
+        firstAidBasicList.add("Bandages");
+        firstAidBasicList.add("Sling");
+        firstAidBasicList.add("Circulation");
+        firstAidBasicList.add("Cold Compression");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, firstAidBasicList);
 
@@ -115,58 +123,38 @@ public class c10_FirstAidBasicFragment extends Fragment {
                 ft.addToBackStack("nav_home");
                 switch (position) {
                     case 0:
-                        c10_1_CprAdultFragment c10_1_cprAdultFragment = new c10_1_CprAdultFragment();
-                        ft.replace(R.id.home_fragment_container, c10_1_cprAdultFragment);
+                        c10_1_CprFragment c10_1_cprFragment = new c10_1_CprFragment();
+                        ft.replace(R.id.home_fragment_container, c10_1_cprFragment);
                         ft.commit();
                         break;
                     case 1:
-                        c10_2_CprChildFragment c10_2_cprChildFragment = new c10_2_CprChildFragment();
-                        ft.replace(R.id.home_fragment_container, c10_2_cprChildFragment);
+                        c10_2_VitalSignsFragment c10_2_vitalSignsFragment = new c10_2_VitalSignsFragment();
+                        ft.replace(R.id.home_fragment_container, c10_2_vitalSignsFragment);
                         ft.commit();
                         break;
                     case 2:
-                        c10_3_CprInfantFragment c10_3_cprInfantFragment = new c10_3_CprInfantFragment();
-                        ft.replace(R.id.home_fragment_container, c10_3_cprInfantFragment);
+                        c10_3_ChokingsFragment c10_3_chokingsFragment = new c10_3_ChokingsFragment();
+                        ft.replace(R.id.home_fragment_container, c10_3_chokingsFragment);
                         ft.commit();
                         break;
                     case 3:
-                        c10_4_CprCompFragment c10_4_cprCompFragment = new c10_4_CprCompFragment();
-                        ft.replace(R.id.home_fragment_container, c10_4_cprCompFragment);
+                        c10_4_BandagesFragment c10_4_bandagesFragment = new c10_4_BandagesFragment();
+                        ft.replace(R.id.home_fragment_container, c10_4_bandagesFragment);
                         ft.commit();
                         break;
                     case 4:
-                        c7_1_ChokingAdultFragment c7_1_chokingAdultFragment = new c7_1_ChokingAdultFragment();
-                        ft.replace(R.id.home_fragment_container, c7_1_chokingAdultFragment);
+                        c10_5_SlingFragment c10_5_slingFragment = new c10_5_SlingFragment();
+                        ft.replace(R.id.home_fragment_container, c10_5_slingFragment);
                         ft.commit();
                         break;
                     case 5:
-                        c9_6_OtherBitesFragment c9_6_otherBitesFragment = new c9_6_OtherBitesFragment();
-                        ft.replace(R.id.home_fragment_container, c9_6_otherBitesFragment);
+                        c10_9_CirculationFragment c10_9_circulationFragment = new c10_9_CirculationFragment();
+                        ft.replace(R.id.home_fragment_container, c10_9_circulationFragment);
                         ft.commit();
                         break;
                     case 6:
-                        c9_7_DrugPoisoningFragment c9_7_drugPoisoningFragment = new c9_7_DrugPoisoningFragment();
-                        ft.replace(R.id.home_fragment_container, c9_7_drugPoisoningFragment);
-                        ft.commit();
-                        break;
-                    case 7:
-                        c6_5_ForeignObjectEyeFragment c6_5_foreignObjectEyeFragment = new c6_5_ForeignObjectEyeFragment();
-                        ft.replace(R.id.home_fragment_container, c6_5_foreignObjectEyeFragment);
-                        ft.commit();
-                        break;
-                    case 8:
-                        c6_6_ForeignObjectEarFragment c6_6_foreignObjectEarFragment = new c6_6_ForeignObjectEarFragment();
-                        ft.replace(R.id.home_fragment_container, c6_6_foreignObjectEarFragment);
-                        ft.commit();
-                        break;
-                    case 9:
-                        c6_7_ForeignObjectNoseFragment c6_7_foreignObjectNoseFragment = new c6_7_ForeignObjectNoseFragment();
-                        ft.replace(R.id.home_fragment_container, c6_7_foreignObjectNoseFragment);
-                        ft.commit();
-                        break;
-                    case 10:
-                        c9_8_SwallowedFragment c9_8_swallowedFragment = new c9_8_SwallowedFragment();
-                        ft.replace(R.id.home_fragment_container, c9_8_swallowedFragment);
+                        c10_10_ColdCompressFragment c10_10_coldCompressFragment = new c10_10_ColdCompressFragment();
+                        ft.replace(R.id.home_fragment_container, c10_10_coldCompressFragment);
                         ft.commit();
                         break;
                 }

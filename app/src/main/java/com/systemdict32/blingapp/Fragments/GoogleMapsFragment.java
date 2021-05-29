@@ -246,7 +246,7 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, GoogleMapsFragment.this);
             mLocation = getLastKnownLocation();
         } catch (Exception e) {
-            Toasty.error(getActivity(), "Location provider not found! Please turn on your location!",
+            Toasty.error(getActivity(), "Location provider not found! Please enable your location!",
                     Toast.LENGTH_LONG, true).show();
         }
     }

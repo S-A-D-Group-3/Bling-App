@@ -346,7 +346,7 @@
                 android:gravity="left"
                 android:paddingStart="20dp"
                 android:padding="5dp"
-                android:text="3.) Nearby services doesn't work"
+                android:text="3.) Nearby services don't work"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -389,6 +389,34 @@
                 android:justificationMode="inter_word"
                 android:fontFamily="@font/open_sans"
                 android:text="You can manage your In Case of Emergency Information by naviagating: \n Menu > My account > In Case of Emergency\nPlease note that you can only put initial I.C.E data once. in case of being unaware of this feature, you can put your initial I.C.E data using CHANGE MY INFO option. you should complete all the fields there for it to accept your changes/ updates. you can also delete the entire information using the DELETE INFO option but it is not advisable."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="left"
+                android:paddingStart="20dp"
+                android:padding="5dp"
+                android:text="5.) Voice Assistant doesn't recognize what i say"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="50dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/open_sans"
+                android:text="This is usually caused by unclear command or the command / term that you are saying is not included in the program; try saying other terms, or try saying a simple word"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

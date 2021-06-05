@@ -57,7 +57,7 @@
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
-                    android:padding="5dp"
+                    android:padding="4dp"
                     android:text="Instruction Set is a collection of textual and visual\nInformation on how to give preliminary first-aid"
                     android:textColor="@color/black"
                     android:textSize="10sp" />

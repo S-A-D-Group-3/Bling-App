@@ -96,7 +96,7 @@ public class Login extends AppCompatActivity {
                 builderTC.create();
                 builderTC.setCancelable(false);
                 builderTC.setIcon(R.drawable.logov2);
-                builderTC.setNegativeButton("Okay", dialogClickListener).show();
+                builderTC.setNegativeButton("I understand", dialogClickListener).show();
 
 
             }

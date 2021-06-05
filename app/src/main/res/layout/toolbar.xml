@@ -8,7 +8,7 @@
     android:textAlignment="center"
     android:background="@color/toolbar"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:navigationIcon="@drawable/ic_hamburger"
+    app:navigationIcon="@drawable/ic_menic"
     app:layout_collapseMode="none"
     >
 

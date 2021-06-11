@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.systemdict32.blingapp.R;
 
@@ -61,6 +62,7 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
     }
 
     CardView emergency_cv1, emergency_cv2, emergency_cv3, emergency_cv4;
+    TextView permGranter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,11 +73,13 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
         emergency_cv2 = view.findViewById(R.id.emergency_cv_2);
         emergency_cv3 = view.findViewById(R.id.emergency_cv_3);
         emergency_cv4 = view.findViewById(R.id.emergency_cv_4);
+        permGranter = view.findViewById(R.id.permGranting);
 
         emergency_cv1.setOnClickListener(this);
         emergency_cv2.setOnClickListener(this);
         emergency_cv3.setOnClickListener(this);
         emergency_cv4.setOnClickListener(this);
+        permGranter.setOnClickListener(this);
 
 
         return view;
@@ -110,6 +114,10 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
             ft.replace(R.id.home_fragment_container, lguFragment);
             ft.addToBackStack("emergency_services");
             ft.commit();
+        }
+        if(v.getId() == permGranter.getId()) {
+           // tama ba dito yung place ng show message onse?
+            // dialog box or toast na lang
         }
     }
 }

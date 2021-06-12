@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -40,6 +41,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -81,6 +83,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -110,7 +113,8 @@ public class MyAccountFragment extends Fragment implements Executor {
     String get;
     EditText txtAddress, txtbloodType, txtmedCon, txtmedTake, txtcontactPerson, txtcontPerNumber, txtBdate, txtAllergy, txtMaintenance;
     CheckBox chkAdd, chkBlood, chkMedCon, chkMedtake, chkContPer, chkContPerNum;
-
+    DatePickerDialog.OnDateSetListener mDateSetListener;
+    String date;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -169,6 +173,15 @@ public class MyAccountFragment extends Fragment implements Executor {
         btn_update = view.findViewById(R.id.txtbtn_update);
         btn_delete = view.findViewById(R.id.txtbtn_delete);
 
+        //initialize date
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                date = month + "/" + dayOfMonth + "/" + year;
+                txtBdate.setText(date);
+            }
+        };
         firebaseAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userId = firebaseAuth.getCurrentUser().getUid();
@@ -227,8 +240,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                 });
             }
         });
-
-
+        
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -365,7 +377,6 @@ public class MyAccountFragment extends Fragment implements Executor {
                                             user.put("user_ICE_CONTACTPERSON", contactPer);
                                             user.put("user_ICE_CONTACTPERSON_NUMBER", contactPerNum);
 
-
                                             documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                                                 @Override
                                                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -388,11 +399,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                             Toast.LENGTH_LONG, true).show();
                                                 }
                                             });
-
-
                                         }
-
-
                                 }
                             }
                         };
@@ -415,11 +422,27 @@ public class MyAccountFragment extends Fragment implements Executor {
                         txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                         txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
+                        txtBdate.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Calendar cal = Calendar.getInstance();
+                                int year = cal.get(Calendar.YEAR);
+                                int month = cal.get(Calendar.MONTH);
+                                int day = cal.get(Calendar.DAY_OF_MONTH);
 
+                                DatePickerDialog dialog = new DatePickerDialog(getActivity(),
+                                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                                        mDateSetListener,
+                                        year, month, day);
+
+                                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                dialog.show();
+                            }
+                        });
                         builderr.create();
                         builderr.setCancelable(true);
                         builderr.setIcon(R.drawable.logo_bling);
-                        builderr.setMessage("Put important I.C.E data").setPositiveButton("Go back", dialogClickListener)
+                        builderr.setPositiveButton("Go back", dialogClickListener)
                                 .setNegativeButton("Add my info", dialogClickListener).show();
 
 
@@ -562,6 +585,23 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                                 txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
+                                txtBdate.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Calendar cal = Calendar.getInstance();
+                                        int year = cal.get(Calendar.YEAR);
+                                        int month = cal.get(Calendar.MONTH);
+                                        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                                        DatePickerDialog dialog = new DatePickerDialog(getActivity(),
+                                                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                                                mDateSetListener,
+                                                year, month, day);
+
+                                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                        dialog.show();
+                                    }
+                                });
 
                                 txtAddress.setText(address2);
                                 txtbloodType.setText(bloodType2);

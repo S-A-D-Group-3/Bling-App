@@ -2,7 +2,9 @@ package com.systemdict32.blingapp.Fragments;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -136,7 +138,40 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         btn_call_r_hotline.setOnClickListener(this);
         btn_call_rc_hotline.setOnClickListener(this);
         btn_call_mmda.setOnClickListener(this);
-        getLatLng();
+
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Permission to use Location")
+                        .setMessage("This feature is required to have the permission to get your current location to be able for the app to know where city you are in.")
+                        .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Prompt the user once explanation has been shown
+                                ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                        Manifest.permission.ACCESS_FINE_LOCATION
+                                }, 100);
+                            }
+                        })
+                        .create()
+                        .show();
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                        },
+                        100);
+            }
+        } else {
+            getLatLng();
+        }
 
         return view;
     }
@@ -185,6 +220,9 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             return;
         }
 
+        Toasty.info(getActivity(), "Re-open this if no data have not shown yet.",
+                Toast.LENGTH_LONG, true).show();
+
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{
@@ -211,7 +249,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, LGUFragment.this);
             mLocation = getLastKnownLocation();
         } catch (Exception e) {
-            Toasty.error(getActivity(), "Location provider not found! Turn on your location!",
+            Toasty.error(getActivity(), "Location provider not found! Please enable your location!",
                     Toast.LENGTH_LONG, true).show();
         }
     }

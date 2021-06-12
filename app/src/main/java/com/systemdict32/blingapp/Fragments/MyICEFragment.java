@@ -228,7 +228,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
         // Create an explicit intent for an Activity in your app
         Intent intent = new Intent(getActivity(), Dashboard.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, 0);
         // call ice button
         Intent broadcastIntent = new Intent(getActivity(), NotificationReceiver.class);
         broadcastIntent.putExtra("ice_cell_num", mContactPersonNum);
@@ -245,8 +244,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(buffer.toString()))
                 .setPriority(NotificationCompat.PRIORITY_MAX)
-                // Set the intent that will fire when the user taps the notification
-                .setContentIntent(pendingIntent)
                 .setColor(Color.BLUE)
                 .addAction(R.drawable.ic_baseline_call, "Call", actionIntent)
                 .setAutoCancel(true).setOngoing(true);
@@ -287,7 +284,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
         // Create an explicit intent for an Activity in your app
         Intent intent = new Intent(getActivity(), Dashboard.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, 0);
 
         builder = new NotificationCompat.Builder(getActivity(), CHANNEL_ID)
                 .setSmallIcon(R.drawable.logov2)
@@ -296,8 +292,6 @@ public class MyICEFragment extends Fragment implements LocationListener {
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(buffer.toString()))
                 .setPriority(NotificationCompat.PRIORITY_MAX)
-                // Set the intent that will fire when the user taps the notification
-                .setContentIntent(pendingIntent)
                 .setColor(Color.BLUE)
                 .setAutoCancel(true).setOngoing(true);
 
@@ -372,8 +366,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
             mLocation = getLastKnownLocation();
         } catch (Exception e) {
-            Toasty.error(getActivity(), "Location provider not found!,  Turn on your location!",
-                    Toast.LENGTH_LONG, true).show();
+            // warning message sana
         }
     }
 

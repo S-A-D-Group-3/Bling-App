@@ -54,7 +54,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".Dashboard" />
+        <activity android:name=".Dashboard"
+            android:screenOrientation = "portrait"/>
 
 
         <activity
@@ -70,16 +71,20 @@
        <!-- <activity android:name=".MainActivity" /> -->
 
 
-        <activity android:name=".reset" />
+        <activity android:name=".reset"
+            android:screenOrientation = "portrait"/>
 
 
-        <activity android:name=".Profile" />
+        <activity android:name=".Profile"
+            android:screenOrientation = "portrait"/>
 
 
-        <activity android:name=".splashscreen" />
+        <activity android:name=".splashscreen"
+            android:screenOrientation = "portrait"/>
 
 
-        <activity android:name=".LauncherActivity">
+        <activity android:name=".LauncherActivity"
+            android:screenOrientation = "portrait">
 
 
             <intent-filter>

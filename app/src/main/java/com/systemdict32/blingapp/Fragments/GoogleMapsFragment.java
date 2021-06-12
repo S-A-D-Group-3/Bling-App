@@ -10,7 +10,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -44,6 +46,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.systemdict32.blingapp.Dashboard;
 //import com.systemdict32.blingapp.Interfaces.EmergencyServiceType;
+import com.systemdict32.blingapp.Fragments.SubCategories.c10_1_CprAdultFragment;
 import com.systemdict32.blingapp.R;
 import com.systemdict32.blingapp.SignUp;
 
@@ -96,18 +99,45 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                 tv_nearby_services_name.setText("Security and Order");
             }
 
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Location")
+                            .setMessage("This feature is required to have the permission to get your current location to be able to identify the nearby services located in your area.")
+                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.ACCESS_FINE_LOCATION
+                                    }, 100);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{
+                                    Manifest.permission.ACCESS_FINE_LOCATION
+                            },
+                            100);
+                }
+            }
+
             getLocation();
             if (mLocation == null) {
                 return;
             }
 
-            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                }, 100);
-            }
-
+            Toasty.info(getActivity(), "Re-open this if no data have not shown yet.",
+                    Toast.LENGTH_LONG, true).show();
 
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -204,13 +234,73 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     @Override
     public void onClick(View v) {
         if (v.getId() == btn_call_np_cp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_num.trim()));
-            getActivity().startActivity(intent);
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("This feature is required to have the permission to directly call a phone number from your phone." +
+                                    "Its purpose is to give you conveniency by not having to type the phone/cellphone number manually.")
+                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_num.trim()));
+                getActivity().startActivity(intent);
+            }
         }
 
         if (v.getId() == btn_call_np_tp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + tp_num.trim()));
-            getActivity().startActivity(intent);
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("This feature is required to have the permission to directly call a phone number from your phone." +
+                                    "Its purpose is to give you conveniency by not having to type the phone/cellphone number manually.")
+                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + tp_num.trim()));
+                getActivity().startActivity(intent);
+            }
         }
     }
 
@@ -233,7 +323,36 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 100) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toasty.success(getActivity(), "Location Permission enabled",
+                        Toast.LENGTH_LONG, true).show();
+                Fragment fragment = null;
+                if(getParentFragment().getClass().equals(HospitalFragment.class)) {
+                    fragment = new HospitalFragment();
+                }
+                if(getParentFragment().getClass().equals(FireStationFragment.class)) {
+                    fragment = new FireStationFragment();
+                }
+                if(getParentFragment().getClass().equals(PoliceStationsFragment.class)) {
+                    fragment = new PoliceStationsFragment();
+                }
 
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.home_fragment_container, fragment);
+                ft.addToBackStack("emergency_services");
+                ft.commit();
+            } else {
+                Toasty.error(getActivity(), "Location Permission denied",
+                        Toast.LENGTH_LONG, true).show();
+            }
+        }
+        if (requestCode == 101) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toasty.success(getActivity(), "Call Permission enabled",
+                        Toast.LENGTH_LONG, true).show();
+            }
+        }
     }
 
     LocationManager locationManager;
@@ -294,8 +413,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
     @Override
     public void onProviderDisabled(@NonNull String provider) {
 //        may error
-//        Toasty.warning(getActivity(), "Please turn on your gps!",
-//                Toast.LENGTH_LONG, true).show();
+        Toasty.warning(getActivity(), "Please turn on your gps!",
+                Toast.LENGTH_LONG, true).show();
     }
 
     @Override

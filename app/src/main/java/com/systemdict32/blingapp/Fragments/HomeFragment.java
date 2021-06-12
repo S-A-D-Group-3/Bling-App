@@ -81,13 +81,9 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{
-                    Manifest.permission.ACCESS_FINE_LOCATION,  Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE
-                    , Manifest.permission.CALL_PHONE
+                    Manifest.permission.READ_EXTERNAL_STORAGE
             }, 100);
         }
 
@@ -128,17 +124,16 @@ public class HomeFragment extends Fragment {
         }
     };
 
-    public void onRequestPermissionResult(int requestCode,  @NonNull String[] permissions, @NonNull int[] grantResults){
-        if(requestCode == 100){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+    public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 100) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toasty.success(getActivity(), "Permission(s) enabled",
                         Toast.LENGTH_LONG, true).show();
-            }else{
+            } else {
                 Toasty.error(getActivity(), "Permission(s) denied",
                         Toast.LENGTH_LONG, true).show();
             }
         }
-
     }
 
 }

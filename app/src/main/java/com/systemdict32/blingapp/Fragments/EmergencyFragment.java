@@ -1,8 +1,12 @@
 package com.systemdict32.blingapp.Fragments;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -116,8 +120,21 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
             ft.commit();
         }
         if(v.getId() == permGranter.getId()) {
-           // tama ba dito yung place ng show message onse?
-            // dialog box or toast na lang
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("Voice commands for chatbot assistance")
+                    .setMessage("Onse di ko lam mga commands nung sa bot tol")
+                    .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //Prompt the user once explanation has been shown
+                            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                    Manifest.permission.CALL_PHONE
+                            }, 101);
+                        }
+                    })
+                    .create()
+                    .show();
+            // pre kung marami yung commands gayahin mo na lang yung sa login page yung pag clinick mo yung T&C, may sariling layout yung dialogbox
         }
     }
 }

@@ -149,8 +149,8 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
                 // sees the explanation, try again to request the permission.
                 new AlertDialog.Builder(getActivity())
                         .setTitle("Permission to use Location")
-                        .setMessage("This feature is required to have the permission to get your current location to be able for the app to know where city you are in.")
-                        .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        .setMessage("To use our service, granting the location permission is required. It will be used to locate wherever the place you are at this moment and it will help you by means of providing nearest services. Rest assured that we value your privacy.")
+                        .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown

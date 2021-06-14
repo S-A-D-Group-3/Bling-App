@@ -109,8 +109,8 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                     // sees the explanation, try again to request the permission.
                     new AlertDialog.Builder(getActivity())
                             .setTitle("Permission to use Location")
-                            .setMessage("This feature is required to have the permission to get your current location to be able to identify the nearby services located in your area.")
-                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            .setMessage("To use our service, granting the location permission is required. It will be used to locate wherever the place you are at this moment and it will help you by means of providing nearest services. Rest assured that we value your privacy.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     //Prompt the user once explanation has been shown
@@ -242,10 +242,10 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                     // this thread waiting for the user's response! After the user
                     // sees the explanation, try again to request the permission.
                     new AlertDialog.Builder(getActivity())
-                            .setTitle("Permission to use Call")
-                            .setMessage("This feature is required to have the permission to directly call a phone number from your phone." +
-                                    "Its purpose is to give you conveniency by not having to type the phone/cellphone number manually.")
-                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            .setTitle("Permission to Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     //Prompt the user once explanation has been shown
@@ -278,9 +278,9 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                     // sees the explanation, try again to request the permission.
                     new AlertDialog.Builder(getActivity())
                             .setTitle("Permission to use Call")
-                            .setMessage("This feature is required to have the permission to directly call a phone number from your phone." +
-                                    "Its purpose is to give you conveniency by not having to type the phone/cellphone number manually.")
-                            .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     //Prompt the user once explanation has been shown

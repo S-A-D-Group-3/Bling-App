@@ -1,5 +1,7 @@
 package com.systemdict32.blingapp.Fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -18,7 +20,7 @@ import com.systemdict32.blingapp.R;
  * Use the {@link EmergencyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EmergencyFragment extends Fragment implements View.OnClickListener{
+public class EmergencyFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +65,7 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
 
     CardView emergency_cv1, emergency_cv2, emergency_cv3, emergency_cv4;
     TextView permGranter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,37 +90,72 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == emergency_cv1.getId()) {
+        if (v.getId() == emergency_cv1.getId()) {
             HospitalFragment hospitalFragment = new HospitalFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, hospitalFragment);
             ft.addToBackStack("emergency_services");
             ft.commit();
         }
-        if(v.getId() == emergency_cv2.getId()) {
+        if (v.getId() == emergency_cv2.getId()) {
             PoliceStationsFragment policeStationsFragment = new PoliceStationsFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, policeStationsFragment);
             ft.addToBackStack("emergency_services");
             ft.commit();
         }
-        if(v.getId() == emergency_cv3.getId()) {
+        if (v.getId() == emergency_cv3.getId()) {
             FireStationFragment fireStationFragment = new FireStationFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, fireStationFragment);
             ft.addToBackStack("emergency_services");
             ft.commit();
         }
-        if(v.getId() == emergency_cv4.getId()) {
+        if (v.getId() == emergency_cv4.getId()) {
             LGUFragment lguFragment = new LGUFragment();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.home_fragment_container, lguFragment);
             ft.addToBackStack("emergency_services");
             ft.commit();
         }
-        if(v.getId() == permGranter.getId()) {
-           // tama ba dito yung place ng show message onse?
-            // dialog box or toast na lang
+        if (v.getId() == permGranter.getId()) {
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("Chatbot Help")
+                    .setMessage("Keywords you can use:\n\n" +
+                            "1. First Aid Categories\n " +
+                            "A. First Aid Basic\n" +
+                            "B. Emergency Basic\n" +
+                            "C. Wounds\n" +
+                            "D. Body Injuries\n" +
+                            "E. Severe Wounds\n" +
+                            "F. Serious Incidents\n" +
+                            "G. Car Accident\n" +
+                            "H. Respiratory Problem\n" +
+                            "I. Outdoor Incidents\n" +
+                            "J. Foreign Objects\n" +
+
+                            "2. First Aid Sub Categories\n " +
+                            "A. CPR, Vital Sign, Choking, Bandage\n" +
+                            "B. Abdominal Pain, Faint, Sore Throat, Migraine, Nose Bleed, Diarrhea, Head Injury, Cramp, Unconcious, Coma\n" +
+                            "C. Cut, Blister, Bruising\n" +
+                            "D. Head Injury\n" +
+                            "E. Shock, External Bleeding, Impale\n" +
+                            "F. Stroke, Drown, Heat Stroke, Heart Attack, Child Birth, Seizure, Electric\n" +
+                            "G. Burn, Fracture\n" +
+                            "H. Hanging, Chemical, Hyperventilation, Asthma\n" +
+                            "I. Sunburn, Frostbite, Dehydration, Hypothermia, Heat Exhaustion\n" +
+                            "J. Snake Bite, Drug Poison, Bite, Poison, Sting, Onject\n" +
+
+                            "2. Nearby Emergency Service\n " +
+                            "A. Nearby Hospitals: Hospital\n" +
+                            "B. Nearby Police Station: Police\n" +
+                            "C. Nearby Fire Station: Fire Station\n" +
+                            "D. L.G.U Hotline Number: Hotlines\n"
+
+                    )
+                    .setPositiveButton(android.R.string.yes, null)
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
         }
     }
 }

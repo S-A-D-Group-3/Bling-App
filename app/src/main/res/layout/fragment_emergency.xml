@@ -33,7 +33,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                
                 android:gravity="center"
                 android:text="Nearest Services"
                 android:textColor="@color/white"
@@ -81,7 +80,7 @@
                 android:gravity="center"
                 android:padding="6dp"
                 android:paddingStart="5dp"
-                android:text="Permissions"
+                android:text="Chatbot Help"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:clickable="true"/>

@@ -164,7 +164,7 @@ public class MyAccountFragment extends Fragment implements Executor {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_my_account, container,   false);
+        View view = inflater.inflate(R.layout.fragment_my_account, container, false);
         View mview = inflater.inflate(R.layout.crud_createdialog, container, false);
         fullname = view.findViewById(R.id.profile_fname);
         email = view.findViewById(R.id.profile_email);
@@ -240,7 +240,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                 });
             }
         });
-        
+
         fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -277,16 +277,20 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                 return;
 
                                             //dispatchTakePictureIntent();
-
-
                                             case DialogInterface.BUTTON_NEGATIVE:
-                                                Intent openFiles = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                                                startActivityForResult(openFiles, 1000);
+                                                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                                            Manifest.permission.READ_EXTERNAL_STORAGE
+                                                    }, 100);
+                                                } else {
+                                                    Intent openFiles = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                                                    startActivityForResult(openFiles, 1000);
+                                                }
+
                                                 break;
                                         }
                                     }
                                 };
-
 
                                 AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
                                 builder2.create();
@@ -346,9 +350,9 @@ public class MyAccountFragment extends Fragment implements Executor {
                                         return;
 
                                     case DialogInterface.BUTTON_NEGATIVE:
-                                       String myAllergy = txtAllergy.getText().toString();
-                                       String myBdate = txtBdate.getText().toString();
-                                       String myMaintenance =  txtMaintenance.getText().toString();
+                                        String myAllergy = txtAllergy.getText().toString();
+                                        String myBdate = txtBdate.getText().toString();
+                                        String myMaintenance = txtMaintenance.getText().toString();
                                         String myAddress = txtAddress.getText().toString();
                                         String bloodType = txtbloodType.getText().toString();
                                         String medicalCond = txtmedCon.getText().toString();
@@ -417,8 +421,8 @@ public class MyAccountFragment extends Fragment implements Executor {
                         txtbloodType = (EditText) customLayout.findViewById(R.id.txt_bloodtype);
                         txtmedCon = (EditText) customLayout.findViewById(R.id.txt_medcon);
                         txtmedTake = (EditText) customLayout.findViewById(R.id.txt_medtake);
-                       txtMaintenance = (EditText) customLayout.findViewById(R.id.txt_maintenance);
-                       txtAllergy = (EditText) customLayout.findViewById(R.id.txt_allergy);
+                        txtMaintenance = (EditText) customLayout.findViewById(R.id.txt_maintenance);
+                        txtAllergy = (EditText) customLayout.findViewById(R.id.txt_allergy);
                         txtcontactPerson = (EditText) customLayout.findViewById(R.id.txt_personcont);
                         txtcontPerNumber = (EditText) customLayout.findViewById(R.id.txt_personcontNumber);
 
@@ -508,7 +512,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                             case DialogInterface.BUTTON_NEGATIVE:
                                                 String myAllergy = txtAllergy.getText().toString();
                                                 String myBdate = txtBdate.getText().toString();
-                                                String myMaintenance =  txtMaintenance.getText().toString();
+                                                String myMaintenance = txtMaintenance.getText().toString();
                                                 String myAddress = txtAddress.getText().toString();
                                                 String bloodType = txtbloodType.getText().toString();
                                                 String medicalCond = txtmedCon.getText().toString();
@@ -516,7 +520,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                                 String contactPer = txtcontactPerson.getText().toString();
                                                 String contactPerNum = txtcontPerNumber.getText().toString();
 
-                                                if (myAddress.isEmpty() || myAllergy.isEmpty() || myBdate.isEmpty() || myMaintenance.isEmpty() ||bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
+                                                if (myAddress.isEmpty() || myAllergy.isEmpty() || myBdate.isEmpty() || myMaintenance.isEmpty() || bloodType.isEmpty() || medicalCond.isEmpty() || medicalTaken.isEmpty() || contactPer.isEmpty() || contactPerNum.isEmpty()) {
                                                     Toasty.error(getActivity(), "Please complete up the field(s)",
                                                             Toast.LENGTH_LONG, true).show();
 

@@ -117,6 +117,11 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
                                     ActivityCompat.requestPermissions(getActivity(), new String[]{
                                             Manifest.permission.ACCESS_FINE_LOCATION
                                     }, 100);
+//                                  run this after accepting the permission -- not working
+//                                    if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+//                                        Toasty.info(getActivity(), "Please re-open this service.",
+//                                                Toast.LENGTH_LONG, true).show();
+//                                    }
                                 }
                             })
                             .create()
@@ -133,11 +138,10 @@ public class GoogleMapsFragment extends Fragment implements LocationListener, Vi
 
             getLocation();
             if (mLocation == null) {
+                Toasty.info(getActivity(), "Please re-open this service if no data have not shown on the map yet.",
+                        Toast.LENGTH_LONG, true).show();
                 return;
             }
-
-            Toasty.info(getActivity(), "Re-open this if no data have not shown yet.",
-                    Toast.LENGTH_LONG, true).show();
 
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setZoomControlsEnabled(true);

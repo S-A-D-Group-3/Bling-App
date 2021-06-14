@@ -118,7 +118,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         btn_call_hd_hotline = view.findViewById(R.id.btn_call_hd_hotline);
         btn_call_r_hotline = view.findViewById(R.id.btn_call_r_hotline);
         btn_call_rc_hotline = view.findViewById(R.id.btn_call_rc_hotline);
-        btn_call_mmda = view.findViewById(R.id.btn_call_mmda );
+        btn_call_mmda = view.findViewById(R.id.btn_call_mmda);
 
         btn_call_covid_hotline.setVisibility(View.GONE);
         btn_call_cp_hotline.setVisibility(View.GONE);
@@ -128,7 +128,6 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         btn_call_r_hotline.setVisibility(View.GONE);
         btn_call_rc_hotline.setVisibility(View.GONE);
         btn_call_mmda.setVisibility(View.VISIBLE);
-
 
         btn_call_covid_hotline.setOnClickListener(this);
         btn_call_cp_hotline.setOnClickListener(this);
@@ -178,50 +177,296 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == btn_call_covid_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + covid_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_covid_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + covid_hotline));
+                getActivity().startActivity(intent);
+            }
         }
-        if(v.getId() == btn_call_cp_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_cp_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + cp_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
-        if(v.getId() == btn_call_e_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + e_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_e_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + e_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
-        if(v.getId() == btn_call_fd_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + fd_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_fd_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + fd_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
-        if(v.getId() == btn_call_hd_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + hd_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_hd_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + hd_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
-        if(v.getId() == btn_call_r_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + r_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_r_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + r_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
-        if(v.getId() == btn_call_rc_hotline.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + rc_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_rc_hotline.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + rc_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
-        if(v.getId() == btn_call_mmda.getId()) {
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + mmda_hotline));
-            getActivity().startActivity(intent);
+        if (v.getId() == btn_call_mmda.getId()) {
+            if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                        Manifest.permission.CALL_PHONE)) {
+                    // Show an explanation to the user *asynchronously* -- don't block
+                    // this thread waiting for the user's response! After the user
+                    // sees the explanation, try again to request the permission.
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Permission to use Call")
+                            .setMessage("To use this service, enabling call permission is required." +
+                                    "It will make the process convenient by means of automating the call, instead of typing it.")
+                            .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //Prompt the user once explanation has been shown
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                                            Manifest.permission.CALL_PHONE
+                                    }, 101);
+                                }
+                            })
+                            .create()
+                            .show();
+                } else {
+                    // No explanation needed, we can request the permission.
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{
+                            Manifest.permission.CALL_PHONE
+                    }, 101);
+                }
+            } else {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel: " + mmda_hotline));
+                getActivity().startActivity(intent);
+            }
+
         }
 
     }
 
-
     public void getLatLng() {
         getLocation();
         if (mLocation == null) {
+            Toasty.info(getActivity(), "Please re-open this service if no data have not shown on the map yet.",
+                    Toast.LENGTH_LONG, true).show();
             return;
         }
 
-        Toasty.info(getActivity(), "Re-open this if no data have not shown yet.",
-                Toast.LENGTH_LONG, true).show();
 
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -298,7 +543,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
     public void onStatusChanged(String provider, int status, Bundle extras) {
     }
 
-    public String generateAddress(Double lat, Double lng){
+    public String generateAddress(Double lat, Double lng) {
 
         String url = "https://maps.googleapis.com/maps/api/geocode/json?" +
                 "latlng=" + lat + "," + lng +
@@ -308,7 +553,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         return url;
     }
 
-    public class PlaceTask extends AsyncTask<String,Integer,String> {
+    public class PlaceTask extends AsyncTask<String, Integer, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -326,7 +571,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         }
 
         public String downloadUrl(String string) throws IOException {
-            URL url= new URL(string);
+            URL url = new URL(string);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -340,7 +585,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
             String line = "";
 
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 builder.append(line);
 
             }
@@ -354,12 +599,12 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
         @Override
         protected void onPostExecute(String s) {
-            if (s!= null){
+            if (s != null) {
                 new ParserTask().execute(s);
             }
         }
 
-        private class ParserTask extends AsyncTask<String,Integer, List<HashMap<String,String>>>{
+        private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
 
             @Override
             protected List<HashMap<String, String>> doInBackground(String... strings) {
@@ -380,7 +625,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             @Override
             protected void onPostExecute(List<HashMap<String, String>> hashMaps) {
 
-                for(int i = 0; i < hashMaps.size(); i++) {
+                for (int i = 0; i < hashMaps.size(); i++) {
                     HashMap<String, String> hashMap = hashMaps.get(i);
 
                     //store data in the variable
@@ -391,14 +636,14 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
                     generateCityHotline(address);
 
-                    if(splitAddress[0].contains("City")) {
+                    if (splitAddress[0].contains("City")) {
                         tv_user_city.setText(splitAddress[0]);
 
                     } else {
                         tv_user_city.setText(splitAddress[0] + " City");
                     }
 
-                    if(!isNCR) {
+                    if (!isNCR) {
                         tv_currently_on.setText("Sorry, this feature is not available at your current location.");
                         return;
                     }
@@ -421,13 +666,12 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
                     btn_call_rc_hotline.setVisibility(View.VISIBLE);
 
 
-
                 }
             }
         }
     }
 
-    String e_hotline = "", fd_hotline = "", r_hotline = "", cp_hotline = "", hd_hotline = "", rc_hotline = "", covid_hotline = "",  mmda_hotline ="136";
+    String e_hotline = "", fd_hotline = "", r_hotline = "", cp_hotline = "", hd_hotline = "", rc_hotline = "", covid_hotline = "", mmda_hotline = "136";
     boolean isNCR = false;
 
     public boolean generateCityHotline(String city) {
@@ -439,7 +683,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8527 4950";
             rc_hotline = "(02) 8257 2161 ";
             covid_hotline = "09610627013";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -499,7 +743,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8281 4999";
             rc_hotline = "(02) 8366 6470";
             covid_hotline = "0917-9863823";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -511,7 +755,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8283 - 0697";
             rc_hotline = "(02) 8281-9003";
             covid_hotline = "8281.1111";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -523,7 +767,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "8352 - 6000";
             rc_hotline = "3432 - 0273";
             covid_hotline = "8292-1405";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -535,7 +779,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8929 8038";
             rc_hotline = "(02) 3433 2151";
             covid_hotline = "122";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -547,7 +791,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8642 7754";
             rc_hotline = "(02) 8470 9611";
             covid_hotline = "8643.0000";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -559,7 +803,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "882-6316 to 36";
             rc_hotline = "(02) 8403 5826";
             covid_hotline = "168 / 8870-195959";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -571,7 +815,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "744-0736 / 497-4978 / 724-0721";
             rc_hotline = "(02) 3416 1343";
             covid_hotline = "8655-5000 / 7949-8359";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -583,7 +827,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8831 8201";
             rc_hotline = "(02) 8884 2748";
             covid_hotline = "09567786253 / 09089937024";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -595,7 +839,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "826-61-47";
             rc_hotline = "(02) 8836 4790";
             covid_hotline = "8820-7783";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -607,7 +851,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "824-5764 / 874-6408 / 776-7268";
             rc_hotline = "(02) 8556 7659";
             covid_hotline = "8994-5782 / 09776726211";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -619,7 +863,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = " 88622711";
             rc_hotline = "09178387672";
             covid_hotline = "09772405218 / 09772405217";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 
@@ -631,7 +875,7 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             hd_hotline = "(02) 8641 0614";
             rc_hotline = "(02) 8470 9611 ";
             covid_hotline = "8642-5159";
-            mmda_hotline ="136";
+            mmda_hotline = "136";
             isNCR = true;
         }
 

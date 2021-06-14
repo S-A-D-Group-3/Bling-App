@@ -81,12 +81,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-            }, 100);
-        }
-
         top_nav_view = view.findViewById(R.id.top_nav_view);
 
         top_nav_view.setOnNavigationItemSelectedListener(navListener);

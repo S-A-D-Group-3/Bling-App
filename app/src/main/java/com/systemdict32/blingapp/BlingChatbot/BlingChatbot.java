@@ -31,6 +31,7 @@ import com.systemdict32.blingapp.Fragments.FireStationFragment;
 import com.systemdict32.blingapp.Fragments.HomeFragment;
 import com.systemdict32.blingapp.Fragments.HospitalFragment;
 import com.systemdict32.blingapp.Fragments.InstructionFragment;
+import com.systemdict32.blingapp.Fragments.LGUFragment;
 import com.systemdict32.blingapp.Fragments.MyAccountFragment;
 import com.systemdict32.blingapp.Fragments.MyICEFragment;
 import com.systemdict32.blingapp.Fragments.PoliceStationsFragment;
@@ -97,95 +98,86 @@ public class BlingChatbot {
         String botMessage = "Pardon. Please try another word.";
         String userMessage = speechMessage.get(0);
 
-        // ------------------------------------------ instruction set -----------------------------------
-
-        if (userMessage.contains("first aid")) {
-            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new InstructionFragment());
-            ft.addToBackStack("nav_home");
-            ft.commit();
-
-            botMessage = "Going to First Aid Instruction Page";
-        }
         // ------------------------------------------ first aid categories -----------------------------------
 
         // c1 emergency basic
-        if (userMessage.contains("emergency basic") || userMessage.contains("emergency first aid")
-                || userMessage.contains("cramp") || userMessage.contains("cramps")
-                || userMessage.contains("unconscious") || userMessage.contains("comatose")
-                || userMessage.contains("coma")) {
+        if (userMessage.toLowerCase().contains("emergency basic") || userMessage.toLowerCase().contains("emergency first aid")
+                || userMessage.toLowerCase().contains("cramp") || userMessage.toLowerCase().contains("cramps")
+                || userMessage.toLowerCase().contains("unconscious") || userMessage.toLowerCase().contains("comatose")
+                || userMessage.toLowerCase().contains("coma")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c1_EmergencyBasicFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Emergency Basic Page";
         }
-        if (userMessage.contains("wound") || userMessage.contains("wounds")
-                || userMessage.contains("bruise") || userMessage.contains("bruises")) {
+        if (userMessage.toLowerCase().contains("wound") || userMessage.toLowerCase().contains("wounds")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c2_WoundsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Wounds Page";
         }
-        if (userMessage.contains("body injury") || userMessage.contains("body injuries")
-                || userMessage.contains("injury") || userMessage.contains("injuries")) {
+        if (userMessage.toLowerCase().contains("body injury") || userMessage.toLowerCase().contains("body injuries")
+                || userMessage.toLowerCase().contains("injury") || userMessage.toLowerCase().contains("injuries")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c3_BodyInjuriesFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Body Injuries Page";
         }
-        if (userMessage.contains("severe wound") || userMessage.contains("severe wounds")
-                || userMessage.contains("bleed") || userMessage.contains("bleeding") || userMessage.contains("bleeds")
-                || userMessage.contains("lose blood") || userMessage.contains("blood")) {
+        if (userMessage.toLowerCase().contains("severe wound") || userMessage.toLowerCase().contains("severe wounds")
+                || userMessage.toLowerCase().contains("bleed") || userMessage.toLowerCase().contains("bleeding") || userMessage.toLowerCase().contains("bleeds")
+                || userMessage.toLowerCase().contains("lose blood") || userMessage.toLowerCase().contains("blood")) {
+
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c4_SevereWoundsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Severe Wounds Page";
         }
-        if (userMessage.contains("serious incident") || userMessage.contains("serious incidents")
-                || userMessage.contains("incident") || userMessage.contains("incidents") || userMessage.contains("seizures")
-                || userMessage.contains("seizure") || userMessage.contains("electric")) {
+        if (userMessage.toLowerCase().contains("serious incident") || userMessage.toLowerCase().contains("serious incidents")
+                || userMessage.toLowerCase().contains("incident") || userMessage.toLowerCase().contains("incidents") || userMessage.toLowerCase().contains("seizures")
+                || userMessage.toLowerCase().contains("seizure") || userMessage.toLowerCase().contains("electric")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c5_SeriousIncidentsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Serious Incidents Page";
         }
-        if (userMessage.contains("car accident") || userMessage.contains("car accidents")
-                || userMessage.contains("car injury") || userMessage.contains("car injuries")
-                || userMessage.contains("burn") || userMessage.contains("burns")
-                || userMessage.contains("fracture") || userMessage.contains("fractures")) {
+        if (userMessage.toLowerCase().contains("car accident") || userMessage.toLowerCase().contains("car accidents")
+                || userMessage.toLowerCase().contains("car injury") || userMessage.toLowerCase().contains("car injuries")
+                || userMessage.toLowerCase().contains("burn") || userMessage.toLowerCase().contains("burns")
+                || userMessage.toLowerCase().contains("fracture") || userMessage.toLowerCase().contains("fractures")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c6_CarAccidentFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Car Accident Page";
         }
-        if (userMessage.contains("respiratory problem") || userMessage.contains("respiratory problems")
-                || userMessage.contains("respiratory")) {
+        if (userMessage.toLowerCase().contains("respiratory problem") || userMessage.toLowerCase().contains("respiratory problems")
+                || userMessage.toLowerCase().contains("respiratory")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c7_RespiratoryProblemFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Respiratory Problem Page";
         }
-        if (userMessage.contains("outdoor incident") || userMessage.contains("outdoor incidents")
-                || userMessage.contains("outdoor accident") || userMessage.contains("outdoor accidents")
-                || userMessage.contains("outside") || userMessage.contains("outside")
-                || userMessage.contains("outdoor") || userMessage.contains("outdoor")) {
+        if (userMessage.toLowerCase().contains("outdoor incident") || userMessage.toLowerCase().contains("outdoor incidents")
+                || userMessage.toLowerCase().contains("outdoor accident") || userMessage.toLowerCase().contains("outdoor accidents")
+                || userMessage.toLowerCase().contains("outside") || userMessage.toLowerCase().contains("outside")
+                || userMessage.toLowerCase().contains("outdoor")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c8_OutdoorIncidentsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Outdoor Accident Page";
         }
-        if (userMessage.contains("foreign objects") || userMessage.contains("foreign object")
-                || userMessage.contains("bite") || userMessage.contains("bites")
-                || userMessage.contains("poisons") || userMessage.contains("poison") || userMessage.contains("poisonous") || userMessage.contains("poisoning")
-                || userMessage.contains("sting") || userMessage.contains("stings")
-                || (userMessage.contains("object") && userMessage.contains("body"))) {
+        if (userMessage.toLowerCase().contains("foreign objects") || userMessage.toLowerCase().contains("foreign object")
+                || userMessage.toLowerCase().contains("bite") || userMessage.toLowerCase().contains("bites")
+                || userMessage.toLowerCase().contains("poisons") || userMessage.toLowerCase().contains("poison") || userMessage.toLowerCase().contains("poisonous") || userMessage.toLowerCase().contains("poisoning")
+                || userMessage.toLowerCase().contains("sting") || userMessage.toLowerCase().contains("stings")
+                || (userMessage.toLowerCase().contains("object") && userMessage.toLowerCase().contains("body"))) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c9_ForeignObjectsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -194,28 +186,28 @@ public class BlingChatbot {
         }
         // -------------------------------------------- first aid sub categories -------------------------------
         // c1 Emergency Basic
-        if (userMessage.contains("abdominal pain")) {
+        if (userMessage.toLowerCase().contains("abdominal pain")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c1_13_AbdominalPainFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Abdominal Pain Page";
         }
-        if (userMessage.contains("faint") || userMessage.contains("fainting") || userMessage.contains("dizzy")) {
+        if (userMessage.toLowerCase().contains("faint") || userMessage.toLowerCase().contains("fainting") || userMessage.toLowerCase().contains("dizzy")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c1_6_FaintingFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Fainting Page";
         }
-        if (userMessage.contains("sore throat")) {
+        if (userMessage.toLowerCase().contains("sore throat")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c1_12_SoreThroatFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Sore Throat Page";
         }
-        if (userMessage.contains("migraine")) {
+        if (userMessage.toLowerCase().contains("migraine")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c1_7_MigraineFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -229,14 +221,14 @@ public class BlingChatbot {
 
             botMessage = "Going to Nose Bleed Page";
         }
-        if (userMessage.contains("diarrhea") || userMessage.contains("vomiting")) {
+        if (userMessage.toLowerCase().contains("diarrhea") || userMessage.toLowerCase().contains("vomiting")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c1_8_VomitingFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Nose Bleed Page";
         }
-        if (userMessage.contains("head injury")) {
+        if (userMessage.toLowerCase().contains("head injury")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c3_1_HeadInjuryFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -244,50 +236,43 @@ public class BlingChatbot {
             botMessage = "Going to Head Injuries Page";
         }
         // c2 wounds
-        if (userMessage.contains("cut")) {
+        if (userMessage.toLowerCase().contains("cut")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c2_8_CutAndScrapesFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Cut and Scrapes Page";
         }
-        if (userMessage.contains("blister") || userMessage.contains("blisters")) {
+        if (userMessage.toLowerCase().contains("blister") || userMessage.toLowerCase().contains("blisters")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c2_1_BlistersFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Blisters Page";
         }
-        if (userMessage.contains("bruising")) {
+        if (userMessage.toLowerCase().contains("bruising")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c2_2_BruisingFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
-            botMessage = "Going to Blisters Page";
+            botMessage = "Going to Bruising Page";
         }
         // c4 SEVERE WOUNDS
-        if (userMessage.contains("shock")) {
+        if (userMessage.toLowerCase().contains("shock")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c4_1_ShockFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Shock Page";
         }
-        if (userMessage.contains("external bleeding") || userMessage.contains("external bleed")) {
+        if (userMessage.toLowerCase().contains("external bleeding") || userMessage.toLowerCase().contains("external bleed")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c4_2_ExternalBleedingFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to External Bleeding Page";
         }
-        if (userMessage.contains("impale") || userMessage.contains("impalement")) {
-            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c4_4_ImpalementFragment());
-            ft.addToBackStack("nav_home");
-            ft.commit();
-
-            botMessage = "Going to Impalement Page";
-        }
-        if (userMessage.contains("impale") || userMessage.contains("impalement")) {
+        if (userMessage.toLowerCase().contains("impale") || userMessage.toLowerCase().contains("impalement")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c4_4_ImpalementFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -295,35 +280,35 @@ public class BlingChatbot {
             botMessage = "Going to Impalement Page";
         }
         // c5 serious accidents
-        if (userMessage.contains("stroke")) {
+        if (userMessage.toLowerCase().contains("stroke")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c5_1_StrokeFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Stroke Page";
         }
-        if (userMessage.contains("drown") || userMessage.contains("drowning")) {
+        if (userMessage.toLowerCase().contains("drown") || userMessage.toLowerCase().contains("drowning")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c5_2_DrowningFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Drowning Page";
         }
-        if (userMessage.contains("heat stroke")) {
+        if (userMessage.toLowerCase().contains("heat stroke")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c5_3_HeatStrokeFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Heat Stroke Page";
         }
-        if (userMessage.contains("heart attack")) {
+        if (userMessage.toLowerCase().contains("heart attack")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c5_4_HeartAttackFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Heart Attack Page";
         }
-        if (userMessage.contains("child birth")) {
+        if (userMessage.toLowerCase().contains("child birth")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c5_10_EmergencyChildbirthFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -331,28 +316,28 @@ public class BlingChatbot {
             botMessage = "Going to Emergency Child Birth Page";
         }
         // c7 respiratory problem
-        if (userMessage.contains("hanging") || userMessage.contains("strangulation")) {
+        if (userMessage.toLowerCase().contains("hanging") || userMessage.toLowerCase().contains("strangulation")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c7_4_HangingFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Hanging & Strangulation Page";
         }
-        if (userMessage.contains("fumes") || userMessage.contains("chemical")) {
+        if (userMessage.toLowerCase().contains("fumes") || userMessage.toLowerCase().contains("chemical")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c7_5_InhalationFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Inhalation of Fumes Page";
         }
-        if (userMessage.contains("hyperventilation")) {
+        if (userMessage.toLowerCase().contains("hyperventilation")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c7_6_HyperventilationFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Hyperventilation Page";
         }
-        if (userMessage.contains("asthma")) {
+        if (userMessage.toLowerCase().contains("asthma")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c7_7_AsthmaFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -360,35 +345,35 @@ public class BlingChatbot {
             botMessage = "Going to Asthma Page";
         }
         // c8 outdoor incidents
-        if (userMessage.contains("sunburn")) {
+        if (userMessage.toLowerCase().contains("sunburn")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c8_1_SunburnFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Sunburn Page";
         }
-        if (userMessage.contains("frostbite")) {
+        if (userMessage.toLowerCase().contains("frostbite")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c8_2_FrostbiteFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Frostbite Page";
         }
-        if (userMessage.contains("dehydration") || userMessage.contains("dehydrate")) {
+        if (userMessage.toLowerCase().contains("dehydration") || userMessage.toLowerCase().contains("dehydrate")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c8_3_DehydrationFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Dehydration Page";
         }
-        if (userMessage.contains("hypothermia")) {
+        if (userMessage.toLowerCase().contains("hypothermia")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c8_4_HypothermiaFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Hypothermia Page";
         }
-        if (userMessage.contains("heat exhaustion") || userMessage.contains("heat exhaust")) {
+        if (userMessage.toLowerCase().contains("heat exhaustion") || userMessage.toLowerCase().contains("heat exhaust")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c8_5_HeatExhaustionFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -396,21 +381,14 @@ public class BlingChatbot {
             botMessage = "Going to Heat Exhaustion Page";
         }
         // c9 foreign objects
-        if (userMessage.contains("tic bite")) {
-            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c9_1_TickBiteFragment());
-            ft.addToBackStack("nav_home");
-            ft.commit();
-
-            botMessage = "Going to Tick Bite Page";
-        }
-        if (userMessage.contains("snake bite")) {
+        if (userMessage.toLowerCase().contains("snake bite")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c9_2_SnakeBiteFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Snake Bite Page";
         }
-        if (userMessage.contains("drug poison") || userMessage.contains("drug poisoning")) {
+        if (userMessage.toLowerCase().contains("drug poison") || userMessage.toLowerCase().contains("drug poisoning")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c9_7_DrugPoisoningFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -419,38 +397,35 @@ public class BlingChatbot {
         }
         // c10
         // first aid basic
-        if (userMessage.contains("first aid basic") || userMessage.contains("First aid basic")) {
+        if (userMessage.toLowerCase().contains("first aid basic") || userMessage.toLowerCase().contains("First aid basic")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_FirstAidBasicFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to First Aid Basic Page";
         }
-        if (userMessage.contains("cpr") || userMessage.contains("C.P.R.") || userMessage.contains("CPR")) {
+        if (userMessage.toLowerCase().contains("cpr") || userMessage.toLowerCase().contains("C.P.R.") || userMessage.toLowerCase().contains("c.p.r")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_1_CprFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to CPR Page";
         }
-        if (userMessage.contains("vital signs") || userMessage.contains("vital sign")
-                || userMessage.contains("Vital signs") || userMessage.contains("Vital sign")) {
+        if (userMessage.toLowerCase().contains("vital signs") || userMessage.toLowerCase().contains("vital sign")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_2_VitalSignsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Vital Signs Page";
         }
-        if (userMessage.contains("choke") || userMessage.contains("choking")
-                || userMessage.contains("Choke") || userMessage.contains("Choking")) {
+        if (userMessage.toLowerCase().contains("choke") || userMessage.toLowerCase().contains("choking")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_3_ChokingsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Choking Page";
         }
-        if (userMessage.contains("Bandage") || userMessage.contains("Bandages")
-                || userMessage.contains("bandage") || userMessage.contains("bandages")) {
+        if (userMessage.toLowerCase().contains("Bandage") || userMessage.toLowerCase().contains("Bandages")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new c10_4_BandagesFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -458,50 +433,36 @@ public class BlingChatbot {
             botMessage = "Going to Bandages Page";
         }
         // emergency services
-        if (userMessage.contains("medic") || userMessage.contains("hospital") || userMessage.contains("medical")) {
+        if (userMessage.toLowerCase().contains("medic") || userMessage.toLowerCase().contains("hospital") || userMessage.toLowerCase().contains("medical")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new HospitalFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Nearby Hospital Page";
         }
-        if (userMessage.contains("police")) {
+        if (userMessage.toLowerCase().contains("police")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new PoliceStationsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Nearby Police Station Page";
         }
-        if (userMessage.contains("firefighter") || userMessage.contains("fire station") || userMessage.contains("fireman")) {
+        if (userMessage.toLowerCase().contains("firefighter") || userMessage.toLowerCase().contains("fire station") || userMessage.toLowerCase().contains("fireman")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FireStationFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
 
             botMessage = "Going to Nearby Fire Station Page";
         }
+        if (userMessage.toLowerCase().contains("hot lines") || userMessage.toLowerCase().contains("hotlines")) {
+            FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new LGUFragment());
+            ft.addToBackStack("nav_home");
+            ft.commit();
+
+            botMessage = "Going to L.G.U. Hotlines Page";
+        }
         if (userMessage.compareToIgnoreCase("hello") == 0) {
             botMessage = "Hi, I'm Bling App";
-        }
-        if (userMessage.compareToIgnoreCase("emergency") == 0) {
-            botMessage = "Calling 911.";
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: 911"));
-            context.startActivity(intent);
-        }
-        if (userMessage.compareToIgnoreCase("hotline") == 0) {
-            botMessage = "Hello, what is your emergency?";
-        }
-        if (userMessage.compareToIgnoreCase("thank you") == 0 || userMessage.compareToIgnoreCase("thanks") == 0) {
-            botMessage = "Thank you for using bling app";
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Do something after 5s = 5000ms
-//                    Intent intent = new Intent(context, MainActivity.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                    intent.putExtra("EXIT", true);
-//                    context.startActivity(intent);
-                }
-            }, 1500);
         }
         return botMessage;
     }

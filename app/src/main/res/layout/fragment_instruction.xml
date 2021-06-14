@@ -58,7 +58,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:padding="4dp"
-                    android:text="Instruction Set is a collection of textual and visual\nInformation on how to give preliminary first-aid"
+                    android:text="Instruction Set is a collection of textual and visual\nInformation on how to give preliminary first-aid."
                     android:textColor="@color/black"
                     android:textSize="10sp" />
 
@@ -90,7 +90,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#c7dcf4">
 
                         <TextView
                             android:id="@+id/txt10"
@@ -132,7 +132,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#c7dcf4">
 
                         <TextView
                             android:id="@+id/txt1"
@@ -174,7 +174,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#c7dcf4">
 
                         <TextView
                             android:id="@+id/txt2"
@@ -214,7 +214,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#c7dcf4">
 
                         <TextView
                             android:id="@+id/txt3"
@@ -255,7 +255,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#d7e6f7">
 
                         <TextView
                             android:id="@+id/txt4"
@@ -296,7 +296,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#d7e6f7">
 
                         <TextView
                             android:id="@+id/txt5"
@@ -338,7 +338,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#d7e6f7">
 
                         <TextView
                             android:id="@+id/txt6"
@@ -379,7 +379,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#d7e6f7">
 
                         <TextView
                             android:id="@+id/txt7"
@@ -421,7 +421,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#e7f0fa">
 
                         <TextView
                             android:id="@+id/txt8"
@@ -462,7 +462,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/card_looks">
+                        android:background="#e7f0fa">
 
                         <TextView
                             android:id="@+id/txt9"
@@ -624,7 +624,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="End of set."
+                    android:text="Instruction Page updated June 2021."
                     android:textColor="@color/black"
                     android:textSize="10sp" />
 

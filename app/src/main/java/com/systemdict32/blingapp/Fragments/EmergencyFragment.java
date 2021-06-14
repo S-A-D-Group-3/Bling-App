@@ -122,19 +122,39 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
         if(v.getId() == permGranter.getId()) {
             new AlertDialog.Builder(getActivity())
                     .setTitle("Voice commands for chatbot assistance")
-                    .setMessage("Onse di ko lam mga commands nung sa bot tol")
-                    .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //Prompt the user once explanation has been shown
-                            ActivityCompat.requestPermissions(getActivity(), new String[]{
-                                    Manifest.permission.CALL_PHONE
-                            }, 101);
-                        }
-                    })
+                    .setMessage("Keywords you can use:\n\n" +
+                            "1. First Aid Categories\n" +
+                            "A. First Aid Basic\n" +
+                            "B. Emergency Basic\n" +
+                            "C. Wounds\n" +
+                            "D. Body Injuries\n" +
+                            "E. Severe Wounds\n" +
+                            "F. Serious Incidents\n" +
+                            "G. Car Accident\n" +
+                            "H. Respiratory Problem\n" +
+                            "I. Outdoor Incidents\n" +
+                            "J. Foreign Objects\n\n" +
+
+                            "2. First Aid Sub Categories\n" +
+                            "A. CPR, Vital Sign, Choking, Bandage\n" +
+                            "B. Abdominal Pain, Faint, Sore Throat, Migraine, Nose Bleed, Diarrhea, Head Injury, Cramp, Unconcious, Coma\n" +
+                            "C. Cut, Blister, Bruising\n" +
+                            "D. Head Injury\n" +
+                            "E. Shock, External Bleeding, Impale\n" +
+                            "F. Stroke, Drown, Heat Stroke, Heart Attack, Child Birth, Seizure, Electric\n" +
+                            "G. Burn, Fracture\n" +
+                            "H. Hanging, Chemical, Hyperventilation, Asthma\n" +
+                            "I. Sunburn, Frostbite, Dehydration, Hypothermia, Heat Exhaustion\n" +
+                            "J. Snake Bite, Drug Poison, Bite, Poison, Sting, Object\n\n" +
+
+                            "2. Nearby Emergency Service\n" +
+                            "A. Nearby Hospitals: Hospital\n" +
+                            "B. Nearby Police Station: Police\n" +
+                            "C. Nearby Fire Station: Fire Station\n" +
+                            "D. L.G.U Hotline Number: Hotlines\n")
+                    .setPositiveButton("I understand", null)
                     .create()
                     .show();
-            // pre kung marami yung commands gayahin mo na lang yung sa login page yung pag clinick mo yung T&C, may sariling layout yung dialogbox
         }
     }
 }

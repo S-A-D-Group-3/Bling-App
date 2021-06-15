@@ -454,7 +454,8 @@ public class BlingChatbot {
 
             botMessage = "Going to Nearby Fire Station Page";
         }
-        if (userMessage.toLowerCase().contains("hot lines") || userMessage.toLowerCase().contains("hotlines")) {
+        if (userMessage.toLowerCase().contains("hot lines") || userMessage.toLowerCase().contains("hot line")
+                || userMessage.toLowerCase().contains("hotlines") || userMessage.toLowerCase().contains("hotline")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new LGUFragment());
             ft.addToBackStack("nav_home");
             ft.commit();

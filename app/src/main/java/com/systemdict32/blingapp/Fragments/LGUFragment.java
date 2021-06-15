@@ -679,9 +679,9 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "8527-5174";
             fd_hotline = "(02) 527-3627";
             r_hotline = "871-5811";
-            cp_hotline = "117 / (02) 8722-0650";
-            hd_hotline = "(02) 8527 4950";
-            rc_hotline = "(02) 8257 2161 ";
+            cp_hotline = "(02) 8722-0650";
+            hd_hotline = "(02) 8527-4950";
+            rc_hotline = "(02) 8257-2161 ";
             covid_hotline = "09610627013";
             mmda_hotline = "136";
             isNCR = true;
@@ -692,8 +692,8 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             fd_hotline = "933-3076";
             r_hotline = "646-2423";
             cp_hotline = "646-1631";
-            hd_hotline = "(032) 646 2360";
-            rc_hotline = "(02) 8681 483";
+            hd_hotline = "(032) 646-2360";
+            rc_hotline = "(02) 8681-483";
             covid_hotline = "09455176926";
             mmda_hotline = "136";
             isNCR = true;
@@ -703,10 +703,10 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "8-789-3200";
             fd_hotline = "(02) 837-0740";
             r_hotline = "165-7777";
-            cp_hotline = "(02) 8642 2062";
-            hd_hotline = "(02) 8642 126 ";
-            rc_hotline = "(02) 8470 9611";
-            covid_hotline = "09664194150 / 8628-3449";
+            cp_hotline = "(02) 8642-2062";
+            hd_hotline = "(02) 8642-126";
+            rc_hotline = "(02) 8470-9611";
+            covid_hotline = "09664194150";
             mmda_hotline = "136";
             isNCR = true;
         }
@@ -715,33 +715,33 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "8533-2225";
             fd_hotline = "532-2402";
             r_hotline = "533-2225";
-            cp_hotline = "532 2145";
-            hd_hotline = "8532 5001";
-            rc_hotline = "8571 9894";
-            covid_hotline = "09162558130 / 09615716959";
+            cp_hotline = "532-2145";
+            hd_hotline = "8532-5001";
+            rc_hotline = "8571-9894";
+            covid_hotline = "09615716959";
             mmda_hotline = "136";
             isNCR = true;
         }
 
         if (city.contains("Caloocan")) {
             e_hotline = "5310-6972";
-            fd_hotline = "(02) 362 - 4037";
+            fd_hotline = "(02) 362-4037";
             r_hotline = "288 - 8811 (2295)";
             cp_hotline = "53657230";
-            hd_hotline = "Smart/Tnt: 0947-8834430 Globe/Tm: 0977-2393931";
+            hd_hotline = "0947-8834430";
             rc_hotline = "(02) 8364-5752";
-            covid_hotline = "5310.6972 / 09478834430 ";
+            covid_hotline = "09478834430";
             mmda_hotline = "136";
             isNCR = true;
         }
 
         if (city.contains("Malabon")) {
-            e_hotline = "(02) 8921 - 6009";
-            fd_hotline = "(02) 361 - 9712";
-            r_hotline = "921 - 6009 ";
-            cp_hotline = "Tel#: 287-36-52 / 932-21-34, Mobile#: 09217050770";
-            hd_hotline = "(02) 8281 4999";
-            rc_hotline = "(02) 8366 6470";
+            e_hotline = "(02) 8921-6009";
+            fd_hotline = "(02) 361-9712";
+            r_hotline = "921-6009 ";
+            cp_hotline = "932-21-34";
+            hd_hotline = "(02) 8281-4999";
+            rc_hotline = "(02) 8366-6470";
             covid_hotline = "0917-9863823";
             mmda_hotline = "136";
             isNCR = true;
@@ -749,12 +749,12 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
 
         if (city.contains("Navotas")) {
             e_hotline = "8281-1111";
-            fd_hotline = "(02) 281 - 0854";
-            r_hotline = "281 - 8531";
-            cp_hotline = "(02) 8281 - 9099";
-            hd_hotline = "(02) 8283 - 0697";
+            fd_hotline = "(02) 281-0854";
+            r_hotline = "281-8531";
+            cp_hotline = "(02) 8281-9099";
+            hd_hotline = "(02) 8283-0697";
             rc_hotline = "(02) 8281-9003";
-            covid_hotline = "8281.1111";
+            covid_hotline = "8281-1111";
             mmda_hotline = "136";
             isNCR = true;
         }
@@ -762,10 +762,10 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
         if (city.contains("Valenzuela")) {
             e_hotline = "8352-5000";
             fd_hotline = "292-3519";
-            r_hotline = "8352 - 5000";
-            cp_hotline = "8352 - 4000 ";
-            hd_hotline = "8352 - 6000";
-            rc_hotline = "3432 - 0273";
+            r_hotline = "8352-5000";
+            cp_hotline = "8352-4000 ";
+            hd_hotline = "8352-6000";
+            rc_hotline = "3432-0273";
             covid_hotline = "8292-1405";
             mmda_hotline = "136";
             isNCR = true;
@@ -776,8 +776,8 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             fd_hotline = "8924-1922";
             r_hotline = "928-4386";
             cp_hotline = "8925-8326 ";
-            hd_hotline = "(02) 8929 8038";
-            rc_hotline = "(02) 3433 2151";
+            hd_hotline = "(02) 8929-8038";
+            rc_hotline = "(02) 3433-2151";
             covid_hotline = "122";
             mmda_hotline = "136";
             isNCR = true;
@@ -788,21 +788,21 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             fd_hotline = "641-1939";
             r_hotline = "641-0439";
             cp_hotline = "641-0433";
-            hd_hotline = "(02) 8642 7754";
-            rc_hotline = "(02) 8470 9611";
-            covid_hotline = "8643.0000";
+            hd_hotline = "(02) 8642-7754";
+            rc_hotline = "(02) 8470-9611";
+            covid_hotline = "8643-0000";
             mmda_hotline = "136";
             isNCR = true;
         }
 
         if (city.contains("Makati")) {
-            e_hotline = "168 / 8236-5790";
+            e_hotline = "8236-5790";
             fd_hotline = "(02) 818-5150";
             r_hotline = "870-1940";
-            cp_hotline = "8887-1798 / 09297936525";
-            hd_hotline = "882-6316 to 36";
-            rc_hotline = "(02) 8403 5826";
-            covid_hotline = "168 / 8870-195959";
+            cp_hotline = "09297936525";
+            hd_hotline = "882-6316";
+            rc_hotline = "(02) 8403-5826";
+            covid_hotline = "8870-195959";
             mmda_hotline = "136";
             isNCR = true;
         }
@@ -811,10 +811,10 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "7238-4333";
             fd_hotline = "(02) 725-8044";
             r_hotline = "718-0338";
-            cp_hotline = "(02) 8724 2515";
-            hd_hotline = "744-0736 / 497-4978 / 724-0721";
+            cp_hotline = "(02) 8724-2515";
+            hd_hotline = "724-0721";
             rc_hotline = "(02) 3416 1343";
-            covid_hotline = "8655-5000 / 7949-8359";
+            covid_hotline = "8655-5000";
             mmda_hotline = "136";
             isNCR = true;
         }
@@ -823,34 +823,34 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "8551-7777";
             fd_hotline = "(02) 844-2120";
             r_hotline = "833-8512";
-            cp_hotline = "(02) 8832 1125";
-            hd_hotline = "(02) 8831 8201";
-            rc_hotline = "(02) 8884 2748";
-            covid_hotline = "09567786253 / 09089937024";
+            cp_hotline = "(02) 8832-1125";
+            hd_hotline = "(02) 8831-8201";
+            rc_hotline = "(02) 8884-2748";
+            covid_hotline = "09089937024";
             mmda_hotline = "136";
             isNCR = true;
         }
 
         if (city.contains("Parañaque")) {
-            e_hotline = "911 / 8820-7783";
+            e_hotline = "8820-7783";
             fd_hotline = "(02) 826-9131";
             r_hotline = "825-1099";
-            cp_hotline = "(02) 8286 2877";
+            cp_hotline = "(02) 8286-2877";
             hd_hotline = "826-61-47";
-            rc_hotline = "(02) 8836 4790";
+            rc_hotline = "(02) 8836-4790";
             covid_hotline = "8820-7783";
             mmda_hotline = "136";
             isNCR = true;
         }
 
         if (city.contains("Las Piñas")) {
-            e_hotline = "8552-7694 / 8776-7268";
+            e_hotline = "8552-7694";
             fd_hotline = "(02) 245-0387";
             r_hotline = "871-4334";
             cp_hotline = "+638808-7395 ";
-            hd_hotline = "824-5764 / 874-6408 / 776-7268";
-            rc_hotline = "(02) 8556 7659";
-            covid_hotline = "8994-5782 / 09776726211";
+            hd_hotline = "824-5764";
+            rc_hotline = "(02) 8556-7659";
+            covid_hotline = "09776726211";
             mmda_hotline = "136";
             isNCR = true;
         }
@@ -859,10 +859,10 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "8925-4351";
             fd_hotline = "(02) 842-2201";
             r_hotline = "862-0047";
-            cp_hotline = "(02) 8862 2721";
-            hd_hotline = " 88622711";
+            cp_hotline = "(02) 8862-2721";
+            hd_hotline = "88622711";
             rc_hotline = "09178387672";
-            covid_hotline = "09772405218 / 09772405217";
+            covid_hotline = "09772405218";
             mmda_hotline = "136";
             isNCR = true;
         }
@@ -871,9 +871,9 @@ public class LGUFragment extends Fragment implements LocationListener, View.OnCl
             e_hotline = "8642-5159";
             fd_hotline = "(02) 641-1365";
             r_hotline = "642-5159";
-            cp_hotline = "+63 (2) 8875-8596";
-            hd_hotline = "(02) 8641 0614";
-            rc_hotline = "(02) 8470 9611 ";
+            cp_hotline = "8875-8596";
+            hd_hotline = "(02) 8641-0614";
+            rc_hotline = "(02) 8470-9611 ";
             covid_hotline = "8642-5159";
             mmda_hotline = "136";
             isNCR = true;

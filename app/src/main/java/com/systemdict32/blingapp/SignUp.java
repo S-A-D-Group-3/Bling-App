@@ -68,8 +68,6 @@ public class SignUp extends AppCompatActivity {
         //hooks to signup.xml
 
 
-
-
         regEmail = findViewById(R.id.reg_email);
         regPassword = findViewById(R.id.reg_password);
         regFname = findViewById(R.id.reg_fname);
@@ -80,7 +78,6 @@ public class SignUp extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
 
 
-
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,30 +86,23 @@ public class SignUp extends AppCompatActivity {
                 String sPass = regPassword.getEditText().getText().toString().trim();
                 String sFname = regFname.getEditText().getText().toString().trim();
 
-                if (sEmail.isEmpty() && sPass.isEmpty()  && sFname.isEmpty()|| sEmail.isEmpty() || sFname.isEmpty() || sPass.isEmpty()) {
-                   regEmail.setError("This field is empty");
-                   regFname.setError("This field is empty");
-                   regPassword.setError("This field is empty");
+                if (sEmail.isEmpty() && sPass.isEmpty() && sFname.isEmpty() || sEmail.isEmpty() || sFname.isEmpty() || sPass.isEmpty()) {
+                    regEmail.setError("This field is empty");
+                    regFname.setError("This field is empty");
+                    regPassword.setError("This field is empty");
                     Toasty.error(SignUp.this, "Please fill up the field(s)",
                             Toast.LENGTH_LONG, true).show();
                     progressBar.setVisibility(View.GONE);
-                }
-                else if (!PASSWORD_PATTERN.matcher(sPass).matches()) {
+                } else if (!PASSWORD_PATTERN.matcher(sPass).matches()) {
                     regEmail.setError(null);
                     regFname.setError(null);
-                    regPassword.setError("Password combination is weak");
-                    Toasty.info(SignUp.this, "Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]",
-                            Toast.LENGTH_LONG, true).show();
-                            progressBar.setVisibility(View.GONE);
-                }
-
-                else {
+                    regPassword.setError("Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]");
+                    progressBar.setVisibility(View.GONE);
+                } else {
 
                     regEmail.setError(null);
                     regFname.setError(null);
                     regPassword.setError(null);
-
-
 
                     progressBar.setVisibility(View.VISIBLE);
                     firebaseAuth.createUserWithEmailAndPassword(sEmail, sPass)
@@ -166,8 +156,6 @@ public class SignUp extends AppCompatActivity {
                             });
                 }
             }
-
-
 
 
         });//register button method end

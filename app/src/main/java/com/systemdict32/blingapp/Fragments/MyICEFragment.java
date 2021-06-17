@@ -177,9 +177,27 @@ public class MyICEFragment extends Fragment implements LocationListener {
             }
         });
 
+        if (silent) {
+            if(address == null || birthDate == null || cPerson == null || cPersonNum == null || blood == null
+                    || medCon == null || medTake == null || mainTenance == null || allerGy == null) {
+                sw_notif.setChecked(false);
+            } else {
+                showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
+                showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
+            }
+
+        }
+
         sw_notif.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(address == null || birthDate == null || cPerson == null || cPersonNum == null || blood == null
+                        || medCon == null || medTake == null || mainTenance == null || allerGy == null) {
+                    Toasty.warning(getActivity(), "Please provide info to I.C.E info first to enable this service.",
+                            Toast.LENGTH_LONG, true).show();
+                    sw_notif.setChecked(false);
+                    return;
+                }
                 if (isChecked) {
                     showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
                     showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
@@ -192,6 +210,13 @@ public class MyICEFragment extends Fragment implements LocationListener {
                 editor.commit();
             }
         });
+//
+//        if(address != null || birthDate != null || cPerson != null || cPersonNum != null || blood != null
+//        || medCon != null || medTake != null || mainTenance != null || allerGy != null){
+////            sw_notif.setClickable(true);
+//        } else {
+//
+//        }
 
         return view;
     }
@@ -325,12 +350,7 @@ public class MyICEFragment extends Fragment implements LocationListener {
     @Override
     public void onStart() {
         super.onStart();
-        boolean silent = settings.getBoolean("switchkey", false);
 
-        if (silent) {
-            showNotificationPersonalInfo(fullname, birthDate, address, cPerson, cPersonNum);
-            showNotificationMedInfo(blood, medCon, medTake, mainTenance, allerGy);
-        }
     }
 
     // get lgu hotline

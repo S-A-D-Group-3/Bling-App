@@ -148,10 +148,10 @@ public class EmergencyFragment extends Fragment implements View.OnClickListener{
                             "j. Snake Bite, Drug Poison, Bite, Poison, Sting, Object\n\n" +
 
                             "2. Nearby Emergency Service\n" +
-                            "a. Nearby Hospitals: Hospital\n" +
-                            "b. Nearby Police Station: Police\n" +
-                            "c. Nearby Fire Station: Fire Station\n" +
-                            "d. L.G.U Hotline Number: Hotlines\n")
+                            "a. Find Hospital\n" +
+                            "b. Find Police Station\n" +
+                            "c. Find Fire Station\n" +
+                            "d. Local Hotlines\n")
                     .setPositiveButton("I understand", null)
                     .create()
                     .show();

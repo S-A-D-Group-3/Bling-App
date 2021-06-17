@@ -127,7 +127,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="14dp"
+                        android:layout_marginBottom="0dp"
                         android:inputType="textPassword"
                         android:textColor="#040000"
                         android:textSize="20sp" />
@@ -140,14 +140,14 @@
             <TextView
                 android:id="@+id/disclaimernotice"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:padding="2dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/lato_bold"
+                android:padding="2dp"
+                android:gravity="center"
                 android:text="Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]"
                 android:textColor="#2ed573"
-
                 android:textSize="13sp" />
 
             <ProgressBar

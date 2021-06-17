@@ -96,7 +96,7 @@ public class SignUp extends AppCompatActivity {
                 } else if (!PASSWORD_PATTERN.matcher(sPass).matches()) {
                     regEmail.setError(null);
                     regFname.setError(null);
-                    regPassword.setError("Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]");
+                    regPassword.setError("Please follow the proper password creation format.");
                     progressBar.setVisibility(View.GONE);
                 } else {
 

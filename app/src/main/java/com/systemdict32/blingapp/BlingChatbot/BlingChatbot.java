@@ -440,7 +440,7 @@ public class BlingChatbot {
 
             botMessage = "Going to Nearby Hospital Page";
         }
-        if (userMessage.toLowerCase().contains("police")) {
+        if (userMessage.toLowerCase().contains("police") || userMessage.toLowerCase().contains("police station")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new PoliceStationsFragment());
             ft.addToBackStack("nav_home");
             ft.commit();
@@ -454,8 +454,8 @@ public class BlingChatbot {
 
             botMessage = "Going to Nearby Fire Station Page";
         }
-        if (userMessage.toLowerCase().contains("hot lines") || userMessage.toLowerCase().contains("hot line")
-                || userMessage.toLowerCase().contains("hotlines") || userMessage.toLowerCase().contains("hotline")) {
+        if (userMessage.toLowerCase().contains("local hot lines") || userMessage.toLowerCase().contains("local hot line")
+                || userMessage.toLowerCase().contains("local hotlines") || userMessage.toLowerCase().contains("local hotline")) {
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new LGUFragment());
             ft.addToBackStack("nav_home");
             ft.commit();

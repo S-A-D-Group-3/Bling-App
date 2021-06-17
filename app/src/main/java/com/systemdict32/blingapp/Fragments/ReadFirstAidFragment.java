@@ -90,7 +90,7 @@ public class ReadFirstAidFragment extends Fragment implements TextToSpeech.OnIni
         TTS = blingChatbot.TTS(getActivity(), this);
 
         iv_read_first_aid = view.findViewById(R.id.iv_read_first_aid);
-        iv_read_first_aid.setImageResource(R.drawable.read_first_aid);
+        iv_read_first_aid.setImageResource(R.drawable.read_first_aid2);
 
         iv_cancel_read = view.findViewById(R.id.iv_cancel_read);
         iv_cancel_read.setImageResource(R.drawable.cancel_read);

@@ -164,6 +164,7 @@ public class SpeechFragment extends Fragment implements TextToSpeech.OnInitListe
                                 @Override
                                 public void run() {
                                     frag_tv_STT.setVisibility(View.INVISIBLE);
+                                    iv_speak_STT.setImageResource(R.drawable.microphone);
                                 }
                             }, 5000);
                         }

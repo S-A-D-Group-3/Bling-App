@@ -17,7 +17,7 @@
         android:padding="10dp"
         android:text="Related First Aid: "
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="18dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                 android:paddingBottom="10dp"
                 android:text="· Vital Signs"
                 android:textColor="#4d99f0"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:visibility="gone" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:paddingBottom="10dp"
                 android:text="· Cold Compress"
                 android:textColor="#4d99f0"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -85,7 +85,7 @@
             android:paddingBottom="10dp"
             android:text="· Elevation Sling"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
 
         <TextView
@@ -103,7 +103,7 @@
             android:paddingBottom="10dp"
             android:text="· Shock"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
         </LinearLayout>
 
@@ -126,7 +126,7 @@
             android:paddingBottom="10dp"
             android:text="· Rolled Bandages"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
 
         <TextView
@@ -144,7 +144,7 @@
             android:paddingBottom="10dp"
             android:text="· Broadfold Bandages"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
         </LinearLayout>
 
@@ -167,7 +167,7 @@
             android:paddingBottom="10dp"
             android:text="· Arm SLing"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
 
         <TextView
@@ -185,7 +185,7 @@
             android:paddingBottom="10dp"
             android:text="· Pulse"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
         </LinearLayout>
 
@@ -208,7 +208,7 @@
             android:paddingBottom="10dp"
             android:text="· Sling"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
 
         <TextView
@@ -226,7 +226,7 @@
             android:paddingBottom="10dp"
             android:text="· Circulation"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
 
         </LinearLayout>
@@ -250,7 +250,7 @@
             android:paddingBottom="10dp"
             android:text="· CPR"
             android:textColor="#4d99f0"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:visibility="gone" />
 
         </LinearLayout>

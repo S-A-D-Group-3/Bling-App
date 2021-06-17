@@ -119,6 +119,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:hint="Password"
+                    app:errorIconDrawable="@null"
                     android:transitionName="password_tran"
                     app:endIconTint="@color/action_bar"
                     app:passwordToggleEnabled="true">
@@ -139,13 +140,15 @@
             <TextView
                 android:id="@+id/disclaimernotice"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:padding="2dp"
                 android:layout_gravity="left"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/open_sans"
-                android:text="*Please use a valid E-mail address, an activation link will be\nsent after clicking sign up button."
-                android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:fontFamily="@font/lato_bold"
+                android:text="Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]"
+                android:textColor="#2ed573"
+
+                android:textSize="13sp" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

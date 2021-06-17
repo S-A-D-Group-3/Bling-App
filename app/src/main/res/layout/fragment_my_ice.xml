@@ -85,7 +85,7 @@
                 android:fontFamily="@font/open_sans"
                 android:background="@drawable/infohead_shape"
                 android:gravity="center"
-                android:text="Enable or disable notification"
+                android:text="Enable or disable notification.\nThis feature will display your ICE and Medical Condition on the Notification Panel for easier reference."
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 
@@ -114,7 +114,7 @@
                 android:fontFamily="@font/open_sans"
                 android:background="@drawable/infohead_roundshape"
                 android:gravity="center"
-                android:text="*This information will be used if you are\nin an emergency situation. please make sure\nthat the information you have entered is true."
+                android:text="*This information will be used by any responder if you are\nin an emergency situation. please make sure\nthat the information you have entered is true."
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 

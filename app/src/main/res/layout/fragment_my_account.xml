@@ -94,7 +94,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/open_sans"
                 android:gravity="center"
-                android:text="*The options below are for I.C.E data only.\nPlease make sure that the data that you\nWill put in the fields are true."
+                android:text="*The options below are for I.C.E data only.\nIn this page, you can modify your ICE information.\nPlease make sure that the data that you\nwill put in the fields are true."
                 android:textColor="@color/black"
                 android:textSize="10sp" />
 

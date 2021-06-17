@@ -69,24 +69,7 @@
 
         </LinearLayout>
 
-            <TextView
-                android:id="@+id/permGranting"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/crud_update"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:drawableLeft="@drawable/ic_treecirc"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:padding="6dp"
-                android:paddingStart="5dp"
-                android:text="Bot Assistance"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:clickable="true"/>
+
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -125,7 +108,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="Health Care"
+                            android:text="Find Health Care"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -168,7 +151,7 @@
                             android:fontFamily="@font/open_sans"
                            android:paddingLeft="2dp"
                             android:paddingRight="2dp"
-                            android:text="Security and Order"
+                            android:text="Find Police Station"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -211,7 +194,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="Fire Safety"
+                            android:text="Find Fire Station"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -254,7 +237,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/open_sans"
                             android:gravity="center"
-                            android:text="Local Government"
+                            android:text="Find LGU Services"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -270,6 +253,26 @@
 
 
             </GridLayout>
+
+            <TextView
+                android:id="@+id/permGranting"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/crud_update"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:drawableLeft="@drawable/ic_helper"
+                android:fontFamily="@font/open_sans"
+                android:gravity="center"
+                android:padding="6dp"
+                android:paddingStart="5dp"
+                android:text="Chatbot Help"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:clickable="true"/>
+
         </LinearLayout>
 
 

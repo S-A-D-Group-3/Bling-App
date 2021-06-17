@@ -9,7 +9,7 @@
             />
         <item
             android:id="@+id/nav_instruction"
-            android:title="Instruction Set"
+            android:title="First-Aid"
             android:icon="@drawable/ic_instruction_set"
             />
     </group>

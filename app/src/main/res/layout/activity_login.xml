@@ -92,6 +92,7 @@
                     android:focusableInTouchMode="true"
                     android:hint="Password"
                     android:singleLine="true"
+                    app:errorIconDrawable="@null"
                     android:transitionName="password_tran"
                     app:passwordToggleEnabled="true">
 

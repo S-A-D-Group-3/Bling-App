@@ -294,7 +294,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                                 AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
                                 builder2.create();
-                                builder2.setCancelable(true);
+                                builder2.setCancelable(false);
                                 builder2.setIcon(R.drawable.logo_bling);
                                 builder2.setMessage("Set Profile Photo").setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Choose from Files", dialogClickListener).show();
@@ -305,7 +305,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.create();
-                builder.setCancelable(true);
+                builder.setCancelable(false);
                 builder.setIcon(R.drawable.logo_bling);
                 builder.setMessage("Profile Photo Options").setPositiveButton("Go back", dialogClickListener)
                         .setNegativeButton("Update", dialogClickListener).show();
@@ -327,16 +327,6 @@ public class MyAccountFragment extends Fragment implements Executor {
             public void onClick(View v) {
                 // your code here
 
-                SharedPreferences preferences = getActivity().getSharedPreferences("fragment", Context.MODE_PRIVATE);
-
-                // Get value from shared preferences,
-                // if null (app is run first time) the default value (second argument) is returned
-                boolean isFIrstRun = preferences.getBoolean("isFirstRun", true);
-
-                if (userId != null) {
-                    if (isFIrstRun) {
-                        // set isFirstRun to false
-                        preferences.edit().putBoolean("isFirstRun", false).apply();
 
                         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                             @Override
@@ -444,30 +434,14 @@ public class MyAccountFragment extends Fragment implements Executor {
                             }
                         });
                         builderr.create();
-                        builderr.setCancelable(true);
+                        builderr.setCancelable(false);
                         builderr.setIcon(R.drawable.logo_bling);
                         builderr.setPositiveButton("Go back", dialogClickListener)
                                 .setNegativeButton("Add my info", dialogClickListener).show();
 
 
-                    } else {
-
-                        Toasty.info(getActivity(), "You have already created your inital information on ICE, to change it, please click the Update ICE button.",
-                                Toast.LENGTH_LONG, true).show();
-
-
                     }
 
-
-                } else {
-
-                    Toasty.warning(getActivity(), "You must login or register first before using this service, now going to login page...",
-                            Toast.LENGTH_LONG, true).show();
-
-                    startActivity(new Intent(MyAccountFragment.this.getActivity(), Login.class));
-                }
-
-            }
 
 
         });
@@ -618,7 +592,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                                 txtMaintenance.setText(mainte2);
 
                                 builderr.create();
-                                builderr.setCancelable(true);
+                                builderr.setCancelable(false);
                                 builderr.setIcon(R.drawable.logo_bling);
                                 builderr.setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Update my info", dialogClickListener).show();
@@ -634,7 +608,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                 // set the custom layout
 
                 builderr.create();
-                builderr.setCancelable(true);
+                builderr.setCancelable(false);
                 builderr.setIcon(R.drawable.logo_bling);
                 builderr.setTitle("Warning ! ! !");
                 builderr.setMessage("Once you Clicked Proceed, you must update all the data again").setPositiveButton("Go back", dialogClickListener)
@@ -732,7 +706,7 @@ public class MyAccountFragment extends Fragment implements Executor {
 
                                 // set the custom layout
                                 builderr.create();
-                                builderr.setCancelable(true);
+                                builderr.setCancelable(false);
                                 builderr.setIcon(R.drawable.logo_bling);
                                 builderr.setMessage("Please Confirm deletion of data").setPositiveButton("Go back", dialogClickListener)
                                         .setNegativeButton("Delete my info", dialogClickListener).show();
@@ -748,7 +722,7 @@ public class MyAccountFragment extends Fragment implements Executor {
                 // set the custom layout
 
                 builderr.create();
-                builderr.setCancelable(true);
+                builderr.setCancelable(false);
                 builderr.setIcon(R.drawable.logo_bling);
                 builderr.setTitle("Warning ! ! !");
                 builderr.setMessage("Once you Clicked Delete, all of your I.C.E info will be gone").setPositiveButton("Go back", dialogClickListener)

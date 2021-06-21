@@ -146,7 +146,7 @@
                 android:fontFamily="@font/lato_bold"
                 android:padding="2dp"
                 android:gravity="center"
-                android:text="Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character]"
+                android:text="Your password must contain 8 minimum characters that include: [a Capital letter, a Number and a Special character (@#$%^&amp;+=)]"
                 android:textColor="#2ed573"
                 android:textSize="13sp" />
 

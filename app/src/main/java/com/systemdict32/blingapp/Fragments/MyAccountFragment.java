@@ -458,6 +458,30 @@ public class MyAccountFragment extends Fragment implements Executor {
 
             public void onClick(View v) {
                 // your code here
+                fStore.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                if (document.getId().equals(userId)) {
+                                    fullName2 = document.getString("user_FN");
+                                    email2 = document.getString("user_Email");
+                                    address2 = document.getString("user_ICE_ADDRESS");
+                                    bloodType2 = document.getString("user_ICE_BLOODTYPE");
+                                    contactPerson2 = document.getString("user_ICE_CONTACTPERSON");
+                                    contactPersonNum2 = document.getString("user_ICE_CONTACTPERSON_NUMBER");
+                                    medCondition2 = document.getString("user_ICE_MEDICALCONDITION");
+                                    medTake2 = document.getString("user_ICE_MEDICINETAKE");
+                                    allergy2 = document.getString("user_ICE_ALLERGY");
+                                    bday2 = document.getString("user_ICE_BDATE");
+                                    mainte2 = document.getString("user_ICE_MAINTENANCE");
+                                }
+                            }
+                        } else {
+
+                        }
+                    }
+                });
 
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
